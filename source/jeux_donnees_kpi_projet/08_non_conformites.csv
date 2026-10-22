@@ -1,0 +1,26 @@
+﻿nonconformity_id,project_id,opened_date,description,severity,category,status,owner,rework_cost_eur,scrap_or_penalty_cost_eur,total_nonquality_cost_eur,target_date,closed_date,critical_open_flag
+NC001,PRJ001,2026-02-10,Non-conformité 01,Mineure,Donnée incorrecte,Ouverte,A. Martin,245.0,105.0,350,2026-02-10,,Non
+NC002,PRJ002,2026-02-17,Non-conformité 02,Majeure,Défaut d'intégration,En cours,S. Bernard,717.5,307.5,1025,2026-02-17,,Non
+NC003,PRJ003,2026-02-24,Non-conformité 03,Critique,Documentation manquante,Clôturée,L. Petit,1190.0,510.0,1700,2026-02-24,2026-03-08,Non
+NC004,PRJ004,2026-03-03,Non-conformité 04,Mineure,Écart fournisseur,Ouverte,M. Robert,1137.5,487.5,1625,2026-03-03,,Non
+NC005,PRJ005,2026-03-10,Non-conformité 05,Majeure,Erreur de traitement,En cours,N. Garcia,1610.0,690.0,2300,2026-03-10,,Non
+NC006,PRJ001,2026-03-17,Non-conformité 06,Critique,Donnée incorrecte,Ouverte,C. Moreau,2082.5,892.5,2975,2026-03-17,,Oui
+NC007,PRJ002,2026-03-24,Non-conformité 07,Mineure,Défaut d'intégration,En cours,A. Martin,2030.0,870.0,2900,2026-03-24,,Non
+NC008,PRJ003,2026-03-31,Non-conformité 08,Majeure,Documentation manquante,Clôturée,S. Bernard,420.0,180.0,600,2026-03-31,2026-04-17,Non
+NC009,PRJ004,2026-04-07,Non-conformité 09,Critique,Écart fournisseur,Ouverte,L. Petit,892.5,382.5,1275,2026-04-07,,Oui
+NC010,PRJ005,2026-04-14,Non-conformité 10,Mineure,Erreur de traitement,En cours,M. Robert,840.0,360.0,1200,2026-04-14,,Non
+NC011,PRJ001,2026-04-21,Non-conformité 11,Majeure,Donnée incorrecte,Ouverte,N. Garcia,1312.5,562.5,1875,2026-04-21,,Non
+NC012,PRJ002,2026-04-28,Non-conformité 12,Critique,Défaut d'intégration,En cours,C. Moreau,1785.0,765.0,2550,2026-04-28,,Oui
+NC013,PRJ003,2026-05-05,Non-conformité 13,Mineure,Documentation manquante,Clôturée,A. Martin,1732.5,742.5,2475,2026-05-05,2026-05-18,Non
+NC014,PRJ004,2026-05-12,Non-conformité 14,Majeure,Écart fournisseur,Ouverte,S. Bernard,2205.0,945.0,3150,2026-05-12,,Non
+NC015,PRJ005,2026-05-19,Non-conformité 15,Critique,Erreur de traitement,En cours,L. Petit,595.0,255.0,850,2026-05-19,,Oui
+NC016,PRJ001,2026-05-26,Non-conformité 16,Mineure,Donnée incorrecte,Ouverte,M. Robert,542.5,232.5,775,2026-05-26,,Non
+NC017,PRJ002,2026-06-02,Non-conformité 17,Majeure,Défaut d'intégration,En cours,N. Garcia,1015.0,435.0,1450,2026-06-02,,Non
+NC018,PRJ003,2026-06-09,Non-conformité 18,Critique,Documentation manquante,Clôturée,C. Moreau,1487.5,637.5,2125,2026-06-09,2026-06-27,Non
+NC019,PRJ004,2026-06-16,Non-conformité 19,Mineure,Écart fournisseur,Ouverte,A. Martin,1435.0,615.0,2050,2026-06-16,,Non
+NC020,PRJ005,2026-06-23,Non-conformité 20,Majeure,Erreur de traitement,En cours,S. Bernard,1907.5,817.5,2725,2026-06-23,,Non
+NC021,PRJ001,2026-06-30,Non-conformité 21,Critique,Donnée incorrecte,Ouverte,L. Petit,2380.0,1020.0,3400,2026-06-30,,Oui
+NC022,PRJ002,2026-07-07,Non-conformité 22,Mineure,Défaut d'intégration,En cours,M. Robert,245.0,105.0,350,2026-07-07,,Non
+NC023,PRJ003,2026-07-14,Non-conformité 23,Majeure,Documentation manquante,Clôturée,N. Garcia,717.5,307.5,1025,2026-07-14,2026-07-28,Non
+NC024,PRJ004,2026-07-21,Non-conformité 24,Critique,Écart fournisseur,Ouverte,C. Moreau,1190.0,510.0,1700,2026-07-21,,Oui
+NC025,PRJ005,2026-07-28,Non-conformité 25,Mineure,Erreur de traitement,En cours,A. Martin,1137.5,487.5,1625,2026-07-28,,Non

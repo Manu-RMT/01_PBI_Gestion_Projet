@@ -1,0 +1,11 @@
+﻿risk_id,project_id,risk_title,risk_category,probability_1_5,impact_1_5,risk_score,risk_level,risk_status,risk_owner,identified_date,target_resolution_date,closed_date,mitigation_action
+RSK001,PRJ001,Retard fournisseur critique,Planning,4,5,20,Critique,Ouvert,A. Martin,2026-04-01,2026-05-16,,Plan de mitigation à confirmer pour : Retard fournisseur critique
+RSK002,PRJ002,Dérive du budget intégration,Coût,4,4,16,Critique,En traitement,S. Bernard,2026-04-12,2026-06-16,,Plan de mitigation à confirmer pour : Dérive du budget intégration
+RSK003,PRJ003,Disponibilité expert limitée,Ressources,3,4,12,Élevé,Ouvert,L. Petit,2026-04-23,2026-07-17,,Plan de mitigation à confirmer pour : Disponibilité expert limitée
+RSK004,PRJ004,Données source incomplètes,Qualité,4,3,12,Élevé,Ouvert,M. Robert,2026-05-04,2026-08-17,,Plan de mitigation à confirmer pour : Données source incomplètes
+RSK005,PRJ005,Dépendance application legacy,Technique,5,4,20,Critique,En traitement,N. Garcia,2026-05-15,2026-06-29,,Plan de mitigation à confirmer pour : Dépendance application legacy
+RSK006,PRJ001,Validation métier tardive,Planning,3,3,9,Modéré,Ouvert,C. Moreau,2026-05-26,2026-07-30,,Plan de mitigation à confirmer pour : Validation métier tardive
+RSK007,PRJ002,Défaut sécurité à corriger,Sécurité,5,5,25,Critique,Ouvert,A. Martin,2026-06-06,2026-08-30,,Plan de mitigation à confirmer pour : Défaut sécurité à corriger
+RSK008,PRJ003,Formation utilisateurs insuffisante,Adoption,2,3,6,Modéré,Clôturé,S. Bernard,2026-06-17,2026-09-30,2026-08-20,Plan de mitigation à confirmer pour : Formation utilisateurs insuffisante
+RSK009,PRJ004,Risque de dépassement prestataire,Coût,3,4,12,Élevé,Ouvert,L. Petit,2026-06-28,2026-08-12,,Plan de mitigation à confirmer pour : Risque de dépassement prestataire
+RSK010,PRJ005,Environnement de test instable,Technique,4,4,16,Critique,En traitement,M. Robert,2026-07-09,2026-09-12,,Plan de mitigation à confirmer pour : Environnement de test instable

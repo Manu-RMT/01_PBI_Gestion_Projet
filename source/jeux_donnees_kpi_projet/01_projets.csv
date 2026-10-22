@@ -1,0 +1,6 @@
+﻿project_id,project_name,domain,business_unit,start_date,planned_end_date,project_status,budget_initial_eur
+PRJ001,Modernisation SI industriel,Industrie,BU I&C,2026-01-05,2026-12-18,En cours,500000
+PRJ002,Déploiement plateforme BI,Data & BI,DSI,2026-02-02,2026-10-30,En cours,180000
+PRJ003,Migration applicative,IT,DSI,2026-03-16,2026-11-27,En cours,320000
+PRJ004,Amélioration qualité fournisseurs,Qualité,Achats,2026-01-12,2026-09-25,En retard,95000
+PRJ005,Automatisation reporting,Data & BI,PMO,2026-04-06,2026-12-11,En cours,125000

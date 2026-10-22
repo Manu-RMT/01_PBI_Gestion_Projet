@@ -1,0 +1,11 @@
+﻿decision_id,project_id,decision_title,decision_owner_role,request_date,decision_date,status,priority,context_or_expected_impact
+DEC001,PRJ001,Valider le scénario de rattrapage planning,Comité de pilotage,2026-10-05,,En attente,Haute,Décaler ou renforcer les ressources sur le lot intégration
+DEC002,PRJ002,Arbitrer la priorité des rapports BI,Sponsor métier,2026-10-06,,En attente,Moyenne,Confirmer le périmètre de la première livraison
+DEC003,PRJ003,Valider la fenêtre de migration,Direction SI,2026-09-28,,En retard,Critique,Décision requise avant préparation de bascule
+DEC004,PRJ004,Approuver le plan de réduction des non-conformités,Responsable qualité,2026-10-01,,En attente,Haute,Arbitrer les moyens de correction
+DEC005,PRJ005,Valider la date de mise en production,Sponsor projet,2026-10-07,,En attente,Haute,Dépend de la stabilisation des tests
+DEC006,PRJ001,Approuver le budget complémentaire d'intégration,Direction financière,2026-09-25,,En retard,Critique,Confirmer l'enveloppe supplémentaire
+DEC007,PRJ002,Valider les règles de calcul des KPI,Responsable métier,2026-10-02,2026-10-07,Décidée,Moyenne,Règles de calcul validées pour le pilote
+DEC008,PRJ003,Choisir l'approche de reprise des données,Comité architecture,2026-10-03,,En attente,Haute,Comparer reprise complète et reprise incrémentale
+DEC009,PRJ004,Accepter la dérogation fournisseur,Achats,2026-09-22,2026-09-29,Décidée,Moyenne,Dérogation acceptée sous réserve d'un plan d'action
+DEC010,PRJ005,Arbitrer la capacité de support post-déploiement,Responsable exploitation,2026-10-08,,En attente,Moyenne,Définir la couverture de support de démarrage

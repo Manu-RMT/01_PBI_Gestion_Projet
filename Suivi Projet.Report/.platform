@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Suivi Projet"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "01f4f52e-c94f-47c2-992a-c0daebb2116c"
+  }
+}

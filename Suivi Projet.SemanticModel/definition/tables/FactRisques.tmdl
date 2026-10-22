@@ -1,0 +1,155 @@
+table FactRisques
+	lineageTag: 6e6aaed6-a50a-4253-af4d-6fba79ac9f16
+
+	column risk_id
+		dataType: string
+		lineageTag: ddfca3dd-fc7c-4ebb-aa9c-f81c9ec0feca
+		summarizeBy: none
+		sourceColumn: risk_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 0f3bb3bb-913a-4aac-bf9d-bbb06e70bbfe
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_title
+		dataType: string
+		lineageTag: 48ca6b87-c92e-489f-949b-ffa49afbe7d5
+		summarizeBy: none
+		sourceColumn: risk_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_category
+		dataType: string
+		lineageTag: a8245a61-5b23-4119-ba27-b54dd42a151e
+		summarizeBy: none
+		sourceColumn: risk_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column probability_1_5
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b358870-4124-427c-a684-38e4b44aa8e0
+		summarizeBy: sum
+		sourceColumn: probability_1_5
+
+		annotation SummarizationSetBy = Automatic
+
+	column impact_1_5
+		dataType: int64
+		formatString: 0
+		lineageTag: 59e0496f-f51b-40a5-95b4-8da0cd8d7a18
+		summarizeBy: sum
+		sourceColumn: impact_1_5
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c1af44b-8a66-4c29-bef3-f0b46c4455b6
+		summarizeBy: sum
+		sourceColumn: risk_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_level
+		dataType: string
+		lineageTag: 33d72b12-2f89-41d3-9acd-7b9b67bfe916
+		summarizeBy: none
+		sourceColumn: risk_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_status
+		dataType: string
+		lineageTag: f64cb2c1-aa39-451e-b858-617ccd618c74
+		summarizeBy: none
+		sourceColumn: risk_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_owner
+		dataType: string
+		lineageTag: 51b25551-d034-4830-b224-35cdc267fd7f
+		summarizeBy: none
+		sourceColumn: risk_owner
+
+		annotation SummarizationSetBy = Automatic
+
+	column identified_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bb89c368-2bee-4c1f-acb1-b3a2e28497a5
+		summarizeBy: none
+		sourceColumn: identified_date
+
+		variation Variation
+			isDefault
+			relationship: 7c3dda0a-be6f-4d03-a372-ba2e70d30730
+			defaultHierarchy: LocalDateTable_9d89199d-6134-4209-9d9c-9c08466f6d95.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column target_resolution_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 45cc1da9-c84a-4969-ab16-27c2cb8f2cca
+		summarizeBy: none
+		sourceColumn: target_resolution_date
+
+		variation Variation
+			isDefault
+			relationship: 7b1ac48c-a965-49e0-a1b4-30bd06620f30
+			defaultHierarchy: LocalDateTable_643a49e4-21df-448f-9f03-1e493efa1583.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column closed_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ad46d06a-3afc-4b9f-8434-a3f23213af2a
+		summarizeBy: none
+		sourceColumn: closed_date
+
+		variation Variation
+			isDefault
+			relationship: 736044ed-3118-4123-baf4-2b6530368efc
+			defaultHierarchy: LocalDateTable_e2fbed0f-4b3c-4bbb-92d3-8da0924f0e2b.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column mitigation_action
+		dataType: string
+		lineageTag: 74ab201c-6280-426c-b016-67556b1e8cf5
+		summarizeBy: none
+		sourceColumn: mitigation_action
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactRisques = m
+		mode: import
+		queryGroup: modeles
+		source =
+				let
+				  Source = source_data,
+				  #"Descendre dans la hiérarchie" = Source{6}[Fonction personnalisée appelée],
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Descendre dans la hiérarchie", {{"risk_id", type text}, {"project_id", type text}, {"risk_title", type text}, {"risk_category", type text}, {"probability_1_5", Int64.Type}, {"impact_1_5", Int64.Type}, {"risk_score", Int64.Type}, {"risk_level", type text}, {"risk_status", type text}, {"risk_owner", type text}, {"identified_date", type date}, {"target_resolution_date", type date}, {"closed_date", type date}, {"mitigation_action", type text}}, "fr")
+				in
+				  #"Type de colonne changé"
+
+	annotation PBI_ResultType = Table
+

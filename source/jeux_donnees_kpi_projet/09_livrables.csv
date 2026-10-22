@@ -1,0 +1,41 @@
+﻿deliverable_id,project_id,deliverable_name,owner,planned_delivery_date,actual_delivery_date,status,accepted_flag,blocked_flag
+D-PRJ001-01,PRJ001,Livrable 01,S. Bernard,2026-02-12,2026-02-12,Validé,Oui,Non
+D-PRJ001-02,PRJ001,Livrable 02,L. Petit,2026-03-23,,En validation,Non,Non
+D-PRJ001-03,PRJ001,Livrable 03,M. Robert,2026-04-30,,En cours,Non,Non
+D-PRJ001-04,PRJ001,Livrable 04,N. Garcia,2026-06-08,,Bloqué,Non,Oui
+D-PRJ001-05,PRJ001,Livrable 05,C. Moreau,2026-07-16,,À faire,Non,Non
+D-PRJ001-06,PRJ001,Livrable 06,A. Martin,2026-08-24,2026-08-23,Validé,Oui,Non
+D-PRJ001-07,PRJ001,Livrable 07,S. Bernard,2026-10-01,,En validation,Non,Non
+D-PRJ001-08,PRJ001,Livrable 08,L. Petit,2026-11-09,2026-11-10,Validé,Oui,Non
+D-PRJ002-01,PRJ002,Livrable 01,L. Petit,2026-03-04,,En validation,Non,Non
+D-PRJ002-02,PRJ002,Livrable 02,M. Robert,2026-04-03,,En cours,Non,Non
+D-PRJ002-03,PRJ002,Livrable 03,N. Garcia,2026-05-03,,Bloqué,Non,Oui
+D-PRJ002-04,PRJ002,Livrable 04,C. Moreau,2026-06-02,,À faire,Non,Non
+D-PRJ002-05,PRJ002,Livrable 05,A. Martin,2026-07-02,2026-07-03,Validé,Oui,Non
+D-PRJ002-06,PRJ002,Livrable 06,S. Bernard,2026-08-01,,En validation,Non,Non
+D-PRJ002-07,PRJ002,Livrable 07,L. Petit,2026-08-31,2026-08-31,Validé,Oui,Non
+D-PRJ002-08,PRJ002,Livrable 08,M. Robert,2026-09-30,2026-10-01,Validé,Oui,Non
+D-PRJ003-01,PRJ003,Livrable 01,M. Robert,2026-04-13,,En cours,Non,Non
+D-PRJ003-02,PRJ003,Livrable 02,N. Garcia,2026-05-11,,Bloqué,Non,Oui
+D-PRJ003-03,PRJ003,Livrable 03,C. Moreau,2026-06-09,,À faire,Non,Non
+D-PRJ003-04,PRJ003,Livrable 04,A. Martin,2026-07-07,2026-07-07,Validé,Oui,Non
+D-PRJ003-05,PRJ003,Livrable 05,S. Bernard,2026-08-05,,En validation,Non,Non
+D-PRJ003-06,PRJ003,Livrable 06,L. Petit,2026-09-02,2026-09-01,Validé,Oui,Non
+D-PRJ003-07,PRJ003,Livrable 07,M. Robert,2026-10-01,2026-10-01,Validé,Oui,Non
+D-PRJ003-08,PRJ003,Livrable 08,N. Garcia,2026-10-29,,En validation,Non,Non
+D-PRJ004-01,PRJ004,Livrable 01,N. Garcia,2026-02-09,,Bloqué,Non,Oui
+D-PRJ004-02,PRJ004,Livrable 02,C. Moreau,2026-03-09,,À faire,Non,Non
+D-PRJ004-03,PRJ004,Livrable 03,A. Martin,2026-04-07,2026-04-06,Validé,Oui,Non
+D-PRJ004-04,PRJ004,Livrable 04,S. Bernard,2026-05-05,,En validation,Non,Non
+D-PRJ004-05,PRJ004,Livrable 05,L. Petit,2026-06-03,2026-06-04,Validé,Oui,Non
+D-PRJ004-06,PRJ004,Livrable 06,M. Robert,2026-07-01,2026-06-30,Validé,Oui,Non
+D-PRJ004-07,PRJ004,Livrable 07,N. Garcia,2026-07-30,,En validation,Non,Non
+D-PRJ004-08,PRJ004,Livrable 08,C. Moreau,2026-08-27,,En cours,Non,Non
+D-PRJ005-01,PRJ005,Livrable 01,C. Moreau,2026-05-03,,À faire,Non,Non
+D-PRJ005-02,PRJ005,Livrable 02,A. Martin,2026-05-31,2026-06-01,Validé,Oui,Non
+D-PRJ005-03,PRJ005,Livrable 03,S. Bernard,2026-06-28,,En validation,Non,Non
+D-PRJ005-04,PRJ005,Livrable 04,L. Petit,2026-07-25,2026-07-25,Validé,Oui,Non
+D-PRJ005-05,PRJ005,Livrable 05,M. Robert,2026-08-22,2026-08-23,Validé,Oui,Non
+D-PRJ005-06,PRJ005,Livrable 06,N. Garcia,2026-09-19,,En validation,Non,Non
+D-PRJ005-07,PRJ005,Livrable 07,C. Moreau,2026-10-16,,En cours,Non,Non
+D-PRJ005-08,PRJ005,Livrable 08,A. Martin,2026-11-13,,Bloqué,Non,Oui

@@ -1,0 +1,80 @@
+model Model
+	culture: fr-FR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: fr-FR
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup sources
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup modeles
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup param
+
+	annotation PBI_QueryGroupOrder = 2
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["fxTransformerCSV","path_data_source","fxChargerFichierParNom","source_data","DimProjet","FactTaches","FactJalons","FactCouts","FactPilotageMensuel","FactCharge","FactRisques","FactNonConformites","FactLivrables","FactChangements","FactIncidents","FactActions","FactControlesQualite","FactDecisionProjet","MesuresTable"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table source_data
+ref table DimProjet
+ref table DateTableTemplate_dba49c70-8a1c-4028-84c7-212c83e72cf9
+ref table LocalDateTable_0f2ad1b4-d2f7-4c87-890e-143d08519571
+ref table LocalDateTable_4f265380-0035-4009-a9a3-ac6b69b3a239
+ref table FactTaches
+ref table LocalDateTable_426e1163-e45a-4a83-9770-63c092636c1d
+ref table LocalDateTable_a5a890fd-3599-4167-a5e6-87d0d84647fc
+ref table LocalDateTable_beda68ea-2a22-44d9-9af1-9bec676876f4
+ref table LocalDateTable_5a073cdd-9e71-4429-9943-175b81263464
+ref table FactJalons
+ref table LocalDateTable_f9dfa757-d56a-4d3e-bcb9-2bc609a0d6f7
+ref table LocalDateTable_5b05d70c-9b53-4c8e-bc4a-c02499bf211d
+ref table LocalDateTable_6f78fa56-eb6f-4ccc-8f56-12c9c4e37201
+ref table FactCouts
+ref table LocalDateTable_641d6de8-1f79-4c38-9bb7-8c48c397b84c
+ref table FactPilotageMensuel
+ref table LocalDateTable_564296a5-87dd-4e75-8067-9cd10348ead8
+ref table FactCharge
+ref table LocalDateTable_2ad9b7ad-dddd-4f9d-934a-5b1f106a8ab8
+ref table FactRisques
+ref table LocalDateTable_9d89199d-6134-4209-9d9c-9c08466f6d95
+ref table LocalDateTable_643a49e4-21df-448f-9f03-1e493efa1583
+ref table LocalDateTable_e2fbed0f-4b3c-4bbb-92d3-8da0924f0e2b
+ref table FactNonConformites
+ref table FactLivrables
+ref table LocalDateTable_86bd3dcf-4705-42c8-a824-25081e01bbea
+ref table LocalDateTable_75d1073e-18ff-4153-bdd7-a6fa8c157927
+ref table FactChangements
+ref table LocalDateTable_30f64ef9-0eee-4f0a-ae68-e18613b6563f
+ref table FactIncidents
+ref table LocalDateTable_3110240d-0e8c-48eb-90dd-7c2504d5efa2
+ref table LocalDateTable_4d5ed1a0-b0a3-4fdb-af0d-9f3246aaa64e
+ref table FactActions
+ref table LocalDateTable_82f3d3a1-d96a-486f-a9b7-ce13dbe7d7eb
+ref table LocalDateTable_6afb83da-af84-463f-8605-10163b142bc4
+ref table LocalDateTable_fd971df4-fc4c-4392-a683-9e9cdc751ebb
+ref table FactControlesQualite
+ref table LocalDateTable_303bec6f-cd83-431d-b751-be11c4b1641c
+ref table LocalDateTable_935b8b4a-738a-4a2b-bec2-40f227480d90
+ref table FactDecisionProjet
+ref table LocalDateTable_bca0354f-a598-42e0-bccd-6346e448a127
+ref table LocalDateTable_66ca445c-7029-4e71-a619-af4abfbe5d50
+ref table LocalDateTable_61ab881f-dc61-45b1-8e28-da36ce97cf98
+ref table Dim_Calendrier
+ref table LocalDateTable_5450a741-237f-4a08-a132-b2944a4651fc
+ref table MesuresTable
+ref table LocalDateTable_32c7774e-bd1b-4164-abb1-adea321be3e0
+ref table LocalDateTable_d76d429e-05c4-42e7-9ad8-9dab74244c36
+ref table LocalDateTable_8b88c86b-b23a-4c5e-a772-c5ce0bb3d839
+
+ref cultureInfo fr-FR
+

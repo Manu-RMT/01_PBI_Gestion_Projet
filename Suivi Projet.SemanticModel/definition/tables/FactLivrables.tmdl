@@ -1,0 +1,104 @@
+table FactLivrables
+	lineageTag: 0f6941d0-a0f4-430a-9354-82e24322e98b
+
+	column deliverable_id
+		dataType: string
+		lineageTag: 5e3c4f47-6282-48ba-ba95-b3b69df03a06
+		summarizeBy: none
+		sourceColumn: deliverable_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 00c8b3ef-547f-4d66-914b-5174d265af96
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column deliverable_name
+		dataType: string
+		lineageTag: 62cc9afd-2535-4137-b7e0-009413d685b7
+		summarizeBy: none
+		sourceColumn: deliverable_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner
+		dataType: string
+		lineageTag: 38b583d0-718a-4ddd-b40b-4a7a1b294f00
+		summarizeBy: none
+		sourceColumn: owner
+
+		annotation SummarizationSetBy = Automatic
+
+	column planned_delivery_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5b196cf0-bc55-4966-8b0d-a3a14e7e005b
+		summarizeBy: none
+		sourceColumn: planned_delivery_date
+
+		variation Variation
+			isDefault
+			relationship: b7f69aa5-42db-4ce9-b173-976eebd10857
+			defaultHierarchy: LocalDateTable_86bd3dcf-4705-42c8-a824-25081e01bbea.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column actual_delivery_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2ad18ba4-2f55-4402-88aa-4e912cb7492d
+		summarizeBy: none
+		sourceColumn: actual_delivery_date
+
+		variation Variation
+			isDefault
+			relationship: 1a0bce8f-07dd-48f1-a52f-fffae7d4bd5d
+			defaultHierarchy: LocalDateTable_75d1073e-18ff-4153-bdd7-a6fa8c157927.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column status
+		dataType: string
+		lineageTag: aaa97ded-c9a6-4461-8a82-5c4127557364
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column accepted_flag
+		dataType: string
+		lineageTag: dd7843a6-dafe-4b1e-a2af-c2ad55ff1da1
+		summarizeBy: none
+		sourceColumn: accepted_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column blocked_flag
+		dataType: string
+		lineageTag: 7874e61c-951c-4822-a807-6184512a44f7
+		summarizeBy: none
+		sourceColumn: blocked_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactLivrables = m
+		mode: import
+		queryGroup: modeles
+		source =
+				let
+				  Source = source_data,
+				  #"Descendre dans la hiérarchie" = Source{8}[Fonction personnalisée appelée],
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Descendre dans la hiérarchie", {{"deliverable_id", type text}, {"project_id", type text}, {"deliverable_name", type text}, {"owner", type text}, {"planned_delivery_date", type date}, {"actual_delivery_date", type date}, {"status", type text}, {"accepted_flag", type text}, {"blocked_flag", type text}}, "fr")
+				in
+				  #"Type de colonne changé"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,46 @@
+expression path_data_source =
+		let
+		    Source = "C:\Users\manra\Documents\Projects\WorkSpace\01_PBI_Gestion_Projet\source\jeux_donnees_kpi_projet\" meta [IsParameterQuery = true, IsParameterQueryRequired = false, Type = type text]
+		in
+		    Source
+	lineageTag: fbcb2f7e-dafb-4677-ba88-71c72235e7ac
+	queryGroup: param
+
+	annotation PBI_ResultType = Text
+
+expression fxTransformerCSV =
+		let
+		    Source = (FichierBinaire as binary) => let
+		    #"CSV importé" = Csv.Document(FichierBinaire, [Delimiter = ",", Columns = null, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+		    #"En-têtes promus" = Table.PromoteHeaders(#"CSV importé", [PromoteAllScalars = true])
+		in
+		    #"En-têtes promus"
+		in
+		    Source
+	lineageTag: f3c171e0-f252-4e92-9f7b-737cdac198e5
+	queryGroup: param
+
+	annotation PBI_ResultType = Function
+
+expression fxChargerFichierParNom = ```
+		let
+		    Source = (NomFichier as text) => 
+		let
+		    Source = Folder.Files(path_data_source),
+		    // Filtrer la liste pour ne garder que la ligne correspondant au nom du fichier
+		    #"Ligne filtrée" = Table.SelectRows(Source, each ([Name] = NomFichier)),
+		    // Extraire le contenu binaire de ce fichier unique
+		    ContenuBinaire = #"Ligne filtrée"{0}[Content],
+		    // Importer le contenu CSV
+		    #"CSV importé" = Csv.Document(ContenuBinaire, [Delimiter = ",", Columns = null, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+		    #"En-têtes promus" = Table.PromoteHeaders(#"CSV importé", [PromoteAllScalars = true])
+		in
+		    #"En-têtes promus"
+		in
+		    Source
+		```
+	lineageTag: 6978a988-d76a-4275-9363-863332e7c7e5
+	queryGroup: param
+
+	annotation PBI_ResultType = Function
+

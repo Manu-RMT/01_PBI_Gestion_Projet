@@ -1,0 +1,169 @@
+table FactTaches
+	lineageTag: a829e248-e331-4fc7-afa3-562e3ff60f13
+
+	column task_id
+		dataType: string
+		lineageTag: 43a27a20-c607-4fca-8044-ce76bf5839a9
+		summarizeBy: none
+		sourceColumn: task_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 2a17ea02-5531-41c1-ba39-58807ac633ee
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column task_name
+		dataType: string
+		lineageTag: 43a0caf0-2c7f-42e5-9625-3e6177295ba3
+		summarizeBy: none
+		sourceColumn: task_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner
+		dataType: string
+		lineageTag: 4441e382-f4a0-46c1-860b-7ebcb3165235
+		summarizeBy: none
+		sourceColumn: owner
+
+		annotation SummarizationSetBy = Automatic
+
+	column planned_start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1e826efb-c443-49ac-9fad-4e6d4591c1cf
+		summarizeBy: none
+		sourceColumn: planned_start_date
+
+		variation Variation
+			isDefault
+			relationship: f34003a8-3fbf-4728-b3a5-3014719f7e32
+			defaultHierarchy: LocalDateTable_426e1163-e45a-4a83-9770-63c092636c1d.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column planned_end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 62684e36-5d99-4374-8ef0-cce9d2cd801b
+		summarizeBy: none
+		sourceColumn: planned_end_date
+
+		variation Variation
+			isDefault
+			relationship: 3c8a4808-155f-4c60-9269-f3f1b3d551a3
+			defaultHierarchy: LocalDateTable_a5a890fd-3599-4167-a5e6-87d0d84647fc.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column actual_start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: be3dcc69-086d-4acb-bc89-1625ea916aa2
+		summarizeBy: none
+		sourceColumn: actual_start_date
+
+		variation Variation
+			isDefault
+			relationship: 065dc227-17c8-4850-aa93-6ccb9fe350e2
+			defaultHierarchy: LocalDateTable_beda68ea-2a22-44d9-9af1-9bec676876f4.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column actual_end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 26305f6b-de05-4160-a60b-5b0dc51126b7
+		summarizeBy: none
+		sourceColumn: actual_end_date
+
+		variation Variation
+			isDefault
+			relationship: b052fa26-07cf-42eb-905e-db574f0c640b
+			defaultHierarchy: LocalDateTable_5a073cdd-9e71-4429-9943-175b81263464.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column progress_pct
+		dataType: double
+		lineageTag: 4fd09a8b-fdc4-4056-a3fa-5873a3be7e1f
+		summarizeBy: sum
+		sourceColumn: progress_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column task_status
+		dataType: string
+		lineageTag: cfc79024-e1fd-4f7b-b930-603d3e30a004
+		summarizeBy: none
+		sourceColumn: task_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column critical_path_flag
+		dataType: string
+		lineageTag: 9494baf5-d3a2-4a86-901d-851fbdc5abad
+		summarizeBy: none
+		sourceColumn: critical_path_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column delay_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 721ccebb-c880-4b37-bed4-f36fdcb2cbf9
+		summarizeBy: sum
+		sourceColumn: delay_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column planned_duration_days
+		dataType: int64
+		formatString: 0
+		lineageTag: afc11b18-4742-442e-8a1f-892cb53e02a8
+		summarizeBy: sum
+		sourceColumn: planned_duration_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column planned_effort_hours
+		dataType: double
+		lineageTag: 5b96926d-d7ab-4109-8735-5b8020a0a791
+		summarizeBy: sum
+		sourceColumn: planned_effort_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactTaches = m
+		mode: import
+		queryGroup: modeles
+		source =
+				let
+				  Source = source_data,
+				  #"Descendre dans la hiérarchie" = Source{1}[Fonction personnalisée appelée],
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Descendre dans la hiérarchie", {{"task_id", type text}, {"project_id", type text}, {"task_name", type text}, {"owner", type text}, {"planned_start_date", type date}, {"planned_end_date", type date}, {"actual_start_date", type date}, {"actual_end_date", type date}, {"progress_pct", type text}, {"task_status", type text}, {"critical_path_flag", type text}, {"delay_days", Int64.Type}, {"planned_duration_days", Int64.Type}, {"planned_effort_hours", type text}}, "fr"),
+				  #"Valeur remplacée" = Table.ReplaceValue(#"Type de colonne changé", ".", ",", Replacer.ReplaceText, {"progress_pct"}),
+				  #"Valeur remplacée 1" = Table.ReplaceValue(#"Valeur remplacée", ".", ",", Replacer.ReplaceText, {"planned_effort_hours"}),
+				  #"Type de colonne changé 1" = Table.TransformColumnTypes(#"Valeur remplacée 1", {{"planned_effort_hours", type number}, {"progress_pct", type number}})
+				in
+				  #"Type de colonne changé 1"
+
+	annotation PBI_ResultType = Table
+

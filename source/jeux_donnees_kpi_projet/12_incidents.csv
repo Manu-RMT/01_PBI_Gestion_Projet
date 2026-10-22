@@ -1,0 +1,13 @@
+﻿incident_id,project_id,incident_title,priority,system_or_domain,opened_date,resolved_date,status,owner,resolution_hours,description
+INC001,PRJ001,Échec interface SAP,Critique,Production,2026-09-21,2026-09-22,Résolu,A. Martin,16,Retard de synchronisation des coûts
+INC002,PRJ002,Rafraîchissement Power BI en échec,Majeure,BI,2026-09-25,,En cours,S. Bernard,,Échec de la passerelle de données
+INC003,PRJ003,Données manquantes après migration,Critique,Migration,2026-09-28,,Ouvert,L. Petit,,Contrôle de complétude à effectuer
+INC004,PRJ004,Rapport qualité incohérent,Majeure,Reporting,2026-09-30,2026-10-02,Résolu,M. Robert,24,Règle de calcul corrigée
+INC005,PRJ005,Automatisation bloquée,Mineure,Automatisation,2026-10-01,,En cours,N. Garcia,,Identifiants du compte de service à vérifier
+INC006,PRJ001,Délai élevé de traitement ETL,Majeure,Data pipeline,2026-10-02,,En cours,C. Moreau,,Optimisation de requête nécessaire
+INC007,PRJ002,Accès refusé à un espace de travail,Mineure,Sécurité,2026-10-03,2026-10-03,Résolu,S. Bernard,4,Droits corrigés
+INC008,PRJ003,Écart de rapprochement de données,Majeure,Migration,2026-10-04,,Ouvert,L. Petit,,Rapprochement à refaire
+INC009,PRJ004,Échec de chargement fichier fournisseur,Critique,Intégration,2026-10-05,,Ouvert,M. Robert,,Format source non conforme
+INC010,PRJ005,Notification automatique non envoyée,Mineure,Automatisation,2026-10-06,2026-10-07,Résolu,N. Garcia,8,Configuration de notification ajustée
+INC011,PRJ001,Erreur de mapping sur un champ,Majeure,Data pipeline,2026-10-07,,En cours,A. Martin,,Mapping à confirmer avec le métier
+INC012,PRJ002,Retard de publication du rapport,Mineure,BI,2026-10-08,,Ouvert,S. Bernard,,Dépendance sur la source amont

@@ -1,0 +1,13 @@
+﻿kpi_id,kpi_name,source_csv,suggested_calculation,recommended_grain,notes
+KPI01,Avancement réel (%),02_taches_planning.csv,Moyenne pondérée de progress_pct par planned_effort_hours (ou règle de pondération métier),À date; filtre projet,Comparer au prévu
+KPI02,Écart d'avancement (points),04_historique_pilotage_mensuel.csv,actual_progress_pct - planned_progress_pct,Par projet et snapshot_date,Négatif = retard
+KPI03,Respect des jalons (%),03_jalons.csv,Jalons atteints à date / jalons prévus à date * 100,Définir la population des jalons échus,Ne pas compter les jalons futurs comme en retard
+KPI04,Tâches en retard,02_taches_planning.csv,Nombre de tâches dont task_status = 'En retard',À date,Examiner le chemin critique
+KPI05,Budget consommé (%),05_couts_reels_engages.csv + 01_projets.csv,Somme des coûts réels comptabilisés / budget initial * 100,Séparer coût réel et engagements,Éviter le double comptage
+KPI06,Écart budgétaire à date (€),04_historique_pilotage_mensuel.csv,actual_cost_cumulative_eur - planned_value_eur,Même date de snapshot,Positif = coûts supérieurs au prévu à date
+KPI07,EAC (coût à terminaison),04_historique_pilotage_mensuel.csv,Exemple : budget_at_completion_eur / CPI; CPI = valeur acquise / coût réel,Nécessite valeur acquise monétaire fiable,Choisir la formule adaptée au projet
+KPI08,Charge consommée (%),06_ressources_charge.csv,Somme actual_hours / somme planned_hours * 100,"Par projet, mois et rôle",Peut dépasser 100 %
+KPI09,Risques critiques ouverts,07_risques_actions.csv,Nombre de risques ouverts/en traitement de niveau Critique,À date,Un score probabilité × impact est une convention à définir
+KPI10,Coût de non-qualité (€),08_non_conformites.csv,Somme total_nonquality_cost_eur,Attention aux coûts estimés vs réalisés,Préciser le statut comptable
+KPI11,Taux de validation des livrables (%),09_livrables.csv,Nombre de livrables validés / nombre de livrables échus ou attendus * 100,Définir si les livrables futurs sont inclus,Afficher aussi les bloqués
+KPI12,Demandes de changement,10_demandes_changement.csv,Nombre par status; somme des impacts approuvés séparément,Par projet et période,Ne pas intégrer les demandes rejetées au budget approuvé

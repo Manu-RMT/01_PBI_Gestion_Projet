@@ -1,0 +1,76 @@
+﻿task_id,project_id,task_name,owner,planned_start_date,planned_end_date,actual_start_date,actual_end_date,progress_pct,task_status,critical_path_flag,delay_days,planned_duration_days,planned_effort_hours
+T-PRJ001-01,PRJ001,Analyse des besoins,A. Martin,2026-01-05,2026-01-27,2026-01-05,2026-01-25,100.0,Terminé,Non,0,23,18.4
+T-PRJ001-02,PRJ001,Spécifications fonctionnelles,S. Bernard,2026-01-28,2026-02-19,2026-01-29,2026-02-18,100.0,Terminé,Non,0,23,20.7
+T-PRJ001-03,PRJ001,Architecture technique,L. Petit,2026-02-20,2026-03-14,2026-02-22,2026-03-14,100.0,Terminé,Oui,0,23,23.0
+T-PRJ001-04,PRJ001,Conception détaillée,M. Robert,2026-03-15,2026-04-06,2026-03-15,2026-04-07,100.0,Terminé,Non,0,23,25.3
+T-PRJ001-05,PRJ001,Développement lot 1,N. Garcia,2026-04-07,2026-04-29,2026-04-08,2026-05-01,100.0,Terminé,Non,0,23,27.6
+T-PRJ001-06,PRJ001,Développement lot 2,C. Moreau,2026-04-30,2026-05-22,2026-05-02,,82.0,En retard,Non,139,23,18.4
+T-PRJ001-07,PRJ001,Intégration,A. Martin,2026-05-23,2026-06-14,2026-05-23,2026-06-13,100.0,Terminé,Oui,0,23,20.7
+T-PRJ001-08,PRJ001,Tests unitaires,S. Bernard,2026-06-15,2026-07-08,2026-06-16,2026-07-08,100.0,Terminé,Non,0,24,24.0
+T-PRJ001-09,PRJ001,Tests d'intégration,L. Petit,2026-07-09,2026-07-31,2026-07-11,,90.0,En retard,Non,69,23,25.3
+T-PRJ001-10,PRJ001,Recette métier,M. Robert,2026-08-01,2026-08-23,2026-08-01,2026-08-25,100.0,Terminé,Non,0,23,27.6
+T-PRJ001-11,PRJ001,Correction des anomalies,N. Garcia,2026-08-24,2026-09-15,2026-08-25,2026-09-13,100.0,Terminé,Non,0,23,18.4
+T-PRJ001-12,PRJ001,Préparation déploiement,C. Moreau,2026-09-16,2026-10-08,2026-09-18,,73.7,En cours,Non,0,23,20.7
+T-PRJ001-13,PRJ001,Déploiement pilote,A. Martin,2026-10-09,2026-10-31,,,0.0,À venir,Oui,0,23,23.0
+T-PRJ001-14,PRJ001,Formation utilisateurs,S. Bernard,2026-11-01,2026-11-23,,,0.0,À venir,Non,0,23,25.3
+T-PRJ001-15,PRJ001,Mise en production,L. Petit,2026-11-24,2026-12-17,,,0.0,À venir,Non,0,24,28.8
+T-PRJ002-01,PRJ002,Analyse des besoins,S. Bernard,2026-02-02,2026-02-19,2026-02-02,2026-02-17,100.0,Terminé,Non,0,18,14.4
+T-PRJ002-02,PRJ002,Spécifications fonctionnelles,L. Petit,2026-02-20,2026-03-09,2026-02-21,2026-03-08,100.0,Terminé,Non,0,18,16.2
+T-PRJ002-03,PRJ002,Architecture technique,M. Robert,2026-03-10,2026-03-27,2026-03-12,2026-03-27,100.0,Terminé,Oui,0,18,18.0
+T-PRJ002-04,PRJ002,Conception détaillée,N. Garcia,2026-03-28,2026-04-14,2026-03-28,2026-04-15,100.0,Terminé,Non,0,18,19.8
+T-PRJ002-05,PRJ002,Développement lot 1,C. Moreau,2026-04-15,2026-05-02,2026-04-16,2026-05-04,100.0,Terminé,Non,0,18,21.6
+T-PRJ002-06,PRJ002,Développement lot 2,A. Martin,2026-05-03,2026-05-20,2026-05-05,2026-05-18,100.0,Terminé,Non,0,18,14.4
+T-PRJ002-07,PRJ002,Intégration,S. Bernard,2026-05-21,2026-06-07,2026-05-21,2026-06-06,100.0,Terminé,Oui,0,18,16.2
+T-PRJ002-08,PRJ002,Tests unitaires,L. Petit,2026-06-08,2026-06-25,2026-06-09,2026-06-25,100.0,Terminé,Non,0,18,18.0
+T-PRJ002-09,PRJ002,Tests d'intégration,M. Robert,2026-06-26,2026-07-13,2026-06-28,,90.0,En retard,Non,87,18,19.8
+T-PRJ002-10,PRJ002,Recette métier,N. Garcia,2026-07-14,2026-07-31,2026-07-14,2026-08-02,100.0,Terminé,Non,0,18,21.6
+T-PRJ002-11,PRJ002,Correction des anomalies,C. Moreau,2026-08-01,2026-08-18,2026-08-02,2026-08-16,100.0,Terminé,Non,0,18,14.4
+T-PRJ002-12,PRJ002,Préparation déploiement,A. Martin,2026-08-19,2026-09-05,2026-08-21,,78.0,En retard,Non,33,18,16.2
+T-PRJ002-13,PRJ002,Déploiement pilote,S. Bernard,2026-09-06,2026-09-23,2026-09-06,2026-09-23,100.0,Terminé,Oui,0,18,18.0
+T-PRJ002-14,PRJ002,Formation utilisateurs,L. Petit,2026-09-24,2026-10-11,2026-09-25,,87.8,En cours,Non,0,18,19.8
+T-PRJ002-15,PRJ002,Mise en production,M. Robert,2026-10-12,2026-10-29,,,0.0,À venir,Non,0,18,21.6
+T-PRJ003-01,PRJ003,Analyse des besoins,L. Petit,2026-03-16,2026-04-01,2026-03-16,2026-03-30,100.0,Terminé,Non,0,17,13.6
+T-PRJ003-02,PRJ003,Spécifications fonctionnelles,M. Robert,2026-04-02,2026-04-18,2026-04-03,2026-04-17,100.0,Terminé,Non,0,17,15.3
+T-PRJ003-03,PRJ003,Architecture technique,N. Garcia,2026-04-19,2026-05-05,2026-04-21,2026-05-05,100.0,Terminé,Oui,0,17,17.0
+T-PRJ003-04,PRJ003,Conception détaillée,C. Moreau,2026-05-06,2026-05-22,2026-05-06,2026-05-23,100.0,Terminé,Non,0,17,18.7
+T-PRJ003-05,PRJ003,Développement lot 1,A. Martin,2026-05-23,2026-06-08,2026-05-24,2026-06-10,100.0,Terminé,Non,0,17,20.4
+T-PRJ003-06,PRJ003,Développement lot 2,S. Bernard,2026-06-09,2026-06-25,2026-06-11,2026-06-23,100.0,Terminé,Non,0,17,13.6
+T-PRJ003-07,PRJ003,Intégration,L. Petit,2026-06-26,2026-07-12,2026-06-26,2026-07-11,100.0,Terminé,Oui,0,17,15.3
+T-PRJ003-08,PRJ003,Tests unitaires,M. Robert,2026-07-13,2026-07-29,2026-07-14,2026-07-29,100.0,Terminé,Non,0,17,17.0
+T-PRJ003-09,PRJ003,Tests d'intégration,N. Garcia,2026-07-30,2026-08-15,2026-08-01,,90.0,En retard,Non,54,17,18.7
+T-PRJ003-10,PRJ003,Recette métier,C. Moreau,2026-08-16,2026-09-01,2026-08-16,2026-09-03,100.0,Terminé,Non,0,17,20.4
+T-PRJ003-11,PRJ003,Correction des anomalies,A. Martin,2026-09-02,2026-09-18,2026-09-03,2026-09-16,100.0,Terminé,Non,0,17,13.6
+T-PRJ003-12,PRJ003,Préparation déploiement,S. Bernard,2026-09-19,2026-10-05,2026-09-21,,78.0,En retard,Non,3,17,15.3
+T-PRJ003-13,PRJ003,Déploiement pilote,L. Petit,2026-10-06,2026-10-22,2026-10-06,,11.8,En cours,Oui,0,17,17.0
+T-PRJ003-14,PRJ003,Formation utilisateurs,M. Robert,2026-10-23,2026-11-08,,,0.0,À venir,Non,0,17,18.7
+T-PRJ003-15,PRJ003,Mise en production,N. Garcia,2026-11-09,2026-11-26,,,0.0,À venir,Non,0,18,21.6
+T-PRJ004-01,PRJ004,Analyse des besoins,M. Robert,2026-01-12,2026-01-28,2026-01-12,2026-01-26,100.0,Terminé,Non,0,17,13.6
+T-PRJ004-02,PRJ004,Spécifications fonctionnelles,N. Garcia,2026-01-29,2026-02-14,2026-01-30,,88.0,En retard,Non,236,17,15.3
+T-PRJ004-03,PRJ004,Architecture technique,C. Moreau,2026-02-15,2026-03-03,2026-02-17,2026-03-03,100.0,Terminé,Oui,0,17,17.0
+T-PRJ004-04,PRJ004,Conception détaillée,A. Martin,2026-03-04,2026-03-20,2026-03-04,,75.0,En retard,Non,202,17,18.7
+T-PRJ004-05,PRJ004,Développement lot 1,S. Bernard,2026-03-21,2026-04-06,2026-03-22,2026-04-08,100.0,Terminé,Non,0,17,20.4
+T-PRJ004-06,PRJ004,Développement lot 2,L. Petit,2026-04-07,2026-04-23,2026-04-09,,82.0,En retard,Non,168,17,13.6
+T-PRJ004-07,PRJ004,Intégration,M. Robert,2026-04-24,2026-05-10,2026-04-24,2026-05-09,100.0,Terminé,Oui,0,17,15.3
+T-PRJ004-08,PRJ004,Tests unitaires,N. Garcia,2026-05-11,2026-05-27,2026-05-12,2026-05-27,100.0,Terminé,Non,0,17,17.0
+T-PRJ004-09,PRJ004,Tests d'intégration,C. Moreau,2026-05-28,2026-06-13,2026-05-30,,90.0,En retard,Non,117,17,18.7
+T-PRJ004-10,PRJ004,Recette métier,A. Martin,2026-06-14,2026-06-30,2026-06-14,2026-07-02,100.0,Terminé,Non,0,17,20.4
+T-PRJ004-11,PRJ004,Correction des anomalies,S. Bernard,2026-07-01,2026-07-17,2026-07-02,2026-07-15,100.0,Terminé,Non,0,17,13.6
+T-PRJ004-12,PRJ004,Préparation déploiement,L. Petit,2026-07-18,2026-08-03,2026-07-20,,78.0,En retard,Non,66,17,15.3
+T-PRJ004-13,PRJ004,Déploiement pilote,M. Robert,2026-08-04,2026-08-20,2026-08-04,2026-08-20,100.0,Terminé,Oui,0,17,17.0
+T-PRJ004-14,PRJ004,Formation utilisateurs,N. Garcia,2026-08-21,2026-09-06,2026-08-22,2026-09-07,100.0,Terminé,Non,0,17,18.7
+T-PRJ004-15,PRJ004,Mise en production,C. Moreau,2026-09-07,2026-09-24,2026-09-09,,85.0,En retard,Non,14,18,21.6
+T-PRJ005-01,PRJ005,Analyse des besoins,N. Garcia,2026-04-06,2026-04-21,2026-04-06,2026-04-19,100.0,Terminé,Non,0,16,12.8
+T-PRJ005-02,PRJ005,Spécifications fonctionnelles,C. Moreau,2026-04-22,2026-05-08,2026-04-23,,88.0,En retard,Non,153,17,15.3
+T-PRJ005-03,PRJ005,Architecture technique,A. Martin,2026-05-09,2026-05-24,2026-05-11,2026-05-24,100.0,Terminé,Oui,0,16,16.0
+T-PRJ005-04,PRJ005,Conception détaillée,S. Bernard,2026-05-25,2026-06-10,2026-05-25,,75.0,En retard,Non,120,17,18.7
+T-PRJ005-05,PRJ005,Développement lot 1,L. Petit,2026-06-11,2026-06-27,2026-06-12,2026-06-29,100.0,Terminé,Non,0,17,20.4
+T-PRJ005-06,PRJ005,Développement lot 2,M. Robert,2026-06-28,2026-07-13,2026-06-30,,82.0,En retard,Non,87,16,12.8
+T-PRJ005-07,PRJ005,Intégration,N. Garcia,2026-07-14,2026-07-30,2026-07-14,2026-07-29,100.0,Terminé,Oui,0,17,15.3
+T-PRJ005-08,PRJ005,Tests unitaires,C. Moreau,2026-07-31,2026-08-15,2026-08-01,2026-08-15,100.0,Terminé,Non,0,16,16.0
+T-PRJ005-09,PRJ005,Tests d'intégration,A. Martin,2026-08-16,2026-09-01,2026-08-18,,90.0,En retard,Non,37,17,18.7
+T-PRJ005-10,PRJ005,Recette métier,S. Bernard,2026-09-02,2026-09-18,2026-09-02,2026-09-20,100.0,Terminé,Non,0,17,20.4
+T-PRJ005-11,PRJ005,Correction des anomalies,L. Petit,2026-09-19,2026-10-04,2026-09-20,2026-10-02,100.0,Terminé,Non,0,16,12.8
+T-PRJ005-12,PRJ005,Préparation déploiement,M. Robert,2026-10-05,2026-10-21,,,0.0,En cours,Non,0,17,15.3
+T-PRJ005-13,PRJ005,Déploiement pilote,N. Garcia,2026-10-22,2026-11-06,,,0.0,À venir,Oui,0,16,16.0
+T-PRJ005-14,PRJ005,Formation utilisateurs,C. Moreau,2026-11-07,2026-11-23,,,0.0,À venir,Non,0,17,18.7
+T-PRJ005-15,PRJ005,Mise en production,A. Martin,2026-11-24,2026-12-10,,,0.0,À venir,Non,0,17,20.4

@@ -1,0 +1,153 @@
+table FactNonConformites
+	lineageTag: f8345571-47ba-42d1-a2a1-87cabc492b4a
+
+	column nonconformity_id
+		dataType: string
+		lineageTag: d11d8be1-f6f0-47c8-a7b4-ca861e9b7360
+		summarizeBy: none
+		sourceColumn: nonconformity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 0ef473be-d44a-4a9e-86b8-1def6e33cd00
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column opened_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2940a8cb-4714-4320-a8e6-244dc2b8d019
+		summarizeBy: none
+		sourceColumn: opened_date
+
+		variation Variation
+			isDefault
+			relationship: 852011da-7bf4-4e54-8e77-8144640d207d
+			defaultHierarchy: LocalDateTable_32c7774e-bd1b-4164-abb1-adea321be3e0.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column description
+		dataType: string
+		lineageTag: 5ece7f8f-3d58-4a28-a789-e8b576471628
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column severity
+		dataType: string
+		lineageTag: 807772f2-bb73-4d38-bc68-ffdb9cd9b73f
+		summarizeBy: none
+		sourceColumn: severity
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: abd95cb6-1407-4763-9c46-72e8eb0f6b78
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 6b3ffb6b-9649-4c97-8046-e6467b9bd96e
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner
+		dataType: string
+		lineageTag: b75d6094-a1b1-4b24-b1ac-4dcbcde0b992
+		summarizeBy: none
+		sourceColumn: owner
+
+		annotation SummarizationSetBy = Automatic
+
+	column rework_cost_eur
+		dataType: string
+		lineageTag: 90b471bd-956b-4df4-8566-9dc1427a8875
+		summarizeBy: none
+		sourceColumn: rework_cost_eur
+
+		annotation SummarizationSetBy = Automatic
+
+	column scrap_or_penalty_cost_eur
+		dataType: string
+		lineageTag: 38c67b0f-5c15-4908-917a-ee07109b5c5e
+		summarizeBy: none
+		sourceColumn: scrap_or_penalty_cost_eur
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_nonquality_cost_eur
+		dataType: string
+		lineageTag: ff592b3c-9012-4d7f-8700-2f126b4c6302
+		summarizeBy: none
+		sourceColumn: total_nonquality_cost_eur
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b5efba23-7c14-4fe8-96b5-087745dd0f96
+		summarizeBy: none
+		sourceColumn: target_date
+
+		variation Variation
+			isDefault
+			relationship: ff995741-9d79-40d6-9593-6bda4e9a8573
+			defaultHierarchy: LocalDateTable_d76d429e-05c4-42e7-9ad8-9dab74244c36.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column closed_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1c2d2548-de12-4524-93db-2bdfdaa44146
+		summarizeBy: none
+		sourceColumn: closed_date
+
+		variation Variation
+			isDefault
+			relationship: 94185bdc-86af-4e6e-bed1-bd9581d6ef73
+			defaultHierarchy: LocalDateTable_8b88c86b-b23a-4c5e-a772-c5ce0bb3d839.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column critical_open_flag
+		dataType: string
+		lineageTag: f16b50a3-ae69-4a57-b9ee-921e192b177c
+		summarizeBy: none
+		sourceColumn: critical_open_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactNonConformites = m
+		mode: import
+		queryGroup: modeles
+		source =
+				let
+				  Source = source_data,
+				  #"Descendre dans la hiérarchie" = Source{7}[Fonction personnalisée appelée],
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Descendre dans la hiérarchie", {{"closed_date", type date}, {"nonconformity_id", type text}, {"project_id", type text}, {"opened_date", type date}, {"description", type text}, {"severity", type text}, {"category", type text}, {"status", type text}, {"owner", type text}, {"rework_cost_eur", type text}, {"scrap_or_penalty_cost_eur", type text}, {"total_nonquality_cost_eur", Int64.Type}, {"target_date", type date}, {"critical_open_flag", type text}}),
+				  #"Valeur remplacée" = Table.ReplaceValue(#"Type de colonne changé", ".", ",", Replacer.ReplaceValue, {"rework_cost_eur", "scrap_or_penalty_cost_eur", "total_nonquality_cost_eur"})
+				in
+				  #"Valeur remplacée"
+
+	annotation PBI_ResultType = Table
+

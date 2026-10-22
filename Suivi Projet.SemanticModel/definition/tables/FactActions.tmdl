@@ -1,0 +1,120 @@
+table FactActions
+	lineageTag: 1906d1e3-83cf-4b7b-bb07-a13c83cc9944
+
+	column action_id
+		dataType: string
+		lineageTag: ff525e12-aae7-4965-9b77-571e74fcb0b6
+		summarizeBy: none
+		sourceColumn: action_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 879fab95-914d-40c1-ab21-f2a88bf30c59
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column related_risk_id
+		dataType: string
+		lineageTag: f4c2525a-012a-4f22-9802-c41e514a975e
+		summarizeBy: none
+		sourceColumn: related_risk_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column action_title
+		dataType: string
+		lineageTag: 0acfd1e9-2098-4405-98cd-b9767eec4a15
+		summarizeBy: none
+		sourceColumn: action_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner
+		dataType: string
+		lineageTag: 99934947-9404-4345-9a06-2b45042ae5d8
+		summarizeBy: none
+		sourceColumn: owner
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: aec8be55-3cb5-4f6c-a046-1f366c34e184
+		summarizeBy: none
+		sourceColumn: created_date
+
+		variation Variation
+			isDefault
+			relationship: d2a978ba-186f-4068-ac49-662ac7d091f1
+			defaultHierarchy: LocalDateTable_82f3d3a1-d96a-486f-a9b7-ce13dbe7d7eb.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column due_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1783e1e7-0385-40d1-ac37-f063834de765
+		summarizeBy: none
+		sourceColumn: due_date
+
+		variation Variation
+			isDefault
+			relationship: cc0557d4-22c6-4d49-8fd0-5e54a83a58d3
+			defaultHierarchy: LocalDateTable_6afb83da-af84-463f-8605-10163b142bc4.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column closed_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1d98dde0-42c9-4238-b8e7-8f5e50f900a2
+		summarizeBy: none
+		sourceColumn: closed_date
+
+		variation Variation
+			isDefault
+			relationship: 2704fa7b-de66-4a7d-90b1-ef9a3a5f4bd2
+			defaultHierarchy: LocalDateTable_fd971df4-fc4c-4392-a683-9e9cdc751ebb.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column status
+		dataType: string
+		lineageTag: a491aa1f-3201-4121-b7c2-8f35ea89351b
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column priority
+		dataType: string
+		lineageTag: 710d6490-04e6-4646-afff-9961aeaa0f0f
+		summarizeBy: none
+		sourceColumn: priority
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactActions = m
+		mode: import
+		queryGroup: modeles
+		source =
+				let
+				  Source = source_data,
+				  #"Descendre dans la hiérarchie" = Source{12}[Fonction personnalisée appelée],
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Descendre dans la hiérarchie", {{"action_id", type text}, {"project_id", type text}, {"related_risk_id", type text}, {"action_title", type text}, {"owner", type text}, {"created_date", type date}, {"due_date", type date}, {"closed_date", type date}, {"status", type text}, {"priority", type text}}, "fr")
+				in
+				  #"Type de colonne changé"
+
+	annotation PBI_ResultType = Table
+

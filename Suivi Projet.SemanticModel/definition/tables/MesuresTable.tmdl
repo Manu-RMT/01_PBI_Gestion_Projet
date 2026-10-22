@@ -1,0 +1,85 @@
+table MesuresTable
+	lineageTag: 10df987b-8ab5-4d21-ad3e-95879c71fe8d
+
+	measure 'Avancement réel %' = ```
+			
+			    // Stocke la date du dernier reporting dans une variable.
+			    VAR DateReporting = [Date dernier reporting]
+			    RETURN
+			        // Récupère l'avancement réel à cette date.
+			        // Le filtre calendrier est retiré pour garantir
+			        // que la mesure utilise bien le dernier snapshot.
+			        CALCULATE(
+			            MAX(FactPilotageMensuel[actual_progress_pct]),
+			            REMOVEFILTERS(Dim_Calendrier),
+			            FactPilotageMensuel[snapshot_date] = DateReporting
+			        )
+			
+			```
+		lineageTag: ecbe9897-c50d-47cb-9e82-dbb06e4513db
+
+	measure 'Date dernier reporting' = ```
+			
+			    // Récupère la dernière date de snapshot disponible.
+			    // Retire les filtres du calendrier pour éviter qu'une
+			    // sélection de date masque le dernier reporting.
+			    CALCULATE(
+			        MAX(FactPilotageMensuel[snapshot_date]),
+			        REMOVEFILTERS(Dim_Calendrier)
+			    )
+			
+			```
+		formatString: General Date
+		lineageTag: 83cde7c0-6483-450e-8c4d-486eb5dee52c
+
+	measure 'Avancement prévu %' = ```
+			
+			    // Identifie la date du dernier reporting.
+			    VAR DateReporting = [Date dernier reporting]
+			    RETURN
+			        // Récupère l'avancement théorique prévu à cette date.
+			        CALCULATE(
+			            MAX(FactPilotageMensuel[planned_progress_pct]),
+			            REMOVEFILTERS(Dim_Calendrier),
+			            FactPilotageMensuel[snapshot_date] = DateReporting
+			        )
+			
+			```
+		formatString: 0
+		lineageTag: b91daa8a-0f80-45e0-b829-f845f5223ae5
+
+	measure 'Écart avancement (points)' = ```
+			
+			    // Calcule l'écart entre l'avancement réel et le prévu.
+			    // Multiplication par 100 pour afficher des points
+			    // si les pourcentages sont stockés entre 0 et 1.
+			    100 * (
+			        [Avancement réel %] - [Avancement prévu %]
+			    )
+			
+			```
+		lineageTag: 1980f29f-3c88-4874-8f03-073f35794d78
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'BAC - Budget initial' = ```
+			
+			    // Additionne les budgets initiaux des projets
+			    // présents dans le contexte de filtre.
+			    SUM(DimProjet[budget_initial_eur])
+			
+			```
+		formatString: 0
+		lineageTag: 1a9833ee-2678-4d2e-b55a-8516b763d91c
+
+	partition MesuresTable = m
+		mode: import
+		source =
+				let
+				  Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"" = _t]),
+				    #"Colonnes supprimées" = Table.RemoveColumns(Source,{"Column1"})
+				in
+				  #"Colonnes supprimées"
+
+	annotation PBI_ResultType = Table
+

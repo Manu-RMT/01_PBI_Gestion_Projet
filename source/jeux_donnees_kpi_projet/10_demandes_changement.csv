@@ -1,0 +1,16 @@
+﻿change_request_id,project_id,request_date,description,change_type,status,request_owner,estimated_cost_impact_eur,estimated_delay_days,approved_flag
+CR001,PRJ001,2026-03-10,Demande de changement 01,Périmètre,Approuvée,A. Martin,5000,1,Oui
+CR002,PRJ002,2026-03-22,Demande de changement 02,Planning,En analyse,S. Bernard,7500,2,Non
+CR003,PRJ003,2026-04-03,Demande de changement 03,Budget,Rejetée,L. Petit,10000,3,Non
+CR004,PRJ004,2026-04-15,Demande de changement 04,Technique,En attente,M. Robert,12500,1,Non
+CR005,PRJ005,2026-04-27,Demande de changement 05,Périmètre,Approuvée,N. Garcia,5000,2,Oui
+CR006,PRJ001,2026-05-09,Demande de changement 06,Planning,Approuvée,C. Moreau,7500,3,Oui
+CR007,PRJ002,2026-05-21,Demande de changement 07,Budget,En analyse,A. Martin,10000,1,Non
+CR008,PRJ003,2026-06-02,Demande de changement 08,Technique,Rejetée,S. Bernard,12500,2,Non
+CR009,PRJ004,2026-06-14,Demande de changement 09,Périmètre,En attente,L. Petit,5000,3,Non
+CR010,PRJ005,2026-06-26,Demande de changement 10,Planning,Approuvée,M. Robert,7500,1,Oui
+CR011,PRJ001,2026-07-08,Demande de changement 11,Budget,Approuvée,N. Garcia,10000,2,Oui
+CR012,PRJ002,2026-07-20,Demande de changement 12,Technique,En analyse,C. Moreau,12500,3,Non
+CR013,PRJ003,2026-08-01,Demande de changement 13,Périmètre,Rejetée,A. Martin,5000,1,Non
+CR014,PRJ004,2026-08-13,Demande de changement 14,Planning,En attente,S. Bernard,7500,2,Non
+CR015,PRJ005,2026-08-25,Demande de changement 15,Budget,Approuvée,L. Petit,10000,3,Oui

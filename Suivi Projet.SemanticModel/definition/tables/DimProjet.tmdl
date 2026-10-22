@@ -1,0 +1,97 @@
+table DimProjet
+	lineageTag: 196893ea-767c-4796-81ab-563431d09482
+
+	column project_id
+		dataType: string
+		lineageTag: c8fcf8ab-53ad-462a-b6e3-e92772467e72
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_name
+		dataType: string
+		lineageTag: ff5a07a6-88db-49ad-9e85-d62e3ed9ba15
+		summarizeBy: none
+		sourceColumn: project_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column domain
+		dataType: string
+		lineageTag: 700bc008-95a9-4183-afb4-e913ebb8e3ad
+		summarizeBy: none
+		sourceColumn: domain
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_unit
+		dataType: string
+		lineageTag: 57fb4c84-b6be-44ca-83d2-e47f1d48b892
+		summarizeBy: none
+		sourceColumn: business_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 50181c92-c5b8-44f0-90a5-ba972a7cd4b2
+		summarizeBy: none
+		sourceColumn: start_date
+
+		variation Variation
+			isDefault
+			relationship: 91ae59aa-0c81-4715-944f-1f09df5df067
+			defaultHierarchy: LocalDateTable_0f2ad1b4-d2f7-4c87-890e-143d08519571.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column planned_end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2f5510bc-a4e7-484d-93c0-1a6b18a96010
+		summarizeBy: none
+		sourceColumn: planned_end_date
+
+		variation Variation
+			isDefault
+			relationship: 802c3c1d-814a-4b2c-bf31-048bf023a8d1
+			defaultHierarchy: LocalDateTable_4f265380-0035-4009-a9a3-ac6b69b3a239.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column project_status
+		dataType: string
+		lineageTag: 8b20399f-4012-4d80-80ca-fa7fec3c52f1
+		summarizeBy: none
+		sourceColumn: project_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column budget_initial_eur
+		dataType: int64
+		formatString: 0
+		lineageTag: f456cc89-389c-467f-8f01-2b7c66d24b40
+		summarizeBy: sum
+		sourceColumn: budget_initial_eur
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProjet = m
+		mode: import
+		queryGroup: modeles
+		source =
+				let
+				  Source = source_data,
+				  #"Descendre dans la hiérarchie" = Source{0}[Fonction personnalisée appelée],
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Descendre dans la hiérarchie", {{"project_id", type text}, {"project_name", type text}, {"domain", type text}, {"business_unit", type text}, {"start_date", type date}, {"planned_end_date", type date}, {"project_status", type text}, {"budget_initial_eur", Int64.Type}}, "fr")
+				in
+				  #"Type de colonne changé"
+
+	annotation PBI_ResultType = Table
+

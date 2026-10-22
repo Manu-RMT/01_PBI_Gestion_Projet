@@ -1,0 +1,106 @@
+table FactChangements
+	lineageTag: 5eebe7ec-9864-489c-805a-2db8cc7d248e
+
+	column change_request_id
+		dataType: string
+		lineageTag: afb6fd0f-4bfc-4415-950a-a40ff9b637ab
+		summarizeBy: none
+		sourceColumn: change_request_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 7327e1d0-9bd2-4178-98de-e9b5ca9d16d8
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column request_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c07c5eb3-bb21-4b1d-bb76-5a2049f030d3
+		summarizeBy: none
+		sourceColumn: request_date
+
+		variation Variation
+			isDefault
+			relationship: 12d24779-e82d-47b1-8dae-f4db4b3ebbf9
+			defaultHierarchy: LocalDateTable_30f64ef9-0eee-4f0a-ae68-e18613b6563f.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column description
+		dataType: string
+		lineageTag: 7ae4a842-b575-4350-8be3-ab816b9a78b2
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column change_type
+		dataType: string
+		lineageTag: 6d5659d8-2ee3-43c9-be1e-f30710c694d3
+		summarizeBy: none
+		sourceColumn: change_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: b2f3dea6-4f59-4a06-95e4-d0b2930e8bd9
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column request_owner
+		dataType: string
+		lineageTag: 90cd49dd-986a-4745-9b5e-425d7f09f2df
+		summarizeBy: none
+		sourceColumn: request_owner
+
+		annotation SummarizationSetBy = Automatic
+
+	column estimated_cost_impact_eur
+		dataType: int64
+		formatString: 0
+		lineageTag: 70095e95-4da9-45a1-9c29-1243dbe0e94f
+		summarizeBy: sum
+		sourceColumn: estimated_cost_impact_eur
+
+		annotation SummarizationSetBy = Automatic
+
+	column estimated_delay_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 6851c613-c407-41fb-9366-81531aad06fe
+		summarizeBy: sum
+		sourceColumn: estimated_delay_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column approved_flag
+		dataType: string
+		lineageTag: 98ccf9f1-a4d6-42b2-a00e-9e2995c80f76
+		summarizeBy: none
+		sourceColumn: approved_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactChangements = m
+		mode: import
+		queryGroup: modeles
+		source =
+				let
+				  Source = source_data,
+				  #"Descendre dans la hiérarchie" = Source{9}[Fonction personnalisée appelée],
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Descendre dans la hiérarchie", {{"change_request_id", type text}, {"project_id", type text}, {"request_date", type date}, {"description", type text}, {"change_type", type text}, {"status", type text}, {"request_owner", type text}, {"estimated_cost_impact_eur", Int64.Type}, {"estimated_delay_days", Int64.Type}, {"approved_flag", type text}}, "fr")
+				in
+				  #"Type de colonne changé"
+
+	annotation PBI_ResultType = Table
+

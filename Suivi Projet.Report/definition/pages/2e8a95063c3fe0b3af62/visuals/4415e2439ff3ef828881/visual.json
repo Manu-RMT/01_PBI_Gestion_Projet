@@ -1,0 +1,92 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "4415e2439ff3ef828881",
+  "position": {
+    "x": 710.91382751970764,
+    "y": 621.52992522921807,
+    "z": 2,
+    "height": 293.09605169672159,
+    "width": 577.87732178502552,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProjet"
+                    }
+                  },
+                  "Property": "project_name"
+                }
+              },
+              "queryRef": "DimProjet.project_name",
+              "nativeQueryRef": "project_name",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "Écart avancement (points)"
+                }
+              },
+              "queryRef": "MesuresTable.Écart avancement (points)",
+              "nativeQueryRef": "Écart avancement (points)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0cf103123e629959e55b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MesuresTable"
+              }
+            },
+            "Property": "Écart avancement (points)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3c875e042ca5a2afc768",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProjet"
+              }
+            },
+            "Property": "project_name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

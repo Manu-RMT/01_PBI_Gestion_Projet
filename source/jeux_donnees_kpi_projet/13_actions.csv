@@ -1,0 +1,16 @@
+﻿action_id,project_id,related_risk_id,action_title,owner,created_date,due_date,closed_date,status,priority
+ACT001,PRJ001,RSK001,Sécuriser la date de livraison fournisseur,A. Martin,2026-09-01,2026-10-01,,En retard,Haute
+ACT002,PRJ002,RSK004,Compléter les contrôles de qualité des données,S. Bernard,2026-09-15,2026-10-10,,En cours,Haute
+ACT003,PRJ003,RSK005,Valider la stratégie de bascule legacy,L. Petit,2026-08-20,2026-09-30,,En retard,Critique
+ACT004,PRJ004,RSK007,Corriger la vulnérabilité identifiée,M. Robert,2026-09-20,2026-10-05,,En retard,Critique
+ACT005,PRJ005,RSK008,Former les utilisateurs pilotes,N. Garcia,2026-08-15,2026-09-15,2026-09-12,Clôturée,Moyenne
+ACT006,PRJ001,RSK002,Revoir la prévision de coûts d'intégration,C. Moreau,2026-10-01,2026-10-15,,En cours,Haute
+ACT007,PRJ002,RSK006,Planifier une validation métier intermédiaire,S. Bernard,2026-09-10,2026-10-03,,En retard,Moyenne
+ACT008,PRJ003,RSK003,Réserver la capacité de l'expert technique,L. Petit,2026-09-25,2026-10-12,,En cours,Haute
+ACT009,PRJ004,RSK009,Confirmer le périmètre du contrat fournisseur,M. Robert,2026-10-02,2026-10-20,,En cours,Moyenne
+ACT010,PRJ005,RSK010,Stabiliser l'environnement de test,N. Garcia,2026-09-05,2026-10-02,,En retard,Haute
+ACT011,PRJ001,,Mettre à jour le compte rendu de pilotage,A. Martin,2026-10-01,2026-10-09,,En cours,Basse
+ACT012,PRJ002,,Faire valider les indicateurs par le métier,S. Bernard,2026-10-02,2026-10-08,,En retard,Haute
+ACT013,PRJ003,,Documenter le plan de retour arrière,L. Petit,2026-10-03,2026-10-14,,En cours,Haute
+ACT014,PRJ004,,Clôturer les réserves de recette,M. Robert,2026-09-01,2026-09-28,2026-09-26,Clôturée,Moyenne
+ACT015,PRJ005,,Préparer le support de formation,N. Garcia,2026-10-05,2026-10-22,,En cours,Basse

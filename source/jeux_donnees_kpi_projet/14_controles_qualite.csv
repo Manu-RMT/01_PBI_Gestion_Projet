@@ -1,0 +1,31 @@
+﻿quality_check_id,project_id,check_date,check_name,check_type,result,first_pass_accepted_flag,accepted_after_rework_flag,critical_defect_flag,owner,correction_date,notes
+QC001,PRJ001,2026-08-03,Contrôle qualité 01,Données,Accepté au premier passage,Oui,Non,Non,A. Martin,,Contrôle synthétique pour exercice Power BI
+QC002,PRJ002,2026-08-05,Contrôle qualité 02,Livrable documentaire,Rejeté,Non,Non,Non,S. Bernard,2026-08-09,Contrôle synthétique pour exercice Power BI
+QC003,PRJ003,2026-08-07,Contrôle qualité 03,Interface,Accepté après correction,Non,Oui,Non,L. Petit,2026-08-12,Contrôle synthétique pour exercice Power BI
+QC004,PRJ004,2026-08-09,Contrôle qualité 04,Rapport,Accepté au premier passage,Oui,Non,Non,M. Robert,,Contrôle synthétique pour exercice Power BI
+QC005,PRJ005,2026-08-11,Contrôle qualité 05,Fournisseur,Rejeté,Non,Non,Non,N. Garcia,2026-08-14,Contrôle synthétique pour exercice Power BI
+QC006,PRJ001,2026-08-13,Contrôle qualité 06,Données,Accepté après correction,Non,Oui,Non,C. Moreau,2026-08-17,Contrôle synthétique pour exercice Power BI
+QC007,PRJ002,2026-08-15,Contrôle qualité 07,Livrable documentaire,Accepté au premier passage,Oui,Non,Non,A. Martin,,Contrôle synthétique pour exercice Power BI
+QC008,PRJ003,2026-08-17,Contrôle qualité 08,Interface,Rejeté,Non,Non,Non,S. Bernard,2026-08-19,Contrôle synthétique pour exercice Power BI
+QC009,PRJ004,2026-08-19,Contrôle qualité 09,Rapport,Accepté après correction,Non,Oui,Non,L. Petit,2026-08-22,Contrôle synthétique pour exercice Power BI
+QC010,PRJ005,2026-08-21,Contrôle qualité 10,Fournisseur,Accepté au premier passage,Oui,Non,Non,M. Robert,,Contrôle synthétique pour exercice Power BI
+QC011,PRJ001,2026-08-23,Contrôle qualité 11,Données,Rejeté,Non,Non,Non,N. Garcia,2026-08-28,Contrôle synthétique pour exercice Power BI
+QC012,PRJ002,2026-08-25,Contrôle qualité 12,Livrable documentaire,Accepté après correction,Non,Oui,Non,C. Moreau,2026-08-27,Contrôle synthétique pour exercice Power BI
+QC013,PRJ003,2026-08-27,Contrôle qualité 13,Interface,Accepté au premier passage,Oui,Non,Non,A. Martin,,Contrôle synthétique pour exercice Power BI
+QC014,PRJ004,2026-08-29,Contrôle qualité 14,Rapport,Rejeté,Non,Non,Non,S. Bernard,2026-09-02,Contrôle synthétique pour exercice Power BI
+QC015,PRJ005,2026-08-31,Contrôle qualité 15,Fournisseur,Accepté après correction,Non,Oui,Non,L. Petit,2026-09-05,Contrôle synthétique pour exercice Power BI
+QC016,PRJ001,2026-09-02,Contrôle qualité 16,Données,Accepté au premier passage,Oui,Non,Non,M. Robert,,Contrôle synthétique pour exercice Power BI
+QC017,PRJ002,2026-09-04,Contrôle qualité 17,Livrable documentaire,Rejeté,Non,Non,Non,N. Garcia,2026-09-07,Contrôle synthétique pour exercice Power BI
+QC018,PRJ003,2026-09-06,Contrôle qualité 18,Interface,Accepté après correction,Non,Oui,Non,C. Moreau,2026-09-10,Contrôle synthétique pour exercice Power BI
+QC019,PRJ004,2026-09-08,Contrôle qualité 19,Rapport,Accepté au premier passage,Oui,Non,Non,A. Martin,,Contrôle synthétique pour exercice Power BI
+QC020,PRJ005,2026-09-10,Contrôle qualité 20,Fournisseur,Rejeté,Non,Non,Oui,S. Bernard,2026-09-12,Contrôle synthétique pour exercice Power BI
+QC021,PRJ001,2026-09-12,Contrôle qualité 21,Données,Accepté après correction,Non,Oui,Non,L. Petit,2026-09-15,Contrôle synthétique pour exercice Power BI
+QC022,PRJ002,2026-09-14,Contrôle qualité 22,Livrable documentaire,Accepté au premier passage,Oui,Non,Non,M. Robert,,Contrôle synthétique pour exercice Power BI
+QC023,PRJ003,2026-09-16,Contrôle qualité 23,Interface,Rejeté,Non,Non,Non,N. Garcia,2026-09-21,Contrôle synthétique pour exercice Power BI
+QC024,PRJ004,2026-09-18,Contrôle qualité 24,Rapport,Accepté après correction,Non,Oui,Non,C. Moreau,2026-09-20,Contrôle synthétique pour exercice Power BI
+QC025,PRJ005,2026-09-20,Contrôle qualité 25,Fournisseur,Accepté au premier passage,Oui,Non,Non,A. Martin,,Contrôle synthétique pour exercice Power BI
+QC026,PRJ001,2026-09-22,Contrôle qualité 26,Données,Rejeté,Non,Non,Non,S. Bernard,2026-09-26,Contrôle synthétique pour exercice Power BI
+QC027,PRJ002,2026-09-24,Contrôle qualité 27,Livrable documentaire,Accepté après correction,Non,Oui,Non,L. Petit,2026-09-29,Contrôle synthétique pour exercice Power BI
+QC028,PRJ003,2026-09-26,Contrôle qualité 28,Interface,Accepté au premier passage,Oui,Non,Non,M. Robert,,Contrôle synthétique pour exercice Power BI
+QC029,PRJ004,2026-09-28,Contrôle qualité 29,Rapport,Rejeté,Non,Non,Non,N. Garcia,2026-10-01,Contrôle synthétique pour exercice Power BI
+QC030,PRJ005,2026-09-30,Contrôle qualité 30,Fournisseur,Accepté après correction,Non,Oui,Oui,C. Moreau,2026-10-04,Contrôle synthétique pour exercice Power BI

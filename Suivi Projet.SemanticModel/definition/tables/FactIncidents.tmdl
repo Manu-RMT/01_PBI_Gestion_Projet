@@ -1,0 +1,121 @@
+table FactIncidents
+	lineageTag: 20f3636c-e96a-4126-8c1c-eacce3a98ec5
+
+	column incident_id
+		dataType: string
+		lineageTag: 7918a78e-0436-4730-a42a-ae9f7b0cb28d
+		summarizeBy: none
+		sourceColumn: incident_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 3ea473cc-92dc-400d-9b41-19800024d8f4
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column incident_title
+		dataType: string
+		lineageTag: 6d4085e7-4694-4128-893a-b688a431de69
+		summarizeBy: none
+		sourceColumn: incident_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column priority
+		dataType: string
+		lineageTag: 677b66f2-c8c1-4966-b3c8-63ad7734a8f7
+		summarizeBy: none
+		sourceColumn: priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column system_or_domain
+		dataType: string
+		lineageTag: 9ec56a14-5a74-42ab-bcd0-d79bb4fc2ba7
+		summarizeBy: none
+		sourceColumn: system_or_domain
+
+		annotation SummarizationSetBy = Automatic
+
+	column opened_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c005bfdd-d3f3-433c-ae11-f401fcd4544b
+		summarizeBy: none
+		sourceColumn: opened_date
+
+		variation Variation
+			isDefault
+			relationship: c4f79e03-5c85-4b80-b989-5860fda1a0c8
+			defaultHierarchy: LocalDateTable_3110240d-0e8c-48eb-90dd-7c2504d5efa2.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column resolved_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8f962acf-318a-40f4-b4f8-ce05f2a23ab5
+		summarizeBy: none
+		sourceColumn: resolved_date
+
+		variation Variation
+			isDefault
+			relationship: abb44389-d31b-4e59-85a2-6ea55fc40d66
+			defaultHierarchy: LocalDateTable_4d5ed1a0-b0a3-4fdb-af0d-9f3246aaa64e.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column status
+		dataType: string
+		lineageTag: 61bc7388-bc35-4d8e-990a-4e4a0f122def
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner
+		dataType: string
+		lineageTag: 57ed65fd-8a3f-4166-9ea9-509b9f02373d
+		summarizeBy: none
+		sourceColumn: owner
+
+		annotation SummarizationSetBy = Automatic
+
+	column resolution_hours
+		dataType: int64
+		formatString: 0
+		lineageTag: b3037877-f448-4ebe-aca1-30f01a3c0b17
+		summarizeBy: sum
+		sourceColumn: resolution_hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 57ae9aa4-4610-48fd-bdde-55a6e299189f
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactIncidents = m
+		mode: import
+		queryGroup: modeles
+		source =
+				let
+				  Source = source_data,
+				  #"Descendre dans la hiérarchie" = Source{11}[Fonction personnalisée appelée],
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Descendre dans la hiérarchie", {{"incident_id", type text}, {"project_id", type text}, {"incident_title", type text}, {"priority", type text}, {"system_or_domain", type text}, {"opened_date", type date}, {"resolved_date", type date}, {"status", type text}, {"owner", type text}, {"resolution_hours", Int64.Type}, {"description", type text}}, "fr")
+				in
+				  #"Type de colonne changé"
+
+	annotation PBI_ResultType = Table
+

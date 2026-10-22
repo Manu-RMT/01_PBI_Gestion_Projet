@@ -1,0 +1,90 @@
+table FactPilotageMensuel
+	lineageTag: d170ee78-6e77-4329-a37c-428ec4197ead
+
+	column project_id
+		dataType: string
+		lineageTag: 0b95d603-4837-49ae-bd01-5fe5c3ab4b7e
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshot_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bde54d01-62d4-4dea-b7cd-7a73e8b92f91
+		summarizeBy: none
+		sourceColumn: snapshot_date
+
+		variation Variation
+			isDefault
+			relationship: cf32bd9d-45c8-47b4-92b3-9502cd8f4690
+			defaultHierarchy: LocalDateTable_564296a5-87dd-4e75-8067-9cd10348ead8.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column planned_progress_pct
+		dataType: double
+		lineageTag: e59d6167-1bab-49f8-beea-81aaf0cc1f08
+		summarizeBy: sum
+		sourceColumn: planned_progress_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column actual_progress_pct
+		dataType: double
+		lineageTag: 60342756-f8bc-41ce-85ee-acc02371e1db
+		summarizeBy: sum
+		sourceColumn: actual_progress_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column planned_value_eur
+		dataType: double
+		lineageTag: 81926412-e71e-46a4-99b2-f686b29fdf26
+		summarizeBy: sum
+		sourceColumn: planned_value_eur
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column actual_cost_cumulative_eur
+		dataType: double
+		lineageTag: 8fa51703-cc21-465c-a38e-dd13cd020375
+		summarizeBy: sum
+		sourceColumn: actual_cost_cumulative_eur
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column budget_at_completion_eur
+		dataType: int64
+		formatString: 0
+		lineageTag: cb5e9ce8-b876-496c-8545-7f7e6c1bfd88
+		summarizeBy: sum
+		sourceColumn: budget_at_completion_eur
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactPilotageMensuel = m
+		mode: import
+		queryGroup: modeles
+		source =
+				let
+				  Source = source_data,
+				  #"Descendre dans la hiérarchie" = Source{3}[Fonction personnalisée appelée],
+				  #"Valeur remplacée" = Table.ReplaceValue(#"Descendre dans la hiérarchie", ".", ",", Replacer.ReplaceText, {"project_id", "snapshot_date", "planned_progress_pct", "actual_progress_pct", "planned_value_eur", "actual_cost_cumulative_eur", "budget_at_completion_eur"}),
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Valeur remplacée", {{"snapshot_date", type date}, {"planned_progress_pct", type number}, {"actual_progress_pct", type number}, {"planned_value_eur", type number}, {"actual_cost_cumulative_eur", type number}, {"budget_at_completion_eur", Int64.Type}})
+				in
+				  #"Type de colonne changé"
+
+	annotation PBI_ResultType = Table
+

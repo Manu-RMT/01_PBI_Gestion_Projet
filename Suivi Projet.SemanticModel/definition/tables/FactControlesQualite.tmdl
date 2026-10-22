@@ -1,0 +1,128 @@
+table FactControlesQualite
+	lineageTag: 2c1259ae-9c99-41a1-8182-56ed01f5af36
+
+	column quality_check_id
+		dataType: string
+		lineageTag: 262acf06-666b-40db-aab9-9fd5eebe7969
+		summarizeBy: none
+		sourceColumn: quality_check_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 62ffa199-06b6-45f9-829c-f539420ffab0
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column check_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9b069e67-52d0-48ef-b1b7-35177d70b2c1
+		summarizeBy: none
+		sourceColumn: check_date
+
+		variation Variation
+			isDefault
+			relationship: 51f47097-51a7-48a4-b5b4-cae063bafed8
+			defaultHierarchy: LocalDateTable_303bec6f-cd83-431d-b751-be11c4b1641c.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column check_name
+		dataType: string
+		lineageTag: c96d4e9b-0bf2-4d33-951b-e089a0d4d5c6
+		summarizeBy: none
+		sourceColumn: check_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column check_type
+		dataType: string
+		lineageTag: c1f2ee91-c12a-4185-9590-92ec331652a5
+		summarizeBy: none
+		sourceColumn: check_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column result
+		dataType: string
+		lineageTag: 19c1e34a-d61d-474d-a19e-21dbcc630632
+		summarizeBy: none
+		sourceColumn: result
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_pass_accepted_flag
+		dataType: string
+		lineageTag: 69c8a677-1c99-44ad-831e-38546e2ef2b7
+		summarizeBy: none
+		sourceColumn: first_pass_accepted_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column accepted_after_rework_flag
+		dataType: string
+		lineageTag: 45774531-374f-45bd-bbba-fc08cd1c474b
+		summarizeBy: none
+		sourceColumn: accepted_after_rework_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column critical_defect_flag
+		dataType: string
+		lineageTag: 426f3a70-a31e-427c-9bd2-06bdaf088a3f
+		summarizeBy: none
+		sourceColumn: critical_defect_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner
+		dataType: string
+		lineageTag: eb850f66-bb44-4fc3-b1ce-288bb299e6a0
+		summarizeBy: none
+		sourceColumn: owner
+
+		annotation SummarizationSetBy = Automatic
+
+	column correction_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4ca908c2-e3be-4937-8aa2-97133b3841a4
+		summarizeBy: none
+		sourceColumn: correction_date
+
+		variation Variation
+			isDefault
+			relationship: 7e49ae37-3471-4f76-be32-b71751896a23
+			defaultHierarchy: LocalDateTable_935b8b4a-738a-4a2b-bec2-40f227480d90.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column notes
+		dataType: string
+		lineageTag: 84f7f0b3-7f58-496c-970b-cd04a2cc7294
+		summarizeBy: none
+		sourceColumn: notes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactControlesQualite = m
+		mode: import
+		queryGroup: modeles
+		source =
+				let
+				  Source = source_data,
+				  #"Descendre dans la hiérarchie" = Source{13}[Fonction personnalisée appelée],
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Descendre dans la hiérarchie", {{"quality_check_id", type text}, {"project_id", type text}, {"check_date", type date}, {"check_name", type text}, {"check_type", type text}, {"result", type text}, {"first_pass_accepted_flag", type text}, {"accepted_after_rework_flag", type text}, {"critical_defect_flag", type text}, {"owner", type text}, {"correction_date", type date}, {"notes", type text}}, "fr")
+				in
+				  #"Type de colonne changé"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,100 @@
+table FactCouts
+	lineageTag: 75be7291-75c1-4001-b1c9-56180e4f2eb7
+
+	column cost_id
+		dataType: string
+		lineageTag: 60cad09c-f0b1-4039-a3b5-688ab2dd5280
+		summarizeBy: none
+		sourceColumn: cost_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 496882f4-3f40-46fe-bb57-89885f0e8df7
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 53d16b41-a3c8-4852-a740-0c0f4be2b6f2
+		summarizeBy: none
+		sourceColumn: cost_date
+
+		variation Variation
+			isDefault
+			relationship: 13f7600e-70b7-47fc-b549-d72c3c56eccd
+			defaultHierarchy: LocalDateTable_641d6de8-1f79-4c38-9bb7-8c48c397b84c.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column cost_category
+		dataType: string
+		lineageTag: c3180486-4c73-4fe4-92bc-20660bd3176c
+		summarizeBy: none
+		sourceColumn: cost_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_reference
+		dataType: string
+		lineageTag: 76181235-1b86-4e31-b866-68e5ba6e3fd8
+		summarizeBy: none
+		sourceColumn: source_reference
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount_eur
+		dataType: double
+		lineageTag: e92b9415-be7c-42fb-a4b4-876bf87b0b11
+		summarizeBy: sum
+		sourceColumn: amount_eur
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_status
+		dataType: string
+		lineageTag: 59f5ab53-7046-4fe7-98e5-a896886bccdd
+		summarizeBy: none
+		sourceColumn: cost_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency
+		dataType: string
+		lineageTag: 1df12628-301b-47d1-91c1-8ae4a0f77a6a
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_owner
+		dataType: string
+		lineageTag: 4df91376-7932-45dc-b4e9-6561864377b0
+		summarizeBy: none
+		sourceColumn: cost_owner
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactCouts = m
+		mode: import
+		queryGroup: modeles
+		source =
+				let
+				  Source = source_data,
+				  #"Descendre dans la hiérarchie" = Source{4}[Fonction personnalisée appelée],
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Descendre dans la hiérarchie", {{"cost_id", type text}, {"project_id", type text}, {"cost_date", type date}, {"cost_category", type text}, {"source_reference", type text}, {"amount_eur", type text}, {"cost_status", type text}, {"currency", type text}, {"cost_owner", type text}}, "fr"),
+				  #"Valeur remplacée" = Table.ReplaceValue(#"Type de colonne changé", ".", ",", Replacer.ReplaceText, {"amount_eur"}),
+				  #"Type de colonne changé 1" = Table.TransformColumnTypes(#"Valeur remplacée", {{"amount_eur", type number}})
+				in
+				  #"Type de colonne changé 1"
+
+	annotation PBI_ResultType = Table
+

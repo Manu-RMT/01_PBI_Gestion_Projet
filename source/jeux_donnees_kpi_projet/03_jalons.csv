@@ -1,0 +1,26 @@
+﻿milestone_id,project_id,milestone_name,planned_start_date,planned_date,actual_date,milestone_status,critical_flag
+M-PRJ001-03,PRJ001,Jalon 3: Architecture technique,2026-02-20,2026-03-14,2026-03-14,Atteint,Non
+M-PRJ001-06,PRJ001,Jalon 6: Développement lot 2,2026-04-30,2026-05-22,,En retard,Oui
+M-PRJ001-09,PRJ001,Jalon 9: Tests d'intégration,2026-07-09,2026-07-31,,En retard,Non
+M-PRJ001-12,PRJ001,Jalon 12: Préparation déploiement,2026-09-16,2026-10-08,,À venir,Oui
+M-PRJ001-15,PRJ001,Jalon 15: Mise en production,2026-11-24,2026-12-17,,À venir,Non
+M-PRJ002-03,PRJ002,Jalon 3: Architecture technique,2026-03-10,2026-03-27,2026-03-27,Atteint,Non
+M-PRJ002-06,PRJ002,Jalon 6: Développement lot 2,2026-05-03,2026-05-20,2026-05-18,Atteint,Oui
+M-PRJ002-09,PRJ002,Jalon 9: Tests d'intégration,2026-06-26,2026-07-13,,En retard,Non
+M-PRJ002-12,PRJ002,Jalon 12: Préparation déploiement,2026-08-19,2026-09-05,,En retard,Oui
+M-PRJ002-15,PRJ002,Jalon 15: Mise en production,2026-10-12,2026-10-29,,À venir,Non
+M-PRJ003-03,PRJ003,Jalon 3: Architecture technique,2026-04-19,2026-05-05,2026-05-05,Atteint,Non
+M-PRJ003-06,PRJ003,Jalon 6: Développement lot 2,2026-06-09,2026-06-25,2026-06-23,Atteint,Oui
+M-PRJ003-09,PRJ003,Jalon 9: Tests d'intégration,2026-07-30,2026-08-15,,En retard,Non
+M-PRJ003-12,PRJ003,Jalon 12: Préparation déploiement,2026-09-19,2026-10-05,,En retard,Oui
+M-PRJ003-15,PRJ003,Jalon 15: Mise en production,2026-11-09,2026-11-26,,À venir,Non
+M-PRJ004-03,PRJ004,Jalon 3: Architecture technique,2026-02-15,2026-03-03,2026-03-03,Atteint,Non
+M-PRJ004-06,PRJ004,Jalon 6: Développement lot 2,2026-04-07,2026-04-23,,En retard,Oui
+M-PRJ004-09,PRJ004,Jalon 9: Tests d'intégration,2026-05-28,2026-06-13,,En retard,Non
+M-PRJ004-12,PRJ004,Jalon 12: Préparation déploiement,2026-07-18,2026-08-03,,En retard,Oui
+M-PRJ004-15,PRJ004,Jalon 15: Mise en production,2026-09-07,2026-09-24,,En retard,Non
+M-PRJ005-03,PRJ005,Jalon 3: Architecture technique,2026-05-09,2026-05-24,2026-05-24,Atteint,Non
+M-PRJ005-06,PRJ005,Jalon 6: Développement lot 2,2026-06-28,2026-07-13,,En retard,Oui
+M-PRJ005-09,PRJ005,Jalon 9: Tests d'intégration,2026-08-16,2026-09-01,,En retard,Non
+M-PRJ005-12,PRJ005,Jalon 12: Préparation déploiement,2026-10-05,2026-10-21,,À venir,Oui
+M-PRJ005-15,PRJ005,Jalon 15: Mise en production,2026-11-24,2026-12-10,,À venir,Non

@@ -1,0 +1,212 @@
+relationship 91ae59aa-0c81-4715-944f-1f09df5df067
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProjet.start_date
+	toColumn: LocalDateTable_0f2ad1b4-d2f7-4c87-890e-143d08519571.Date
+
+relationship 802c3c1d-814a-4b2c-bf31-048bf023a8d1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProjet.planned_end_date
+	toColumn: LocalDateTable_4f265380-0035-4009-a9a3-ac6b69b3a239.Date
+
+relationship f34003a8-3fbf-4728-b3a5-3014719f7e32
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactTaches.planned_start_date
+	toColumn: LocalDateTable_426e1163-e45a-4a83-9770-63c092636c1d.Date
+
+relationship 3c8a4808-155f-4c60-9269-f3f1b3d551a3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactTaches.planned_end_date
+	toColumn: LocalDateTable_a5a890fd-3599-4167-a5e6-87d0d84647fc.Date
+
+relationship 065dc227-17c8-4850-aa93-6ccb9fe350e2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactTaches.actual_start_date
+	toColumn: LocalDateTable_beda68ea-2a22-44d9-9af1-9bec676876f4.Date
+
+relationship b052fa26-07cf-42eb-905e-db574f0c640b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactTaches.actual_end_date
+	toColumn: LocalDateTable_5a073cdd-9e71-4429-9943-175b81263464.Date
+
+relationship 707f101c-816e-4bff-a44c-b20c09b05aa8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactJalons.planned_start_date
+	toColumn: LocalDateTable_f9dfa757-d56a-4d3e-bcb9-2bc609a0d6f7.Date
+
+relationship c1d91129-29bf-480d-86bc-316e857eabaf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactJalons.planned_date
+	toColumn: LocalDateTable_5b05d70c-9b53-4c8e-bc4a-c02499bf211d.Date
+
+relationship a1b3a3fe-c17f-4efb-81c7-483267ae4fed
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactJalons.actual_date
+	toColumn: LocalDateTable_6f78fa56-eb6f-4ccc-8f56-12c9c4e37201.Date
+
+relationship 13f7600e-70b7-47fc-b549-d72c3c56eccd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactCouts.cost_date
+	toColumn: LocalDateTable_641d6de8-1f79-4c38-9bb7-8c48c397b84c.Date
+
+relationship cf32bd9d-45c8-47b4-92b3-9502cd8f4690
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactPilotageMensuel.snapshot_date
+	toColumn: LocalDateTable_564296a5-87dd-4e75-8067-9cd10348ead8.Date
+
+relationship 23133535-a7f2-404d-bc69-9c391acf1da4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactCharge.month
+	toColumn: LocalDateTable_2ad9b7ad-dddd-4f9d-934a-5b1f106a8ab8.Date
+
+relationship 7c3dda0a-be6f-4d03-a372-ba2e70d30730
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactRisques.identified_date
+	toColumn: LocalDateTable_9d89199d-6134-4209-9d9c-9c08466f6d95.Date
+
+relationship 7b1ac48c-a965-49e0-a1b4-30bd06620f30
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactRisques.target_resolution_date
+	toColumn: LocalDateTable_643a49e4-21df-448f-9f03-1e493efa1583.Date
+
+relationship 736044ed-3118-4123-baf4-2b6530368efc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactRisques.closed_date
+	toColumn: LocalDateTable_e2fbed0f-4b3c-4bbb-92d3-8da0924f0e2b.Date
+
+relationship b7f69aa5-42db-4ce9-b173-976eebd10857
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactLivrables.planned_delivery_date
+	toColumn: LocalDateTable_86bd3dcf-4705-42c8-a824-25081e01bbea.Date
+
+relationship 1a0bce8f-07dd-48f1-a52f-fffae7d4bd5d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactLivrables.actual_delivery_date
+	toColumn: LocalDateTable_75d1073e-18ff-4153-bdd7-a6fa8c157927.Date
+
+relationship 12d24779-e82d-47b1-8dae-f4db4b3ebbf9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactChangements.request_date
+	toColumn: LocalDateTable_30f64ef9-0eee-4f0a-ae68-e18613b6563f.Date
+
+relationship c4f79e03-5c85-4b80-b989-5860fda1a0c8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactIncidents.opened_date
+	toColumn: LocalDateTable_3110240d-0e8c-48eb-90dd-7c2504d5efa2.Date
+
+relationship abb44389-d31b-4e59-85a2-6ea55fc40d66
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactIncidents.resolved_date
+	toColumn: LocalDateTable_4d5ed1a0-b0a3-4fdb-af0d-9f3246aaa64e.Date
+
+relationship d2a978ba-186f-4068-ac49-662ac7d091f1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactActions.created_date
+	toColumn: LocalDateTable_82f3d3a1-d96a-486f-a9b7-ce13dbe7d7eb.Date
+
+relationship cc0557d4-22c6-4d49-8fd0-5e54a83a58d3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactActions.due_date
+	toColumn: LocalDateTable_6afb83da-af84-463f-8605-10163b142bc4.Date
+
+relationship 2704fa7b-de66-4a7d-90b1-ef9a3a5f4bd2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactActions.closed_date
+	toColumn: LocalDateTable_fd971df4-fc4c-4392-a683-9e9cdc751ebb.Date
+
+relationship 51f47097-51a7-48a4-b5b4-cae063bafed8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactControlesQualite.check_date
+	toColumn: LocalDateTable_303bec6f-cd83-431d-b751-be11c4b1641c.Date
+
+relationship 7e49ae37-3471-4f76-be32-b71751896a23
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactControlesQualite.correction_date
+	toColumn: LocalDateTable_935b8b4a-738a-4a2b-bec2-40f227480d90.Date
+
+relationship 9c6332ca-c07b-4304-85ba-e9450104f370
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactDecisionProjet.decision_id
+	toColumn: LocalDateTable_bca0354f-a598-42e0-bccd-6346e448a127.Date
+
+relationship 8c9eeb0f-37fd-4c26-915c-9a2a67904c9e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactDecisionProjet.request_date
+	toColumn: LocalDateTable_66ca445c-7029-4e71-a619-af4abfbe5d50.Date
+
+relationship 87d68aba-5289-47ab-a367-fc967b722a62
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactDecisionProjet.decision_date
+	toColumn: LocalDateTable_61ab881f-dc61-45b1-8e28-da36ce97cf98.Date
+
+relationship AutoDetected_4efd1617-ad77-45a3-938d-cd1d6f36b7eb
+	fromColumn: FactTaches.project_id
+	toColumn: DimProjet.project_id
+
+relationship AutoDetected_8639a373-b669-4b01-b9e1-16d16de6f495
+	fromColumn: FactJalons.project_id
+	toColumn: DimProjet.project_id
+
+relationship AutoDetected_fc9b42c3-3f25-41d6-9a8b-b87291b5eb98
+	fromColumn: FactCouts.project_id
+	toColumn: DimProjet.project_id
+
+relationship AutoDetected_ec99f7e5-f473-476e-943e-f6617ed7e610
+	fromColumn: FactPilotageMensuel.project_id
+	toColumn: DimProjet.project_id
+
+relationship AutoDetected_ae201e8d-11b1-4236-88c3-e75264f92e51
+	fromColumn: FactCharge.project_id
+	toColumn: DimProjet.project_id
+
+relationship AutoDetected_1ce94491-e437-45b3-b141-c32f49b91156
+	fromColumn: FactRisques.project_id
+	toColumn: DimProjet.project_id
+
+relationship AutoDetected_b49900e1-d6e1-4df1-acc2-2a7787d6dccb
+	fromColumn: FactNonConformites.project_id
+	toColumn: DimProjet.project_id
+
+relationship AutoDetected_0518ee9d-9424-40bc-a6e5-5fb1445fc093
+	fromColumn: FactLivrables.project_id
+	toColumn: DimProjet.project_id
+
+relationship AutoDetected_591f6679-31e2-4c85-bb34-eb04a6483d91
+	fromColumn: FactChangements.project_id
+	toColumn: DimProjet.project_id
+
+relationship AutoDetected_de650441-b886-472c-9d2b-6c07c701b359
+	fromColumn: FactIncidents.project_id
+	toColumn: DimProjet.project_id
+
+relationship AutoDetected_1762e41e-3f53-4f0c-90e3-ec8169c98cc3
+	fromColumn: FactActions.project_id
+	toColumn: DimProjet.project_id
+
+relationship AutoDetected_184667bf-ff1e-4b39-b0bc-c0b4dd12a4f7
+	fromColumn: FactControlesQualite.project_id
+	toColumn: DimProjet.project_id
+
+relationship AutoDetected_0badd68f-d3e4-4577-a4cc-7878fa8ed40f
+	fromColumn: FactDecisionProjet.project_id
+	toColumn: DimProjet.project_id
+
+relationship 5b668d8a-4ef3-48ad-a83b-9ca3bd048580
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Dim_Calendrier.Date
+	toColumn: LocalDateTable_5450a741-237f-4a08-a132-b2944a4651fc.Date
+
+relationship 852011da-7bf4-4e54-8e77-8144640d207d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactNonConformites.opened_date
+	toColumn: LocalDateTable_32c7774e-bd1b-4164-abb1-adea321be3e0.Date
+
+relationship ff995741-9d79-40d6-9593-6bda4e9a8573
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactNonConformites.target_date
+	toColumn: LocalDateTable_d76d429e-05c4-42e7-9ad8-9dab74244c36.Date
+
+relationship 94185bdc-86af-4e6e-bed1-bd9581d6ef73
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactNonConformites.closed_date
+	toColumn: LocalDateTable_8b88c86b-b23a-4c5e-a772-c5ce0bb3d839.Date
+

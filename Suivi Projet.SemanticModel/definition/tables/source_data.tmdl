@@ -1,0 +1,43 @@
+table source_data
+	isHidden
+	lineageTag: 871964c9-4445-4442-a780-3707bab71a8e
+
+	column Name
+		dataType: string
+		isHidden
+		lineageTag: 542424cb-5fb7-4d47-8cec-0af565b88f7e
+		summarizeBy: none
+		sourceColumn: Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fonction personnalisée appelée'
+		dataType: string
+		isHidden
+		lineageTag: 8b2df19e-fbb1-4720-b181-0e977f2f1288
+		summarizeBy: none
+		sourceColumn: Fonction personnalisée appelée
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition source_data = m
+		mode: import
+		queryGroup: sources
+		source =
+				let
+				  Source = Folder.Files(path_data_source),
+				  #"Lignes filtrées" = Table.SelectRows(Source, each ([Extension] = ".csv")),
+				  #"Colonnes permutées" = Table.ReorderColumns(#"Lignes filtrées", {"Name", "Content", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+				  #"Autres colonnes supprimées" = Table.SelectColumns(#"Colonnes permutées", {"Name", "Content"}),
+				  #"Fonction personnalisée appelée" = Table.AddColumn(#"Autres colonnes supprimées", "Fonction personnalisée appelée", each fxTransformerCSV([Content]))
+				in
+				  #"Fonction personnalisée appelée"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

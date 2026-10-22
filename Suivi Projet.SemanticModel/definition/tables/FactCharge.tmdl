@@ -1,0 +1,120 @@
+table FactCharge
+	lineageTag: 693a3eb0-6a0b-4147-8d5e-ad65e37da729
+
+	column resource_record_id
+		dataType: string
+		lineageTag: 3ec8ead0-b910-4627-8ca7-07622844a4a6
+		summarizeBy: none
+		sourceColumn: resource_record_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 66d91916-276c-44d4-95dd-497eb0d00a3d
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column resource_id
+		dataType: string
+		lineageTag: 3aa08ba6-7aca-4804-9881-effc18eb60ac
+		summarizeBy: none
+		sourceColumn: resource_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column resource_name
+		dataType: string
+		lineageTag: 90b43126-fa3c-4d5b-838e-2fc35069b7b5
+		summarizeBy: none
+		sourceColumn: resource_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column role
+		dataType: string
+		lineageTag: f2a9271f-d62d-4e0f-b5a5-7fc4a693f04b
+		summarizeBy: none
+		sourceColumn: role
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 59a2b4ba-7926-487f-818a-fcf6dc4b3242
+		summarizeBy: none
+		sourceColumn: month
+
+		variation Variation
+			isDefault
+			relationship: 23133535-a7f2-404d-bc69-9c391acf1da4
+			defaultHierarchy: LocalDateTable_2ad9b7ad-dddd-4f9d-934a-5b1f106a8ab8.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column planned_hours
+		dataType: int64
+		formatString: 0
+		lineageTag: e36cbfa2-3e61-48da-bb32-dcd9d3e5b056
+		summarizeBy: sum
+		sourceColumn: planned_hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_hours
+		dataType: double
+		lineageTag: eff034f9-abbf-44a9-97a3-9b37886aa3fe
+		summarizeBy: sum
+		sourceColumn: actual_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column available_capacity_hours
+		dataType: int64
+		formatString: 0
+		lineageTag: 9207935a-cbbf-430e-8869-9125ad4cfe41
+		summarizeBy: sum
+		sourceColumn: available_capacity_hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column utilization_pct
+		dataType: double
+		lineageTag: 3d06892d-c61c-4eb0-ab0a-714ef6598e42
+		summarizeBy: sum
+		sourceColumn: utilization_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column overload_flag
+		dataType: string
+		lineageTag: 0d8b6eee-2395-4e01-b214-d0921b08a35f
+		summarizeBy: none
+		sourceColumn: overload_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactCharge = m
+		mode: import
+		queryGroup: modeles
+		source =
+				let
+				  Source = source_data,
+				  #"Descendre dans la hiérarchie" = Source{5}[Fonction personnalisée appelée],
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Descendre dans la hiérarchie", {{"resource_record_id", type text}, {"project_id", type text}, {"resource_id", type text}, {"resource_name", type text}, {"role", type text}, {"month", type date}, {"planned_hours", Int64.Type}, {"actual_hours", type text}, {"available_capacity_hours", Int64.Type}, {"utilization_pct", type text}, {"overload_flag", type text}}, "fr"),
+				  #"Valeur remplacée" = Table.ReplaceValue(#"Type de colonne changé", ".", ",", Replacer.ReplaceText, {"actual_hours", "utilization_pct"}),
+				  #"Type de colonne changé 1" = Table.TransformColumnTypes(#"Valeur remplacée", {{"actual_hours", type number}, {"utilization_pct", type number}})
+				in
+				  #"Type de colonne changé 1"
+
+	annotation PBI_ResultType = Table
+

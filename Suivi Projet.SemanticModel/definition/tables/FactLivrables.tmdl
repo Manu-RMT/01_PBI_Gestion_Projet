@@ -40,11 +40,6 @@ table FactLivrables
 		summarizeBy: none
 		sourceColumn: planned_delivery_date
 
-		variation Variation
-			isDefault
-			relationship: b7f69aa5-42db-4ce9-b173-976eebd10857
-			defaultHierarchy: LocalDateTable_86bd3dcf-4705-42c8-a824-25081e01bbea.'Hiérarchie de dates'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date

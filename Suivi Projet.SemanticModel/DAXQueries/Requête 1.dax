@@ -1,0 +1,10 @@
+DEFINE
+	MEASURE 'MesuresTable'[EV - Valeur acquise estimée] =
+		// Approxime la valeur acquise en appliquant l'avancement réel au budget initial. 
+		// Pour un EVM strict, calculer l'EV à partir des budgets des tâches. 
+		[BAC - Budget initial] * [Avancement portefeuille (%)]
+
+EVALUATE
+	SUMMARIZECOLUMNS(
+		"EV - Valeur acquise estimée", [EV - Valeur acquise estimée]
+	)

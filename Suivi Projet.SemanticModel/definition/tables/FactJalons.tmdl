@@ -32,11 +32,6 @@ table FactJalons
 		summarizeBy: none
 		sourceColumn: planned_start_date
 
-		variation Variation
-			isDefault
-			relationship: 707f101c-816e-4bff-a44c-b20c09b05aa8
-			defaultHierarchy: LocalDateTable_f9dfa757-d56a-4d3e-bcb9-2bc609a0d6f7.'Hiérarchie de dates'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -47,11 +42,6 @@ table FactJalons
 		lineageTag: 9f432b8c-8128-4838-a847-124c57752294
 		summarizeBy: none
 		sourceColumn: planned_date
-
-		variation Variation
-			isDefault
-			relationship: c1d91129-29bf-480d-86bc-316e857eabaf
-			defaultHierarchy: LocalDateTable_5b05d70c-9b53-4c8e-bc4a-c02499bf211d.'Hiérarchie de dates'
 
 		annotation SummarizationSetBy = Automatic
 

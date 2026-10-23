@@ -8,17 +8,12 @@ table Dim_Calendrier
 		isNameInferred
 		sourceColumn: [Date]
 
-		variation Variation
-			isDefault
-			relationship: 5b668d8a-4ef3-48ad-a83b-9ca3bd048580
-			defaultHierarchy: LocalDateTable_5450a741-237f-4a08-a132-b2944a4651fc.'Hiérarchie de dates'
-
 		annotation SummarizationSetBy = Automatic
 
 	column Année
 		formatString: 0
 		lineageTag: bc40d372-6adb-4aa4-b4c3-f1149af2da73
-		summarizeBy: sum
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Année]
 
@@ -27,7 +22,7 @@ table Dim_Calendrier
 	column 'Mois Numéro'
 		formatString: 0
 		lineageTag: fd838ccd-a12b-460b-822a-5f2432dbaba6
-		summarizeBy: sum
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Mois Numéro]
 
@@ -52,7 +47,7 @@ table Dim_Calendrier
 	column 'Trimestre Numéro'
 		formatString: 0
 		lineageTag: 78c957c8-a082-4090-8fcb-1806c6fe1ce3
-		summarizeBy: sum
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Trimestre Numéro]
 
@@ -77,7 +72,7 @@ table Dim_Calendrier
 	column 'Numéro Semaine'
 		formatString: 0
 		lineageTag: e161754f-4edc-4ca4-b564-7bd16b5f8baa
-		summarizeBy: sum
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Numéro Semaine]
 
@@ -86,7 +81,7 @@ table Dim_Calendrier
 	column 'Jour Semaine Numéro'
 		formatString: 0
 		lineageTag: f89a84de-9559-4482-8181-29fe001ab50c
-		summarizeBy: sum
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Jour Semaine Numéro]
 

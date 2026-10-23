@@ -98,14 +98,12 @@ table FactTaches
 		annotation UnderlyingDateTimeDataType = Date
 
 	column progress_pct
-		dataType: double
+		dataType: string
 		lineageTag: 4fd09a8b-fdc4-4056-a3fa-5873a3be7e1f
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: progress_pct
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column task_status
 		dataType: string
@@ -142,14 +140,12 @@ table FactTaches
 		annotation SummarizationSetBy = Automatic
 
 	column planned_effort_hours
-		dataType: double
+		dataType: string
 		lineageTag: 5b96926d-d7ab-4109-8735-5b8020a0a791
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: planned_effort_hours
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition FactTaches = m
 		mode: import
@@ -160,10 +156,11 @@ table FactTaches
 				  #"Descendre dans la hiérarchie" = Source{1}[Fonction personnalisée appelée],
 				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Descendre dans la hiérarchie", {{"task_id", type text}, {"project_id", type text}, {"task_name", type text}, {"owner", type text}, {"planned_start_date", type date}, {"planned_end_date", type date}, {"actual_start_date", type date}, {"actual_end_date", type date}, {"progress_pct", type text}, {"task_status", type text}, {"critical_path_flag", type text}, {"delay_days", Int64.Type}, {"planned_duration_days", Int64.Type}, {"planned_effort_hours", type text}}, "fr"),
 				  #"Valeur remplacée" = Table.ReplaceValue(#"Type de colonne changé", ".", ",", Replacer.ReplaceText, {"progress_pct"}),
-				  #"Valeur remplacée 1" = Table.ReplaceValue(#"Valeur remplacée", ".", ",", Replacer.ReplaceText, {"planned_effort_hours"}),
-				  #"Type de colonne changé 1" = Table.TransformColumnTypes(#"Valeur remplacée 1", {{"planned_effort_hours", type number}, {"progress_pct", type number}})
+				  #"Valeur remplacée 1" = Table.ReplaceValue(#"Valeur remplacée", ".", ",", Replacer.ReplaceText, {"planned_effort_hours"})
 				in
-				  #"Type de colonne changé 1"
+				    #"Valeur remplacée 1"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

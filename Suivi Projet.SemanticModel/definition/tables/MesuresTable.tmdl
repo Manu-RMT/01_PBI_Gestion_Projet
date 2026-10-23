@@ -1,23 +1,6 @@
 table MesuresTable
 	lineageTag: 10df987b-8ab5-4d21-ad3e-95879c71fe8d
 
-	measure 'Avancement réel %' = ```
-			
-			    // Stocke la date du dernier reporting dans une variable.
-			    VAR DateReporting = [Date dernier reporting]
-			    RETURN
-			        // Récupère l'avancement réel à cette date.
-			        // Le filtre calendrier est retiré pour garantir
-			        // que la mesure utilise bien le dernier snapshot.
-			        CALCULATE(
-			            MAX(FactPilotageMensuel[actual_progress_pct]),
-			            REMOVEFILTERS(Dim_Calendrier),
-			            FactPilotageMensuel[snapshot_date] = DateReporting
-			        )
-			
-			```
-		lineageTag: ecbe9897-c50d-47cb-9e82-dbb06e4513db
-
 	measure 'Date dernier reporting' = ```
 			
 			    // Récupère la dernière date de snapshot disponible.
@@ -29,48 +12,697 @@ table MesuresTable
 			    )
 			
 			```
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: 83cde7c0-6483-450e-8c4d-486eb5dee52c
 
-	measure 'Avancement prévu %' = ```
+	measure 'Avancement réel moyen (%)' = ```
 			
-			    // Identifie la date du dernier reporting.
-			    VAR DateReporting = [Date dernier reporting]
-			    RETURN
-			        // Récupère l'avancement théorique prévu à cette date.
-			        CALCULATE(
-			            MAX(FactPilotageMensuel[planned_progress_pct]),
-			            REMOVEFILTERS(Dim_Calendrier),
-			            FactPilotageMensuel[snapshot_date] = DateReporting
-			        )
+			AVERAGE(FactPilotageMensuel[actual_progress_pct])
+			 
+			```
+		lineageTag: 99c43079-e4fa-4835-9c16-64d517e429b0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avancement prévu moyen (%)' =
+			// Moyenne simple des taux d'avancement planifiés visibles.
+			    AVERAGE(FactPilotageMensuel[planned_progress_pct])
+		formatString: 0
+		lineageTag: 63bab02a-af92-454b-ab9e-178ca99f1880
+
+	measure 'Avancement portefeuille (%)' = ```
+			
+			-- Avancement réel pondéré par le budget initial.
+			-- Retourne une valeur entre 0 et 1, à formater en pourcentage.
+			-- Retient le dernier snapshot de chaque projet dans le contexte courant.
+			
+			VAR ProjetsVisibles =
+			    VALUES(DimProjet[project_id])
+			
+			VAR ValeurPonderee =
+			    SUMX(
+			        ProjetsVisibles,
+			        VAR ProjetCourant = DimProjet[project_id]
+			        VAR DernierSnapshot =
+			            CALCULATE(
+			                MAX(FactPilotageMensuel[snapshot_date]),
+			                FactPilotageMensuel[project_id] = ProjetCourant
+			            )
+			        VAR AvancementProjet =
+			            CALCULATE(
+			                MAX(FactPilotageMensuel[actual_progress_pct]),
+			                FactPilotageMensuel[project_id] = ProjetCourant,
+			                FactPilotageMensuel[snapshot_date] = DernierSnapshot
+			            )
+			        VAR BudgetProjet =
+			            CALCULATE(
+			                MAX(DimProjet[budget_initial_eur])
+			            )
+			        RETURN
+			            DIVIDE(AvancementProjet, 100) * BudgetProjet
+			    )
+			
+			VAR BudgetTotal =
+			    SUMX(
+			        ProjetsVisibles,
+			        CALCULATE(MAX(DimProjet[budget_initial_eur]))
+			    )
+			
+			RETURN
+			    DIVIDE(ValeurPonderee, BudgetTotal)
 			
 			```
-		formatString: 0
-		lineageTag: b91daa8a-0f80-45e0-b829-f845f5223ae5
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: ebb029ea-006e-4f2f-907e-ee24dcc36ddf
+
+	measure 'Avancement prévu portefeuille (%)' =
+			
+			VAR ProjetsVisibles = VALUES(DimProjet[project_id])
+			VAR ValeurPonderee =
+			    SUMX(
+			        ProjetsVisibles,
+			        VAR ProjetCourant = DimProjet[project_id]
+			        VAR DernierSnapshot =
+			            CALCULATE(
+			                MAX(FactPilotageMensuel[snapshot_date]),
+			                FactPilotageMensuel[project_id] = ProjetCourant
+			            )
+			        VAR AvancementProjet =
+			            CALCULATE(
+			                MAX(FactPilotageMensuel[planned_progress_pct]),
+			                FactPilotageMensuel[project_id] = ProjetCourant,
+			                FactPilotageMensuel[snapshot_date] = DernierSnapshot
+			            )
+			        VAR BudgetProjet = CALCULATE(MAX(DimProjet[budget_initial_eur]))
+			        RETURN DIVIDE(AvancementProjet, 100) * BudgetProjet
+			    )
+			VAR BudgetTotal =
+			    SUMX(ProjetsVisibles, CALCULATE(MAX(DimProjet[budget_initial_eur])))
+			RETURN
+			    DIVIDE(ValeurPonderee, BudgetTotal)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 8cd5c2a1-70e9-4997-8dbe-97bb8c826d21
 
 	measure 'Écart avancement (points)' = ```
 			
-			    // Calcule l'écart entre l'avancement réel et le prévu.
-			    // Multiplication par 100 pour afficher des points
-			    // si les pourcentages sont stockés entre 0 et 1.
-			    100 * (
-			        [Avancement réel %] - [Avancement prévu %]
-			    )
-			
+			// Une valeur positive signifie que le réel dépasse le prévisionnel.
+			// La mesure renvoie une différence de proportions. 
+			100 * [Avancement portefeuille (%)] - [Avancement prévu portefeuille (%)]
 			```
-		lineageTag: 1980f29f-3c88-4874-8f03-073f35794d78
+		lineageTag: 70ec3613-c7b8-408d-8b05-23f4f548a44f
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'BAC - Budget initial' = ```
 			
-			    // Additionne les budgets initiaux des projets
-			    // présents dans le contexte de filtre.
-			    SUM(DimProjet[budget_initial_eur])
+			// Somme les budgets initiaux des projets visibles. 
+			// Respecte les filtres et segments du rapport. 
+			SUM(DimProjet[budget_initial_eur])
 			
 			```
 		formatString: 0
-		lineageTag: 1a9833ee-2678-4d2e-b55a-8516b763d91c
+		lineageTag: 6c22b77d-664a-4b98-865d-5de2f1a9951d
+
+	measure 'Coût réel cumulé' = ```
+			
+			// Additionne le coût cumulé du dernier snapshot de chaque projet. 
+			// Évite de sommer plusieurs snapshots historiques d'un même projet. 
+			
+			SUMX( VALUES(DimProjet[project_id]), VAR ProjetCourant = DimProjet[project_id] VAR DernierSnapshot = CALCULATE( MAX(FactPilotageMensuel[snapshot_date]), FactPilotageMensuel[project_id] = ProjetCourant ) RETURN CALCULATE( MAX(FactPilotageMensuel[actual_cost_cumulative_eur]), FactPilotageMensuel[project_id] = ProjetCourant, FactPilotageMensuel[snapshot_date] = DernierSnapshot ) )
+			
+			```
+		lineageTag: e520d868-9a63-449a-bce0-7439cd806b12
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'PV - Valeur planifiée' = ```
+			
+			// Additionne la valeur planifiée du dernier snapshot de chaque projet. 
+			// PV signifie Planned Value dans la méthode de la valeur acquise. 
+			SUMX(
+						VALUES(DimProjet[project_id]),
+						VAR ProjetCourant = DimProjet[project_id]
+						VAR DernierSnapshot = CALCULATE(
+							MAX(FactPilotageMensuel[snapshot_date]),
+							FactPilotageMensuel[project_id] = ProjetCourant
+						)
+						RETURN
+							CALCULATE(
+								MAX(FactPilotageMensuel[planned_value_eur]),
+								FactPilotageMensuel[project_id] = ProjetCourant,
+								FactPilotageMensuel[snapshot_date] = DernierSnapshot
+							)
+					)
+			```
+		lineageTag: a0998ed7-d0b4-451c-8590-1bcd555ec122
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'EV - Valeur acquise estimée' = ```
+			
+			-- Valeur acquise estimée = budget initial × avancement réel.
+			[BAC - Budget initial] * [Avancement portefeuille (%)]
+			
+			```
+		lineageTag: 0fec3932-b4c8-4853-833f-3015282df189
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'CPI - Performance des coûts' = ```
+			// Compare la valeur acquise estimée au coût réel. // CPI inférieur à 1 : performance des coûts défavorable. 
+			DIVIDE([EV - Valeur acquise estimée], [Coût réel cumulé])
+			
+			```
+		formatString: 0
+		lineageTag: d22bf7b0-9f1a-4b90-9372-8e36c5415d93
+
+	measure 'SPI - Performance des délais' = ```
+			
+			    // Compare la valeur acquise à la valeur planifiée.
+			    // Si > 1 en avance sur le projet
+			    DIVIDE(
+			        [EV - Valeur acquise estimée],
+			        [PV - Valeur planifiée]
+			    )
+			```
+		formatString: 0.00
+		lineageTag: 678a3e89-94e8-4804-8770-c484e5031010
+
+	measure 'CV - Écart de coûts' = ```
+			
+			// Une valeur négative signale un dépassement de coûts. 
+			[EV - Valeur acquise estimée] - [Coût réel cumulé]
+			```
+		lineageTag: 5dc3c5bb-8e37-400f-9397-5c5515cc0d77
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'SV - Écart de planning (€)' = ```
+			// Une valeur négative indique un retard en valeur budgétaire. 
+			[EV - Valeur acquise estimée] - [PV - Valeur planifiée]
+			
+			```
+		lineageTag: ebeb8cb7-472f-4644-b00f-d82eed6364b7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'EAC - Coût estimé à terminaison' = ```
+			
+			// Estime le coût final si la performance actuelle se poursuit. 
+			// Formule : coût réel + (BAC - EV) / CPI. 
+			
+			VAR CPIActuel = [CPI - Performance des coûts]
+					RETURN
+						IF(
+							CPIActuel > 0,
+							[Coût réel cumulé] + DIVIDE(
+								[BAC - Budget initial] - [EV - Valeur acquise estimée],
+								CPIActuel
+							)
+						)
+			
+			```
+		lineageTag: e54f4507-4f3b-410b-8b74-e229fbbf5fb1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'VAC - Écart budgétaire final estimé' = ```
+			
+			// Une valeur négative suggère un dépassement budgétaire. 
+			[BAC - Budget initial] - [EAC - Coût estimé à terminaison]
+			
+			```
+		lineageTag: 7728b9cb-e8df-4cfc-ab7d-a80b7a5d939c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Nombre de tâches' = ```
+			
+			 // Compte les identifiants de tâches distincts dans le contexte courant.
+			 DISTINCTCOUNT(FactTaches[task_id])
+			
+			```
+		formatString: 0
+		lineageTag: 57485525-fae1-4916-9158-840f593fb94d
+
+	measure 'Tâches critiques' = ```
+			
+			// Compte les tâches appartenant au chemin critique. 
+			CALCULATE( 
+			    DISTINCTCOUNT(FactTaches[task_id]), FactTaches[critical_path_flag] = "Oui" )
+			
+			```
+		formatString: 0
+		lineageTag: e5f66696-b02e-4d92-8791-1d6ebb04eb20
+
+	measure 'Tâches en retard' = ```
+			// Compte les tâches avec un retard positif et non terminées. 
+			CALCULATE(
+						DISTINCTCOUNT(FactTaches[task_id]),
+						FactTaches[delay_days] > 0,
+						ISBLANK(FactTaches[actual_end_date])
+					)
+			
+			
+			
+			```
+		formatString: 0
+		lineageTag: fcf539a7-4103-46ca-b622-6706d389c244
+
+	measure 'Tâches critiques en retard' = ```
+			
+			// Compte les tâches critiques, en retard et non terminées. 
+			CALCULATE( DISTINCTCOUNT(FactTaches[task_id]), FactTaches[critical_path_flag] = "Oui", FactTaches[delay_days] > 0, ISBLANK(FactTaches[actual_end_date]) )
+			
+			```
+		formatString: 0
+		lineageTag: 61d558a9-7ec1-47e7-989c-000e20aa9ac0
+
+	measure 'Charge prévue (h)' = ```
+			
+			// Totalise les heures de travail planifiées dans le contexte courant. 
+			SUM(FactCharge[planned_hours])
+			
+			```
+		formatString: 0
+		lineageTag: ea50f75a-a910-43af-8fe0-678467c438dc
+
+	measure 'Charge réelle (h)' = ```
+			
+			// Totalise les heures réellement consommées.
+			 SUM(FactCharge[actual_hours])
+			
+			```
+		lineageTag: a8a67489-6b36-45df-900e-f68319f46720
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Capacité disponible (h)' = ```
+			
+			// Totalise la capacité disponible dans le contexte courant.
+			 SUM(FactCharge[available_capacity_hours])
+			
+			```
+		formatString: 0
+		lineageTag: 3849d48b-4f7d-48c7-970b-cfda94cd093a
+
+	measure 'Taux d''utilisation' = ```
+			
+			// Rapporte la charge réelle à la capacité disponible. 
+			// Le taux peut dépasser 100 % en cas de surcharge.
+			 DIVIDE([Charge réelle (h)], [Capacité disponible (h)])
+			
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 02f29dd5-0299-4d09-a74a-d4bb9b4bdf1e
+
+	measure 'Ressources en surcharge' = ```
+			// Compte les ressources distinctes marquées en surcharge.
+			 CALCULATE( DISTINCTCOUNT(FactCharge[resource_id]), FactCharge[overload_flag] = "OUi" )
+			
+			```
+		formatString: 0
+		lineageTag: ab9645c2-b0e3-46f1-b4e2-d33742be60a1
+
+	measure 'Score de risque moyen (ouverts)' = ```
+			
+			// « Score de risque moyen » inclut les risques clôturés. 
+			AVERAGEX(
+			    FILTER(FactRisques, ISBLANK(FactRisques[closed_date])),
+			    FactRisques[probability_1_5] * FactRisques[impact_1_5]
+			)
+			```
+		lineageTag: c5fc84a2-adc0-4a3f-b702-0dc73480fb8e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Risques critiques ouverts' = ```
+			
+			// Compte les risques non clôturés avec probabilité et impact élevés.
+			// Seuil fixé à 4 sur 5 pour les deux dimensions. 
+			CALCULATE( DISTINCTCOUNT(FactRisques[risk_id]), ISBLANK(FactRisques[closed_date]), FactRisques[probability_1_5] >= 4, FactRisques[impact_1_5] >= 4 )
+			
+			```
+		formatString: 0
+		lineageTag: bbacfbde-4160-4184-ae20-fc60abef37c9
+
+	measure 'Nombre de contrôles qualité' = ```
+			
+			 // Compte les lignes de contrôle qualité visibles. 
+			 COUNTROWS(FactControlesQualite)
+			
+			```
+		formatString: 0
+		lineageTag: 6bd8dcbb-861b-4db6-a648-6eb4610b19c0
+
+	measure 'Taux accepté au premier contrôle' = ```
+			
+			// Moyenne d'un indicateur booléen : TRUE vaut 1 et FALSE vaut 0.
+			AVERAGE(FactControlesQualite[first_pass_accepted_flag])
+			
+			```
+		formatString: 0
+		lineageTag: bae9df16-2c0c-4de9-bfbd-c8fac3fc63ed
+
+	measure 'Incidents ouverts' = ```
+			// Compte les incidents sans date de résolution.
+			 CALCULATE( DISTINCTCOUNT(FactIncidents[incident_id]), ISBLANK(FactIncidents[resolved_date]) )
+			
+			```
+		formatString: 0
+		lineageTag: cba6c7f9-0bd2-4841-a239-13a37172227e
+
+	measure 'Actions en retard' = ```
+			
+			// Compte les actions échues qui ne sont pas clôturées.
+			 CALCULATE( DISTINCTCOUNT(FactActions[action_id]), FactActions[due_date] < TODAY(), ISBLANK(FactActions[closed_date]) )
+			
+			```
+		formatString: 0
+		lineageTag: e74aab46-2f7b-4bf3-b908-ed7ac8aa9af4
+
+	measure 'Livrables bloqués' = ```
+			
+			// Compte les livrables marqués comme bloqués.
+			CALCULATE( DISTINCTCOUNT(FactLivrables[deliverable_id]), FactLivrables[blocked_flag] = "Oui" )
+			
+			```
+		formatString: 0
+		lineageTag: f5c5513c-7d3b-4ef0-81f3-b9f13ef01a1b
+
+	measure 'Demandes de changement en attente' = ```
+			
+			 // Compte les demandes dont le statut indique une attente de décision. 
+			 CALCULATE( DISTINCTCOUNT(FactChangements[change_request_id]), FactChangements[status] = "En attente" )
+			
+			```
+		formatString: 0
+		lineageTag: 3ff90ee5-4f18-4fc4-b038-b9c82d80bd2a
+
+	measure 'Impact changements en attente (€)' = ```
+			
+			// Additionne l'impact financier estimé des demandes en attente. 
+			CALCULATE( SUM(FactChangements[estimated_cost_impact_eur]), FactChangements[status] = "En attente" )
+			
+			```
+		formatString: 0
+		lineageTag: acb051dc-97b0-4f0b-b24c-734b3a3f03ba
+
+	measure 'Contrôle PV vs BAC × prévu' =
+			
+			[PV - Valeur planifiée] - [BAC - Budget initial] * [Avancement prévu portefeuille (%)]
+			// A6. Contrôle de cohérence : PV (planned_value_eur) doit être proche de BAC × avancement prévu.
+			//     Un écart important signale deux bases de budget différentes (budget initial et budget à terminaison).
+		lineageTag: adee2325-7403-4004-a955-8b858acad328
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'ETC - Reste à faire estimé' =
+			
+			[EAC - Coût estimé à terminaison] - [Coût réel cumulé]
+		lineageTag: 3efb3ede-b736-48bb-aaea-efd363b1eebb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Dépassement prévisionnel (%)' =
+			
+			DIVIDE([EAC - Coût estimé à terminaison] - [BAC - Budget initial], [BAC - Budget initial])
+		lineageTag: 2e8248cf-6360-49ec-87a3-471122568d9f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Budget non consommé (€)' = [BAC - Budget initial] - [Coût réel cumulé]
+		lineageTag: 8c17bf94-4c9f-4bda-b317-95e9079a8910
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Consommation budget (%)' = DIVIDE([Coût réel cumulé], [BAC - Budget initial])
+		lineageTag: 01604739-5a6a-4424-8130-a4623a44cdcb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Coûts engagés (€)' = SUM(FactCouts[amount_eur])
+		lineageTag: 0d89e7df-7270-41b8-8cd2-0f85dd1869ca
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Écart coût réel cumulé vs coûts saisis (€)' = [Coût réel cumulé] - [Coûts engagés (€)]
+		lineageTag: e48bb1b3-1e54-4fe5-9635-be6e1b3639f9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Retard moyen des tâches (jours)' =
+			
+			AVERAGEX(
+			    FILTER(FactTaches, FactTaches[delay_days] > 0 && ISBLANK(FactTaches[actual_end_date])),
+			    FactTaches[delay_days]
+			)
+		lineageTag: 44bec0d0-d8ee-431b-aadc-f7f0fc154322
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Jalons échus' =
+			
+			VAR d = [Date dernier reporting]
+			RETURN COUNTROWS(FILTER(FactJalons, FactJalons[planned_date] <= d))
+		formatString: 0
+		lineageTag: 8c113bff-f6c6-4b77-b22d-5a05fdd51dea
+
+	measure 'Jalons respectés' =
+			
+			VAR d = [Date dernier reporting]
+			RETURN
+			COUNTROWS(
+			    FILTER(
+			        FactJalons,
+			        FactJalons[planned_date] <= d
+			            && NOT ISBLANK(FactJalons[actual_date])
+			            && FactJalons[actual_date] <= FactJalons[planned_date]
+			    )
+			)
+		formatString: 0
+		lineageTag: 90c112f5-2c9c-4d55-b026-7cf1e660b3e7
+
+	measure 'Jalons respectés (%)' = DIVIDE([Jalons respectés], [Jalons échus])
+		lineageTag: 44c8fa12-76e1-431d-ba79-fbde5178ba6d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Prochain jalon' =
+			
+			VAR d = [Date dernier reporting]
+			RETURN
+			MINX(
+			    FILTER(FactJalons, FactJalons[planned_date] >= d && ISBLANK(FactJalons[actual_date])),
+			    FactJalons[planned_date]
+			)
+		formatString: General Date
+		lineageTag: 3f5e2d3a-4a13-47ec-a153-0c5b8f7212f9
+
+	measure 'Jours avant le prochain jalon' = DATEDIFF([Date dernier reporting], [Prochain jalon], DAY)
+		formatString: 0
+		lineageTag: 7fbcb243-8b58-43af-b230-66d4b6d2ecb6
+
+	measure 'Écart de charge (%)' =
+			
+			DIVIDE([Charge réelle (h)] - [Charge prévue (h)], [Charge prévue (h)])
+		lineageTag: b3b18d3a-9125-4347-b59d-f8d9f4153140
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Taux de surcharge (%)' =
+			
+			DIVIDE([Charge réelle (h)] - [Capacité disponible (h)], [Capacité disponible (h)])
+		lineageTag: d6fbf403-e93b-4242-88ab-5a5d50ad4981
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Actions en retard (%)' = ```
+			
+			DIVIDE(
+			    [Actions en retard],
+			    CALCULATE(
+			        DISTINCTCOUNT(FactActions[action_id]),
+			        ISBLANK(FactActions[closed_date])
+			    )
+			)
+			
+			```
+		lineageTag: a0288395-228a-48df-977e-e5df90ac81df
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Risques avec action en retard' =
+			
+			VAR d = [Date dernier reporting]
+			RETURN
+			CALCULATE(
+			    DISTINCTCOUNT(FactActions[related_risk_id]),
+			    FactActions[due_date] < d,
+			    ISBLANK(FactActions[closed_date])
+			)
+			
+			// FactRisques n'a pas d'échéance : on s'appuie sur les actions liées
+		formatString: 0
+		lineageTag: 25ccb463-83d6-4311-a7f4-c7b349161ca8
+
+	measure 'Incidents résolus' =
+			
+			CALCULATE(DISTINCTCOUNT(FactIncidents[incident_id]), NOT ISBLANK(FactIncidents[resolved_date]))
+		formatString: 0
+		lineageTag: f79433bc-1a1e-4536-b106-5d152bfb2719
+
+	measure 'Taux de résolution des incidents' =
+			
+			DIVIDE([Incidents résolus], DISTINCTCOUNT(FactIncidents[incident_id]))
+		lineageTag: e2dc5d6e-c6ea-4eed-9e65-c14c29e6fbf1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Délai moyen de résolution (h)' = AVERAGE(FactIncidents[resolution_hours])
+		lineageTag: 4b10b4a0-8ee7-4a30-83a0-9884b7e78c43
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Taux accepté après reprise' =
+			
+			DIVIDE(
+			    CALCULATE(COUNTROWS(FactControlesQualite), FactControlesQualite[accepted_after_rework_flag] = "Oui"),
+			    COUNTROWS(FactControlesQualite)
+			)
+		formatString: 0
+		lineageTag: c55fb86d-8205-481f-a659-c165a60d525f
+
+	measure 'Défauts critiques détectés' =
+			
+			CALCULATE(COUNTROWS(FactControlesQualite), FactControlesQualite[critical_defect_flag] = "Oui")
+		formatString: 0
+		lineageTag: b555a559-13c5-4aff-ba04-156dce500cba
+
+	measure 'Non-conformités ouvertes' = ```
+			
+			CALCULATE(DISTINCTCOUNT(FactNonConformites[nonconformity_id]), ISBLANK(FactNonConformites[closed_date]))
+			
+			```
+		formatString: 0
+		lineageTag: 214e1f01-513b-44f6-b74c-99f181ae5087
+
+	measure 'Coût de non-qualité (€)' = SUM(FactNonConformites[rework_cost_eur])
+		formatString: 0
+		lineageTag: af8460c8-705e-46c3-bf47-ed25557fd567
+
+	measure 'Coût de non-qualité (% du budget)' = DIVIDE([Coût de non-qualité (€)], [BAC - Budget initial])
+		lineageTag: 6847dcec-2ddf-4edf-a970-5b9e052226dc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Nombre de livrables' = DISTINCTCOUNT(FactLivrables[deliverable_id])
+		formatString: 0
+		lineageTag: 1ffcec8e-1b45-48c1-bbd3-469ce5e8afd9
+
+	measure 'Livrables livrés' =
+			
+			CALCULATE(DISTINCTCOUNT(FactLivrables[deliverable_id]), NOT ISBLANK(FactLivrables[actual_delivery_date]))
+		formatString: 0
+		lineageTag: c7533ef3-0bea-425b-aebc-cdcc221ba724
+
+	measure 'Livrables livrés (%)' = DIVIDE([Livrables livrés], [Nombre de livrables])
+		lineageTag: b7afc7d8-0126-441c-ac06-6de245e17f6e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Livrables en retard' = ```
+			
+			VAR d = [Date dernier reporting]
+			RETURN
+			CALCULATE(
+			    DISTINCTCOUNT(FactLivrables[deliverable_id]),
+			    ISBLANK(FactLivrables[actual_delivery_date]),
+			    FactLivrables[planned_delivery_date] < d
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 87104299-6124-4c10-9558-f924bb03b863
+
+	measure 'Retard moyen de livraison (jours)' = ```
+			
+			AVERAGEX(
+			    FILTER(
+			        FactLivrables,
+			        NOT ISBLANK(FactLivrables[actual_delivery_date])
+			            && FactLivrables[actual_delivery_date] > FactLivrables[planned_delivery_date]
+			    ),
+			    DATEDIFF(FactLivrables[planned_delivery_date], FactLivrables[actual_delivery_date], DAY)
+			)
+			
+			
+			```
+		lineageTag: d880886e-b495-443c-8320-b5aa06b15135
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Livrables acceptés (%)' = ```
+			
+			DIVIDE(
+			    CALCULATE(DISTINCTCOUNT(FactLivrables[deliverable_id]), FactLivrables[accepted_flag] = TRUE()),
+			    [Livrables livrés]
+			)
+			
+			
+			
+			```
+		formatString: 0
+		lineageTag: 6c970dcc-b0de-4d4c-ab36-a72691801096
+
+	measure 'Impact délai changements en attente (jours)' = ```
+			
+			CALCULATE(SUM(FactChangements[estimated_delay_days]), FactChangements[status] = "En attente")
+			
+			```
+		formatString: 0
+		lineageTag: 69f956db-8cbe-4376-bc8d-de097135ae7a
+
+	measure 'Décisions en attente' = ```
+			
+			CALCULATE(DISTINCTCOUNT(FactDecisionProjet[decision_id]), FactDecisionProjet[status] = "En attente")
+			
+			```
+		formatString: 0
+		lineageTag: 0bd30534-1270-4850-81d0-2adca133f5a8
+
+	measure 'Délai moyen de décision (jours)' = ```
+			
+			AVERAGEX(
+			    FILTER(FactDecisionProjet, NOT ISBLANK(FactDecisionProjet[decision_date])),
+			    DATEDIFF(FactDecisionProjet[request_date], FactDecisionProjet[decision_date], DAY)
+			)
+			
+			```
+		lineageTag: 86dce0e4-2883-4947-9ced-ccce81f7bc0c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Statut global' =
+			
+			VAR spi = [SPI - Performance des délais]
+			VAR cpi = [CPI - Performance des coûts]
+			VAR crit = [Risques critiques ouverts]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    spi < 0.85 || cpi < 0.85 || crit >= 5, "Rouge",
+			    spi < 0.95 || cpi < 0.95 || crit >= 3, "Ambre",
+			    "Vert"
+			)
+			
+			// ---------- Synthèse : statut global calculé ----------// Idéalement, mets les seuils dans une table de paramètres au lieu de les écrire en dur.
+		lineageTag: 70b19fc7-3842-4d70-9dde-dbdde1fdf69e
+
+	measure 'Couleur statut global' =
+			
+			SWITCH([Statut global], "Rouge", "#D0453D", "Ambre", "#E0A93B", "#2E9F6B")
+		lineageTag: ab5e8897-8ff2-4419-97a6-59fbd434ecfd
 
 	partition MesuresTable = m
 		mode: import
@@ -79,7 +711,9 @@ table MesuresTable
 				  Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"" = _t]),
 				    #"Colonnes supprimées" = Table.RemoveColumns(Source,{"Column1"})
 				in
-				  #"Colonnes supprimées"
+				    #"Colonnes supprimées"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

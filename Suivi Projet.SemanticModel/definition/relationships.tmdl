@@ -28,16 +28,6 @@ relationship b052fa26-07cf-42eb-905e-db574f0c640b
 	fromColumn: FactTaches.actual_end_date
 	toColumn: LocalDateTable_5a073cdd-9e71-4429-9943-175b81263464.Date
 
-relationship 707f101c-816e-4bff-a44c-b20c09b05aa8
-	joinOnDateBehavior: datePartOnly
-	fromColumn: FactJalons.planned_start_date
-	toColumn: LocalDateTable_f9dfa757-d56a-4d3e-bcb9-2bc609a0d6f7.Date
-
-relationship c1d91129-29bf-480d-86bc-316e857eabaf
-	joinOnDateBehavior: datePartOnly
-	fromColumn: FactJalons.planned_date
-	toColumn: LocalDateTable_5b05d70c-9b53-4c8e-bc4a-c02499bf211d.Date
-
 relationship a1b3a3fe-c17f-4efb-81c7-483267ae4fed
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactJalons.actual_date
@@ -72,11 +62,6 @@ relationship 736044ed-3118-4123-baf4-2b6530368efc
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactRisques.closed_date
 	toColumn: LocalDateTable_e2fbed0f-4b3c-4bbb-92d3-8da0924f0e2b.Date
-
-relationship b7f69aa5-42db-4ce9-b173-976eebd10857
-	joinOnDateBehavior: datePartOnly
-	fromColumn: FactLivrables.planned_delivery_date
-	toColumn: LocalDateTable_86bd3dcf-4705-42c8-a824-25081e01bbea.Date
 
 relationship 1a0bce8f-07dd-48f1-a52f-fffae7d4bd5d
 	joinOnDateBehavior: datePartOnly
@@ -127,11 +112,6 @@ relationship 9c6332ca-c07b-4304-85ba-e9450104f370
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactDecisionProjet.decision_id
 	toColumn: LocalDateTable_bca0354f-a598-42e0-bccd-6346e448a127.Date
-
-relationship 8c9eeb0f-37fd-4c26-915c-9a2a67904c9e
-	joinOnDateBehavior: datePartOnly
-	fromColumn: FactDecisionProjet.request_date
-	toColumn: LocalDateTable_66ca445c-7029-4e71-a619-af4abfbe5d50.Date
 
 relationship 87d68aba-5289-47ab-a367-fc967b722a62
 	joinOnDateBehavior: datePartOnly
@@ -190,11 +170,6 @@ relationship AutoDetected_0badd68f-d3e4-4577-a4cc-7878fa8ed40f
 	fromColumn: FactDecisionProjet.project_id
 	toColumn: DimProjet.project_id
 
-relationship 5b668d8a-4ef3-48ad-a83b-9ca3bd048580
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Dim_Calendrier.Date
-	toColumn: LocalDateTable_5450a741-237f-4a08-a132-b2944a4651fc.Date
-
 relationship 852011da-7bf4-4e54-8e77-8144640d207d
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactNonConformites.opened_date
@@ -209,4 +184,32 @@ relationship 94185bdc-86af-4e6e-bed1-bd9581d6ef73
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactNonConformites.closed_date
 	toColumn: LocalDateTable_8b88c86b-b23a-4c5e-a772-c5ce0bb3d839.Date
+
+relationship 822f1410-105c-179a-2142-116adfc31505
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: FactDecisionProjet.request_date
+	toColumn: Dim_Calendrier.Date
+
+relationship 78c30dc3-cae1-94b8-3ba1-05c7373a7daf
+	isActive: false
+	fromColumn: FactLivrables.planned_delivery_date
+	toColumn: Dim_Calendrier.Date
+
+relationship 04418b28-abb8-ba50-6e0a-bb8d1a70f717
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Dim_Calendrier.Date
+	toColumn: FactChangements.request_date
+
+relationship a2f99c64-7376-a13f-738c-9333d15e8a36
+	fromColumn: FactJalons.planned_date
+	toColumn: Dim_Calendrier.Date
+
+relationship 44bceeab-3126-b9dc-455d-35d00e6aecba
+	isActive: false
+	fromColumn: FactJalons.planned_start_date
+	toColumn: Dim_Calendrier.Date
 

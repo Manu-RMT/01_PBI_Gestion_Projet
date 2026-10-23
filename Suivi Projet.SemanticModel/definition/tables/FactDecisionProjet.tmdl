@@ -48,11 +48,6 @@ table FactDecisionProjet
 		summarizeBy: none
 		sourceColumn: request_date
 
-		variation Variation
-			isDefault
-			relationship: 8c9eeb0f-37fd-4c26-915c-9a2a67904c9e
-			defaultHierarchy: LocalDateTable_66ca445c-7029-4e71-a619-af4abfbe5d50.'Hiérarchie de dates'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date

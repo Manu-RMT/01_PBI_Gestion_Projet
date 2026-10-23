@@ -1,12 +1,10 @@
-expression path_data_source =
-		let
-		    Source = "C:\Users\manra\Documents\Projects\WorkSpace\01_PBI_Gestion_Projet\source\jeux_donnees_kpi_projet\" meta [IsParameterQuery = true, IsParameterQueryRequired = false, Type = type text]
-		in
-		    Source
+expression path_data_source = "C:\Users\ManuelRAMANITRA\OneDrive - BIAL-X\Documents\Manu Projet\01_PBI_Gestion_Projet\source\jeux_donnees_kpi_projet\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
 	lineageTag: fbcb2f7e-dafb-4677-ba88-71c72235e7ac
 	queryGroup: param
 
 	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navigation
 
 expression fxTransformerCSV =
 		let

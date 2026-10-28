@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
-  "name": "35064b6ec140778747fb",
+  "name": "bbaddf7d3ccbd284ce27",
   "position": {
-    "x": 45,
-    "y": 28,
-    "z": 5,
-    "height": 258,
-    "width": 725,
-    "tabOrder": 5
+    "x": 1116,
+    "y": 114,
+    "z": 2000,
+    "height": 86,
+    "width": 218,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimProjet"
+                      "Entity": "FactTaches"
                     }
                   },
-                  "Property": "project_name"
+                  "Property": "critical_path_flag"
                 }
               },
-              "queryRef": "DimProjet.project_name",
-              "nativeQueryRef": "project_name",
+              "queryRef": "FactTaches.critical_path_flag",
+              "nativeQueryRef": "critical_path_flag",
               "active": true
             }
           ]
@@ -41,7 +41,7 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Basic'"
+                  "Value": "'Dropdown'"
                 }
               }
             }
@@ -50,7 +50,15 @@
       ],
       "general": [
         {
-          "properties": {}
+          "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
         }
       ]
     },

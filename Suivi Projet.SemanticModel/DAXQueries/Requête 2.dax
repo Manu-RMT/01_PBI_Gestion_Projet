@@ -1,0 +1,4 @@
+EVALUATE
+    SUMMARIZECOLUMNS(
+        "Tâches critiques en retard", [Tâches critiques en retard]
+    )

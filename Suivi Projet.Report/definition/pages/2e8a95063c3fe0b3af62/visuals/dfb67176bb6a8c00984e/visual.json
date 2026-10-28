@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "dfb67176bb6a8c00984e",
+  "position": {
+    "x": 970,
+    "y": 785,
+    "z": 11000,
+    "height": 227.5,
+    "width": 482.5,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactRisques"
+                    }
+                  },
+                  "Property": "risk_title"
+                }
+              },
+              "queryRef": "FactRisques.risk_title",
+              "nativeQueryRef": "Risque critique ouvert",
+              "displayName": "Risque critique ouvert"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "Risques critiques ouverts"
+                }
+              },
+              "queryRef": "MesuresTable.Risques critiques ouverts",
+              "nativeQueryRef": "NB",
+              "displayName": "NB"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactRisques"
+                  }
+                },
+                "Property": "risk_title"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "355.9999669723268D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FactRisques.risk_title"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "72.9998994309613D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.Risques critiques ouverts"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -38,11 +38,6 @@ relationship 13f7600e-70b7-47fc-b549-d72c3c56eccd
 	fromColumn: FactCouts.cost_date
 	toColumn: LocalDateTable_641d6de8-1f79-4c38-9bb7-8c48c397b84c.Date
 
-relationship cf32bd9d-45c8-47b4-92b3-9502cd8f4690
-	joinOnDateBehavior: datePartOnly
-	fromColumn: FactPilotageMensuel.snapshot_date
-	toColumn: LocalDateTable_564296a5-87dd-4e75-8067-9cd10348ead8.Date
-
 relationship 23133535-a7f2-404d-bc69-9c391acf1da4
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactCharge.month
@@ -185,31 +180,46 @@ relationship 94185bdc-86af-4e6e-bed1-bd9581d6ef73
 	fromColumn: FactNonConformites.closed_date
 	toColumn: LocalDateTable_8b88c86b-b23a-4c5e-a772-c5ce0bb3d839.Date
 
-relationship 822f1410-105c-179a-2142-116adfc31505
-	isActive: false
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: FactDecisionProjet.request_date
+relationship 97c5b34f-d0d9-4a76-add7-fa015eb77e6a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Dim_Calendrier.'Début Mois'
+	toColumn: LocalDateTable_e33804c4-83cb-441e-ae20-4d3abc5ee8f5.Date
+
+relationship e325c36c-fd7b-a2bc-f05c-b6fac620e5e6
+	fromColumn: FactPilotageMensuel.snapshot_date
 	toColumn: Dim_Calendrier.Date
 
-relationship 78c30dc3-cae1-94b8-3ba1-05c7373a7daf
-	isActive: false
-	fromColumn: FactLivrables.planned_delivery_date
-	toColumn: Dim_Calendrier.Date
-
-relationship 04418b28-abb8-ba50-6e0a-bb8d1a70f717
-	isActive: false
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: Dim_Calendrier.Date
-	toColumn: FactChangements.request_date
-
-relationship a2f99c64-7376-a13f-738c-9333d15e8a36
+relationship b3462e9f-4e6d-4442-8589-89b5ceac2a9f
+	joinOnDateBehavior: datePartOnly
 	fromColumn: FactJalons.planned_date
-	toColumn: Dim_Calendrier.Date
+	toColumn: LocalDateTable_5b381a52-33c7-4097-ba53-ace8d48e6ece.Date
 
-relationship 44bceeab-3126-b9dc-455d-35d00e6aecba
-	isActive: false
+relationship 28416fe6-d2fe-426e-bd01-87509b4e632c
+	joinOnDateBehavior: datePartOnly
 	fromColumn: FactJalons.planned_start_date
-	toColumn: Dim_Calendrier.Date
+	toColumn: LocalDateTable_0791de1f-6b05-402d-b208-049edb64335e.Date
+
+relationship f27dac29-9f29-4daf-8b2d-31c7f2aa0b48
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactDecisionProjet.request_date
+	toColumn: LocalDateTable_9b6a57cb-c0d6-46ef-a77d-251403f6373c.Date
+
+relationship b787e50f-3219-4d51-abc0-f7cc947d3bdf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Dim_Calendrier.Date
+	toColumn: LocalDateTable_e92ec34a-695d-4160-9056-c7ded95e6e61.Date
+
+relationship 31eec800-686e-44ae-8603-edb9d9d78731
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactLivrables.planned_delivery_date
+	toColumn: LocalDateTable_235d8c0a-65ee-4c55-ab39-ecd2817da67a.Date
+
+relationship 9d6a6ffc-f164-4102-8603-1c1c95b717d0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Dim_Snapshot.DateSnapshot
+	toColumn: LocalDateTable_88131e06-6dca-4287-a5d5-8510db4af295.Date
+
+relationship cbcee528-5b0f-6868-2613-126864fd5477
+	fromColumn: FactPilotageMensuel.snapshot_date
+	toColumn: Dim_Snapshot.DateSnapshot
 

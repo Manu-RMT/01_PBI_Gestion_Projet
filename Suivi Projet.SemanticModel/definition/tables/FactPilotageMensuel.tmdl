@@ -16,11 +16,6 @@ table FactPilotageMensuel
 		summarizeBy: none
 		sourceColumn: snapshot_date
 
-		variation Variation
-			isDefault
-			relationship: cf32bd9d-45c8-47b4-92b3-9502cd8f4690
-			defaultHierarchy: LocalDateTable_564296a5-87dd-4e75-8067-9cd10348ead8.'Hiérarchie de dates'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date

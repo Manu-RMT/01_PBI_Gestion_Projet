@@ -30,11 +30,15 @@ table MesuresTable
 		formatString: 0
 		lineageTag: 63bab02a-af92-454b-ab9e-178ca99f1880
 
-	measure 'Avancement portefeuille (%)' = ```
+	measure 'Avancement portefeuille (%)' =
 			
-			-- Avancement réel pondéré par le budget initial.
-			-- Retourne une valeur entre 0 et 1, à formater en pourcentage.
-			-- Retient le dernier snapshot de chaque projet dans le contexte courant.
+			-- Calcule l'avancement réel du portefeuille,
+			-- pondéré par le budget initial de chaque projet.
+			-- Pour chaque projet, retient le dernier snapshot
+			-- disponible à la date sélectionnée ou avant celle-ci.
+			
+			VAR DateSelectionnee =
+			    MAX(Dim_Calendrier[Date])
 			
 			VAR ProjetsVisibles =
 			    VALUES(DimProjet[project_id])
@@ -42,22 +46,37 @@ table MesuresTable
 			VAR ValeurPonderee =
 			    SUMX(
 			        ProjetsVisibles,
-			        VAR ProjetCourant = DimProjet[project_id]
+			
+			        VAR ProjetCourant =
+			            DimProjet[project_id]
+			
+			        -- Recherche le dernier snapshot du projet
+			        -- jusqu'à la date sélectionnée, en ignorant
+			        -- le filtre de date appliqué à la table de faits.
 			        VAR DernierSnapshot =
 			            CALCULATE(
 			                MAX(FactPilotageMensuel[snapshot_date]),
-			                FactPilotageMensuel[project_id] = ProjetCourant
+			                REMOVEFILTERS(Dim_Calendrier),
+			                REMOVEFILTERS(FactPilotageMensuel[snapshot_date]),
+			                FactPilotageMensuel[project_id] = ProjetCourant,
+			                FactPilotageMensuel[snapshot_date] <= DateSelectionnee
 			            )
+			
+			        -- Récupère l'avancement à ce snapshot.
 			        VAR AvancementProjet =
 			            CALCULATE(
 			                MAX(FactPilotageMensuel[actual_progress_pct]),
+			                REMOVEFILTERS(Dim_Calendrier),
+			                REMOVEFILTERS(FactPilotageMensuel[snapshot_date]),
 			                FactPilotageMensuel[project_id] = ProjetCourant,
 			                FactPilotageMensuel[snapshot_date] = DernierSnapshot
 			            )
+			
 			        VAR BudgetProjet =
 			            CALCULATE(
 			                MAX(DimProjet[budget_initial_eur])
 			            )
+			
 			        RETURN
 			            DIVIDE(AvancementProjet, 100) * BudgetProjet
 			    )
@@ -70,45 +89,81 @@ table MesuresTable
 			
 			RETURN
 			    DIVIDE(ValeurPonderee, BudgetTotal)
-			
-			```
 		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		lineageTag: ebb029ea-006e-4f2f-907e-ee24dcc36ddf
 
 	measure 'Avancement prévu portefeuille (%)' =
 			
-			VAR ProjetsVisibles = VALUES(DimProjet[project_id])
+			-- Calcule l'avancement prévu du portefeuille,
+			-- pondéré par le budget initial de chaque projet.
+			-- Pour chaque projet, retient le dernier snapshot
+			-- disponible à la date sélectionnée ou avant celle-ci.
+			
+			VAR DateSelectionnee =
+			    MAX(Dim_Calendrier[Date])
+			
+			VAR ProjetsVisibles =
+			    VALUES(DimProjet[project_id])
+			
 			VAR ValeurPonderee =
 			    SUMX(
 			        ProjetsVisibles,
-			        VAR ProjetCourant = DimProjet[project_id]
+			
+			        VAR ProjetCourant =
+			            DimProjet[project_id]
+			
+			        -- Recherche le dernier snapshot du projet
+			        -- jusqu'à la date sélectionnée, en ignorant
+			        -- les filtres de date sur le calendrier et la date de snapshot.
 			        VAR DernierSnapshot =
 			            CALCULATE(
 			                MAX(FactPilotageMensuel[snapshot_date]),
-			                FactPilotageMensuel[project_id] = ProjetCourant
+			                REMOVEFILTERS(Dim_Calendrier),
+			                REMOVEFILTERS(FactPilotageMensuel[snapshot_date]),
+			                FactPilotageMensuel[project_id] = ProjetCourant,
+			                FactPilotageMensuel[snapshot_date] <= DateSelectionnee
 			            )
+			
+			        -- Récupère l'avancement prévu à cette date.
 			        VAR AvancementProjet =
 			            CALCULATE(
 			                MAX(FactPilotageMensuel[planned_progress_pct]),
+			                REMOVEFILTERS(Dim_Calendrier),
+			                REMOVEFILTERS(FactPilotageMensuel[snapshot_date]),
 			                FactPilotageMensuel[project_id] = ProjetCourant,
 			                FactPilotageMensuel[snapshot_date] = DernierSnapshot
 			            )
-			        VAR BudgetProjet = CALCULATE(MAX(DimProjet[budget_initial_eur]))
-			        RETURN DIVIDE(AvancementProjet, 100) * BudgetProjet
+			
+			        -- Récupère le budget initial du projet.
+			        VAR BudgetProjet =
+			            CALCULATE(
+			                MAX(DimProjet[budget_initial_eur])
+			            )
+			
+			        -- Pondère l'avancement prévu par le budget du projet.
+			        RETURN
+			            DIVIDE(AvancementProjet, 100) * BudgetProjet
 			    )
+			
+			-- Calcule le budget total des projets visibles.
 			VAR BudgetTotal =
-			    SUMX(ProjetsVisibles, CALCULATE(MAX(DimProjet[budget_initial_eur])))
+			    SUMX(
+			        ProjetsVisibles,
+			        CALCULATE(
+			            MAX(DimProjet[budget_initial_eur])
+			        )
+			    )
+			
+			-- Retourne une valeur entre 0 et 1, à formater en pourcentage.
 			RETURN
 			    DIVIDE(ValeurPonderee, BudgetTotal)
 		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		lineageTag: 8cd5c2a1-70e9-4997-8dbe-97bb8c826d21
 
-	measure 'Écart avancement (points)' = ```
+	measure 'Écart avancement (points)' =
 			
-			// Une valeur positive signifie que le réel dépasse le prévisionnel.
-			// La mesure renvoie une différence de proportions. 
-			100 * [Avancement portefeuille (%)] - [Avancement prévu portefeuille (%)]
-			```
+			// Valeur négative : le réel est en retard sur le prévu
+			100 * ([Avancement portefeuille (%)] - [Avancement prévu portefeuille (%)])
 		lineageTag: 70ec3613-c7b8-408d-8b05-23f4f548a44f
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -120,7 +175,7 @@ table MesuresTable
 			SUM(DimProjet[budget_initial_eur])
 			
 			```
-		formatString: 0
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		lineageTag: 6c22b77d-664a-4b98-865d-5de2f1a9951d
 
 	measure 'Coût réel cumulé' = ```
@@ -135,45 +190,53 @@ table MesuresTable
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'PV - Valeur planifiée' = ```
+	measure 'PV - Valeur planifiée' =
 			
-			// Additionne la valeur planifiée du dernier snapshot de chaque projet. 
-			// PV signifie Planned Value dans la méthode de la valeur acquise. 
+			-- Calcule le PV (Planned Value) du portefeuille.
+			-- Pour chaque projet, récupère la valeur planifiée
+			-- du dernier snapshot disponible dans le contexte courant.
+			-- Additionne ensuite les valeurs de tous les projets.
 			SUMX(
-						VALUES(DimProjet[project_id]),
-						VAR ProjetCourant = DimProjet[project_id]
-						VAR DernierSnapshot = CALCULATE(
-							MAX(FactPilotageMensuel[snapshot_date]),
-							FactPilotageMensuel[project_id] = ProjetCourant
-						)
-						RETURN
-							CALCULATE(
-								MAX(FactPilotageMensuel[planned_value_eur]),
-								FactPilotageMensuel[project_id] = ProjetCourant,
-								FactPilotageMensuel[snapshot_date] = DernierSnapshot
-							)
-					)
-			```
+			    VALUES(DimProjet[project_id]),
+			
+			    -- Identifie le projet traité par l'itération.
+			    VAR ProjetCourant = DimProjet[project_id]
+			
+			    -- Recherche la date du dernier snapshot disponible
+			    -- pour ce projet.
+			    VAR DernierSnapshot =
+			        CALCULATE(
+			            MAX(FactPilotageMensuel[snapshot_date]),
+			            FactPilotageMensuel[project_id] = ProjetCourant
+			        )
+			
+			    -- Récupère la valeur planifiée à cette date.
+			    RETURN
+			        CALCULATE(
+			            MAX(FactPilotageMensuel[planned_value_eur]),
+			            FactPilotageMensuel[project_id] = ProjetCourant,
+			            FactPilotageMensuel[snapshot_date] = DernierSnapshot
+			        )
+			)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		lineageTag: a0998ed7-d0b4-451c-8590-1bcd555ec122
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'EV - Valeur acquise estimée' = ```
 			
 			-- Valeur acquise estimée = budget initial × avancement réel.
+			-- Calcule la valeur budgétaire du travail réellement réalisé. 
 			[BAC - Budget initial] * [Avancement portefeuille (%)]
 			
 			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		lineageTag: 0fec3932-b4c8-4853-833f-3015282df189
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'CPI - Performance des coûts' = ```
 			// Compare la valeur acquise estimée au coût réel. // CPI inférieur à 1 : performance des coûts défavorable. 
 			DIVIDE([EV - Valeur acquise estimée], [Coût réel cumulé])
 			
 			```
-		formatString: 0
+		formatString: 0.00
 		lineageTag: d22bf7b0-9f1a-4b90-9372-8e36c5415d93
 
 	measure 'SPI - Performance des délais' = ```
@@ -222,9 +285,8 @@ table MesuresTable
 						)
 			
 			```
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: e54f4507-4f3b-410b-8b74-e229fbbf5fb1
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'VAC - Écart budgétaire final estimé' = ```
 			
@@ -271,8 +333,16 @@ table MesuresTable
 
 	measure 'Tâches critiques en retard' = ```
 			
-			// Compte les tâches critiques, en retard et non terminées. 
-			CALCULATE( DISTINCTCOUNT(FactTaches[task_id]), FactTaches[critical_path_flag] = "Oui", FactTaches[delay_days] > 0, ISBLANK(FactTaches[actual_end_date]) )
+			// Compte les tâches critiques, en retard et non terminées.
+			COALESCE(
+			    CALCULATE(
+			        DISTINCTCOUNT(FactTaches[task_id]),
+			        FactTaches[critical_path_flag] = "Oui",
+			        FactTaches[delay_days] > 0,
+			        ISBLANK(FactTaches[actual_end_date])
+			    ),
+			    0
+			)
 			
 			```
 		formatString: 0
@@ -336,13 +406,21 @@ table MesuresTable
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Risques critiques ouverts' = ```
+	measure 'Risques critiques ouverts' =
 			
-			// Compte les risques non clôturés avec probabilité et impact élevés.
-			// Seuil fixé à 4 sur 5 pour les deux dimensions. 
-			CALCULATE( DISTINCTCOUNT(FactRisques[risk_id]), ISBLANK(FactRisques[closed_date]), FactRisques[probability_1_5] >= 4, FactRisques[impact_1_5] >= 4 )
-			
-			```
+			VAR NbRisques =
+			    CALCULATE(
+			        DISTINCTCOUNT(FactRisques[risk_id]),
+			        ISBLANK(FactRisques[closed_date]),
+			        FactRisques[probability_1_5] >= 4,
+			        FactRisques[impact_1_5] >= 4
+			    )
+			RETURN
+			IF(
+			    ISINSCOPE(FactRisques[risk_id]),
+			    1,
+			    NbRisques
+			)
 		formatString: 0
 		lineageTag: bbacfbde-4160-4184-ae20-fc60abef37c9
 
@@ -417,7 +495,7 @@ table MesuresTable
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'ETC - Reste à faire estimé' =
+	measure 'ETC - Reste à faire estimé (€)' =
 			
 			[EAC - Coût estimé à terminaison] - [Coût réel cumulé]
 		lineageTag: 3efb3ede-b736-48bb-aaea-efd363b1eebb
@@ -484,9 +562,8 @@ table MesuresTable
 		lineageTag: 90c112f5-2c9c-4d55-b026-7cf1e660b3e7
 
 	measure 'Jalons respectés (%)' = DIVIDE([Jalons respectés], [Jalons échus])
+		formatString: 0\ %;-0\ %;0\ %
 		lineageTag: 44c8fa12-76e1-431d-ba79-fbde5178ba6d
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Prochain jalon' =
 			
@@ -496,7 +573,7 @@ table MesuresTable
 			    FILTER(FactJalons, FactJalons[planned_date] >= d && ISBLANK(FactJalons[actual_date])),
 			    FactJalons[planned_date]
 			)
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: 3f5e2d3a-4a13-47ec-a153-0c5b8f7212f9
 
 	measure 'Jours avant le prochain jalon' = DATEDIFF([Date dernier reporting], [Prochain jalon], DAY)
@@ -510,12 +587,16 @@ table MesuresTable
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Taux de surcharge (%)' =
+	measure 'Taux de surcharge (%)' = ```
 			
-			DIVIDE([Charge réelle (h)] - [Capacité disponible (h)], [Capacité disponible (h)])
+			    DIVIDE(
+			        [Charge réelle (h)] - [Capacité disponible (h)],
+			        [Capacité disponible (h)]
+			    )
+			
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		lineageTag: d6fbf403-e93b-4242-88ab-5a5d50ad4981
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Actions en retard (%)' = ```
 			
@@ -683,26 +764,402 @@ table MesuresTable
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Statut global' =
+	measure 'Statut global' = ```
 			
-			VAR spi = [SPI - Performance des délais]
-			VAR cpi = [CPI - Performance des coûts]
-			VAR crit = [Risques critiques ouverts]
+			VAR SPI = [SPI - Performance des délais]
+			VAR CPI = [CPI - Performance des coûts]
+			VAR EAC = [EAC - Coût estimé à terminaison]
+			VAR BAC = [BAC - Budget initial]
+			VAR Crit = [Risques critiques ouverts]
+			VAR Retard = [Tâches en retard]
+			
 			RETURN
 			SWITCH(
 			    TRUE(),
-			    spi < 0.85 || cpi < 0.85 || crit >= 5, "Rouge",
-			    spi < 0.95 || cpi < 0.95 || crit >= 3, "Ambre",
-			    "Vert"
+			
+			    // ROUGE : situation critique
+			    SPI < 0.85
+			        || CPI < 0.85
+			        || Crit >= 10
+			        || EAC > BAC * 1.15
+			        || Retard >= 10,
+			        "#FF0000",
+			
+			    // AMBRE : situation à surveiller
+			    SPI < 0.95
+			        || CPI < 0.95
+			        || Crit >= 3
+			        || EAC > BAC
+			        || Retard >= 3,
+			        "#FFC000",
+			
+			    // VERT : situation maîtrisée
+			    "#008000"
 			)
 			
-			// ---------- Synthèse : statut global calculé ----------// Idéalement, mets les seuils dans une table de paramètres au lieu de les écrire en dur.
+			
+			```
 		lineageTag: 70b19fc7-3842-4d70-9dde-dbdde1fdf69e
 
 	measure 'Couleur statut global' =
 			
 			SWITCH([Statut global], "Rouge", "#D0453D", "Ambre", "#E0A93B", "#2E9F6B")
 		lineageTag: ab5e8897-8ff2-4419-97a6-59fbd434ecfd
+
+	measure 'SPI - Statut des delais planning' = ```
+			
+			IF(
+			    [SPI - Performance des délais] > 1,
+			    "En avance sur le plan",
+			    "En retard sur le plan"
+			)
+			
+			```
+		lineageTag: ec479677-bf69-42cb-bcef-67373d44b529
+
+	measure Couleur_SPI =
+			
+			VAR SPI = [SPI - Performance des délais]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(SPI), "#808080",
+			    SPI < 0.85, "#FF0000",
+			    SPI < 0.95, "#FFC000",
+			    "#008000"
+			)
+		lineageTag: 8f23bd5a-4476-4e06-9a27-12dce78fa233
+
+	measure Couleur_CPI =
+			
+			VAR CPI = [CPI - Performance des coûts]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(CPI), "#808080",
+			    CPI < 0.85, "#FF0000",
+			    CPI < 0.95, "#E0A93B",
+			    "#008000"
+			)
+		lineageTag: ee31bad7-e13d-4be9-b4a2-387975c789c1
+
+	measure Couleur_EAC =
+			
+			VAR EAC = [EAC - Coût estimé à terminaison]
+			VAR BAC = [BAC - Budget initial]
+			VAR DepassementPct = DIVIDE(EAC - BAC, BAC, 0)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(EAC) || ISBLANK(BAC), "#808080",  // Gris : données manquantes
+			    DepassementPct > 0.15, "#D0453D",         // Rouge : dépassement > 15 %
+			    DepassementPct > 0, "#E0A93B",            // Orange : dépassement <= 15 %
+			    "#2E9F6B"                                 // Vert : budget respecté ou économie
+			)
+		lineageTag: 34fc828c-b712-47a3-985e-1d9ce8849e7b
+
+	measure Couleur_Risques_Critiques = ```
+			
+			VAR Crit = [Risques critiques ouverts]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(Crit), "#808080",   // Gris : aucune donnée
+			    Crit >= 10, "#D0453D",      // Rouge : risque critique élevé
+			    Crit >= 3, "#E0A93B",       // Orange : vigilance
+			    "#2E9F6B"                   // Vert : situation maîtrisée
+			)
+			
+			
+			```
+		lineageTag: aec01ffb-22bf-4ec3-b9a2-2af721bd27cb
+
+	measure Couleur_Taches_Retard = ```
+			
+			VAR Retard = [Tâches en retard]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(Retard), "#808080",
+			    Retard >= 10, "#D0453D",
+			    Retard >= 3, "#E0A93B",
+			    "#2E9F6B"
+			)
+			
+			```
+		lineageTag: c46fb2bf-f605-450a-9f68-44277fb45c44
+
+	measure 'CPI - Statut des coûts' =
+			
+			VAR CPI = [CPI - Performance des coûts]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(CPI), "Non disponible",
+			    CPI < 0.85, "Dépassement important",
+			    CPI < 0.95, "Dépassement à surveiller",
+			    CPI < 1, "Léger dépassement",
+			    CPI >= 1, "Coûts maîtrisés"
+			)
+		lineageTag: 94e0dcd7-2b11-4e30-9fa4-8067c1435cb0
+
+	measure test = [BAC - Budget initial] - [EAC - Coût estimé à terminaison]
+		lineageTag: 5b07fb78-7383-431f-a3f2-3538d9968e45
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'VAC ecart budgetaire (%)' = ```
+			
+			 ([VAC - Écart budgétaire final estimé] / [BAC - Budget initial]) * 100
+			
+			```
+		lineageTag: 0030fe65-41a1-4685-bc32-a7319336cec2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AC - Coût réel cumulé' =
+			
+			-- Calcule le coût réel cumulé (AC : Actual Cost)
+			-- du portefeuille à partir du dernier snapshot disponible
+			-- pour chaque projet.
+			-- Évite d'additionner plusieurs snapshots d'un même projet.
+			SUMX(
+			    VALUES(DimProjet[project_id]),
+			
+			    -- Identifie le projet traité par l'itération.
+			    VAR ProjetCourant = DimProjet[project_id]
+			
+			    -- Recherche la date du dernier snapshot disponible
+			    -- pour ce projet.
+			    VAR DernierSnapshot =
+			        CALCULATE(
+			            MAX(FactPilotageMensuel[snapshot_date]),
+			            FactPilotageMensuel[project_id] = ProjetCourant
+			        )
+			
+			    -- Récupère le coût réel cumulé à cette date.
+			    RETURN
+			        CALCULATE(
+			            MAX(FactPilotageMensuel[actual_cost_cumulative_eur]),
+			            FactPilotageMensuel[project_id] = ProjetCourant,
+			            FactPilotageMensuel[snapshot_date] = DernierSnapshot
+			        )
+			)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 3f4b1f12-a793-4ce7-8952-0a0b7cd83bfb
+
+	measure 'ETC - Prévision après date d''état (€)' =
+			
+			-- Affiche le coût restant estimé uniquement après
+			-- la dernière date de suivi réel du projet.
+			VAR DateAxe =
+			    MAX(Dim_Calendrier[Date])
+			VAR DateEtat =
+			    CALCULATE(
+			        MAX(FactPilotageMensuel[snapshot_date]),
+			        REMOVEFILTERS(Dim_Calendrier)
+			    )
+			VAR CoutRestant =
+			    [ETC - Reste à faire estimé (€)]
+			RETURN
+			    IF(
+			        DateAxe > DateEtat,
+			        CoutRestant,
+			        BLANK()
+			    )
+		lineageTag: 941335c9-582a-4fdf-a941-00f27617fb07
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Date du jour' = TODAY()
+		formatString: Short Date
+		lineageTag: 32fa8f6c-eaee-455b-9bd7-0ec883dec55d
+
+	measure 'Interprétation courbe en S' = ```
+			
+			VAR EV = [EV - Valeur acquise estimée]
+			VAR PV = [PV - Valeur planifiée]
+			VAR AC = [AC - Coût réel cumulé]
+			
+			-- Écarts de délais et de coûts en valeur monétaire.
+			VAR EcartDelais = EV - PV
+			VAR EcartCouts = EV - AC
+			
+			-- Indices de performance.
+			VAR SPI = DIVIDE(EV, PV)
+			VAR CPI = DIVIDE(EV, AC)
+			
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			
+			        ISBLANK(EV) || ISBLANK(PV) || ISBLANK(AC),
+			            "Données insuffisantes pour interpréter la courbe.",
+			
+			        PV = 0 && EV = 0 && AC = 0,
+			            "Projet non démarré ou sans données financières.",
+			
+			        PV = 0,
+			            "Valeur planifiée nulle : interprétation des délais impossible.",
+			
+			        AC = 0 && EV > 0,
+			            "Coûts réels nuls malgré un avancement : vérifier les données.",
+			
+			        SPI < 0.90 && CPI < 0.90,
+			            "ALERTE : retard important et dépassement des coûts.",
+			
+			        SPI < 0.90,
+			            "ALERTE : retard important par rapport au planning.",
+			
+			        CPI < 0.90,
+			            "ALERTE : performance des coûts dégradée.",
+			
+			        SPI < 1 && CPI < 1,
+			            "Vigilance : retard et coûts moins performants que prévu.",
+			
+			        SPI < 1,
+			            "Vigilance : avancement inférieur au planning.",
+			
+			        CPI < 1,
+			            "Vigilance : coûts engagés trop élevés par rapport au travail réalisé.",
+			
+			        SPI >= 1 && CPI >= 1,
+			            "Situation favorable : avancement conforme ou en avance et coûts maîtrisés.",
+			
+			        "Situation à surveiller."
+			    )
+			
+			```
+		lineageTag: 75478d59-5fc7-4c5e-9328-c436d3dc211a
+
+	measure Couleur_Taux_Surcharge = ```
+			
+			VAR Taux = [Taux de surcharge (%)]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(Taux), "#808080",   -- Gris
+			    Taux > 0.15, "#D0453D",     -- Surcharge forte
+			    Taux > 0, "#E0A93B",        -- Surcharge légère
+			    Taux > -0.10, "#2E9F6B",    -- Utilisation correcte
+			    "#5B9BD5"                   -- Sous-utilisation importante
+			)
+			
+			```
+		lineageTag: 7ce8090a-a91a-441f-a7a5-245b515fd176
+
+	measure Interpretation_Taux_Surcharge =
+			
+			VAR Taux = [Taux de surcharge (%)]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(Taux),
+			        "Aucune donnée disponible.",
+			
+			    Taux > 0.15,
+			        "Critique : la charge réelle dépasse largement la capacité disponible. Des actions de rééquilibrage sont recommandées.",
+			
+			    Taux > 0,
+			        "Vigilance : la charge réelle dépasse la capacité disponible. Risque de surcharge des ressources.",
+			
+			    Taux > -0.10,
+			        "Situation maîtrisée : la charge est proche de la capacité disponible.",
+			
+			    Taux > -0.25,
+			        "Sous-utilisation modérée : une partie de la capacité disponible n'est pas exploitée.",
+			
+			    "Sous-utilisation importante : les ressources n'utilisent qu'une partie limitée de la capacité disponible."
+			)
+		lineageTag: 5c873521-a15b-4b24-947b-e3822a985ff5
+
+	measure 'Jalons en retard' =
+			
+			VAR d = [Date dernier reporting]
+			RETURN
+			COALESCE(
+			    COUNTROWS(
+			        FILTER(
+			            FactJalons,
+			            FactJalons[planned_date] <= d
+			                && NOT ISBLANK(FactJalons[actual_date])
+			                && FactJalons[actual_date] > FactJalons[planned_date]
+			        )
+			    ),
+			    0
+			)
+		formatString: 0
+		lineageTag: acd1ec82-00b3-4992-a810-fa30501f882e
+
+	measure 'Jalons à risque' = ```
+			
+			VAR d = [Date dernier reporting]
+			RETURN
+			COUNTROWS(
+			    FILTER(
+			        FactJalons,
+			        FactJalons[planned_date] <= d
+			            && ISBLANK(FactJalons[actual_date])
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 11f1e437-9d70-43b8-a1c3-1dafe21a573b
+
+	measure 'Jalons à venir' =
+			
+			VAR d = [Date dernier reporting]
+			RETURN
+			COUNTROWS(
+			    FILTER(
+			        FactJalons,
+			        FactJalons[planned_date] > d
+			    )
+			)
+		formatString: 0
+		lineageTag: 24fd48a9-27c7-40b9-a4cf-630e9a717bdb
+
+	measure 'Interprétation Jalons' =
+			
+			VAR Respectes = [Jalons respectés]
+			VAR Retard = [Jalons en retard]
+			VAR Risque = [Jalons à risque]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    Risque > 0,
+			        "🔴 Des jalons sont en dépassement sans réalisation effective.",
+			    Retard > 0,
+			        "🟠 Certains jalons ont été réalisés en retard.",
+			    Respectes > 0,
+			        "🟢 Les jalons réalisés respectent le planning.",
+			    "⚪ Aucun jalon à analyser."
+			)
+		lineageTag: c9914070-7da9-4f2a-a3fd-db2d76e82a5d
+
+	measure 'Nom prochain jalon' =
+			
+			VAR d = [Date dernier reporting]
+			VAR DateProchainJalon =
+			    MINX(
+			        FILTER(
+			            FactJalons,
+			            FactJalons[planned_date] >= d
+			                && ISBLANK(FactJalons[actual_date])
+			        ),
+			        FactJalons[planned_date]
+			    )
+			RETURN
+			CALCULATE(
+			    SELECTEDVALUE(FactJalons[milestone_name]),
+			    FactJalons[planned_date] = DateProchainJalon
+			)
+		lineageTag: 1a893c52-c56a-4664-b633-1d132bc99fd3
 
 	partition MesuresTable = m
 		mode: import

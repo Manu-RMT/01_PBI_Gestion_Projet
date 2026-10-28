@@ -103,6 +103,14 @@ table FactCharge
 
 		annotation SummarizationSetBy = Automatic
 
+	column Ressource =
+			
+			FactCharge[project_id] & ": " & [resource_id] & " - " & [resource_name]
+		lineageTag: 0a0dc8f4-8382-4307-b893-bccff763bade
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactCharge = m
 		mode: import
 		queryGroup: modeles

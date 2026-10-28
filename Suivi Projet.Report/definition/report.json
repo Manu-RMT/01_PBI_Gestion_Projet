@@ -65,6 +65,11 @@
       "type": "RegisteredResources",
       "items": [
         {
+          "name": "icons8-filtre-320913680062299953.png",
+          "path": "icons8-filtre-320913680062299953.png",
+          "type": "Image"
+        },
+        {
           "name": "Suivi_de_projet_-_Bleu_gris8020082399112758.json",
           "path": "Suivi_de_projet_-_Bleu_gris8020082399112758.json",
           "type": "CustomTheme"

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "691277c44ab9dabc00f3",
+  "position": {
+    "x": 376.97480151881257,
+    "y": 0,
+    "z": 3000,
+    "height": 66.805661028650334,
+    "width": 1283.6230583362099,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "pageNavigator",
+    "objects": {
+      "shape": [
+        {
+          "properties": {
+            "tileShape": {
+              "expr": {
+                "Literal": {
+                  "Value": "'parallelogram'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "185ae1f3e42020ae63a0",
+  "howCreated": "InsertVisualButton"
+}

@@ -1,0 +1,13 @@
+DEFINE
+	MEASURE 'MesuresTable'[Tâches critiques en retard] = // Compte les tâches critiques, en retard et non terminées. 
+		CALCULATE(
+			DISTINCTCOUNT(FactTaches[task_id]),
+			FactTaches[critical_path_flag] = "Oui",
+			FactTaches[delay_days] > 0,
+			ISBLANK(FactTaches[actual_end_date])
+		)
+
+EVALUATE
+	SUMMARIZECOLUMNS(
+		"Tâches critiques en retard", [Tâches critiques en retard]
+	)

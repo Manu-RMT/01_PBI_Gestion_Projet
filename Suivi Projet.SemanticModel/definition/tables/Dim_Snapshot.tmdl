@@ -1,0 +1,30 @@
+table Dim_Snapshot
+	lineageTag: 19d7d295-1d9f-474c-9fcf-23b1acb09f33
+
+	column DateSnapshot
+		formatString: Short Date
+		lineageTag: 340c7c89-8414-40d5-9a04-a3e2b68e7996
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DateSnapshot]
+
+		variation Variation
+			isDefault
+			relationship: 9d6a6ffc-f164-4102-8603-1c1c95b717d0
+			defaultHierarchy: LocalDateTable_88131e06-6dca-4287-a5d5-8510db4af295.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Snapshot = calculated
+		mode: import
+		source =
+				
+				DISTINCT(
+				    SELECTCOLUMNS(
+				        FactPilotageMensuel,
+				        "DateSnapshot", FactPilotageMensuel[snapshot_date]
+				    )
+				)
+
+	annotation PBI_Id = de2eefbae926429f9c67054ae6fef6ed
+

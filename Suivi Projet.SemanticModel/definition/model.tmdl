@@ -40,7 +40,6 @@ ref table LocalDateTable_6f78fa56-eb6f-4ccc-8f56-12c9c4e37201
 ref table FactCouts
 ref table LocalDateTable_641d6de8-1f79-4c38-9bb7-8c48c397b84c
 ref table FactPilotageMensuel
-ref table LocalDateTable_564296a5-87dd-4e75-8067-9cd10348ead8
 ref table FactCharge
 ref table LocalDateTable_2ad9b7ad-dddd-4f9d-934a-5b1f106a8ab8
 ref table FactRisques
@@ -70,6 +69,14 @@ ref table MesuresTable
 ref table LocalDateTable_32c7774e-bd1b-4164-abb1-adea321be3e0
 ref table LocalDateTable_d76d429e-05c4-42e7-9ad8-9dab74244c36
 ref table LocalDateTable_8b88c86b-b23a-4c5e-a772-c5ce0bb3d839
+ref table LocalDateTable_e33804c4-83cb-441e-ae20-4d3abc5ee8f5
+ref table LocalDateTable_5b381a52-33c7-4097-ba53-ace8d48e6ece
+ref table LocalDateTable_0791de1f-6b05-402d-b208-049edb64335e
+ref table LocalDateTable_9b6a57cb-c0d6-46ef-a77d-251403f6373c
+ref table LocalDateTable_e92ec34a-695d-4160-9056-c7ded95e6e61
+ref table LocalDateTable_235d8c0a-65ee-4c55-ab39-ecd2817da67a
+ref table Dim_Snapshot
+ref table LocalDateTable_88131e06-6dca-4287-a5d5-8510db4af295
 
 ref cultureInfo fr-FR
 

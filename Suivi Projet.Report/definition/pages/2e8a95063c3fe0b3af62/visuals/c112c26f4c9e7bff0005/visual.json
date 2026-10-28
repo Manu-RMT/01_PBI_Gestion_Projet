@@ -1,0 +1,154 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "c112c26f4c9e7bff0005",
+  "position": {
+    "x": 972.5,
+    "y": 387.5,
+    "z": 3000,
+    "height": 320,
+    "width": 922.5,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Dim_Calendrier"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Début Mois"
+                        }
+                      },
+                      "Hierarchy": "Hiérarchie de dates"
+                    }
+                  },
+                  "Level": "Mois"
+                }
+              },
+              "queryRef": "Dim_Calendrier.Début Mois.Variation.Hiérarchie de dates.Mois",
+              "nativeQueryRef": "Début Mois Mois",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "EV - Valeur acquise estimée"
+                }
+              },
+              "queryRef": "MesuresTable.EV - Valeur acquise estimée",
+              "nativeQueryRef": "EV - Valeur acquise estimée"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "PV - Valeur planifiée"
+                }
+              },
+              "queryRef": "MesuresTable.PV - Valeur planifiée",
+              "nativeQueryRef": "PV - Valeur planifiée"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "AC - Coût réel cumulé"
+                }
+              },
+              "queryRef": "MesuresTable.AC - Coût réel cumulé",
+              "nativeQueryRef": "AC - Coût réel cumulé"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2563EB'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.PV - Valeur planifiée"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#16A34A'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.EV - Valeur acquise estimée"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#EA580C'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.AC - Coût réel cumulé"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

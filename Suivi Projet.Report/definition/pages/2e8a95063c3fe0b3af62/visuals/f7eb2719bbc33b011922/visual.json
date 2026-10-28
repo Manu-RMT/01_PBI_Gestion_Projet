@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "f7eb2719bbc33b011922",
   "position": {
-    "x": 1618.6699507389162,
+    "x": 1685,
     "y": 0,
-    "z": 7,
-    "height": 71.822660098522164,
-    "width": 301.92118226600985,
-    "tabOrder": 7
+    "z": 0,
+    "height": 70,
+    "width": 188.33333333333334,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "cardVisual",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "MesuresTable.Date dernier reporting",
-              "nativeQueryRef": "Date dernier reporting"
+              "nativeQueryRef": "Dernier reporting",
+              "displayName": "Dernier reporting"
             }
           ]
         }
@@ -141,6 +142,35 @@
         }
       ]
     },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "185ae1f3e42020ae63a0"
 }

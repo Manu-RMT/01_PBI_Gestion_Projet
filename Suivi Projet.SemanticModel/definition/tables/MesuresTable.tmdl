@@ -285,7 +285,7 @@ table MesuresTable
 		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		lineageTag: 7728b9cb-e8df-4cfc-ab7d-a80b7a5d939c
 
-	measure 'Nombre de tâches' = ```
+	measure 'Total Nombre de tâches' = ```
 			
 			 // Compte les identifiants de tâches distincts dans le contexte courant.
 			 DISTINCTCOUNT(FactTaches[task_id])
@@ -1264,9 +1264,9 @@ table MesuresTable
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'WF Budget Valeur' = ```
+	measure 'KPI WF Budget Valeur' = ```
 			
-			VAR Cat = SELECTEDVALUE(WF_Budget[Categorie])
+			VAR Cat = SELECTEDVALUE(KPI_WF_Budget[Categorie])
 			RETURN
 			SWITCH(
 			    Cat,
@@ -1303,7 +1303,7 @@ table MesuresTable
 			)
 		lineageTag: c8b7cd3b-83ee-4660-8a53-af5d77160db7
 
-	measure 'KPI Texte Budget' =
+	measure 'KPI Texte WF Budget' =
 			
 			VAR _BAC = [BAC - Budget initial]
 			VAR _AC = [AC - Coût réel cumulé]
@@ -1329,6 +1329,154 @@ table MesuresTable
 			        " encore disponible."
 			)
 		lineageTag: cc20f1f8-1d07-4734-843e-7a3c65f368c1
+
+	measure 'KPI Jalons Valeur' =
+			
+			VAR jalons = SELECTEDVALUE(KPI_Jalons[KPI])
+			
+			RETURN
+			SWITCH(
+			    jalons,
+			
+			    "✅ Respectés",
+			        FORMAT([Jalons respectés (%)], "0%"),
+			
+			    "🔴 En retard",
+			        FORMAT([Jalons en retard], "#,0"),
+			
+			    "⏳ À venir",
+			        FORMAT([Jalons à venir], "#,0"),
+			
+			    "📅 Prochain jalon",
+			        "J - " & [Jours avant le prochain jalon]
+			)
+		lineageTag: 4dffffcc-0311-4eab-9779-0e66c2ed76ae
+
+	measure 'Couleur KPI Jalons' =
+			
+			VAR jalon_etat = SELECTEDVALUE(KPI_Jalons[KPI])
+			
+			RETURN
+			SWITCH(
+			    jalon_etat,
+			    "✅ Respectés", "#22C55E",
+			    "🔴 En retard", "#EF4444",
+			    "⏳ À venir", "#2563EB",
+			    "📅 Prochain jalon", "#DC2626"
+			)
+		lineageTag: 23baf8df-ce82-440f-b57d-8dd7ba3b01b8
+
+	measure 'Couleur Utilisation' =
+			
+			VAR Tx = [Taux d'utilisation]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    Tx < 80, "#5CB85C",      -- Vert
+			    Tx < 100, "#F0AD4E",     -- Orange
+			    "#D9534F"               -- Rouge
+			)
+		lineageTag: 6c7a1414-7439-4834-9f68-0aad2b6d960a
+
+	measure 'TB Alerte projet : Budget - Feu' =
+			
+			VAR Ecart = [VAC ecart budgetaire (%)]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    Ecart > 0.10, "🔴",
+			    Ecart > 0.05, "🟠",
+			    "🟢"
+			)
+		lineageTag: 72e9bf21-d252-4afb-9b5f-6f74d59626db
+
+	measure 'TB Alerte projet : Planning - Feu' =
+			
+			VAR SPI = [SPI - Performance des délais]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    SPI < 0.90, "🔴",
+			    SPI < 0.98, "🟠",
+			    "🟢"
+			)
+		lineageTag: a5fcb613-9a2f-4ee6-bce9-b102c2cbeed5
+
+	measure 'TB Alerte projet : Risques - Feu' =
+			
+			VAR Nb = [Risques critiques ouverts]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    Nb >= 5, "🔴",
+			    Nb >= 2, "🟠",
+			    "🟢"
+			)
+		lineageTag: e2a94011-47df-452a-8ce5-40edeb7d1f10
+
+	measure 'TB Alerte projet : Score Santé (%)' =
+			
+			VAR Budget =
+			    SWITCH(
+			        TRUE(),
+			        [VAC ecart budgetaire (%)] > 0.10, 0,
+			        [VAC ecart budgetaire (%)] > 0.05, 50,
+			        100
+			    )
+			
+			VAR Planning =
+			    SWITCH(
+			        TRUE(),
+			        [SPI - Performance des délais] < 0.90, 0,
+			        [SPI - Performance des délais] < 0.98, 50,
+			        100
+			    )
+			
+			VAR Risques =
+			    SWITCH(
+			        TRUE(),
+			        [Risques critiques ouverts] >= 5, 0,
+			        [Risques critiques ouverts] >= 2, 50,
+			        100
+			    )
+			
+			RETURN
+			DIVIDE(
+			    Budget + Planning + Risques,
+			    3
+			)
+		lineageTag: 5fb479cb-f24d-4d36-b111-e5f47c1e0f03
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'TB Alerte projet : Statut Projet' =
+			
+			VAR Score = [TB Alerte projet : Score Santé (%)]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    Score < 50, "Critique",
+			    Score < 70, "À risque",
+			    Score < 85, "En surveillance",
+			    "Conforme"
+			)
+		lineageTag: 674e321d-8bd7-439a-a21a-e603c122146d
+
+	measure 'TB Alerte projet : Couleur Statut' =
+			
+			SWITCH(
+			    [TB Alerte projet : Statut Projet],
+			    "Critique", "#DC2626",
+			    "À risque", "#EF4444",
+			    "En surveillance", "#F59E0B",
+			    "Conforme", "#16A34A"
+			)
+		lineageTag: 551e6475-ea79-4b5f-9011-091d2478fc9b
 
 	partition MesuresTable = m
 		mode: import

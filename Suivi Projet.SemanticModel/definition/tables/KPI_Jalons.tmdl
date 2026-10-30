@@ -1,0 +1,38 @@
+table KPI_Jalons
+	lineageTag: b2505ef0-ecf3-4e45-b624-1c9cad3c402a
+
+	column Ordre
+		formatString: 0
+		lineageTag: 7a359996-3a1a-4cd9-9425-02f46b2a9ab5
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Ordre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column KPI
+		lineageTag: 76219235-e2c9-4fec-9486-dd23429dca4e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [KPI]
+		sortByColumn: Ordre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KPI_Jalons = calculated
+		mode: import
+		source =
+				// pour l'odre d'une element graphique
+				DATATABLE(
+				    "Ordre", INTEGER,
+				    "KPI", STRING,
+				    {
+				        {1,"✅ Respectés"},
+				        {2,"🔴 En retard"},
+				        {3,"⏳ À venir"},
+				        {4,"📅 Prochain jalon"}
+				    }
+				)
+
+	annotation PBI_Id = 70588978ada74bed8d4c85d681a901ed
+

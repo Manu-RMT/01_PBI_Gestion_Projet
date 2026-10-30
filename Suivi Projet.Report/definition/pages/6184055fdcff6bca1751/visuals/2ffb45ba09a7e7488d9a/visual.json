@@ -1,0 +1,135 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "2ffb45ba09a7e7488d9a",
+  "position": {
+    "x": 796,
+    "y": 880,
+    "z": 4001,
+    "height": 200,
+    "width": 1110,
+    "tabOrder": 10001
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProjet"
+                    }
+                  },
+                  "Property": "project_id"
+                }
+              },
+              "queryRef": "DimProjet.project_id",
+              "nativeQueryRef": "project_id",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "TB Alerte projet : Budget - Feu"
+                }
+              },
+              "queryRef": "MesuresTable.TB Alerte projet : Budget - Feu",
+              "nativeQueryRef": "TB Alerte projet : Budget - Feu"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "TB Alerte projet : Planning - Feu"
+                }
+              },
+              "queryRef": "MesuresTable.TB Alerte projet : Planning - Feu",
+              "nativeQueryRef": "TB Alerte projet : Planning - Feu"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "TB Alerte projet : Risques - Feu"
+                }
+              },
+              "queryRef": "MesuresTable.TB Alerte projet : Risques - Feu",
+              "nativeQueryRef": "TB Alerte projet : Risques - Feu"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "TB Alerte projet : Score Santé (%)"
+                }
+              },
+              "queryRef": "MesuresTable.TB Alerte projet : Score Santé (%)",
+              "nativeQueryRef": "TB Alerte projet : Score Santé (%)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "TB Alerte projet : Statut Projet"
+                }
+              },
+              "queryRef": "MesuresTable.TB Alerte projet : Statut Projet",
+              "nativeQueryRef": "TB Alerte projet : Statut Projet"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

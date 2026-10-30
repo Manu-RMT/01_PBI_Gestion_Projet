@@ -1,4 +1,4 @@
-table WF_Budget
+table KPI_WF_Budget
 	lineageTag: c56346a3-4fa2-4292-90d9-41f53b9cccc5
 
 	column Ordre
@@ -19,7 +19,7 @@ table WF_Budget
 
 		annotation SummarizationSetBy = Automatic
 
-	partition WF_Budget = calculated
+	partition KPI_WF_Budget = calculated
 		mode: import
 		source =
 				

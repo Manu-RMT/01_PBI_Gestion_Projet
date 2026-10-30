@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "4fc207b1b9a09a70377e",
   "position": {
-    "x": 1296.6666666666667,
-    "y": 711.66666666666674,
-    "z": 8001,
-    "height": 56.666666666666671,
-    "width": 610,
-    "tabOrder": 10001
+    "x": 1146.6666666666667,
+    "y": 0,
+    "z": 7000,
+    "height": 65,
+    "width": 753.33333333333337,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "MesuresTable"
                     }
                   },
-                  "Property": "KPI Texte Budget"
+                  "Property": "KPI Texte WF Budget"
                 }
               },
               "queryRef": "MesuresTable.KPI Texte Budget",
-              "nativeQueryRef": "KPI Texte Budget"
+              "nativeQueryRef": "KPI Texte WF Budget"
             }
           ]
         }
@@ -128,6 +128,19 @@
             "id": "default"
           }
         }
+      ],
+      "layout": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'middle'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -159,5 +172,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "fca342ca4d3570bebaa1"
 }

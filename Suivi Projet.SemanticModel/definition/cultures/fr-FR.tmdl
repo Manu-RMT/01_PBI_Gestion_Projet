@@ -7235,7 +7235,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "budget": {
+			          "outlay": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -7245,7 +7245,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "outlay": {
+			          "expense": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -9144,6 +9144,16 @@ cultureInfo fr-FR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "Equipe": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -20825,7 +20835,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "tick": {
+			          "test": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -20835,7 +20845,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "bill": {
+			          "tick": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -24582,18 +24592,48 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
-			    "mesures_table.nombre_de_tâches": {
+			    "mesures_table.total_nombre_de_tâches": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "MesuresTable",
-			          "ConceptualProperty": "Nombre de tâches"
+			          "ConceptualProperty": "Total Nombre de tâches"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "nombre de tâches": {
+			          "total nombre de tâches": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate nombre de tâch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "overall nombre de tâch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "Total tâches": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -24696,6 +24736,16 @@ cultureInfo fr-FR
 			        {
 			          "tâches en retard": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "En retard": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -25019,12 +25069,6 @@ cultureInfo fr-FR
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
-			        },
-			        {
-			          "en retard": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
 			        }
 			      ]
 			    },
@@ -25303,7 +25347,7 @@ cultureInfo fr-FR
 			        "%"
 			      ]
 			    },
-			    "mesures_table.coûts_engagés": {
+			    "mesures_table.coûts_total": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "MesuresTable",
@@ -25313,13 +25357,53 @@ cultureInfo fr-FR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "coûts engagés": {
+			          "coûts total": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "coûts engagés (€)": {
+			          "coûts total (€)": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "coût aggregate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "coût overall": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "coût aggregate (€)": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "coût overall (€)": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
 			          }
 			        }
 			      ],
@@ -25742,12 +25826,6 @@ cultureInfo fr-FR
 			        },
 			        {
 			          "retard": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "en retard": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
@@ -29053,9 +29131,1045 @@ cultureInfo fr-FR
 			          }
 			        }
 			      ]
+			    },
+			    "mesures_table.WF_valeur": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "WF_Valeur"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "WF valeur": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "WF_Valeur": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.coûts_engagés": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Coûts engagés"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "coûts engagés": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.waterfall_budget_value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Waterfall Budget Value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "waterfall budget value": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "value": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "budget value": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "waterfall account value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "waterfall cost value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "waterfall finance value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "account value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "cost value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "finance value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "waterfall budget assessment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "budget assessment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "waterfall budget worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "waterfall budget price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.tâches_terminées": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Tâches terminées"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tâches terminées": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Terminées": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.tâches_en_cours": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Tâches en cours"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tâches en cours": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "En cours": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.tâches_non_démarrées": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Tâches non démarrées"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tâches non démarrées": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Non démarrées": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.budget_engagé": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Budget engagé (%)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "budget engagé": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "budget engagé (%)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "account engagé (%)": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "cost engagé (%)": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "finance engagé (%)": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "account engagé": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "cost engagé": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "finance engagé": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ],
+			      "Units": [
+			        "percentage",
+			        "%"
+			      ]
+			    },
+			    "mesures_table.exposition_financière_budget_AC__engagés": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Exposition financière budget (AC + Engagés)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "exposition financière budget (AC + engagés)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "exposition financière budget": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.KPI_WF_budget_valeur": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "KPI WF Budget Valeur"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "KPI WF budget valeur": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "kpi wf account valeur": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "kpi wf cost valeur": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "kpi wf finance valeur": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.KPI_texte_budget_direction": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "KPI Texte Budget Direction"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "KPI texte budget direction": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "kpi texte account direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "kpi texte cost direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "kpi texte finance direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "kpi texte budget path": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "kpi texte budget road": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "kpi texte budget way": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "kpi texte budget course": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "kpi texte budget track": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "kpi texte budget route": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "kpi texte budget bearing": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.KPI_texte_WF_budget": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "KPI Texte WF Budget"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "KPI texte WF budget": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "kpi texte wf account": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "kpi texte wf cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "kpi texte wf finance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        }
+			      ]
+			    },
+			    "WF_couts_fact_cout": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "WF_Couts_FactCouts"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "WF couts fact cout": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "WF cout fact cout": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "WF_Couts_FactCouts": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "WF_couts_fact_cout.ordre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "WF_Couts_FactCouts",
+			          "ConceptualProperty": "Ordre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ordre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "WF_couts_fact_cout.categorie": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "WF_Couts_FactCouts",
+			          "ConceptualProperty": "Categorie"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "categorie": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "axe_waterfall_budget": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Axe_Waterfall_Budget"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "axe waterfall budget": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Axe_Waterfall_Budget": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "budget": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "waterfall budget": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "axe waterfall account": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "axe waterfall cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "axe waterfall finance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "waterfall account": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "waterfall cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "waterfall finance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "account": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "finance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "axe_waterfall_budget.ordre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Axe_Waterfall_Budget",
+			          "ConceptualProperty": "Ordre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ordre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "axe_waterfall_budget.catégorie": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Axe_Waterfall_Budget",
+			          "ConceptualProperty": "Catégorie"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "catégorie": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "KPI_WF_budget": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI_WF_Budget"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "KPI WF budget": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "KPI_WF_Budget": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "budget": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "WF budget": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "kpi wf account": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "kpi wf cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "kpi wf finance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "wf account": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "wf cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "wf finance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "account": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "finance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "KPI_WF_budget.ordre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI_WF_Budget",
+			          "ConceptualProperty": "Ordre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ordre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "KPI_WF_budget.categorie": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI_WF_Budget",
+			          "ConceptualProperty": "Categorie"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "categorie": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.KPI_jalons_valeur": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "KPI Jalons Valeur"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "KPI jalons valeur": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Valeur": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "KPI_jalon": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI_Jalons"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "KPI jalon": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "KPI_Jalons": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "KPI_jalon.ordre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI_Jalons",
+			          "ConceptualProperty": "Ordre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ordre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "KPI_jalon.kpi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI_Jalons",
+			          "ConceptualProperty": "KPI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "kpi": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Etat": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "dim_calendrier_date_hiérarchie_de_date_has_dim_calendrier_date_jour": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Calendrier"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendrier.date.hiérarchie_de_date": {
+			          "Target": {
+			            "Entity": "dim_calendrier.date.hiérarchie_de_date"
+			          }
+			        },
+			        "dim_calendrier.date.jour": {
+			          "Target": {
+			            "Entity": "dim_calendrier.date.jour"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.hiérarchie_de_date"
+			            },
+			            "Object": {
+			              "Role": "dim_calendrier.date.jour"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hiérarchie_de_dates_have_jour"
+			        }
+			      ]
+			    },
 			    "dim_calendrier_date_hiérarchie_de_date_has_dim_calendrier_date_mois": {
 			      "Binding": {
 			        "ConceptualEntity": "Dim_Calendrier"
@@ -29415,7 +30529,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour"
+			          "ID": "hiérarchie_de_dates_have_jour1"
 			        }
 			      ]
 			    },
@@ -29778,7 +30892,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour1"
+			          "ID": "hiérarchie_de_dates_have_jour2"
 			        }
 			      ]
 			    },
@@ -30141,7 +31255,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour2"
+			          "ID": "hiérarchie_de_dates_have_jour3"
 			        }
 			      ]
 			    },
@@ -30504,7 +31618,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour3"
+			          "ID": "hiérarchie_de_dates_have_jour4"
 			        }
 			      ]
 			    },
@@ -30867,7 +31981,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour4"
+			          "ID": "hiérarchie_de_dates_have_jour5"
 			        }
 			      ]
 			    },
@@ -31230,7 +32344,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour5"
+			          "ID": "hiérarchie_de_dates_have_jour6"
 			        }
 			      ]
 			    },
@@ -31593,7 +32707,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour6"
+			          "ID": "hiérarchie_de_dates_have_jour7"
 			        }
 			      ]
 			    },
@@ -31956,7 +33070,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour7"
+			          "ID": "hiérarchie_de_dates_have_jour8"
 			        }
 			      ]
 			    },
@@ -32319,7 +33433,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour8"
+			          "ID": "hiérarchie_de_dates_have_jour9"
 			        }
 			      ]
 			    },
@@ -32682,7 +33796,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour9"
+			          "ID": "hiérarchie_de_dates_have_jour10"
 			        }
 			      ]
 			    },
@@ -33045,7 +34159,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour10"
+			          "ID": "hiérarchie_de_dates_have_jour11"
 			        }
 			      ]
 			    },
@@ -33408,7 +34522,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour11"
+			          "ID": "hiérarchie_de_dates_have_jour12"
 			        }
 			      ]
 			    },
@@ -33771,7 +34885,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour12"
+			          "ID": "hiérarchie_de_dates_have_jour13"
 			        }
 			      ]
 			    },
@@ -34134,7 +35248,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour13"
+			          "ID": "hiérarchie_de_dates_have_jour14"
 			        }
 			      ]
 			    },
@@ -34497,7 +35611,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour14"
+			          "ID": "hiérarchie_de_dates_have_jour15"
 			        }
 			      ]
 			    },
@@ -34860,7 +35974,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour15"
+			          "ID": "hiérarchie_de_dates_have_jour16"
 			        }
 			      ]
 			    },
@@ -35223,7 +36337,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour16"
+			          "ID": "hiérarchie_de_dates_have_jour17"
 			        }
 			      ]
 			    },
@@ -35586,7 +36700,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour17"
+			          "ID": "hiérarchie_de_dates_have_jour18"
 			        }
 			      ]
 			    },
@@ -35949,7 +37063,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour18"
+			          "ID": "hiérarchie_de_dates_have_jour19"
 			        }
 			      ]
 			    },
@@ -36312,7 +37426,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour19"
+			          "ID": "hiérarchie_de_dates_have_jour20"
 			        }
 			      ]
 			    },
@@ -36675,7 +37789,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour20"
+			          "ID": "hiérarchie_de_dates_have_jour21"
 			        }
 			      ]
 			    },
@@ -37038,7 +38152,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour21"
+			          "ID": "hiérarchie_de_dates_have_jour22"
 			        }
 			      ]
 			    },
@@ -37401,7 +38515,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour22"
+			          "ID": "hiérarchie_de_dates_have_jour23"
 			        }
 			      ]
 			    },
@@ -37764,7 +38878,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour23"
+			          "ID": "hiérarchie_de_dates_have_jour24"
 			        }
 			      ]
 			    },
@@ -38127,7 +39241,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour24"
+			          "ID": "hiérarchie_de_dates_have_jour25"
 			        }
 			      ]
 			    },
@@ -38490,7 +39604,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour25"
+			          "ID": "hiérarchie_de_dates_have_jour26"
 			        }
 			      ]
 			    },
@@ -38853,7 +39967,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour26"
+			          "ID": "hiérarchie_de_dates_have_jour27"
 			        }
 			      ]
 			    },
@@ -39216,7 +40330,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour27"
+			          "ID": "hiérarchie_de_dates_have_jour28"
 			        }
 			      ]
 			    },
@@ -39579,7 +40693,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour28"
+			          "ID": "hiérarchie_de_dates_have_jour29"
 			        }
 			      ]
 			    },
@@ -39942,7 +41056,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour29"
+			          "ID": "hiérarchie_de_dates_have_jour30"
 			        }
 			      ]
 			    },
@@ -40305,7 +41419,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour30"
+			          "ID": "hiérarchie_de_dates_have_jour31"
 			        }
 			      ]
 			    },
@@ -41131,6 +42245,1194 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
+			    "KPI_jalon_has_kpi": {
+			      "Binding": {
+			        "ConceptualEntity": "KPI_Jalons"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "KPI_jalon": {
+			          "Target": {
+			            "Entity": "KPI_jalon"
+			          }
+			        },
+			        "KPI_jalon.kpi": {
+			          "Target": {
+			            "Entity": "KPI_jalon.kpi"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "KPI_jalon"
+			            },
+			            "Object": {
+			              "Role": "KPI_jalon.kpi"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "KPI_jalons_have_kpis"
+			        }
+			      ]
+			    },
+			    "KPI_jalon_has_ordre": {
+			      "Binding": {
+			        "ConceptualEntity": "KPI_Jalons"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "KPI_jalon": {
+			          "Target": {
+			            "Entity": "KPI_jalon"
+			          }
+			        },
+			        "KPI_jalon.ordre": {
+			          "Target": {
+			            "Entity": "KPI_jalon.ordre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "KPI_jalon"
+			            },
+			            "Object": {
+			              "Role": "KPI_jalon.ordre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "KPI_jalons_have_ordres"
+			        }
+			      ]
+			    },
+			    "mesures_table_has_KPI_jalons_valeur": {
+			      "Binding": {
+			        "ConceptualEntity": "MesuresTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mesures_table": {
+			          "Target": {
+			            "Entity": "mesures_table"
+			          }
+			        },
+			        "mesures_table.KPI_jalons_valeur": {
+			          "Target": {
+			            "Entity": "mesures_table.KPI_jalons_valeur"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mesures_table"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.KPI_jalons_valeur"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mesures_tables_have_KPI_jalons_valeur"
+			        }
+			      ]
+			    },
+			    "KPI_WF_budget_has_categorie": {
+			      "Binding": {
+			        "ConceptualEntity": "KPI_WF_Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "KPI_WF_budget": {
+			          "Target": {
+			            "Entity": "KPI_WF_budget"
+			          }
+			        },
+			        "KPI_WF_budget.categorie": {
+			          "Target": {
+			            "Entity": "KPI_WF_budget.categorie"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "KPI_WF_budget"
+			            },
+			            "Object": {
+			              "Role": "KPI_WF_budget.categorie"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "KPI_WF_budgets_have_categories"
+			        }
+			      ]
+			    },
+			    "KPI_WF_budget_has_ordre": {
+			      "Binding": {
+			        "ConceptualEntity": "KPI_WF_Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "KPI_WF_budget": {
+			          "Target": {
+			            "Entity": "KPI_WF_budget"
+			          }
+			        },
+			        "KPI_WF_budget.ordre": {
+			          "Target": {
+			            "Entity": "KPI_WF_budget.ordre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "KPI_WF_budget"
+			            },
+			            "Object": {
+			              "Role": "KPI_WF_budget.ordre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "KPI_WF_budgets_have_ordres"
+			        }
+			      ]
+			    },
+			    "axe_waterfall_budget_has_catégorie": {
+			      "Binding": {
+			        "ConceptualEntity": "Axe_Waterfall_Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "axe_waterfall_budget": {
+			          "Target": {
+			            "Entity": "axe_waterfall_budget"
+			          }
+			        },
+			        "axe_waterfall_budget.catégorie": {
+			          "Target": {
+			            "Entity": "axe_waterfall_budget.catégorie"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "axe_waterfall_budget"
+			            },
+			            "Object": {
+			              "Role": "axe_waterfall_budget.catégorie"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "axe_waterfall_budgets_have_catégories"
+			        }
+			      ]
+			    },
+			    "axe_waterfall_budget_has_ordre": {
+			      "Binding": {
+			        "ConceptualEntity": "Axe_Waterfall_Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "axe_waterfall_budget": {
+			          "Target": {
+			            "Entity": "axe_waterfall_budget"
+			          }
+			        },
+			        "axe_waterfall_budget.ordre": {
+			          "Target": {
+			            "Entity": "axe_waterfall_budget.ordre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "axe_waterfall_budget"
+			            },
+			            "Object": {
+			              "Role": "axe_waterfall_budget.ordre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "axe_waterfall_budgets_have_ordres"
+			        }
+			      ]
+			    },
+			    "WF_couts_fact_cout_has_categorie": {
+			      "Binding": {
+			        "ConceptualEntity": "WF_Couts_FactCouts"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "WF_couts_fact_cout": {
+			          "Target": {
+			            "Entity": "WF_couts_fact_cout"
+			          }
+			        },
+			        "WF_couts_fact_cout.categorie": {
+			          "Target": {
+			            "Entity": "WF_couts_fact_cout.categorie"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "WF_couts_fact_cout"
+			            },
+			            "Object": {
+			              "Role": "WF_couts_fact_cout.categorie"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "WF_couts_fact_couts_have_categories"
+			        }
+			      ]
+			    },
+			    "WF_couts_fact_cout_has_ordre": {
+			      "Binding": {
+			        "ConceptualEntity": "WF_Couts_FactCouts"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "WF_couts_fact_cout": {
+			          "Target": {
+			            "Entity": "WF_couts_fact_cout"
+			          }
+			        },
+			        "WF_couts_fact_cout.ordre": {
+			          "Target": {
+			            "Entity": "WF_couts_fact_cout.ordre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "WF_couts_fact_cout"
+			            },
+			            "Object": {
+			              "Role": "WF_couts_fact_cout.ordre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "WF_couts_fact_couts_have_ordres"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_KPI_texte_WF_budget": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.KPI_texte_WF_budget": {
+			          "Target": {
+			            "Entity": "mesures_table.KPI_texte_WF_budget"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.KPI_texte_WF_budget"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_KPI_texte_WF_budget"
+			        }
+			      ]
+			    },
+			    "fact_cout_has_mesures_table_KPI_texte_WF_budget": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCouts"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_cout": {
+			          "Target": {
+			            "Entity": "fact_cout"
+			          }
+			        },
+			        "mesures_table.KPI_texte_WF_budget": {
+			          "Target": {
+			            "Entity": "mesures_table.KPI_texte_WF_budget"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_cout"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.KPI_texte_WF_budget"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_couts_have_KPI_texte_WF_budget"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_KPI_texte_WF_budget": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.KPI_texte_WF_budget": {
+			          "Target": {
+			            "Entity": "mesures_table.KPI_texte_WF_budget"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.KPI_texte_WF_budget"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_KPI_texte_WF_budget"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_KPI_texte_budget_direction": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.KPI_texte_budget_direction": {
+			          "Target": {
+			            "Entity": "mesures_table.KPI_texte_budget_direction"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.KPI_texte_budget_direction"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_KPI_texte_budget_direction"
+			        }
+			      ]
+			    },
+			    "fact_cout_has_mesures_table_KPI_texte_budget_direction": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCouts"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_cout": {
+			          "Target": {
+			            "Entity": "fact_cout"
+			          }
+			        },
+			        "mesures_table.KPI_texte_budget_direction": {
+			          "Target": {
+			            "Entity": "mesures_table.KPI_texte_budget_direction"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_cout"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.KPI_texte_budget_direction"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_couts_have_KPI_texte_budget_direction"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_KPI_texte_budget_direction": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.KPI_texte_budget_direction": {
+			          "Target": {
+			            "Entity": "mesures_table.KPI_texte_budget_direction"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.KPI_texte_budget_direction"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_KPI_texte_budget_direction"
+			        }
+			      ]
+			    },
+			    "KPI_WF_budget_has_mesures_table_KPI_WF_budget_valeur": {
+			      "Binding": {
+			        "ConceptualEntity": "KPI_WF_Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "KPI_WF_budget": {
+			          "Target": {
+			            "Entity": "KPI_WF_budget"
+			          }
+			        },
+			        "mesures_table.KPI_WF_budget_valeur": {
+			          "Target": {
+			            "Entity": "mesures_table.KPI_WF_budget_valeur"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "KPI_WF_budget"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.KPI_WF_budget_valeur"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "KPI_WF_budgets_have_KPI_WF_budget_valeur"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_KPI_WF_budget_valeur": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.KPI_WF_budget_valeur": {
+			          "Target": {
+			            "Entity": "mesures_table.KPI_WF_budget_valeur"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.KPI_WF_budget_valeur"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_KPI_WF_budget_valeur"
+			        }
+			      ]
+			    },
+			    "fact_cout_has_mesures_table_KPI_WF_budget_valeur": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCouts"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_cout": {
+			          "Target": {
+			            "Entity": "fact_cout"
+			          }
+			        },
+			        "mesures_table.KPI_WF_budget_valeur": {
+			          "Target": {
+			            "Entity": "mesures_table.KPI_WF_budget_valeur"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_cout"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.KPI_WF_budget_valeur"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_couts_have_KPI_WF_budget_valeur"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_KPI_WF_budget_valeur": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.KPI_WF_budget_valeur": {
+			          "Target": {
+			            "Entity": "mesures_table.KPI_WF_budget_valeur"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.KPI_WF_budget_valeur"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_KPI_WF_budget_valeur"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_exposition_financière_budget_AC__engagés": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.exposition_financière_budget_AC__engagés": {
+			          "Target": {
+			            "Entity": "mesures_table.exposition_financière_budget_AC__engagés"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.exposition_financière_budget_AC__engagés"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_exposition_financière_budget_AC__engagés"
+			        }
+			      ]
+			    },
+			    "fact_cout_has_mesures_table_exposition_financière_budget_AC__engagés": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCouts"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_cout": {
+			          "Target": {
+			            "Entity": "fact_cout"
+			          }
+			        },
+			        "mesures_table.exposition_financière_budget_AC__engagés": {
+			          "Target": {
+			            "Entity": "mesures_table.exposition_financière_budget_AC__engagés"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_cout"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.exposition_financière_budget_AC__engagés"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_couts_have_exposition_financière_budget_AC__engagés"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_exposition_financière_budget_AC__engagés": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.exposition_financière_budget_AC__engagés": {
+			          "Target": {
+			            "Entity": "mesures_table.exposition_financière_budget_AC__engagés"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.exposition_financière_budget_AC__engagés"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_exposition_financière_budget_AC__engagés"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_budget_engagé": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.budget_engagé": {
+			          "Target": {
+			            "Entity": "mesures_table.budget_engagé"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.budget_engagé"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_budget_engagé"
+			        }
+			      ]
+			    },
+			    "fact_cout_has_mesures_table_budget_engagé": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCouts"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_cout": {
+			          "Target": {
+			            "Entity": "fact_cout"
+			          }
+			        },
+			        "mesures_table.budget_engagé": {
+			          "Target": {
+			            "Entity": "mesures_table.budget_engagé"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_cout"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.budget_engagé"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_couts_have_budget_engagé"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_budget_engagé": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.budget_engagé": {
+			          "Target": {
+			            "Entity": "mesures_table.budget_engagé"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.budget_engagé"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_budget_engagé"
+			        }
+			      ]
+			    },
+			    "fact_tach_has_mesures_table_tâches_non_démarrées": {
+			      "Binding": {
+			        "ConceptualEntity": "FactTaches"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_tach": {
+			          "Target": {
+			            "Entity": "fact_tach"
+			          }
+			        },
+			        "mesures_table.tâches_non_démarrées": {
+			          "Target": {
+			            "Entity": "mesures_table.tâches_non_démarrées"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_tach"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.tâches_non_démarrées"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_taches_have_tâches_non_démarrées"
+			        }
+			      ]
+			    },
+			    "fact_tach_has_mesures_table_tâches_en_cours": {
+			      "Binding": {
+			        "ConceptualEntity": "FactTaches"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_tach": {
+			          "Target": {
+			            "Entity": "fact_tach"
+			          }
+			        },
+			        "mesures_table.tâches_en_cours": {
+			          "Target": {
+			            "Entity": "mesures_table.tâches_en_cours"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_tach"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.tâches_en_cours"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_taches_have_tâches_en_cours"
+			        }
+			      ]
+			    },
+			    "fact_tach_has_mesures_table_tâches_terminées": {
+			      "Binding": {
+			        "ConceptualEntity": "FactTaches"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_tach": {
+			          "Target": {
+			            "Entity": "fact_tach"
+			          }
+			        },
+			        "mesures_table.tâches_terminées": {
+			          "Target": {
+			            "Entity": "mesures_table.tâches_terminées"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_tach"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.tâches_terminées"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_taches_have_tâches_terminées"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_waterfall_budget_value": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.waterfall_budget_value": {
+			          "Target": {
+			            "Entity": "mesures_table.waterfall_budget_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.waterfall_budget_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_waterfall_budget_value"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_waterfall_budget_value": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.waterfall_budget_value": {
+			          "Target": {
+			            "Entity": "mesures_table.waterfall_budget_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.waterfall_budget_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_waterfall_budget_value"
+			        }
+			      ]
+			    },
+			    "axe_waterfall_budget_has_mesures_table_waterfall_budget_value": {
+			      "Binding": {
+			        "ConceptualEntity": "Axe_Waterfall_Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "axe_waterfall_budget": {
+			          "Target": {
+			            "Entity": "axe_waterfall_budget"
+			          }
+			        },
+			        "mesures_table.waterfall_budget_value": {
+			          "Target": {
+			            "Entity": "mesures_table.waterfall_budget_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "axe_waterfall_budget"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.waterfall_budget_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "axe_waterfall_budgets_have_waterfall_budget_value"
+			        }
+			      ]
+			    },
+			    "fact_cout_has_mesures_table_coûts_engagés": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCouts"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_cout": {
+			          "Target": {
+			            "Entity": "fact_cout"
+			          }
+			        },
+			        "mesures_table.coûts_engagés": {
+			          "Target": {
+			            "Entity": "mesures_table.coûts_engagés"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_cout"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.coûts_engagés"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_couts_have_coûts_engagés"
+			        }
+			      ]
+			    },
+			    "WF_couts_fact_cout_has_mesures_table_WF_valeur": {
+			      "Binding": {
+			        "ConceptualEntity": "WF_Couts_FactCouts"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "WF_couts_fact_cout": {
+			          "Target": {
+			            "Entity": "WF_couts_fact_cout"
+			          }
+			        },
+			        "mesures_table.WF_valeur": {
+			          "Target": {
+			            "Entity": "mesures_table.WF_valeur"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "WF_couts_fact_cout"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.WF_valeur"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "WF_couts_fact_couts_have_WF_valeur"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_WF_valeur": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.WF_valeur": {
+			          "Target": {
+			            "Entity": "mesures_table.WF_valeur"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.WF_valeur"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_WF_valeur"
+			        }
+			      ]
+			    },
+			    "fact_cout_has_mesures_table_WF_valeur": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCouts"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_cout": {
+			          "Target": {
+			            "Entity": "fact_cout"
+			          }
+			        },
+			        "mesures_table.WF_valeur": {
+			          "Target": {
+			            "Entity": "mesures_table.WF_valeur"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_cout"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.WF_valeur"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_couts_have_WF_valeur"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_WF_valeur": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.WF_valeur": {
+			          "Target": {
+			            "Entity": "mesures_table.WF_valeur"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.WF_valeur"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_WF_valeur"
+			        }
+			      ]
+			    },
 			    "fact_pilotage_mensuel_has_mesures_table_KPI_texte_EAC_vs_BAC": {
 			      "Binding": {
 			        "ConceptualEntity": "FactPilotageMensuel"
@@ -41821,72 +44123,6 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_projets_have_VAC_ecart_budgetaire"
-			        }
-			      ]
-			    },
-			    "fact_pilotage_mensuel_has_mesures_table_test": {
-			      "Binding": {
-			        "ConceptualEntity": "FactPilotageMensuel"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_pilotage_mensuel": {
-			          "Target": {
-			            "Entity": "fact_pilotage_mensuel"
-			          }
-			        },
-			        "mesures_table.test": {
-			          "Target": {
-			            "Entity": "mesures_table.test"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_pilotage_mensuel"
-			            },
-			            "Object": {
-			              "Role": "mesures_table.test"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_pilotage_mensuels_have_test"
-			        }
-			      ]
-			    },
-			    "dim_projet_has_mesures_table_test": {
-			      "Binding": {
-			        "ConceptualEntity": "DimProjet"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_projet": {
-			          "Target": {
-			            "Entity": "dim_projet"
-			          }
-			        },
-			        "mesures_table.test": {
-			          "Target": {
-			            "Entity": "mesures_table.test"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_projet"
-			            },
-			            "Object": {
-			              "Role": "mesures_table.test"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_projets_have_test"
 			        }
 			      ]
 			    },
@@ -43573,7 +45809,7 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
-			    "fact_cout_has_mesures_table_coûts_engagés": {
+			    "fact_cout_has_mesures_table_coûts_total": {
 			      "Binding": {
 			        "ConceptualEntity": "FactCouts"
 			      },
@@ -43584,9 +45820,9 @@ cultureInfo fr-FR
 			            "Entity": "fact_cout"
 			          }
 			        },
-			        "mesures_table.coûts_engagés": {
+			        "mesures_table.coûts_total": {
 			          "Target": {
-			            "Entity": "mesures_table.coûts_engagés"
+			            "Entity": "mesures_table.coûts_total"
 			          }
 			        }
 			      },
@@ -43597,12 +45833,12 @@ cultureInfo fr-FR
 			              "Role": "fact_cout"
 			            },
 			            "Object": {
-			              "Role": "mesures_table.coûts_engagés"
+			              "Role": "mesures_table.coûts_total"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_couts_have_coûts_engagés"
+			          "ID": "fact_couts_have_coûts_total"
 			        }
 			      ]
 			    },
@@ -44497,7 +46733,7 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
-			    "fact_tach_has_mesures_table_nombre_de_tâches": {
+			    "fact_tach_has_mesures_table_total_nombre_de_tâches": {
 			      "Binding": {
 			        "ConceptualEntity": "FactTaches"
 			      },
@@ -44508,9 +46744,9 @@ cultureInfo fr-FR
 			            "Entity": "fact_tach"
 			          }
 			        },
-			        "mesures_table.nombre_de_tâches": {
+			        "mesures_table.total_nombre_de_tâches": {
 			          "Target": {
-			            "Entity": "mesures_table.nombre_de_tâches"
+			            "Entity": "mesures_table.total_nombre_de_tâches"
 			          }
 			        }
 			      },
@@ -44521,12 +46757,12 @@ cultureInfo fr-FR
 			              "Role": "fact_tach"
 			            },
 			            "Object": {
-			              "Role": "mesures_table.nombre_de_tâches"
+			              "Role": "mesures_table.total_nombre_de_tâches"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_taches_have_nombre_de_tâches"
+			          "ID": "fact_taches_have_total_nombre_de_tâches"
 			        }
 			      ]
 			    },
@@ -45055,72 +47291,6 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_projets_have_PV__valeur_planifiée"
-			        }
-			      ]
-			    },
-			    "fact_pilotage_mensuel_has_mesures_table_coût_réel_cumulé": {
-			      "Binding": {
-			        "ConceptualEntity": "FactPilotageMensuel"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_pilotage_mensuel": {
-			          "Target": {
-			            "Entity": "fact_pilotage_mensuel"
-			          }
-			        },
-			        "mesures_table.coût_réel_cumulé": {
-			          "Target": {
-			            "Entity": "mesures_table.coût_réel_cumulé"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_pilotage_mensuel"
-			            },
-			            "Object": {
-			              "Role": "mesures_table.coût_réel_cumulé"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_pilotage_mensuels_have_coût_réel_cumulé"
-			        }
-			      ]
-			    },
-			    "dim_projet_has_mesures_table_coût_réel_cumulé": {
-			      "Binding": {
-			        "ConceptualEntity": "DimProjet"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_projet": {
-			          "Target": {
-			            "Entity": "dim_projet"
-			          }
-			        },
-			        "mesures_table.coût_réel_cumulé": {
-			          "Target": {
-			            "Entity": "mesures_table.coût_réel_cumulé"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_projet"
-			            },
-			            "Object": {
-			              "Role": "mesures_table.coût_réel_cumulé"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_projets_have_coût_réel_cumulé"
 			        }
 			      ]
 			    },
@@ -49453,6 +51623,33 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_couts_have_amount_eurs"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "fact_cout"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "fact_cout.amount_eur"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "amount_eur_indicates_how_expensive_fact_couts_are"
 			        }
 			      ]
 			    },
@@ -51476,39 +53673,6 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "dim_projets_are_started_on_start_dates"
-			        }
-			      ]
-			    },
-			    "dim_calendrier_date_hiérarchie_de_date_has_dim_calendrier_date_jour": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_Calendrier"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendrier.date.hiérarchie_de_date": {
-			          "Target": {
-			            "Entity": "dim_calendrier.date.hiérarchie_de_date"
-			          }
-			        },
-			        "dim_calendrier.date.jour": {
-			          "Target": {
-			            "Entity": "dim_calendrier.date.jour"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.hiérarchie_de_date"
-			            },
-			            "Object": {
-			              "Role": "dim_calendrier.date.jour"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour31"
 			        }
 			      ]
 			    },

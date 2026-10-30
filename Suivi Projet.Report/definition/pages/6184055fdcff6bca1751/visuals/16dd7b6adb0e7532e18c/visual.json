@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "16dd7b6adb0e7532e18c",
   "position": {
-    "x": 1310,
-    "y": 371.66666666666669,
-    "z": 8000,
-    "height": 332,
-    "width": 582,
-    "tabOrder": 8000
+    "x": 1161.6666666666667,
+    "y": 65,
+    "z": 6000,
+    "height": 243.33333333333334,
+    "width": 725,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "waterfallChart",
@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "WF_Budget"
+                      "Entity": "KPI_WF_Budget"
                     }
                   },
                   "Property": "Categorie"
@@ -42,11 +42,11 @@
                       "Entity": "MesuresTable"
                     }
                   },
-                  "Property": "WF Budget Valeur"
+                  "Property": "KPI WF Budget Valeur"
                 }
               },
               "queryRef": "MesuresTable.WF Budget Valeur",
-              "nativeQueryRef": "WF Budget Valeur"
+              "nativeQueryRef": "KPI WF Budget Valeur"
             }
           ]
         }
@@ -164,6 +164,7 @@
     },
     "drillFilterOtherVisuals": true
   },
+  "parentGroupName": "fca342ca4d3570bebaa1",
   "filterConfig": {
     "filters": [
       {
@@ -174,7 +175,7 @@
           "From": [
             {
               "Name": "w",
-              "Entity": "WF_Budget",
+              "Entity": "KPI_WF_Budget",
               "Type": 0
             }
           ],
@@ -213,20 +214,6 @@
           ]
         },
         "howCreated": "Exclude"
-      },
-      {
-        "name": "88237746d07ba4de3dad",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MesuresTable"
-              }
-            },
-            "Property": "WF Budget Valeur"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

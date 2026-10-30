@@ -1,33 +1,35 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
-  "name": "1079ceeb3f38d71c9b8f",
+  "name": "06e7813f502d0d42a73e",
   "position": {
-    "x": 1638,
-    "y": 0,
-    "z": 0,
-    "height": 70,
-    "width": 236,
-    "tabOrder": 0
+    "x": 504.28571428571433,
+    "y": 114.28571428571429,
+    "z": 3000,
+    "height": 85.714285714285722,
+    "width": 248.57142857142858,
+    "tabOrder": 3000
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "slicer",
     "query": {
       "queryState": {
-        "Data": {
+        "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "MesuresTable"
+                      "Entity": "Dim_Snapshot"
                     }
                   },
-                  "Property": "Date dernier reporting"
+                  "Property": "DateSnapshot"
                 }
               },
-              "queryRef": "MesuresTable.Date dernier reporting",
-              "nativeQueryRef": "Date dernier reporting"
+              "queryRef": "Dim_Snapshot.DateSnapshot",
+              "nativeQueryRef": "Date dernier snapshot",
+              "active": true,
+              "displayName": "Date dernier snapshot"
             }
           ]
         }
@@ -36,13 +38,13 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "MesuresTable"
+                    "Entity": "Dim_Snapshot"
                   }
                 },
-                "Property": "Date dernier reporting"
+                "Property": "DateSnapshot"
               }
             },
             "direction": "Ascending"
@@ -52,21 +54,33 @@
       }
     },
     "objects": {
-      "value": [
+      "data": [
         {
           "properties": {
-            "fontSize": {
+            "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "15D"
+                  "Value": "'Dropdown'"
                 }
               }
             }
-          },
-          "selector": {
-            "id": "default"
           }
-        },
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
         {
           "properties": {
             "show": {
@@ -75,65 +89,16 @@
                   "Value": "true"
                 }
               }
-            }
-          }
-        }
-      ],
-      "label": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
-      "outline": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
-      "divider": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
-      "fillCustom": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0.6
+                    }
+                  }
                 }
               }
             }
@@ -169,7 +134,11 @@
         }
       ]
     },
+    "syncGroup": {
+      "groupName": "DateSnapshot",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
     "drillFilterOtherVisuals": true
-  },
-  "parentGroupName": "517c0224f6765854ced7"
+  }
 }

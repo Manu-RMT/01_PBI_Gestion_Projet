@@ -77,6 +77,9 @@ ref table LocalDateTable_e92ec34a-695d-4160-9056-c7ded95e6e61
 ref table LocalDateTable_235d8c0a-65ee-4c55-ab39-ecd2817da67a
 ref table Dim_Snapshot
 ref table LocalDateTable_88131e06-6dca-4287-a5d5-8510db4af295
+ref table WF_Couts_FactCouts
+ref table Axe_Waterfall_Budget
+ref table WF_Budget
 
 ref cultureInfo fr-FR
 

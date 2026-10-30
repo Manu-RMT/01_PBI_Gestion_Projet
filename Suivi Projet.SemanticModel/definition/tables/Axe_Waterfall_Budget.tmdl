@@ -1,0 +1,39 @@
+table Axe_Waterfall_Budget
+	lineageTag: 68dc32e3-f5ca-4849-8d86-7a8f4eb10449
+
+	column Ordre
+		formatString: 0
+		lineageTag: 86201230-bc64-4862-8643-a6c95f3a2724
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Ordre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Catégorie
+		lineageTag: 61070f7e-8709-4972-85a9-d8182f20b8a8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Catégorie]
+		sortByColumn: Ordre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Axe_Waterfall_Budget = calculated
+		mode: import
+		source = ```
+				
+				DATATABLE(
+				    "Catégorie", STRING,
+				    "Ordre", INTEGER,
+				    {
+				        {"Budget initial (BAC)", 1},
+				        {"Écart prévisionnel", 2},
+				        {"Coût final estimé (EAC)", 3}
+				    }
+				)
+				
+				```
+
+	annotation PBI_Id = 4da8047645fe4f6390869ecfe7a7139f
+

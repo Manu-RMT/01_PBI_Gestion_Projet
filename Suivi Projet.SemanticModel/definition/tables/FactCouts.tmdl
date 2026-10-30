@@ -51,13 +51,12 @@ table FactCouts
 
 	column amount_eur
 		dataType: double
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		lineageTag: e92b9415-be7c-42fb-a4b4-876bf87b0b11
 		summarizeBy: sum
 		sourceColumn: amount_eur
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column cost_status
 		dataType: string

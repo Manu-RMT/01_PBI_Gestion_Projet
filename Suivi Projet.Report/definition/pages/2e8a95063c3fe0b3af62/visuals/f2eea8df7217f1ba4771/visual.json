@@ -134,6 +134,11 @@
         }
       ]
     },
+    "syncGroup": {
+      "groupName": "DateSnapshot",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
     "drillFilterOtherVisuals": true
   }
 }

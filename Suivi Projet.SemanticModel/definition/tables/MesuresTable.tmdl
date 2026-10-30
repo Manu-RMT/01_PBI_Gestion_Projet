@@ -178,18 +178,6 @@ table MesuresTable
 		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		lineageTag: 6c22b77d-664a-4b98-865d-5de2f1a9951d
 
-	measure 'Coût réel cumulé' = ```
-			
-			// Additionne le coût cumulé du dernier snapshot de chaque projet. 
-			// Évite de sommer plusieurs snapshots historiques d'un même projet. 
-			
-			SUMX( VALUES(DimProjet[project_id]), VAR ProjetCourant = DimProjet[project_id] VAR DernierSnapshot = CALCULATE( MAX(FactPilotageMensuel[snapshot_date]), FactPilotageMensuel[project_id] = ProjetCourant ) RETURN CALCULATE( MAX(FactPilotageMensuel[actual_cost_cumulative_eur]), FactPilotageMensuel[project_id] = ProjetCourant, FactPilotageMensuel[snapshot_date] = DernierSnapshot ) )
-			
-			```
-		lineageTag: e520d868-9a63-449a-bce0-7439cd806b12
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'PV - Valeur planifiée' =
 			
 			-- Calcule le PV (Planned Value) du portefeuille.
@@ -233,7 +221,7 @@ table MesuresTable
 
 	measure 'CPI - Performance des coûts' = ```
 			// Compare la valeur acquise estimée au coût réel. // CPI inférieur à 1 : performance des coûts défavorable. 
-			DIVIDE([EV - Valeur acquise estimée], [Coût réel cumulé])
+			DIVIDE([EV - Valeur acquise estimée], [AC - Coût réel cumulé])
 			
 			```
 		formatString: 0.00
@@ -254,7 +242,7 @@ table MesuresTable
 	measure 'CV - Écart de coûts' = ```
 			
 			// Une valeur négative signale un dépassement de coûts. 
-			[EV - Valeur acquise estimée] - [Coût réel cumulé]
+			[EV - Valeur acquise estimée] - [AC - Coût réel cumulé]
 			```
 		lineageTag: 5dc3c5bb-8e37-400f-9397-5c5515cc0d77
 
@@ -278,7 +266,7 @@ table MesuresTable
 					RETURN
 						IF(
 							CPIActuel > 0,
-							[Coût réel cumulé] + DIVIDE(
+							[AC - Coût réel cumulé] + DIVIDE(
 								[BAC - Budget initial] - [EV - Valeur acquise estimée],
 								CPIActuel
 							)
@@ -294,9 +282,8 @@ table MesuresTable
 			[BAC - Budget initial] - [EAC - Coût estimé à terminaison]
 			
 			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		lineageTag: 7728b9cb-e8df-4cfc-ab7d-a80b7a5d939c
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Nombre de tâches' = ```
 			
@@ -497,7 +484,7 @@ table MesuresTable
 
 	measure 'ETC - Reste à faire estimé (€)' =
 			
-			[EAC - Coût estimé à terminaison] - [Coût réel cumulé]
+			[EAC - Coût estimé à terminaison] - [AC - Coût réel cumulé]
 		lineageTag: 3efb3ede-b736-48bb-aaea-efd363b1eebb
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -509,22 +496,21 @@ table MesuresTable
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Budget non consommé (€)' = [BAC - Budget initial] - [Coût réel cumulé]
+	measure 'Budget non consommé (€)' = [BAC - Budget initial] - [AC - Coût réel cumulé]
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		lineageTag: 8c17bf94-4c9f-4bda-b317-95e9079a8910
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Consommation budget (%)' = DIVIDE([Coût réel cumulé], [BAC - Budget initial])
+	measure 'Consommation budget (%)' = DIVIDE([AC - Coût réel cumulé], [BAC - Budget initial])
 		lineageTag: 01604739-5a6a-4424-8130-a4623a44cdcb
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Coûts engagés (€)' = SUM(FactCouts[amount_eur])
+	measure 'Coûts total (€)' = SUM(FactCouts[amount_eur])
 		lineageTag: 0d89e7df-7270-41b8-8cd2-0f85dd1869ca
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Écart coût réel cumulé vs coûts saisis (€)' = [Coût réel cumulé] - [Coûts engagés (€)]
+	measure 'Écart coût réel cumulé vs coûts saisis (€)' = [AC - Coût réel cumulé] - [Coûts total (€)]
 		lineageTag: e48bb1b3-1e54-4fe5-9635-be6e1b3639f9
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -806,15 +792,21 @@ table MesuresTable
 			SWITCH([Statut global], "Rouge", "#D0453D", "Ambre", "#E0A93B", "#2E9F6B")
 		lineageTag: ab5e8897-8ff2-4419-97a6-59fbd434ecfd
 
-	measure 'SPI - Statut des delais planning' = ```
+	measure 'SPI - Statut des délais planning' =
 			
-			IF(
-			    [SPI - Performance des délais] > 1,
-			    "En avance sur le plan",
-			    "En retard sur le plan"
+			SWITCH(
+			    TRUE(),
+			    [SPI - Performance des délais] >= 1.05,
+			        "🟢 Avance significative sur le planning",
+			
+			    [SPI - Performance des délais] >= 0.95,
+			        "🟢 Planning sous contrôle",
+			
+			    [SPI - Performance des délais] >= 0.85,
+			        "🟠 Retard modéré à surveiller",
+			
+			    "🔴 Retard critique nécessitant des actions correctives"
 			)
-			
-			```
 		lineageTag: ec479677-bf69-42cb-bcef-67373d44b529
 
 	measure Couleur_SPI =
@@ -897,26 +889,20 @@ table MesuresTable
 			SWITCH(
 			    TRUE(),
 			    ISBLANK(CPI), "Non disponible",
-			    CPI < 0.85, "Dépassement important",
-			    CPI < 0.95, "Dépassement à surveiller",
-			    CPI < 1, "Léger dépassement",
-			    CPI >= 1, "Coûts maîtrisés"
+			    CPI < 0.85, "🔴 Dépassement important",
+			    CPI < 0.95, "🟠 À surveiller",
+			    CPI < 1, "🟡 Léger dépassement",
+			    "🟢 Coûts maîtrisés"
 			)
 		lineageTag: 94e0dcd7-2b11-4e30-9fa4-8067c1435cb0
 
-	measure test = [BAC - Budget initial] - [EAC - Coût estimé à terminaison]
-		lineageTag: 5b07fb78-7383-431f-a3f2-3538d9968e45
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'VAC ecart budgetaire (%)' = ```
 			
-			 ([VAC - Écart budgétaire final estimé] / [BAC - Budget initial]) * 100
+			 ([VAC - Écart budgétaire final estimé] / [BAC - Budget initial]) 
 			
 			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		lineageTag: 0030fe65-41a1-4685-bc32-a7319336cec2
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'AC - Coût réel cumulé' =
 			
@@ -1160,6 +1146,189 @@ table MesuresTable
 			    FactJalons[planned_date] = DateProchainJalon
 			)
 		lineageTag: 1a893c52-c56a-4664-b633-1d132bc99fd3
+
+	measure KPI_Texte_EAC_vs_BAC =
+			
+			VAR _Pct = [VAC ecart budgetaire (%)]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    _Pct > 0,
+			        "▲ +" & FORMAT(ABS(_Pct), "0.0%") & " vs. BAC",
+			    _Pct < 0,
+			        "▼ -" & FORMAT(ABS(_Pct), "0.0%") & " vs. BAC",
+			    "● Conforme au BAC"
+			)
+		lineageTag: be24f236-3f8a-4d60-9f41-16b8ea4bed73
+
+	measure WF_Valeur =
+			
+			VAR Cat =
+			    SELECTEDVALUE(WF_Couts_FactCouts[Categorie])
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    Cat = "BAC",
+			        [BAC - Budget initial],
+			
+			    Cat = "EAC",
+			        [EAC - Coût estimé à terminaison],
+			
+			    CALCULATE(
+			        SUM(FactCouts[amount_eur]),
+			        FactCouts[cost_category] = Cat
+			    )
+			)
+		lineageTag: d50344b1-6761-4811-912a-56ce88fe7896
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Coûts engagés' = ```
+			
+			CALCULATE(
+			    SUM(FactCouts[amount_eur]),
+			    FactCouts[cost_status] = "Engagé"
+			)
+			
+			
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 58f4ac5d-1360-496e-a1d4-c4a5d0044bea
+
+	measure 'Waterfall Budget Value' = ```
+			
+			SWITCH(
+			    SELECTEDVALUE(Axe_Waterfall_Budget[Catégorie]),
+			    "Budget initial (BAC)",
+			        [BAC - Budget initial],
+			    "Écart prévisionnel",
+			        [VAC - Écart budgétaire final estimé],
+			    "Coût final estimé (EAC)",
+			        [EAC - Coût estimé à terminaison]
+			)
+			
+			```
+		lineageTag: 4c0049c9-cd3f-4b2d-aa42-acf3f1bddd8a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Tâches terminées' =
+			
+			// Compte les tâches terminées.
+			CALCULATE(
+			    DISTINCTCOUNT(FactTaches[task_id]),
+			    NOT ISBLANK(FactTaches[actual_end_date])
+			)
+		formatString: 0
+		lineageTag: 8bba9422-df26-46f7-8ba1-7434ed4e764b
+
+	measure 'Tâches en cours' =
+			
+			// Compte les tâches démarrées mais non terminées.
+			CALCULATE(
+			    DISTINCTCOUNT(FactTaches[task_id]),
+			    NOT ISBLANK(FactTaches[actual_start_date]),
+			    ISBLANK(FactTaches[actual_end_date])
+			)
+		formatString: 0
+		lineageTag: a5261b56-0a1c-418f-8c5f-8c89b3983603
+
+	measure 'Tâches non démarrées' =
+			
+			// Compte les tâches qui n'ont pas encore démarré.
+			CALCULATE(
+			    DISTINCTCOUNT(FactTaches[task_id]),
+			    ISBLANK(FactTaches[actual_start_date])
+			)
+		formatString: 0
+		lineageTag: 10deedc8-9601-4468-af7a-66c214e72d3b
+
+	measure 'Budget engagé (%)' =
+			
+			DIVIDE(
+			    [AC - Coût réel cumulé] + [Coûts engagés],
+			    [BAC - Budget initial]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: ba6df509-0ed2-4729-abaa-fceab940ea5d
+
+	measure 'Exposition financière budget (AC + Engagés)' =
+			
+			[AC - Coût réel cumulé]
+			+
+			[Coûts engagés]
+		lineageTag: 0302c126-742d-4526-9f38-4f3525bde52a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'WF Budget Valeur' = ```
+			
+			VAR Cat = SELECTEDVALUE(WF_Budget[Categorie])
+			RETURN
+			SWITCH(
+			    Cat,
+			    "Budget initial (BAC)", [BAC - Budget initial],
+			    "Coûts réels (AC)", - [AC - Coût réel cumulé],
+			    "Coûts engagés", - [Coûts engagés],
+			    "Budget restant",
+			        [BAC - Budget initial]
+			        - [AC - Coût réel cumulé]
+			        - [Coûts engagés]
+			)
+			
+			```
+		lineageTag: f41d3a5a-6264-4df4-a3f8-0ae681c10562
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'KPI Texte Budget Direction' =
+			
+			VAR _Pct =
+			DIVIDE(
+			    [AC - Coût réel cumulé] + [Coûts engagés],
+			    [BAC - Budget initial]
+			)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    _Pct >= 1, "🔴 L'exposition financière excède le budget approuvé.",
+			    _Pct >= 0.9, "🟠 Budget quasiment consommé, attention aux dérives de fin de projet.",
+			    _Pct >= 0.75, "🟡 Budget sous contrôle mais la réserve restante devient limitée.",
+			    _Pct >= 0.5, "🟢 Consommation budgétaire cohérente avec l'avancement du projet.",
+			    TRUE(), "🟢 Budget largement disponible à ce stade du projet."
+			)
+		lineageTag: c8b7cd3b-83ee-4660-8a53-af5d77160db7
+
+	measure 'KPI Texte Budget' =
+			
+			VAR _BAC = [BAC - Budget initial]
+			VAR _AC = [AC - Coût réel cumulé]
+			VAR _Engages = [Coûts engagés]
+			VAR _Reste = _BAC - _AC - _Engages
+			
+			VAR _PctConsomme =
+			    DIVIDE(_AC + _Engages, _BAC)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(_BAC), "Budget non disponible.",
+			    _PctConsomme >= 1,
+			        "🔴 Le budget est totalement consommé ou engagé. Un dépassement budgétaire est probable.",
+			    _PctConsomme >= 0.9,
+			        "🟠 Plus de 90 % du budget est consommé ou engagé. Les marges de manœuvre sont très limitées.",
+			    _PctConsomme >= 0.75,
+			        "🟡 Une part importante du budget est déjà mobilisée. Une vigilance est recommandée sur les dépenses restantes.",
+			    TRUE(),
+			        "🟢 Le budget reste sous contrôle avec " &
+			        FORMAT(_Reste, "#,##0 €") &
+			        " encore disponible."
+			)
+		lineageTag: cc20f1f8-1d07-4734-843e-7a3c65f368c1
 
 	partition MesuresTable = m
 		mode: import

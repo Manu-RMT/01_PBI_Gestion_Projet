@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "ac1d6c37e5795c7c4283",
   "position": {
-    "x": 12.5,
-    "y": 862.5,
+    "x": 8.3333333333333375,
+    "y": 921.66666666666663,
     "z": 9000,
-    "height": 72.5,
-    "width": 947.5,
+    "height": 71.666666666666671,
+    "width": 945,
     "tabOrder": 9000
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "MesuresTable.Nom prochain jalon",
-              "nativeQueryRef": "Nom prochain jalon"
+              "nativeQueryRef": "Prochain Jalon1",
+              "displayName": "Prochain Jalon"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "MesuresTable.Jours avant le prochain jalon",
-              "nativeQueryRef": "Jours avant le prochain jalon"
+              "nativeQueryRef": "Jour restant",
+              "displayName": "Jour restant"
             }
           ]
         }
@@ -117,14 +119,14 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "15D"
+                  "Value": "12D"
                 }
               }
             },
             "horizontalAlignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "'left'"
                 }
               }
             }

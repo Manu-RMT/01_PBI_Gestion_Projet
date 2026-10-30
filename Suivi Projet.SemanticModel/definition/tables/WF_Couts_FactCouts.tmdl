@@ -1,0 +1,52 @@
+table WF_Couts_FactCouts
+	lineageTag: 498d5240-a073-4a84-b3b3-81a1caf85f64
+
+	column Ordre
+		formatString: 0
+		lineageTag: 379764f6-4d3d-4391-8753-7c0bc43e97eb
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Ordre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categorie
+		lineageTag: eeead764-3fbd-4783-8db3-c6c9c3beac70
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Categorie]
+		sortByColumn: Ordre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition WF_Couts_FactCouts = calculated
+		mode: import
+		source =
+				
+				VAR Categories =
+				    ADDCOLUMNS(
+				        VALUES(FactCouts[cost_category]),
+				        "Ordre",
+				            RANKX(
+				                VALUES(FactCouts[cost_category]),
+				                FactCouts[cost_category],
+				                ,
+				                ASC
+				            ) + 1
+				    )
+				
+				RETURN
+				UNION(
+				    ROW(
+				        "Categorie", "BAC",
+				        "Ordre", 1
+				    ),
+				    Categories,
+				    ROW(
+				        "Categorie", "EAC",
+				        "Ordre", 999
+				    )
+				)
+
+	annotation PBI_Id = ba284a810b7044a69ad42d00bbe6c8e0
+

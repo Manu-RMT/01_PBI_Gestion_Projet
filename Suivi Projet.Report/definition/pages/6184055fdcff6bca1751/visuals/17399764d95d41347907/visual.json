@@ -1,0 +1,112 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "17399764d95d41347907",
+  "position": {
+    "x": 142.17207334273624,
+    "y": 928.85754583921016,
+    "z": 6000,
+    "height": 151.65021156558532,
+    "width": 1234.8660084626235,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "Budget non consommé (€)"
+                }
+              },
+              "queryRef": "MesuresTable.Budget non consommé (€)",
+              "nativeQueryRef": "Budget non consommé (€)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "Consommation budget (%)"
+                }
+              },
+              "queryRef": "MesuresTable.Consommation budget (%)",
+              "nativeQueryRef": "Consommation budget (%)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "Budget engagé (%)"
+                }
+              },
+              "queryRef": "MesuresTable.Budget engagé (%)",
+              "nativeQueryRef": "Budget engagé (%)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "Exposition financière budget (AC + Engagés)"
+                }
+              },
+              "queryRef": "MesuresTable.Exposition financière budget",
+              "nativeQueryRef": "Exposition financière budget (AC + Engagés)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "EAC - Coût estimé à terminaison"
+                }
+              },
+              "queryRef": "MesuresTable.EAC - Coût estimé à terminaison",
+              "nativeQueryRef": "EAC - Coût estimé à terminaison"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MesuresTable"
+                  }
+                },
+                "Property": "Budget non consommé (€)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

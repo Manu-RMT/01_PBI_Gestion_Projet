@@ -342,6 +342,16 @@ cultureInfo fr-FR
 			            },
 			            "Weight": 0.714
 			          }
+			        },
+			        {
+			          "Nom projet": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -24281,22 +24291,6 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
-			    "mesures_table.coût_réel_cumulé": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "MesuresTable",
-			          "ConceptualProperty": "Coût réel cumulé"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "coût réel cumulé": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "mesures_table.PV__valeur_planifiée": {
 			      "Definition": {
 			        "Binding": {
@@ -25313,7 +25307,7 @@ cultureInfo fr-FR
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "MesuresTable",
-			          "ConceptualProperty": "Coûts engagés (€)"
+			          "ConceptualProperty": "Coûts total (€)"
 			        }
 			      },
 			      "State": "Generated",
@@ -25473,6 +25467,16 @@ cultureInfo fr-FR
 			        {
 			          "jours avant le prochain jalon": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Jour restant": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -26325,28 +26329,28 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
-			    "mesures_table.SPI__statut_des_delais_planning": {
+			    "mesures_table.SPI__statut_des_délais_planning": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "MesuresTable",
-			          "ConceptualProperty": "SPI - Statut des delais planning"
+			          "ConceptualProperty": "SPI - Statut des délais planning"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "SPI - statut des delais planning": {
+			          "SPI - statut des délais planning": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "SPI statut des delais planning": {
+			          "SPI statut des délais planning": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "spi statut des delais preparation": {
+			          "spi statut des délais preparation": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -26356,7 +26360,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "spi statut des delais development": {
+			          "spi statut des délais development": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -26366,7 +26370,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "spi statut des delais arrangement": {
+			          "spi statut des délais arrangement": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -26376,7 +26380,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "spi statut des delais organization": {
+			          "spi statut des délais organization": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -26386,7 +26390,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "spi statut des delais formation": {
+			          "spi statut des délais formation": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -26396,7 +26400,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "spi statut des delais projection": {
+			          "spi statut des délais projection": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -26406,7 +26410,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "spi statut des delais scheduling": {
+			          "spi statut des délais scheduling": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -26416,7 +26420,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "spi statut des delais forecasting": {
+			          "spi statut des délais forecasting": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -26426,7 +26430,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "spi statut des delais design": {
+			          "spi statut des délais design": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -26436,7 +26440,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "spi statut des delais provision": {
+			          "spi statut des délais provision": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -26650,122 +26654,6 @@ cultureInfo fr-FR
 			          "CPI statut des coûts": {
 			            "State": "Generated",
 			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "mesures_table.test": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "MesuresTable",
-			          "ConceptualProperty": "test"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "test": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "examination": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "exam": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "assessment": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "investigation": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "analysis": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "quiz": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "trial": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "experiment": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "assay": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "scan": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
 			          }
 			        }
 			      ]
@@ -29130,110 +29018,44 @@ cultureInfo fr-FR
 			          "nom prochain jalon": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Prochain Jalon": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.KPI_texte_EAC_vs_BAC": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "KPI_Texte_EAC_vs_BAC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "KPI texte EAC vs BAC": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "KPI_Texte_EAC_vs_BAC": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
 			        }
 			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "dim_calendrier_date_année_has_dim_calendrier_date_trimestre": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_Calendrier"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendrier.date.année": {
-			          "Target": {
-			            "Entity": "dim_calendrier.date.année"
-			          }
-			        },
-			        "dim_calendrier.date.trimestre": {
-			          "Target": {
-			            "Entity": "dim_calendrier.date.trimestre"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.année"
-			            },
-			            "Object": {
-			              "Role": "dim_calendrier.date.trimestre"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "années_have_trimestres"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.trimestre"
-			            },
-			            "Object": {
-			              "Role": "dim_calendrier.date.année"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "trimestres_have_années"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.trimestre"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_calendrier.date.année"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "trimestres_are_in_années31"
-			        }
-			      ]
-			    },
-			    "dim_calendrier_date_hiérarchie_de_date_has_dim_calendrier_date_jour": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_Calendrier"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendrier.date.hiérarchie_de_date": {
-			          "Target": {
-			            "Entity": "dim_calendrier.date.hiérarchie_de_date"
-			          }
-			        },
-			        "dim_calendrier.date.jour": {
-			          "Target": {
-			            "Entity": "dim_calendrier.date.jour"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.hiérarchie_de_date"
-			            },
-			            "Object": {
-			              "Role": "dim_calendrier.date.jour"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour"
-			        }
-			      ]
-			    },
 			    "dim_calendrier_date_hiérarchie_de_date_has_dim_calendrier_date_mois": {
 			      "Binding": {
 			        "ConceptualEntity": "Dim_Calendrier"
@@ -29527,7 +29349,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres1"
+			          "ID": "années_have_trimestres"
 			        },
 			        {
 			          "Attribute": {
@@ -29540,7 +29362,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années1"
+			          "ID": "trimestres_have_années"
 			        },
 			        {
 			          "Preposition": {
@@ -29593,7 +29415,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour1"
+			          "ID": "hiérarchie_de_dates_have_jour"
 			        }
 			      ]
 			    },
@@ -29890,7 +29712,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres2"
+			          "ID": "années_have_trimestres1"
 			        },
 			        {
 			          "Attribute": {
@@ -29903,7 +29725,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années2"
+			          "ID": "trimestres_have_années1"
 			        },
 			        {
 			          "Preposition": {
@@ -29956,7 +29778,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour2"
+			          "ID": "hiérarchie_de_dates_have_jour1"
 			        }
 			      ]
 			    },
@@ -30253,7 +30075,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres3"
+			          "ID": "années_have_trimestres2"
 			        },
 			        {
 			          "Attribute": {
@@ -30266,7 +30088,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années3"
+			          "ID": "trimestres_have_années2"
 			        },
 			        {
 			          "Preposition": {
@@ -30319,7 +30141,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour3"
+			          "ID": "hiérarchie_de_dates_have_jour2"
 			        }
 			      ]
 			    },
@@ -30616,7 +30438,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres4"
+			          "ID": "années_have_trimestres3"
 			        },
 			        {
 			          "Attribute": {
@@ -30629,7 +30451,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années4"
+			          "ID": "trimestres_have_années3"
 			        },
 			        {
 			          "Preposition": {
@@ -30682,7 +30504,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour4"
+			          "ID": "hiérarchie_de_dates_have_jour3"
 			        }
 			      ]
 			    },
@@ -30979,7 +30801,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres5"
+			          "ID": "années_have_trimestres4"
 			        },
 			        {
 			          "Attribute": {
@@ -30992,7 +30814,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années5"
+			          "ID": "trimestres_have_années4"
 			        },
 			        {
 			          "Preposition": {
@@ -31045,7 +30867,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour5"
+			          "ID": "hiérarchie_de_dates_have_jour4"
 			        }
 			      ]
 			    },
@@ -31342,7 +31164,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres6"
+			          "ID": "années_have_trimestres5"
 			        },
 			        {
 			          "Attribute": {
@@ -31355,7 +31177,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années6"
+			          "ID": "trimestres_have_années5"
 			        },
 			        {
 			          "Preposition": {
@@ -31408,7 +31230,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour6"
+			          "ID": "hiérarchie_de_dates_have_jour5"
 			        }
 			      ]
 			    },
@@ -31705,7 +31527,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres7"
+			          "ID": "années_have_trimestres6"
 			        },
 			        {
 			          "Attribute": {
@@ -31718,7 +31540,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années7"
+			          "ID": "trimestres_have_années6"
 			        },
 			        {
 			          "Preposition": {
@@ -31771,7 +31593,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour7"
+			          "ID": "hiérarchie_de_dates_have_jour6"
 			        }
 			      ]
 			    },
@@ -32068,7 +31890,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres8"
+			          "ID": "années_have_trimestres7"
 			        },
 			        {
 			          "Attribute": {
@@ -32081,7 +31903,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années8"
+			          "ID": "trimestres_have_années7"
 			        },
 			        {
 			          "Preposition": {
@@ -32134,7 +31956,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour8"
+			          "ID": "hiérarchie_de_dates_have_jour7"
 			        }
 			      ]
 			    },
@@ -32431,7 +32253,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres9"
+			          "ID": "années_have_trimestres8"
 			        },
 			        {
 			          "Attribute": {
@@ -32444,7 +32266,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années9"
+			          "ID": "trimestres_have_années8"
 			        },
 			        {
 			          "Preposition": {
@@ -32497,7 +32319,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour9"
+			          "ID": "hiérarchie_de_dates_have_jour8"
 			        }
 			      ]
 			    },
@@ -32794,7 +32616,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres10"
+			          "ID": "années_have_trimestres9"
 			        },
 			        {
 			          "Attribute": {
@@ -32807,7 +32629,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années10"
+			          "ID": "trimestres_have_années9"
 			        },
 			        {
 			          "Preposition": {
@@ -32860,7 +32682,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour10"
+			          "ID": "hiérarchie_de_dates_have_jour9"
 			        }
 			      ]
 			    },
@@ -33157,7 +32979,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres11"
+			          "ID": "années_have_trimestres10"
 			        },
 			        {
 			          "Attribute": {
@@ -33170,7 +32992,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années11"
+			          "ID": "trimestres_have_années10"
 			        },
 			        {
 			          "Preposition": {
@@ -33223,7 +33045,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour11"
+			          "ID": "hiérarchie_de_dates_have_jour10"
 			        }
 			      ]
 			    },
@@ -33520,7 +33342,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres12"
+			          "ID": "années_have_trimestres11"
 			        },
 			        {
 			          "Attribute": {
@@ -33533,7 +33355,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années12"
+			          "ID": "trimestres_have_années11"
 			        },
 			        {
 			          "Preposition": {
@@ -33586,7 +33408,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour12"
+			          "ID": "hiérarchie_de_dates_have_jour11"
 			        }
 			      ]
 			    },
@@ -33883,7 +33705,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres13"
+			          "ID": "années_have_trimestres12"
 			        },
 			        {
 			          "Attribute": {
@@ -33896,7 +33718,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années13"
+			          "ID": "trimestres_have_années12"
 			        },
 			        {
 			          "Preposition": {
@@ -33949,7 +33771,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour13"
+			          "ID": "hiérarchie_de_dates_have_jour12"
 			        }
 			      ]
 			    },
@@ -34246,7 +34068,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres14"
+			          "ID": "années_have_trimestres13"
 			        },
 			        {
 			          "Attribute": {
@@ -34259,7 +34081,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années14"
+			          "ID": "trimestres_have_années13"
 			        },
 			        {
 			          "Preposition": {
@@ -34312,7 +34134,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour14"
+			          "ID": "hiérarchie_de_dates_have_jour13"
 			        }
 			      ]
 			    },
@@ -34609,7 +34431,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres15"
+			          "ID": "années_have_trimestres14"
 			        },
 			        {
 			          "Attribute": {
@@ -34622,7 +34444,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années15"
+			          "ID": "trimestres_have_années14"
 			        },
 			        {
 			          "Preposition": {
@@ -34675,7 +34497,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour15"
+			          "ID": "hiérarchie_de_dates_have_jour14"
 			        }
 			      ]
 			    },
@@ -34972,7 +34794,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres16"
+			          "ID": "années_have_trimestres15"
 			        },
 			        {
 			          "Attribute": {
@@ -34985,7 +34807,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années16"
+			          "ID": "trimestres_have_années15"
 			        },
 			        {
 			          "Preposition": {
@@ -35038,7 +34860,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour16"
+			          "ID": "hiérarchie_de_dates_have_jour15"
 			        }
 			      ]
 			    },
@@ -35335,7 +35157,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres17"
+			          "ID": "années_have_trimestres16"
 			        },
 			        {
 			          "Attribute": {
@@ -35348,7 +35170,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années17"
+			          "ID": "trimestres_have_années16"
 			        },
 			        {
 			          "Preposition": {
@@ -35401,7 +35223,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour17"
+			          "ID": "hiérarchie_de_dates_have_jour16"
 			        }
 			      ]
 			    },
@@ -35698,7 +35520,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres18"
+			          "ID": "années_have_trimestres17"
 			        },
 			        {
 			          "Attribute": {
@@ -35711,7 +35533,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années18"
+			          "ID": "trimestres_have_années17"
 			        },
 			        {
 			          "Preposition": {
@@ -35764,7 +35586,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour18"
+			          "ID": "hiérarchie_de_dates_have_jour17"
 			        }
 			      ]
 			    },
@@ -36061,7 +35883,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres19"
+			          "ID": "années_have_trimestres18"
 			        },
 			        {
 			          "Attribute": {
@@ -36074,7 +35896,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années19"
+			          "ID": "trimestres_have_années18"
 			        },
 			        {
 			          "Preposition": {
@@ -36127,7 +35949,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour19"
+			          "ID": "hiérarchie_de_dates_have_jour18"
 			        }
 			      ]
 			    },
@@ -36424,7 +36246,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres20"
+			          "ID": "années_have_trimestres19"
 			        },
 			        {
 			          "Attribute": {
@@ -36437,7 +36259,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années20"
+			          "ID": "trimestres_have_années19"
 			        },
 			        {
 			          "Preposition": {
@@ -36490,7 +36312,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour20"
+			          "ID": "hiérarchie_de_dates_have_jour19"
 			        }
 			      ]
 			    },
@@ -36787,7 +36609,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres21"
+			          "ID": "années_have_trimestres20"
 			        },
 			        {
 			          "Attribute": {
@@ -36800,7 +36622,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années21"
+			          "ID": "trimestres_have_années20"
 			        },
 			        {
 			          "Preposition": {
@@ -36853,7 +36675,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour21"
+			          "ID": "hiérarchie_de_dates_have_jour20"
 			        }
 			      ]
 			    },
@@ -37150,7 +36972,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres22"
+			          "ID": "années_have_trimestres21"
 			        },
 			        {
 			          "Attribute": {
@@ -37163,7 +36985,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années22"
+			          "ID": "trimestres_have_années21"
 			        },
 			        {
 			          "Preposition": {
@@ -37216,7 +37038,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour22"
+			          "ID": "hiérarchie_de_dates_have_jour21"
 			        }
 			      ]
 			    },
@@ -37513,7 +37335,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres23"
+			          "ID": "années_have_trimestres22"
 			        },
 			        {
 			          "Attribute": {
@@ -37526,7 +37348,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années23"
+			          "ID": "trimestres_have_années22"
 			        },
 			        {
 			          "Preposition": {
@@ -37579,7 +37401,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour23"
+			          "ID": "hiérarchie_de_dates_have_jour22"
 			        }
 			      ]
 			    },
@@ -37876,7 +37698,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres24"
+			          "ID": "années_have_trimestres23"
 			        },
 			        {
 			          "Attribute": {
@@ -37889,7 +37711,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années24"
+			          "ID": "trimestres_have_années23"
 			        },
 			        {
 			          "Preposition": {
@@ -37942,7 +37764,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour24"
+			          "ID": "hiérarchie_de_dates_have_jour23"
 			        }
 			      ]
 			    },
@@ -38239,7 +38061,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres25"
+			          "ID": "années_have_trimestres24"
 			        },
 			        {
 			          "Attribute": {
@@ -38252,7 +38074,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années25"
+			          "ID": "trimestres_have_années24"
 			        },
 			        {
 			          "Preposition": {
@@ -38305,7 +38127,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour25"
+			          "ID": "hiérarchie_de_dates_have_jour24"
 			        }
 			      ]
 			    },
@@ -38602,7 +38424,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres26"
+			          "ID": "années_have_trimestres25"
 			        },
 			        {
 			          "Attribute": {
@@ -38615,7 +38437,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années26"
+			          "ID": "trimestres_have_années25"
 			        },
 			        {
 			          "Preposition": {
@@ -38668,7 +38490,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour26"
+			          "ID": "hiérarchie_de_dates_have_jour25"
 			        }
 			      ]
 			    },
@@ -38965,7 +38787,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres27"
+			          "ID": "années_have_trimestres26"
 			        },
 			        {
 			          "Attribute": {
@@ -38978,7 +38800,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années27"
+			          "ID": "trimestres_have_années26"
 			        },
 			        {
 			          "Preposition": {
@@ -39031,7 +38853,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour27"
+			          "ID": "hiérarchie_de_dates_have_jour26"
 			        }
 			      ]
 			    },
@@ -39328,7 +39150,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres28"
+			          "ID": "années_have_trimestres27"
 			        },
 			        {
 			          "Attribute": {
@@ -39341,7 +39163,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années28"
+			          "ID": "trimestres_have_années27"
 			        },
 			        {
 			          "Preposition": {
@@ -39394,7 +39216,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour28"
+			          "ID": "hiérarchie_de_dates_have_jour27"
 			        }
 			      ]
 			    },
@@ -39691,7 +39513,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres29"
+			          "ID": "années_have_trimestres28"
 			        },
 			        {
 			          "Attribute": {
@@ -39704,7 +39526,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années29"
+			          "ID": "trimestres_have_années28"
 			        },
 			        {
 			          "Preposition": {
@@ -39757,7 +39579,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour29"
+			          "ID": "hiérarchie_de_dates_have_jour28"
 			        }
 			      ]
 			    },
@@ -40054,7 +39876,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres30"
+			          "ID": "années_have_trimestres29"
 			        },
 			        {
 			          "Attribute": {
@@ -40067,7 +39889,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années30"
+			          "ID": "trimestres_have_années29"
 			        },
 			        {
 			          "Preposition": {
@@ -40120,7 +39942,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour30"
+			          "ID": "hiérarchie_de_dates_have_jour29"
 			        }
 			      ]
 			    },
@@ -40417,7 +40239,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres31"
+			          "ID": "années_have_trimestres30"
 			        },
 			        {
 			          "Attribute": {
@@ -40430,7 +40252,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années31"
+			          "ID": "trimestres_have_années30"
 			        },
 			        {
 			          "Preposition": {
@@ -40483,7 +40305,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hiérarchie_de_dates_have_jour31"
+			          "ID": "hiérarchie_de_dates_have_jour30"
 			        }
 			      ]
 			    },
@@ -41306,6 +41128,72 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_projets_have_fact_taches"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_KPI_texte_EAC_vs_BAC": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.KPI_texte_EAC_vs_BAC": {
+			          "Target": {
+			            "Entity": "mesures_table.KPI_texte_EAC_vs_BAC"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.KPI_texte_EAC_vs_BAC"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_KPI_texte_EAC_vs_BAC"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_KPI_texte_EAC_vs_BAC": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.KPI_texte_EAC_vs_BAC": {
+			          "Target": {
+			            "Entity": "mesures_table.KPI_texte_EAC_vs_BAC"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.KPI_texte_EAC_vs_BAC"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_KPI_texte_EAC_vs_BAC"
 			        }
 			      ]
 			    },
@@ -42332,7 +42220,7 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
-			    "fact_pilotage_mensuel_has_mesures_table_SPI__statut_des_delais_planning": {
+			    "fact_pilotage_mensuel_has_mesures_table_SPI__statut_des_délais_planning": {
 			      "Binding": {
 			        "ConceptualEntity": "FactPilotageMensuel"
 			      },
@@ -42343,9 +42231,9 @@ cultureInfo fr-FR
 			            "Entity": "fact_pilotage_mensuel"
 			          }
 			        },
-			        "mesures_table.SPI__statut_des_delais_planning": {
+			        "mesures_table.SPI__statut_des_délais_planning": {
 			          "Target": {
-			            "Entity": "mesures_table.SPI__statut_des_delais_planning"
+			            "Entity": "mesures_table.SPI__statut_des_délais_planning"
 			          }
 			        }
 			      },
@@ -42356,16 +42244,16 @@ cultureInfo fr-FR
 			              "Role": "fact_pilotage_mensuel"
 			            },
 			            "Object": {
-			              "Role": "mesures_table.SPI__statut_des_delais_planning"
+			              "Role": "mesures_table.SPI__statut_des_délais_planning"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_pilotage_mensuels_have_SPI__statut_des_delais_planning"
+			          "ID": "fact_pilotage_mensuels_have_SPI__statut_des_délais_planning"
 			        }
 			      ]
 			    },
-			    "dim_projet_has_mesures_table_SPI__statut_des_delais_planning": {
+			    "dim_projet_has_mesures_table_SPI__statut_des_délais_planning": {
 			      "Binding": {
 			        "ConceptualEntity": "DimProjet"
 			      },
@@ -42376,9 +42264,9 @@ cultureInfo fr-FR
 			            "Entity": "dim_projet"
 			          }
 			        },
-			        "mesures_table.SPI__statut_des_delais_planning": {
+			        "mesures_table.SPI__statut_des_délais_planning": {
 			          "Target": {
-			            "Entity": "mesures_table.SPI__statut_des_delais_planning"
+			            "Entity": "mesures_table.SPI__statut_des_délais_planning"
 			          }
 			        }
 			      },
@@ -42389,12 +42277,12 @@ cultureInfo fr-FR
 			              "Role": "dim_projet"
 			            },
 			            "Object": {
-			              "Role": "mesures_table.SPI__statut_des_delais_planning"
+			              "Role": "mesures_table.SPI__statut_des_délais_planning"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_projets_have_SPI__statut_des_delais_planning"
+			          "ID": "dim_projets_have_SPI__statut_des_délais_planning"
 			        }
 			      ]
 			    },
@@ -51588,6 +51476,105 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "dim_projets_are_started_on_start_dates"
+			        }
+			      ]
+			    },
+			    "dim_calendrier_date_hiérarchie_de_date_has_dim_calendrier_date_jour": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Calendrier"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendrier.date.hiérarchie_de_date": {
+			          "Target": {
+			            "Entity": "dim_calendrier.date.hiérarchie_de_date"
+			          }
+			        },
+			        "dim_calendrier.date.jour": {
+			          "Target": {
+			            "Entity": "dim_calendrier.date.jour"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.hiérarchie_de_date"
+			            },
+			            "Object": {
+			              "Role": "dim_calendrier.date.jour"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hiérarchie_de_dates_have_jour31"
+			        }
+			      ]
+			    },
+			    "dim_calendrier_date_année_has_dim_calendrier_date_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Calendrier"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendrier.date.année": {
+			          "Target": {
+			            "Entity": "dim_calendrier.date.année"
+			          }
+			        },
+			        "dim_calendrier.date.trimestre": {
+			          "Target": {
+			            "Entity": "dim_calendrier.date.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.année"
+			            },
+			            "Object": {
+			              "Role": "dim_calendrier.date.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "années_have_trimestres31"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.trimestre"
+			            },
+			            "Object": {
+			              "Role": "dim_calendrier.date.année"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_années31"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.trimestre"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_calendrier.date.année"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_are_in_années31"
 			        }
 			      ]
 			    },

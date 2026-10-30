@@ -189,7 +189,7 @@
                       "Entity": "MesuresTable"
                     }
                   },
-                  "Property": "SPI - Statut des delais planning"
+                  "Property": "SPI - Statut des délais planning"
                 }
               }
             }
@@ -1120,6 +1120,19 @@
     },
     "visualContainerObjects": {
       "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
         {
           "properties": {
             "show": {

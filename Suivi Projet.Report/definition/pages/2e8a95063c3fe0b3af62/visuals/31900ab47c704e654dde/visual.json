@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "31900ab47c704e654dde",
   "position": {
-    "x": 12.5,
-    "y": 942.5,
+    "x": 7.5000000000000009,
+    "y": 1000.8333333333333,
     "z": 10000,
     "height": 70,
     "width": 947.5,
@@ -40,7 +40,14 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "15D"
+                  "Value": "12D"
+                }
+              }
+            },
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
                 }
               }
             }

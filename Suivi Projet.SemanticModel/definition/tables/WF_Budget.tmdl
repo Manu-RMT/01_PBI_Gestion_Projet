@@ -1,0 +1,38 @@
+table WF_Budget
+	lineageTag: c56346a3-4fa2-4292-90d9-41f53b9cccc5
+
+	column Ordre
+		formatString: 0
+		lineageTag: 13c4180a-8334-4828-b570-d10659b59902
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Ordre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categorie
+		lineageTag: 7d1b4176-ce6d-459a-a7fe-0dd72d7295f0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Categorie]
+		sortByColumn: Ordre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition WF_Budget = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Ordre", INTEGER,
+				    "Categorie", STRING,
+				    {
+				        {1,"Budget initial (BAC)"},
+				        {2,"Coûts réels (AC)"},
+				        {3,"Coûts engagés"}
+				        //,{4,"Budget restant"}
+				    }
+				)
+
+	annotation PBI_Id = 9794f67b14a84ccb93f493574da0a5fb
+

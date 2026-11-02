@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "5651a2ed03040b5105c9",
   "position": {
-    "x": 24,
-    "y": 880,
+    "x": 22.713073695495464,
+    "y": 860.82549305927807,
     "z": 0,
-    "height": 200,
-    "width": 746,
+    "height": 220.316814846306,
+    "width": 994.83262786270132,
     "tabOrder": 0
   },
   "visual": {
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "DimProjet.project_id",
-              "nativeQueryRef": "project_id1",
-              "active": true
+              "nativeQueryRef": "Projet / Ressource",
+              "active": true,
+              "displayName": "Projet / Ressource"
             },
             {
               "field": {
@@ -43,7 +44,7 @@
               },
               "queryRef": "FactCharge.resource_name",
               "nativeQueryRef": "resource_name",
-              "active": true
+              "active": false
             }
           ]
         },
@@ -107,6 +108,23 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MesuresTable"
+                  }
+                },
+                "Property": "BAC - Budget initial"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "expansionStates": [
@@ -142,20 +160,7 @@
             "isPinned": true
           }
         ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'PRJ001'"
-                  }
-                }
-              ],
-              "isToggled": true
-            }
-          ]
-        }
+        "root": {}
       }
     ],
     "objects": {
@@ -165,7 +170,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "148.44834804450312D"
+                  "Value": "184.33972285854526D"
                 }
               }
             }
@@ -179,7 +184,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "214D"
+                  "Value": "280.87221964544324D"
                 }
               }
             }
@@ -193,7 +198,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "117D"
+                  "Value": "136.41452044724394D"
                 }
               }
             }
@@ -207,7 +212,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "105D"
+                  "Value": "139.51471688886136D"
                 }
               }
             }
@@ -221,7 +226,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "112D"
+                  "Value": "200.58101665041067D"
                 }
               }
             }
@@ -257,7 +262,7 @@
             "rowSubtotals": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
@@ -286,6 +291,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Arbre de décomposition'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

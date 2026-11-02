@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "16dd7b6adb0e7532e18c",
   "position": {
-    "x": 1161.6666666666667,
-    "y": 65,
+    "x": 1160.9409068224247,
+    "y": 60.795530234806087,
     "z": 6000,
-    "height": 243.33333333333334,
-    "width": 725,
-    "tabOrder": 3000
+    "height": 227.59352344312026,
+    "width": 724.54705088630521
   },
   "visual": {
     "visualType": "waterfallChart",

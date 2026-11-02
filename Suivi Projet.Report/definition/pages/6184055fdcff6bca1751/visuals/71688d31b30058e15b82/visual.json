@@ -3,11 +3,11 @@
   "name": "71688d31b30058e15b82",
   "position": {
     "x": 0,
-    "y": 4,
+    "y": 3.8553653648734967,
     "z": 4000,
-    "height": 140,
-    "width": 234,
-    "tabOrder": 1000
+    "height": 134.93778777057238,
+    "width": 234.05734710035185,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "gauge",

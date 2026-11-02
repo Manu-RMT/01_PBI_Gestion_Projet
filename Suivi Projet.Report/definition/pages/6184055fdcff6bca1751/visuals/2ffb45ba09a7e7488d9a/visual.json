@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "2ffb45ba09a7e7488d9a",
   "position": {
-    "x": 796,
-    "y": 880,
-    "z": 4001,
-    "height": 200,
-    "width": 1110,
-    "tabOrder": 10001
+    "x": 1056.1579268405389,
+    "y": 860.82549305927807,
+    "z": 5000,
+    "height": 218.04550747675646,
+    "width": 849.46895621153033,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "DimProjet.project_id",
-              "nativeQueryRef": "project_id",
-              "active": true
+              "nativeQueryRef": "Projet",
+              "active": true,
+              "displayName": "Projet"
             }
           ]
         },
@@ -46,7 +47,8 @@
                 }
               },
               "queryRef": "MesuresTable.TB Alerte projet : Budget - Feu",
-              "nativeQueryRef": "TB Alerte projet : Budget - Feu"
+              "nativeQueryRef": "Budget",
+              "displayName": "Budget"
             },
             {
               "field": {
@@ -60,7 +62,8 @@
                 }
               },
               "queryRef": "MesuresTable.TB Alerte projet : Planning - Feu",
-              "nativeQueryRef": "TB Alerte projet : Planning - Feu"
+              "nativeQueryRef": "Planning",
+              "displayName": "Planning"
             },
             {
               "field": {
@@ -74,7 +77,8 @@
                 }
               },
               "queryRef": "MesuresTable.TB Alerte projet : Risques - Feu",
-              "nativeQueryRef": "TB Alerte projet : Risques - Feu"
+              "nativeQueryRef": "Risques",
+              "displayName": "Risques"
             },
             {
               "field": {
@@ -88,7 +92,8 @@
                 }
               },
               "queryRef": "MesuresTable.TB Alerte projet : Score Santé (%)",
-              "nativeQueryRef": "TB Alerte projet : Score Santé (%)"
+              "nativeQueryRef": "Score santé",
+              "displayName": "Score santé"
             },
             {
               "field": {
@@ -102,10 +107,28 @@
                 }
               },
               "queryRef": "MesuresTable.TB Alerte projet : Statut Projet",
-              "nativeQueryRef": "TB Alerte projet : Statut Projet"
+              "nativeQueryRef": "Statut",
+              "displayName": "Statut"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimProjet"
+                  }
+                },
+                "Property": "project_id"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "objects": {
@@ -123,6 +146,171 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "149.38264399396002D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimProjet.project_id"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "113.26869237792856D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.TB Alerte projet : Budget - Feu"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "116.61682745506215D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.TB Alerte projet : Planning - Feu"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.8722809770357D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.TB Alerte projet : Score Santé (%)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "194.8203040546687D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.TB Alerte projet : Statut Projet"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MesuresTable"
+                        }
+                      },
+                      "Property": "TB Alerte projet : Couleur Statut"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "MesuresTable.TB Alerte projet : Statut Projet"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MesuresTable"
+                        }
+                      },
+                      "Property": "TB Alerte projet : Statut Projet"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "MesuresTable.TB Alerte projet : Score Santé (%)"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Alertes projets'"
                 }
               }
             }

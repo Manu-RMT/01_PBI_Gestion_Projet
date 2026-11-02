@@ -1,0 +1,4 @@
+EVALUATE
+    SUMMARIZECOLUMNS(
+        "TB Alerte projet : Budget - Feu", [TB Alerte projet : Budget - Feu]
+    )

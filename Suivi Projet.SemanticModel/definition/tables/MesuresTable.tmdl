@@ -1386,8 +1386,8 @@ table MesuresTable
 			RETURN
 			SWITCH(
 			    TRUE(),
-			    Ecart > 0.10, "🔴",
-			    Ecart > 0.05, "🟠",
+			    Ecart <= -0.15, "⚠️",
+			    Ecart <= -0.05, "🟠",
 			    "🟢"
 			)
 		lineageTag: 72e9bf21-d252-4afb-9b5f-6f74d59626db
@@ -1399,7 +1399,7 @@ table MesuresTable
 			RETURN
 			SWITCH(
 			    TRUE(),
-			    SPI < 0.90, "🔴",
+			    SPI < 0.90, "⚠️",
 			    SPI < 0.98, "🟠",
 			    "🟢"
 			)
@@ -1412,7 +1412,7 @@ table MesuresTable
 			RETURN
 			SWITCH(
 			    TRUE(),
-			    Nb >= 5, "🔴",
+			    Nb >= 5, "⚠️",
 			    Nb >= 2, "🟠",
 			    "🟢"
 			)

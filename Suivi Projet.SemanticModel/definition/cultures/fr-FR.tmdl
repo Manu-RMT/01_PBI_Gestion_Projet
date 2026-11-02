@@ -344,6 +344,26 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
+			          "Projet": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Projet / Ressource": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Nom projet": {
 			            "State": "Suggested",
 			            "Source": {
@@ -29774,12 +29794,6 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "budget": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
 			          "waterfall budget": {
 			            "State": "Generated",
 			            "Weight": 0.97
@@ -29844,26 +29858,6 @@ cultureInfo fr-FR
 			            },
 			            "Weight": 0.727
 			          }
-			        },
-			        {
-			          "account": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "finance": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
 			        }
 			      ]
 			    },
@@ -29917,12 +29911,6 @@ cultureInfo fr-FR
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "budget": {
-			            "State": "Generated",
-			            "Weight": 0.97
 			          }
 			        },
 			        {
@@ -29989,26 +29977,6 @@ cultureInfo fr-FR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "account": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "finance": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
 			          }
 			        }
 			      ]
@@ -30131,6 +30099,211 @@ cultureInfo fr-FR
 			              "Agent": "PowerBI.VisualColumnRename"
 			            },
 			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.couleur_KPI_jalons": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Couleur KPI Jalons"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "couleur KPI jalons": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.couleur_utilisation": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Couleur Utilisation"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "couleur utilisation": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.TB_alerte_projet__budget__feu": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "TB Alerte projet : Budget - Feu"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TB alerte projet : budget - feu": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TB alerte projet : budget feu": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "Budget": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.TB_alerte_projet__planning__feu": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "TB Alerte projet : Planning - Feu"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TB alerte projet : planning - feu": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TB alerte projet : planning feu": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "Planning": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.TB_alerte_projet__risques__feu": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "TB Alerte projet : Risques - Feu"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TB alerte projet : risques - feu": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TB alerte projet : risques feu": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "Risques": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.TB_alerte_projet__score_santé": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "TB Alerte projet : Score Santé (%)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TB alerte projet : score santé": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TB alerte projet : score santé (%)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Score santé": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ],
+			      "Units": [
+			        "percentage",
+			        "%"
+			      ]
+			    },
+			    "mesures_table.TB_alerte_projet__statut_projet": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "TB Alerte projet : Statut Projet"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TB alerte projet : statut projet": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Statut": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.TB_alerte_projet__couleur_statut": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "TB Alerte projet : Couleur Statut"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TB alerte projet : couleur statut": {
+			            "State": "Generated"
 			          }
 			        }
 			      ]
@@ -42242,6 +42415,534 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_projets_have_fact_taches"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_mesures_table_TB_alerte_projet__couleur_statut": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__couleur_statut": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__couleur_statut"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__couleur_statut"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_TB_alerte_projet__couleur_statut"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_TB_alerte_projet__couleur_statut": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__couleur_statut": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__couleur_statut"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__couleur_statut"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_TB_alerte_projet__couleur_statut"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_TB_alerte_projet__couleur_statut": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__couleur_statut": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__couleur_statut"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__couleur_statut"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_TB_alerte_projet__couleur_statut"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_mesures_table_TB_alerte_projet__statut_projet": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__statut_projet": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__statut_projet"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__statut_projet"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_TB_alerte_projet__statut_projet"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_TB_alerte_projet__statut_projet": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__statut_projet": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__statut_projet"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__statut_projet"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_TB_alerte_projet__statut_projet"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_TB_alerte_projet__statut_projet": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__statut_projet": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__statut_projet"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__statut_projet"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_TB_alerte_projet__statut_projet"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_mesures_table_TB_alerte_projet__score_santé": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__score_santé": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__score_santé"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__score_santé"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_TB_alerte_projet__score_santé"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_TB_alerte_projet__score_santé": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__score_santé": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__score_santé"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__score_santé"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_TB_alerte_projet__score_santé"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_TB_alerte_projet__score_santé": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__score_santé": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__score_santé"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__score_santé"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_TB_alerte_projet__score_santé"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_mesures_table_TB_alerte_projet__risques__feu": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__risques__feu": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__risques__feu"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__risques__feu"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_TB_alerte_projet__risques__feu"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_TB_alerte_projet__planning__feu": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__planning__feu": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__planning__feu"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__planning__feu"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_TB_alerte_projet__planning__feu"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_TB_alerte_projet__planning__feu": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__planning__feu": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__planning__feu"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__planning__feu"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_TB_alerte_projet__planning__feu"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_TB_alerte_projet__budget__feu": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__budget__feu": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__budget__feu"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__budget__feu"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_TB_alerte_projet__budget__feu"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_TB_alerte_projet__budget__feu": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.TB_alerte_projet__budget__feu": {
+			          "Target": {
+			            "Entity": "mesures_table.TB_alerte_projet__budget__feu"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.TB_alerte_projet__budget__feu"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_TB_alerte_projet__budget__feu"
+			        }
+			      ]
+			    },
+			    "fact_charge_has_mesures_table_couleur_utilisation": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCharge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_charge": {
+			          "Target": {
+			            "Entity": "fact_charge"
+			          }
+			        },
+			        "mesures_table.couleur_utilisation": {
+			          "Target": {
+			            "Entity": "mesures_table.couleur_utilisation"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_charge"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.couleur_utilisation"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_charges_have_couleur_utilisation"
+			        }
+			      ]
+			    },
+			    "KPI_jalon_has_mesures_table_couleur_KPI_jalons": {
+			      "Binding": {
+			        "ConceptualEntity": "KPI_Jalons"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "KPI_jalon": {
+			          "Target": {
+			            "Entity": "KPI_jalon"
+			          }
+			        },
+			        "mesures_table.couleur_KPI_jalons": {
+			          "Target": {
+			            "Entity": "mesures_table.couleur_KPI_jalons"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "KPI_jalon"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.couleur_KPI_jalons"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "KPI_jalons_have_couleur_KPI_jalons"
 			        }
 			      ]
 			    },

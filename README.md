@@ -3,8 +3,6 @@
 > **Projet de portfolio Data / Business Intelligence**  
 > Tableau de bord Power BI consacré au suivi de la performance d'un portefeuille de projets : avancement, planning, budget, risques, qualité, ressources et livrables.
 
-![Aperçu du tableau de bord – Synthèse](images/dashboard-synthese.png)
-
 ## Présentation
 
 Ce projet consiste à concevoir un tableau de bord Power BI permettant à une direction de projet ou à un PMO de suivre la santé d'un portefeuille de projets et d'identifier rapidement les points nécessitant une action.

@@ -133,46 +133,6 @@ Les seuils d'alerte sont définis dans les mesures DAX et peuvent être adaptés
 - **Power Query** – préparation et transformation des données (à adapter selon les sources intégrées).
 - **Modélisation dimensionnelle** – séparation des dimensions et des faits pour structurer l'analyse.
 
-## Organisation conseillée du dépôt
-
-```text
-project-management-powerbi/
-│
-├── README.md
-├── images/
-│   └── dashboard-synthese.png
-│
-├── powerbi/
-│   └── project-management-dashboard.pbix
-│
-├── data/
-│   └── README.md
-│
-└── dax/
-    └── mesures.dax
-```
-
-Les noms et fichiers ci-dessus constituent une proposition d'organisation : adapte-les à la structure réelle de ton dépôt. Évite de publier des données confidentielles ou personnelles dans le dépôt.
-
-## Points de vigilance sur les mesures
-
-Les formules ont été documentées à partir de l'extraction DAX fournie. Avant une diffusion comme démonstrateur, quelques contrôles techniques sont recommandés :
-
-1. **Statut global / couleur du statut** : dans l'extraction, `Statut global` renvoie des codes hexadécimaux (`#FF0000`, `#FFC000`, `#008000`), alors que `Couleur statut global` compare des libellés (`Rouge`, `Ambre`). Vérifier quelle mesure est réellement utilisée dans le rapport et harmoniser les deux logiques.
-2. **Ressources en surcharge** : le filtre de `Ressources en surcharge` utilise la valeur `"OUi"` (casse/orthographe à vérifier par rapport aux valeurs réelles de `overload_flag`).
-3. **Seuils de couleur du taux d'utilisation** : `Taux d'utilisation (%)` est formaté en pourcentage, tandis que `Couleur Utilisation` compare la valeur à `80` et `100`. Vérifier l'échelle stockée par la mesure (ratio entre 0 et 1 ou valeur entre 0 et 100) pour éviter un code couleur incohérent.
-4. **Cohérence EV / PV / BAC** : la mesure `Contrôle PV vs BAC × prévu` permet de contrôler l'écart entre la valeur planifiée et le budget initial multiplié par l'avancement prévu. Un écart significatif doit conduire à vérifier les conventions de calcul et les bases budgétaires.
-5. **Libellés temporaires** : les mesures `Mesure 2` et `Mesure 3` méritent d'être renommées ou supprimées si elles ne sont plus utilisées.
-
-Ces points sont des vérifications suggérées à partir du code DAX, et non l'affirmation que les visuels du rapport sont nécessairement erronés.
-
-## Limites d'interprétation
-
-- Les indicateurs EVM sont des estimations dépendantes de la qualité des snapshots, des coûts et des budgets disponibles.
-- Un SPI ou un CPI doit être interprété avec son contexte métier et la période de reporting.
-- Les règles de statut et les seuils d'alerte sont des conventions de pilotage, pas des normes universelles.
-- Les mesures calculées au dernier snapshot et celles calculées dans le contexte de filtre courant peuvent réagir différemment aux segments du rapport.
-
 ## Objectif du projet
 
 Ce portfolio illustre la capacité à concevoir un reporting de pilotage de projet allant au-delà de la visualisation : structuration des données, définition d'indicateurs métier, calculs DAX, suivi de la performance et restitution d'informations utiles à la décision.

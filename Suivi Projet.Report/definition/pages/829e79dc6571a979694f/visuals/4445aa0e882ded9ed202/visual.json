@@ -101,7 +101,7 @@
                     "Entity": "FactRisques"
                   }
                 },
-                "Property": "Statut Risque"
+                "Property": "Criticité"
               }
             },
             "direction": "Ascending"

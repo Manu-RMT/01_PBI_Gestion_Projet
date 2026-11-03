@@ -1,4 +1,2 @@
-EVALUATE
-    SUMMARIZECOLUMNS(
-        "TB Alerte projet : Budget - Feu", [TB Alerte projet : Budget - Feu]
-    )
+SELECT *
+FROM $SYSTEM.DISCOVER_CALC_DEPENDENCY

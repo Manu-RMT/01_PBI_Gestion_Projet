@@ -42,7 +42,7 @@
                       "Entity": "MesuresTable"
                     }
                   },
-                  "Property": "Taux d'utilisation"
+                  "Property": "Taux d'utilisation (%)"
                 }
               },
               "queryRef": "MesuresTable.Taux d'utilisation",
@@ -61,7 +61,7 @@
                     "Entity": "MesuresTable"
                   }
                 },
-                "Property": "Taux d'utilisation"
+                "Property": "Taux d'utilisation (%)"
               }
             },
             "direction": "Descending"

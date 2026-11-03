@@ -363,7 +363,7 @@ table MesuresTable
 		formatString: 0
 		lineageTag: 3849d48b-4f7d-48c7-970b-cfda94cd093a
 
-	measure 'Taux d''utilisation' = ```
+	measure 'Taux d''utilisation (%)' = ```
 			
 			// Rapporte la charge réelle à la capacité disponible. 
 			// Le taux peut dépasser 100 % en cas de surcharge.
@@ -569,9 +569,8 @@ table MesuresTable
 	measure 'Écart de charge (%)' =
 			
 			DIVIDE([Charge réelle (h)] - [Charge prévue (h)], [Charge prévue (h)])
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		lineageTag: b3b18d3a-9125-4347-b59d-f8d9f4153140
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Taux de surcharge (%)' = ```
 			
@@ -1349,7 +1348,7 @@ table MesuresTable
 
 	measure 'Couleur Utilisation' =
 			
-			VAR Tx = [Taux d'utilisation]
+			VAR Tx = [Taux d'utilisation (%)]
 			
 			RETURN
 			SWITCH(
@@ -2419,6 +2418,27 @@ table MesuresTable
 			</div>
 			"
 		lineageTag: 65398834-1766-4bac-893f-7e1cf1d01513
+
+	measure 'Texte Charge Prévue' =
+			
+			"vs prévu : "
+			& FORMAT([Charge prévue (h)], "#,##0")
+			& " h"
+		lineageTag: 38be7d07-7751-4bbb-9b95-cea1f494ee6e
+
+	measure 'Interprétation Charge' =
+			
+			SWITCH(
+			    TRUE(),
+			    [Écart de charge (%)] > 0.10, "🔴 Surconsommation",
+			    [Écart de charge (%)] > 0.05, "🟠 Vigilance",
+			    [Écart de charge (%)] >= -0.05, "🟢 Conforme",
+			    "🔵 Sous consommation"
+			)
+		lineageTag: 03679a20-d76b-4cfa-b757-2eb72d4d71e2
+
+	measure 'Ressources total' = "sur " & CALCULATE(DISTINCTCOUNT(FactCharge[resource_id]))
+		lineageTag: d55a3c04-0cb3-4e96-be1b-b9c2163e4ec2
 
 	partition MesuresTable = m
 		mode: import

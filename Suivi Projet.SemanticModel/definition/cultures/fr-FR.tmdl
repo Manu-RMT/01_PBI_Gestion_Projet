@@ -24926,7 +24926,7 @@ cultureInfo fr-FR
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "MesuresTable",
-			          "ConceptualProperty": "Taux d'utilisation"
+			          "ConceptualProperty": "Taux d'utilisation (%)"
 			        }
 			      },
 			      "State": "Generated",

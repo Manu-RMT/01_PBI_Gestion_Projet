@@ -394,7 +394,7 @@ table MesuresTable
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Risques critiques ouverts' =
-			
+			// nombre de risques les plus sévères
 			VAR NbRisques =
 			    CALCULATE(
 			        DISTINCTCOUNT(FactRisques[risk_id]),
@@ -647,7 +647,7 @@ table MesuresTable
 		lineageTag: b555a559-13c5-4aff-ba04-156dce500cba
 
 	measure 'Non-conformités ouvertes' = ```
-			
+			// stock de NC à traiter
 			CALCULATE(DISTINCTCOUNT(FactNonConformites[nonconformity_id]), ISBLANK(FactNonConformites[closed_date]))
 			
 			```
@@ -1109,25 +1109,6 @@ table MesuresTable
 		formatString: 0
 		lineageTag: 24fd48a9-27c7-40b9-a4cf-630e9a717bdb
 
-	measure 'Interprétation Jalons' =
-			
-			VAR Respectes = [Jalons respectés]
-			VAR Retard = [Jalons en retard]
-			VAR Risque = [Jalons à risque]
-			
-			RETURN
-			SWITCH(
-			    TRUE(),
-			    Risque > 0,
-			        "🔴 Des jalons sont en dépassement sans réalisation effective.",
-			    Retard > 0,
-			        "🟠 Certains jalons ont été réalisés en retard.",
-			    Respectes > 0,
-			        "🟢 Les jalons réalisés respectent le planning.",
-			    "⚪ Aucun jalon à analyser."
-			)
-		lineageTag: c9914070-7da9-4f2a-a3fd-db2d76e82a5d
-
 	measure 'Nom prochain jalon' =
 			
 			VAR d = [Date dernier reporting]
@@ -1477,6 +1458,967 @@ table MesuresTable
 			    "Conforme", "#16A34A"
 			)
 		lineageTag: 551e6475-ea79-4b5f-9011-091d2478fc9b
+
+	measure 'HTML KPI_Flip_Card' =
+			
+			
+			VAR _CA =
+			    FORMAT ( [BAC - Budget initial], "#,##0" ) & " €"
+			
+			VAR _Pourcentage =
+			    MIN ( 100, ROUND ( [BAC - Budget initial], 0 ) )
+			
+			RETURN
+			
+			"
+			<style>
+			
+			.kpi-container{
+			    width:100%;
+			    height:100%;
+			    display:flex;
+			    justify-content:center;
+			    align-items:center;
+			    font-family:'Segoe UI',sans-serif;
+			    perspective:1200px;
+			}
+			
+			.kpi-card{
+			    width:340px;
+			    height:420px;
+			    position:relative;
+			    transform-style:preserve-3d;
+			    transition:transform .8s ease;
+			}
+			
+			.kpi-card:hover{
+			    transform:rotateY(180deg);
+			}
+			
+			.kpi-face{
+			    position:absolute;
+			    width:100%;
+			    height:100%;
+			    backface-visibility:hidden;
+			    background:#1f1f1f;
+			    color:#f3f2f1;
+			    border-radius:12px;
+			    border:1px solid #333;
+			    padding:24px;
+			    box-sizing:border-box;
+			    display:flex;
+			    flex-direction:column;
+			    justify-content:space-between;
+			    box-shadow:0 4px 16px rgba(0,0,0,.4);
+			}
+			
+			.kpi-back{
+			    transform:rotateY(180deg);
+			}
+			
+			.card-title{
+			    font-size:14px;
+			    font-weight:600;
+			    color:#a19f9d;
+			    text-transform:uppercase;
+			}
+			
+			.metric-value{
+			    font-size:36px;
+			    font-weight:700;
+			    margin:12px 0;
+			    color:white;
+			}
+			
+			.badge{
+			    display:inline-block;
+			    background:rgba(19,161,14,.15);
+			    color:#13a10e;
+			    padding:4px 10px;
+			    border-radius:4px;
+			    font-weight:600;
+			    font-size:13px;
+			}
+			
+			.progress-bar-bg{
+			    width:100%;
+			    height:10px;
+			    background:#292827;
+			    border-radius:5px;
+			    overflow:hidden;
+			    margin-top:8px;
+			}
+			
+			.progress-bar-fill{
+			    width:" & _Pourcentage & "%;
+			    height:100%;
+			    background:#2B88D8;
+			    border-radius:5px;
+			}
+			
+			.info-label{
+			    display:flex;
+			    justify-content:space-between;
+			    font-size:13px;
+			    color:#a19f9d;
+			}
+			
+			.flip-hint{
+			    text-align:center;
+			    color:#2B88D8;
+			    font-size:12px;
+			}
+			
+			</style>
+			
+			<div class='kpi-container'>
+			
+			    <div class='kpi-card'>
+			
+			        <div class='kpi-face'>
+			
+			            <div>
+			
+			                <div class='card-title'>
+			                    Budget Initial (BAC)
+			                </div>
+			
+			                <div class='metric-value'>
+			                    " & _CA & "
+			                </div>
+			
+			                <span class='badge'>
+			                    Budget de référence
+			                </span>
+			
+			            </div>
+			
+			            <div>
+			
+			                <div class='info-label'>
+			                    <span>Consommation budgétaire</span>
+			                    <span>" & _Pourcentage & "%</span>
+			                </div>
+			
+			                <div class='progress-bar-bg'>
+			                    <div class='progress-bar-fill'></div>
+			                </div>
+			
+			            </div>
+			
+			        </div>
+			
+			        <div class='kpi-face kpi-back'>
+			
+			            <div>
+			
+			                <div class='card-title'>
+			                    Analyse
+			                </div>
+			
+			                <p style='font-size:14px; color:#C8C6C4; line-height:1.6;'>
+			
+			                    Le BAC représente le budget approuvé à l'origine du projet.
+			                    Il constitue la référence utilisée pour mesurer la performance
+			                    financière, comparer le coût à terminaison (EAC) et calculer
+			                    l'écart budgétaire (VAC).
+			
+			                </p>
+			
+			            </div>
+			
+			            <div class='flip-hint'>
+			                Survolez pour revenir
+			            </div>
+			
+			        </div>
+			
+			    </div>
+			
+			</div>
+			"
+		lineageTag: eb6e0a26-b824-41ef-b3c5-1ac646f3d856
+
+	measure 'HTML KPI_Budget' =
+			
+			
+			VAR _AC = [AC - Coût réel cumulé]
+			VAR _BAC = [BAC - Budget initial]
+			
+			VAR _Pct =
+			    ROUND(
+			        DIVIDE(_AC, _BAC, 0) * 100,
+			        0
+			    )
+			
+			VAR _PctBarre =
+			    MIN(100, _Pct)
+			
+			VAR _Commentaire =
+			    SWITCH(
+			        TRUE(),
+			        _Pct < 50, "Consommation maîtrisée.",
+			        _Pct < 80, "Budget conforme aux prévisions.",
+			        _Pct < 100, "Vigilance recommandée.",
+			        "Budget consommé ou dépassé."
+			    )
+			
+			RETURN
+			
+			"
+			<style>
+			
+			
+			
+			</style>
+			
+			<div class='kpi-container'>
+			
+			    <div class='kpi-card'>
+			
+			        <div class='card-title'>
+			            Coût réel cumulé (AC)
+			        </div>
+			
+			        <div class='metric-value'>
+			            " & FORMAT(_AC,"#,##0 €") & "
+			        </div>
+			
+			        <div class='badge'>
+			            BAC : " & FORMAT(_BAC,"#,##0 €") & "
+			        </div>
+			
+			        <div class='label-row'>
+			            <span>Consommation</span>
+			            <span>" & _Pct & "%</span>
+			        </div>
+			
+			        <div class='progress'>
+			            <div class='progress-fill'></div>
+			        </div>
+			
+			        <div class='comment'>
+			            " & _Commentaire & "
+			        </div>
+			
+			    </div>
+			
+			</div>
+			"
+		lineageTag: e532537c-dc7a-4858-ac2d-4f450e40ccc5
+
+	measure 'HTML Cartes KPI Risques' = ```
+			
+			
+			VAR Critiques = [Risques critiques ouverts]
+			
+			VAR Majeurs = [Risques majeurs ouverts]
+			
+			VAR Conformite = [Taux de conformité qualité]// [Taux conformité qualité]
+			
+			VAR NonConformites = [Non-conformités ouvertes] // [Non-conformités ouvertes]
+			
+			VAR ActionsRetard = [Actions en retard]
+			
+			VAR Resolution = [Taux de résolution des actions] // [Taux de résolution]
+			
+			VAR TexteCritique =
+			SWITCH(
+			    TRUE(),
+			    Critiques = 0, "🟢 Aucun risque critique",
+			    Critiques <= 2, "🟡 Vigilance requise",
+			    "🔴 Action prioritaire"
+			)
+			
+			VAR TexteMajeurs =
+			SWITCH(
+			    TRUE(),
+			    Majeurs <= 3, "🟢 Risque maîtrisé",
+			    Majeurs <= 8, "🟡 À surveiller",
+			    "🔴 Exposition élevée"
+			)
+			
+			VAR TexteConformite =
+			SWITCH(
+			    TRUE(),
+			    Conformite >= 0.95, "🟢 Objectif atteint",
+			    Conformite >= 0.90, "🟡 Proche de l'objectif",
+			    "🔴 Amélioration requise"
+			)
+			
+			VAR TexteNC =
+			SWITCH(
+			    TRUE(),
+			    NonConformites = 0, "🟢 Aucune anomalie",
+			    NonConformites <= 5, "🟡 Stock maîtrisé",
+			    "🔴 Trop d'anomalies"
+			)
+			
+			VAR TexteRetard =
+			SWITCH(
+			    TRUE(),
+			    ActionsRetard = 0, "🟢 Aucun retard",
+			    ActionsRetard <= 3, "🟡 Quelques retards",
+			    "🔴 Retards critiques"
+			)
+			
+			VAR TexteResolution =
+			SWITCH(
+			    TRUE(),
+			    Resolution >= 0.90, "🟢 Excellent",
+			    Resolution >= 0.75, "🟡 Correct",
+			    "🔴 À améliorer"
+			)
+			
+			
+			VAR HTML_Card =
+			
+			"
+			<div style='
+			
+			    display:grid;
+			
+			    grid-template-columns:repeat(6,minmax(0,1fr));
+			
+			    gap:9px;
+			
+			    width:100%;
+			
+			    font-family:Segoe UI,Arial,sans-serif;
+			
+			    background:#EEF4F7;
+			
+			'>
+			<!-- CARTE 1 -->
+			<div style='background:#FFFFFF;border:1px solid #DCE5EB;border-radius:10px;padding:14px;'>
+			<div style='font-size:12px;color:#526579;font-weight:600;'>🔴 Risques critiques ouverts</div>
+			<div style='font-size:29px;font-weight:700;color:#D83C4A;margin-top:10px;'>
+			
+			        " & FORMAT(Critiques,"0") & "
+			</div>
+			<div style='font-size:10px;color:#718296;'>Risques nécessitant une action prioritaire</div>
+			<div style='
+			margin-top:6px;
+			padding:4px 8px;
+			background:#F8FAFC;
+			border-radius:12px;
+			font-size:10px;
+			font-weight:600;
+			text-align:center;'>
+			" & TexteCritique & "
+			</div>
+			</div>
+			<!-- CARTE 2 -->
+			<div style='background:#FFFFFF;border:1px solid #DCE5EB;border-radius:10px;padding:14px;'>
+			<div style='font-size:12px;color:#526579;font-weight:600;'>🟠 Risques majeurs ouverts</div>
+			<div style='font-size:29px;font-weight:700;color:#F28C38;margin-top:10px;'>
+			
+			        " & FORMAT(Majeurs,"0") & "
+			</div>
+			<div style='font-size:10px;color:#718296;'>Risques à surveiller</div>
+			<div style='
+			margin-top:6px;
+			padding:4px 8px;
+			background:#F8FAFC;
+			border-radius:12px;
+			font-size:10px;
+			font-weight:600;
+			text-align:center;'>
+			" & TexteMajeurs & "
+			</div>
+			</div>
+			<!-- CARTE 3 -->
+			<div style='background:#FFFFFF;border:1px solid #DCE5EB;border-radius:10px;padding:14px;'>
+			<div style='font-size:12px;color:#526579;font-weight:600;'>✓ Taux de conformité qualité</div>
+			<div style='font-size:29px;font-weight:700;color:#269A76;margin-top:10px;'>
+			
+			        " & FORMAT(Conformite,"0%") & "
+			</div>
+			<div style='font-size:10px;color:#718296;'>Objectif : 95 %</div>
+			<div style='
+			margin-top:6px;
+			padding:4px 8px;
+			background:#F8FAFC;
+			border-radius:12px;
+			font-size:10px;
+			font-weight:600;
+			text-align:center;'>
+			" & TexteConformite & "
+			</div>
+			</div>
+			<!-- CARTE 4 -->
+			<div style='background:#FFFFFF;border:1px solid #DCE5EB;border-radius:10px;padding:14px;'>
+			<div style='font-size:12px;color:#526579;font-weight:600;'>▤ Non-conformités ouvertes</div>
+			<div style='font-size:29px;font-weight:700;color:#17385D;margin-top:10px;'>
+			
+			        " & FORMAT(NonConformites,"0") & "
+			</div>
+			<div style='font-size:10px;color:#718296;'>Défauts qualité non résolus</div>
+			<div style='
+			margin-top:6px;
+			padding:4px 8px;
+			background:#F8FAFC;
+			border-radius:12px;
+			font-size:10px;
+			font-weight:600;
+			text-align:center;'>
+			" & TexteNC & "
+			</div>
+			</div>
+			<!-- CARTE 5 -->
+			<div style='background:#FFFFFF;border:1px solid #DCE5EB;border-radius:10px;padding:14px;'>
+			<div style='font-size:12px;color:#526579;font-weight:600;'>◉ Actions en retard</div>
+			<div style='font-size:29px;font-weight:700;color:#D83C4A;margin-top:10px;'>
+			
+			        " & FORMAT(ActionsRetard,"0") & "
+			</div>
+			<div style='font-size:10px;color:#718296;'>Actions correctives hors délai</div>
+			<div style='
+			margin-top:6px;
+			padding:4px 8px;
+			background:#F8FAFC;
+			border-radius:12px;
+			font-size:10px;
+			font-weight:600;
+			text-align:center;'>
+			" & TexteRetard & "
+			</div>
+			</div>
+			<!-- CARTE 6 -->
+			<div style='background:#FFFFFF;border:1px solid #DCE5EB;border-radius:10px;padding:14px;'>
+			<div style='font-size:12px;color:#526579;font-weight:600;'>◎ Taux de résolution</div>
+			<div style='font-size:29px;font-weight:700;color:#269A76;margin-top:10px;'>
+			
+			        " & FORMAT(Resolution,"0%") & "
+			</div>
+			<div style='font-size:10px;color:#718296;'>Objectif : 90 %</div>
+			<div style='
+			margin-top:6px;
+			padding:4px 8px;
+			background:#F8FAFC;
+			border-radius:12px;
+			font-size:10px;
+			font-weight:600;
+			text-align:center;'>
+			" & TexteResolution & "
+			</div>
+			</div>
+			</div>
+			
+			"
+			
+			RETURN
+			
+			HTML_Card
+			 
+			```
+		lineageTag: 6e04e125-9a5f-4b09-8bd0-4d7c835ccc93
+
+	measure 'Risques majeurs ouverts' =
+			// nombre de risques importants
+			CALCULATE(
+			    DISTINCTCOUNT(FactRisques[risk_id]),
+			    FactRisques[risk_score] >= 11 && FactRisques[risk_score] <= 15
+			)
+		formatString: 0
+		lineageTag: d0695c06-fa74-4c17-9a5a-067c5c6255af
+
+	measure 'Taux de resolution des non-conformités' =
+			
+			DIVIDE([Non-conformités résolues],[Non-conformité total])
+		lineageTag: 0de5d127-0941-4815-9105-9a9b6d11c838
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Non-conformité total' =
+			
+			DISTINCTCOUNT(FactNonConformites[nonconformity_id])
+		formatString: 0
+		lineageTag: 1c4366e9-77cd-4fbf-b897-51890684de9f
+
+	measure 'Non-conformités résolues' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(FactNonConformites[nonconformity_id]),
+			    NOT ISBLANK(FactNonConformites[closed_date])
+			)
+		formatString: 0
+		lineageTag: cb29a268-8717-40f2-83e7-ad61e879cb5c
+
+	measure 'Taux de conformité qualité' =
+			
+			DIVIDE(
+			    COUNTROWS(
+			        FILTER(
+			            FactControlesQualite,
+			            FactControlesQualite[first_pass_accepted_flag] = "Oui"
+			                || FactControlesQualite[accepted_after_rework_flag] = "Oui"
+			        )
+			    ),
+			    COUNTROWS(FactControlesQualite),
+			    0
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 8a4a3a1e-3d57-44cc-809a-08d95c56efa0
+
+	measure 'Taux de résolution des actions' =
+			
+			DIVIDE(
+			    [Actions clôturées],
+			    DISTINCTCOUNT(FactActions[action_id])
+			)
+		lineageTag: deb26e06-7e38-4f93-919c-ae334f04389f
+
+	measure 'Actions clôturées' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(FactActions[action_id]),
+			    NOT ISBLANK(FactActions[closed_date])
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 17dd6a75-2cf5-48d1-85d7-854b9cf45e02
+
+	measure 'Risques mineurs' = ```
+			
+			    CALCULATE(
+			        DISTINCTCOUNT(FactRisques[risk_id]),
+			        FactRisques[risk_score] <= 10
+			     )
+			```
+		formatString: 0
+		lineageTag: 3d2aa6fa-f6f4-4e60-aa43-0335f70d0f8f
+
+	measure 'Total risques' = COUNTROWS(FactRisques)
+		formatString: 0
+		lineageTag: 74f9bc6f-efa4-4d9e-9845-f5743902b3e4
+
+	measure 'Criticité Risque max' =
+			
+			MAX(FactRisques[risk_score])
+		formatString: 0
+		lineageTag: ff959816-a013-45b0-b949-483c03d024e8
+
+	measure 'Top 5 Risques HTML' =
+			
+			
+			VAR TopRisques =
+			    TOPN(
+			        5,
+			        FactRisques,
+			        FactRisques[risk_score], DESC,
+			        FactRisques[risk_title], ASC
+			    )
+			
+			RETURN
+			
+			"<div style='
+			font-family:Segoe UI;
+			padding:10px;
+			background:white;'>
+			
+			<div style='
+			font-size:18px;
+			font-weight:700;
+			color:#17385D;
+			margin-bottom:4px;'>
+			🏆 Top 5 des risques les plus critiques
+			</div>
+			
+			<div style='
+			font-size:10px;
+			color:#64748B;
+			margin-bottom:10px;'>
+			💡 Survoler un risque pour afficher le plan de mitigation
+			</div>"
+			
+			&
+			
+			CONCATENATEX(
+			    TopRisques,
+			
+			    VAR Score = FactRisques[risk_score]
+			
+			    VAR Niveau =
+			        SWITCH(
+			            TRUE(),
+			            Score >= 20, "🔴 Critique",
+			            Score >= 12, "🟠 Élevé",
+			            Score >= 6 , "🟡 Moyen",
+			            "🟢 Faible"
+			        )
+			
+			    VAR Couleur =
+			        SWITCH(
+			            TRUE(),
+			            Score >= 20, "#DC2626",
+			            Score >= 12, "#F97316",
+			            Score >= 6 , "#EAB308",
+			            "#16A34A"
+			        )
+			
+			    RETURN
+			
+			    "<div style='
+			        margin-bottom:10px;
+			        padding:10px;
+			        border-left:4px solid " & Couleur & ";
+			        background:#F8FAFC;
+			        border-radius:6px;
+			        cursor:help;'
+			
+			        title='" & FactRisques[mitigation_action] & "'>
+			
+			        <div style='
+			            font-size:12px;
+			            font-weight:700;
+			            color:" & Couleur & ";'>
+			            " & Niveau & " • Score " & FORMAT(Score,"0") & "
+			        </div>
+			
+			        <div style='
+			            margin-top:4px;
+			            font-size:13px;
+			            font-weight:600;
+			            color:#17385D;'>
+			            " & FactRisques[risk_title] & "
+			        </div>
+			
+			        <div style='
+			            margin-top:4px;
+			            font-size:11px;
+			            color:#64748B;'>
+			            📁 " & FactRisques[project_id] & "
+			        </div>
+			
+			        <div style='
+			            margin-top:2px;
+			            font-size:11px;
+			            color:#64748B;'>
+			            👤 " & FactRisques[risk_owner] & "
+			        </div>
+			
+			    </div>",
+			
+			    "",
+			    FactRisques[risk_score],
+			    DESC
+			)
+			
+			&
+			
+			"</div>"
+		lineageTag: b2528e8b-fbd7-4f41-a0b9-260e26f4a4dd
+
+	measure 'Interpretation Statut Actions' =
+			
+			SWITCH(
+			    SELECTEDVALUE(FactActions[status]),
+			    "En cours",      "🟢 En cours",
+			    "En retard",     "🟠 En retard",
+			    "Non démarrée",  "⚪ Non démarrée",
+			    "Terminée",      "✅ Terminée",
+			    "Clôturée",      "✅ Clôturée",
+			    SELECTEDVALUE(FactActions[status])
+			)
+		lineageTag: 9ae5cbd4-5ed7-4c8e-ba60-cf2a03a4678c
+
+	measure 'Interprétation Criticité Risque' =
+			
+			VAR Score = SELECTEDVALUE(FactRisques[risk_score])
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    Score >= 16, "🔴 Critique",
+			    Score >= 12, "🟠 Majeur",
+			    "🟡 Modéré"
+			)
+		lineageTag: 88ca1357-eec4-4a24-a210-4eda9e00eecb
+
+	measure Mesure
+		lineageTag: 6c93c88d-ff39-4794-83d3-b46a43e23bbf
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Mesure 2'
+		lineageTag: d0de88a2-bf3a-426e-9665-57d8ad2b8dfb
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Mesure 3'
+		lineageTag: 7144d16d-b579-4ae4-ba32-23e4886456e9
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'HTML Points Attention Risques et qualité' =
+			
+			
+			VAR ActionsRetard = [Actions en retard]
+			VAR RisquesCritiques = [Risques critiques ouverts]
+			VAR Conformite = [taux de conformité qualité]
+			
+			VAR StatutQualite =
+			    IF(
+			        Conformite >= 0.95,
+			        "✅ Conforme",
+			        "⚠️ À renforcer"
+			    )
+			
+			VAR CouleurStatut =
+			    IF(
+			        Conformite >= 0.95,
+			        "#10B981",
+			        "#F59E0B"
+			    )
+			
+			RETURN
+			
+			"
+			<div style='
+			font-family:Segoe UI;
+			background:#F8FAFC;
+			padding:10px;
+			border-radius:8px;
+			border:1px solid #E2E8F0;'>
+			
+			    <div style='
+			    font-size:14px;
+			    font-weight:700;
+			    color:#17385D;
+			    margin-bottom:6px;'>
+			        🚨 Points d'attention
+			    </div>
+			
+			    <ul style='
+			    margin:0;
+			    padding-left:18px;
+			    color:#475569;
+			    font-size:11px;
+			    line-height:1.5;'>
+			
+			        <li>" & ActionsRetard & " actions correctives en retard</li>
+			
+			        <li>" & RisquesCritiques & " risques critiques ouverts</li>
+			
+			        <li>Taux de conformité qualité : " &
+			            FORMAT(Conformite,"0%") &
+			        "</li>
+			
+			    </ul>
+			
+			    <div style='
+			    margin-top:8px;
+			    padding:10px;
+			    background:#EFF6FF;
+			    border-radius:6px;
+			    border:1px solid #BFDBFE;
+			    display:flex;
+			    justify-content:space-between;
+			    align-items:center;'>
+			
+			        <div>
+			
+			            <div style='
+			            font-size:11px;
+			            font-weight:600;
+			            color:#17385D;'>
+			                🎯 Objectif qualité ≥ 95 %
+			            </div>
+			
+			            <div style='
+			            margin-top:3px;
+			            font-size:11px;
+			            color:#17385D;'>
+			                Actuel : <b>" &
+			                FORMAT(Conformite,"0%") &
+			                "</b>
+			            </div>
+			
+			        </div>
+			
+			        <div style='
+			        background:" & CouleurStatut & ";
+			        color:white;
+			        padding:5px 10px;
+			        border-radius:6px;
+			        font-size:11px;
+			        font-weight:600;'>
+			            " & StatutQualite & "
+			        </div>
+			
+			    </div>
+			
+			</div>
+			"
+		lineageTag: 147971db-21bd-46b7-85c9-6b08aabc08b9
+
+	measure 'HTML Synthèse Planning & Jalons' =
+			
+			
+			VAR Risque = [Jalons à risque]
+			VAR Retard = [Jalons en retard]
+			VAR Avenir = [Jalons à venir]
+			VAR RespectPct = [Jalons respectés (%)]
+			
+			VAR ProchainJalon = [Nom prochain jalon]
+			VAR Jours = [Jours avant le prochain jalon]
+			
+			VAR CouleurJalon =
+			    SWITCH(
+			        TRUE(),
+			        Jours <= 3, "#DC2626",
+			        Jours <= 7, "#F59E0B",
+			        "#16A34A"
+			    )
+			
+			VAR EtatPlanning =
+			    SWITCH(
+			        TRUE(),
+			        Risque >= 10, "🔴 Critique",
+			        Risque > 0, "🟠 Sous surveillance",
+			        RespectPct >= 0.90, "🟢 Maîtrisé",
+			        "🟡 À surveiller"
+			    )
+			
+			VAR CouleurEtat =
+			    SWITCH(
+			        TRUE(),
+			        Risque >= 10, "#DC2626",
+			        Risque > 0, "#F59E0B",
+			        RespectPct >= 0.90, "#16A34A",
+			        "#EAB308"
+			    )
+			
+			VAR Message =
+			    SWITCH(
+			        TRUE(),
+			
+			        Risque >= 10,
+			            FORMAT(Risque,"0")
+			            & " jalons sont échus et non réalisés. Une replanification est recommandée.",
+			
+			        Risque > 0,
+			            FORMAT(Risque,"0")
+			            & " jalons nécessitent une attention immédiate.",
+			
+			        Retard > 0,
+			            FORMAT(Retard,"0")
+			            & " jalons ont été réalisés en retard.",
+			
+			        RespectPct >= 0.90,
+			            "Le planning est globalement maîtrisé.",
+			
+			        "Situation à surveiller."
+			    )
+			
+			RETURN
+			
+			"
+			<div style='
+			font-family:Segoe UI;
+			background:white;
+			padding:12px;
+			border-radius:10px;
+			border:1px solid #E2E8F0;'>
+			
+			<div style='
+			font-size:18px;
+			font-weight:700;
+			color:#17385D;
+			margin-bottom:12px;'>
+			📅 Planning & Jalons
+			</div>
+			
+			<div style='
+			display:grid;
+			grid-template-columns:repeat(4,1fr);
+			gap:8px;
+			margin-bottom:12px;'>
+			
+			    <div style='text-align:center;padding:8px;background:#F8FAFC;border-radius:8px;'>
+			        <div style='font-size:24px;font-weight:700;color:#DC2626;'>" & Risque & "</div>
+			        <div style='font-size:11px;'>🔴 À risque</div>
+			    </div>
+			
+			    <div style='text-align:center;padding:8px;background:#F8FAFC;border-radius:8px;'>
+			        <div style='font-size:24px;font-weight:700;color:#F59E0B;'>" & Retard & "</div>
+			        <div style='font-size:11px;'>🟠 Retard</div>
+			    </div>
+			
+			    <div style='text-align:center;padding:8px;background:#F8FAFC;border-radius:8px;'>
+			        <div style='font-size:24px;font-weight:700;color:#2563EB;'>" & Avenir & "</div>
+			        <div style='font-size:11px;'>🔵 À venir</div>
+			    </div>
+			
+			    <div style='text-align:center;padding:8px;background:#F8FAFC;border-radius:8px;'>
+			        <div style='font-size:24px;font-weight:700;color:#16A34A;'>" & FORMAT(RespectPct,"0%") & "</div>
+			        <div style='font-size:11px;'>✅ Respectés</div>
+			    </div>
+			
+			</div>
+			
+			<div style='
+			padding:12px;
+			background:#F8FAFC;
+			border-radius:8px;
+			margin-bottom:10px;'>
+			
+			    <div style='
+			    font-size:11px;
+			    font-weight:600;
+			    color:#64748B;'>
+			        📍 PROCHAIN JALON
+			    </div>
+			
+			    <div style='
+			    margin-top:6px;
+			    font-size:14px;
+			    font-weight:600;
+			    color:#17385D;'>
+			        " & ProchainJalon & "
+			    </div>
+			
+			    <div style='
+			    margin-top:8px;
+			    display:inline-block;
+			    background:" & CouleurJalon & ";
+			    color:white;
+			    padding:4px 10px;
+			    border-radius:12px;
+			    font-size:11px;
+			    font-weight:700;'>
+			        Dans " & Jours & " jours
+			    </div>
+			
+			</div>
+			
+			<div style='
+			padding:12px;
+			background:#FFF7ED;
+			border-left:5px solid " & CouleurEtat & ";
+			border-radius:8px;'>
+			
+			    <div style='
+			    font-size:13px;
+			    font-weight:700;
+			    color:" & CouleurEtat & ";'>
+			        ⚠️ État du planning : " & EtatPlanning & "
+			    </div>
+			
+			    <div style='
+			    margin-top:8px;
+			    font-size:12px;
+			    color:#334155;'>
+			        " & Message & "
+			    </div>
+			
+			</div>
+			
+			</div>
+			"
+		lineageTag: 65398834-1766-4bac-893f-7e1cf1d01513
 
 	partition MesuresTable = m
 		mode: import

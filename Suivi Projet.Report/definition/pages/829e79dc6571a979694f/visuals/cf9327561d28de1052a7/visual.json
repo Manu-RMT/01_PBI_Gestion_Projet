@@ -1,0 +1,233 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "cf9327561d28de1052a7",
+  "position": {
+    "x": 852.5,
+    "y": 645,
+    "z": 7000,
+    "height": 222.5,
+    "width": 1050,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactActions"
+                    }
+                  },
+                  "Property": "action_id"
+                }
+              },
+              "queryRef": "FactActions.action_id",
+              "nativeQueryRef": "ID",
+              "displayName": "ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactActions"
+                    }
+                  },
+                  "Property": "action_title"
+                }
+              },
+              "queryRef": "FactActions.action_title",
+              "nativeQueryRef": "Description",
+              "displayName": "Description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactActions"
+                    }
+                  },
+                  "Property": "related_risk_id"
+                }
+              },
+              "queryRef": "FactActions.related_risk_id",
+              "nativeQueryRef": "Risques / NC associée",
+              "displayName": "Risques / NC associée"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactActions"
+                    }
+                  },
+                  "Property": "due_date"
+                }
+              },
+              "queryRef": "FactActions.due_date",
+              "nativeQueryRef": "Echeance",
+              "displayName": "Echeance"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "Interpretation Statut Actions"
+                }
+              },
+              "queryRef": "MesuresTable.Statut Actions",
+              "nativeQueryRef": "Statut",
+              "displayName": "Statut"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FactActions"
+                        }
+                      },
+                      "Property": "Ordre Priorité Action"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FactActions.Ordre Statut)",
+              "nativeQueryRef": "tri",
+              "displayName": "tri"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "FactActions"
+                      }
+                    },
+                    "Property": "Ordre Priorité Action"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "457.99998376919757D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FactActions.action_title"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "118.66669025515372D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FactActions.due_date"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "124.33335921082572D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FactActions.action_id"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "366.0328220123934D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.Statut Actions"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "73.99975612930626D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FactActions.Ordre Statut)"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "4445aa0e882ded9ed202",
+  "position": {
+    "x": 479.56920952709703,
+    "y": 875.63134276838116,
+    "z": 9000,
+    "height": 205,
+    "width": 825,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProjet"
+                    }
+                  },
+                  "Property": "project_id"
+                }
+              },
+              "queryRef": "DimProjet.project_id",
+              "nativeQueryRef": "Projet",
+              "displayName": "Projet"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactRisques"
+                    }
+                  },
+                  "Property": "risk_title"
+                }
+              },
+              "queryRef": "FactRisques.risk_title",
+              "nativeQueryRef": "Titre",
+              "displayName": "Titre"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactRisques"
+                    }
+                  },
+                  "Property": "Criticité"
+                }
+              },
+              "queryRef": "FactRisques.Criticité",
+              "nativeQueryRef": "Criticité"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactRisques"
+                    }
+                  },
+                  "Property": "Statut Risque"
+                }
+              },
+              "queryRef": "FactRisques.Statut Risque",
+              "nativeQueryRef": "Statut Risque"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactRisques"
+                    }
+                  },
+                  "Property": "target_resolution_date"
+                }
+              },
+              "queryRef": "FactRisques.target_resolution_date",
+              "nativeQueryRef": "Echeances",
+              "displayName": "Echeances"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactRisques"
+                  }
+                },
+                "Property": "Statut Risque"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "127.99996698033976D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FactRisques.Criticité"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Détail des risques'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

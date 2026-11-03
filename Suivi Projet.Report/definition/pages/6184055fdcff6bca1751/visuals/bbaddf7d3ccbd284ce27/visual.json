@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "bbaddf7d3ccbd284ce27",
   "position": {
-    "x": 995.159991889425,
-    "y": 103.28262337500215,
+    "x": 835.84111199423307,
+    "y": 113.56536847747732,
     "z": 3000,
-    "height": 78.442498765824411,
-    "width": 218.44975431719084,
+    "height": 84.038372673333214,
+    "width": 218.04550747675646,
     "tabOrder": 9000
   },
   "visual": {
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "FactTaches.critical_path_flag",
-              "nativeQueryRef": "critical_path_flag",
-              "active": true
+              "nativeQueryRef": "Tache critique",
+              "active": true,
+              "displayName": "Tache critique"
             }
           ]
         }

@@ -354,7 +354,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "Projet / Ressource": {
+			          "Nom projet": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -364,7 +364,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "Nom projet": {
+			          "Projet / Ressource": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -5703,6 +5703,16 @@ cultureInfo fr-FR
 			            },
 			            "Weight": 0.5
 			          }
+			        },
+			        {
+			          "Tache critique": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -7751,6 +7761,16 @@ cultureInfo fr-FR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "Catégorie cout": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -10456,6 +10476,16 @@ cultureInfo fr-FR
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Titre": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -11407,6 +11437,16 @@ cultureInfo fr-FR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "Echeances": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ],
@@ -18609,6 +18649,16 @@ cultureInfo fr-FR
 			            },
 			            "Weight": 0.476
 			          }
+			        },
+			        {
+			          "Risques / NC associée": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -18737,6 +18787,16 @@ cultureInfo fr-FR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "Description": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -19136,6 +19196,16 @@ cultureInfo fr-FR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "Echeance": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ],
@@ -25019,6 +25089,16 @@ cultureInfo fr-FR
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Risques critiques": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -29087,22 +29167,6 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
-			    "mesures_table.interprétation_jalons": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "MesuresTable",
-			          "ConceptualProperty": "Interprétation Jalons"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "interprétation jalons": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "mesures_table.nom_prochain_jalon": {
 			      "Definition": {
 			        "Binding": {
@@ -30303,6 +30367,810 @@ cultureInfo fr-FR
 			      "Terms": [
 			        {
 			          "TB alerte projet : couleur statut": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.HTML_KPI_Flip_Card": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "HTML KPI_Flip_Card"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "HTML KPI_Flip_Card": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.HTML_KPI_Budget": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "HTML KPI_Budget"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "HTML KPI_Budget": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.HTML_cartes_KPI_risques": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "HTML Cartes KPI Risques"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "HTML cartes KPI risques": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.risques_majeurs_ouverts": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Risques majeurs ouverts"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "risques majeurs ouverts": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Risques majeurs": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.taux_de_resolution_des_nonconformités": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Taux de resolution des non-conformités"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "taux de resolution des non-conformités": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "taux de resolution des non conformités": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.nonconformité_total": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Non-conformité total"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "non-conformité total": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "non conformité total": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "non-conformité aggregate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "non-conformité overall": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "non conformité aggregate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "non conformité overall": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.nonconformités_résolues": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Non-conformités résolues"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "non-conformités résolues": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "non conformités résolues": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.taux_de_conformité_qualité": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Taux de conformité qualité"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "taux de conformité qualité": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.taux_de_résolution_des_actions": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Taux de résolution des actions"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "taux de résolution des actions": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "taux de résolution des movement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "taux de résolution des activity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "taux de résolution des arrangement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "taux de résolution des appointment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "taux de résolution des engagement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "taux de résolution des travel": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "taux de résolution des schedule": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "taux de résolution des whereabouts": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "taux de résolution des program": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "taux de résolution des procedure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.494
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.actions_clôturées": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Actions clôturées"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "actions clôturées": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.risques_mineurs": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Risques mineurs"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "risques mineurs": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.total_risques": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Total risques"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total risques": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate risque": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall risque": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.criticité_risque_max": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Criticité Risque max"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "criticité risque max": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "criticité risque maximum": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.top_5_risques_HTML": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Top 5 Risques HTML"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "top 5 risques HTML": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "best 5 risque html": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "first 5 risque html": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "leading 5 risque html": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "maximum 5 risque html": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "peak 5 risque html": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "upper 5 risque html": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.interpretation_statut_actions": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Interpretation Statut Actions"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "interpretation statut actions": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "interpretation statut movement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "interpretation statut activity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "interpretation statut arrangement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "interpretation statut appointment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "interpretation statut engagement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "interpretation statut travel": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "interpretation statut schedule": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "interpretation statut whereabouts": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "interpretation statut program": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "interpretation statut procedure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "Statut": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_action.ordre_priorité_action": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactActions",
+			          "ConceptualProperty": "Ordre Priorité Action"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ordre priorité action": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ordre priorité achievement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "ordre priorité accomplishment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "ordre priorité act": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "ordre priorité deed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "ordre priorité exploit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "ordre priorité feat": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "ordre priorité stroke": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "ordre priorité engagement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "ordre priorité warfare": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "ordre priorité battle": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        }
+			      ]
+			    },
+			    "fact_risque.statut_risque": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactRisques",
+			          "ConceptualProperty": "Statut Risque"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "statut risque": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_risque.criticité": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactRisques",
+			          "ConceptualProperty": "Criticité"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "criticité": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_risque.ordre_statut_risque": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactRisques",
+			          "ConceptualProperty": "Ordre Statut Risque"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ordre statut risque": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.interprétation_criticité_risque": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Interprétation Criticité Risque"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "interprétation criticité risque": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.mesure": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Mesure"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mesure": {
 			            "State": "Generated"
 			          }
 			        }
@@ -42415,6 +43283,831 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_projets_have_fact_taches"
+			        }
+			      ]
+			    },
+			    "mesures_table_has_mesure": {
+			      "Binding": {
+			        "ConceptualEntity": "MesuresTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mesures_table": {
+			          "Target": {
+			            "Entity": "mesures_table"
+			          }
+			        },
+			        "mesures_table.mesure": {
+			          "Target": {
+			            "Entity": "mesures_table.mesure"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mesures_table"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.mesure"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mesures_tables_have_mesure"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_mesures_table_interprétation_criticité_risque": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "mesures_table.interprétation_criticité_risque": {
+			          "Target": {
+			            "Entity": "mesures_table.interprétation_criticité_risque"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.interprétation_criticité_risque"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_interprétation_criticité_risque"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_ordre_statut_risque": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "fact_risque.ordre_statut_risque": {
+			          "Target": {
+			            "Entity": "fact_risque.ordre_statut_risque"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "fact_risque.ordre_statut_risque"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_ordre_statut_risques"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_criticité": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "fact_risque.criticité": {
+			          "Target": {
+			            "Entity": "fact_risque.criticité"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "fact_risque.criticité"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_criticité"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_statut_risque": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "fact_risque.statut_risque": {
+			          "Target": {
+			            "Entity": "fact_risque.statut_risque"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "fact_risque.statut_risque"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_statut_risques"
+			        }
+			      ]
+			    },
+			    "fact_action_has_ordre_priorité_action": {
+			      "Binding": {
+			        "ConceptualEntity": "FactActions"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_action": {
+			          "Target": {
+			            "Entity": "fact_action"
+			          }
+			        },
+			        "fact_action.ordre_priorité_action": {
+			          "Target": {
+			            "Entity": "fact_action.ordre_priorité_action"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_action"
+			            },
+			            "Object": {
+			              "Role": "fact_action.ordre_priorité_action"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_actions_have_ordre_priorité_actions"
+			        }
+			      ]
+			    },
+			    "fact_action_has_mesures_table_interpretation_statut_actions": {
+			      "Binding": {
+			        "ConceptualEntity": "FactActions"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_action": {
+			          "Target": {
+			            "Entity": "fact_action"
+			          }
+			        },
+			        "mesures_table.interpretation_statut_actions": {
+			          "Target": {
+			            "Entity": "mesures_table.interpretation_statut_actions"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_action"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.interpretation_statut_actions"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_actions_have_interpretation_statut_actions"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_mesures_table_top_5_risques_HTML": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "mesures_table.top_5_risques_HTML": {
+			          "Target": {
+			            "Entity": "mesures_table.top_5_risques_HTML"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.top_5_risques_HTML"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_top_5_risques_HTML"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_mesures_table_criticité_risque_max": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "mesures_table.criticité_risque_max": {
+			          "Target": {
+			            "Entity": "mesures_table.criticité_risque_max"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.criticité_risque_max"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_criticité_risque_max"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_mesures_table_total_risques": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "mesures_table.total_risques": {
+			          "Target": {
+			            "Entity": "mesures_table.total_risques"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.total_risques"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_total_risques"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_mesures_table_risques_mineurs": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "mesures_table.risques_mineurs": {
+			          "Target": {
+			            "Entity": "mesures_table.risques_mineurs"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.risques_mineurs"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_risques_mineurs"
+			        }
+			      ]
+			    },
+			    "fact_action_has_mesures_table_actions_clôturées": {
+			      "Binding": {
+			        "ConceptualEntity": "FactActions"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_action": {
+			          "Target": {
+			            "Entity": "fact_action"
+			          }
+			        },
+			        "mesures_table.actions_clôturées": {
+			          "Target": {
+			            "Entity": "mesures_table.actions_clôturées"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_action"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.actions_clôturées"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_actions_have_actions_clôturées"
+			        }
+			      ]
+			    },
+			    "fact_action_has_mesures_table_taux_de_résolution_des_actions": {
+			      "Binding": {
+			        "ConceptualEntity": "FactActions"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_action": {
+			          "Target": {
+			            "Entity": "fact_action"
+			          }
+			        },
+			        "mesures_table.taux_de_résolution_des_actions": {
+			          "Target": {
+			            "Entity": "mesures_table.taux_de_résolution_des_actions"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_action"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.taux_de_résolution_des_actions"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_actions_have_taux_de_résolution_des_actions"
+			        }
+			      ]
+			    },
+			    "fact_controles_qualite_has_mesures_table_taux_de_conformité_qualité": {
+			      "Binding": {
+			        "ConceptualEntity": "FactControlesQualite"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_controles_qualite": {
+			          "Target": {
+			            "Entity": "fact_controles_qualite"
+			          }
+			        },
+			        "mesures_table.taux_de_conformité_qualité": {
+			          "Target": {
+			            "Entity": "mesures_table.taux_de_conformité_qualité"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_controles_qualite"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.taux_de_conformité_qualité"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_controles_qualites_have_taux_de_conformité_qualité"
+			        }
+			      ]
+			    },
+			    "fact_non_conformite_has_mesures_table_nonconformités_résolues": {
+			      "Binding": {
+			        "ConceptualEntity": "FactNonConformites"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_non_conformite": {
+			          "Target": {
+			            "Entity": "fact_non_conformite"
+			          }
+			        },
+			        "mesures_table.nonconformités_résolues": {
+			          "Target": {
+			            "Entity": "mesures_table.nonconformités_résolues"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_non_conformite"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.nonconformités_résolues"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_non_conformites_have_nonconformités_résolues"
+			        }
+			      ]
+			    },
+			    "fact_non_conformite_has_mesures_table_nonconformité_total": {
+			      "Binding": {
+			        "ConceptualEntity": "FactNonConformites"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_non_conformite": {
+			          "Target": {
+			            "Entity": "fact_non_conformite"
+			          }
+			        },
+			        "mesures_table.nonconformité_total": {
+			          "Target": {
+			            "Entity": "mesures_table.nonconformité_total"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_non_conformite"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.nonconformité_total"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_non_conformites_have_nonconformité_total"
+			        }
+			      ]
+			    },
+			    "fact_non_conformite_has_mesures_table_taux_de_resolution_des_nonconformités": {
+			      "Binding": {
+			        "ConceptualEntity": "FactNonConformites"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_non_conformite": {
+			          "Target": {
+			            "Entity": "fact_non_conformite"
+			          }
+			        },
+			        "mesures_table.taux_de_resolution_des_nonconformités": {
+			          "Target": {
+			            "Entity": "mesures_table.taux_de_resolution_des_nonconformités"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_non_conformite"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.taux_de_resolution_des_nonconformités"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_non_conformites_have_taux_de_resolution_des_nonconformités"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_mesures_table_risques_majeurs_ouverts": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "mesures_table.risques_majeurs_ouverts": {
+			          "Target": {
+			            "Entity": "mesures_table.risques_majeurs_ouverts"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.risques_majeurs_ouverts"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_risques_majeurs_ouverts"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_mesures_table_HTML_cartes_KPI_risques": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "mesures_table.HTML_cartes_KPI_risques": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_cartes_KPI_risques"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_cartes_KPI_risques"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_HTML_cartes_KPI_risques"
+			        }
+			      ]
+			    },
+			    "fact_non_conformite_has_mesures_table_HTML_cartes_KPI_risques": {
+			      "Binding": {
+			        "ConceptualEntity": "FactNonConformites"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_non_conformite": {
+			          "Target": {
+			            "Entity": "fact_non_conformite"
+			          }
+			        },
+			        "mesures_table.HTML_cartes_KPI_risques": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_cartes_KPI_risques"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_non_conformite"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_cartes_KPI_risques"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_non_conformites_have_HTML_cartes_KPI_risques"
+			        }
+			      ]
+			    },
+			    "fact_controles_qualite_has_mesures_table_HTML_cartes_KPI_risques": {
+			      "Binding": {
+			        "ConceptualEntity": "FactControlesQualite"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_controles_qualite": {
+			          "Target": {
+			            "Entity": "fact_controles_qualite"
+			          }
+			        },
+			        "mesures_table.HTML_cartes_KPI_risques": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_cartes_KPI_risques"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_controles_qualite"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_cartes_KPI_risques"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_controles_qualites_have_HTML_cartes_KPI_risques"
+			        }
+			      ]
+			    },
+			    "fact_action_has_mesures_table_HTML_cartes_KPI_risques": {
+			      "Binding": {
+			        "ConceptualEntity": "FactActions"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_action": {
+			          "Target": {
+			            "Entity": "fact_action"
+			          }
+			        },
+			        "mesures_table.HTML_cartes_KPI_risques": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_cartes_KPI_risques"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_action"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_cartes_KPI_risques"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_actions_have_HTML_cartes_KPI_risques"
+			        }
+			      ]
+			    },
+			    "fact_pilotage_mensuel_has_mesures_table_HTML_KPI_Budget": {
+			      "Binding": {
+			        "ConceptualEntity": "FactPilotageMensuel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_pilotage_mensuel": {
+			          "Target": {
+			            "Entity": "fact_pilotage_mensuel"
+			          }
+			        },
+			        "mesures_table.HTML_KPI_Budget": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_KPI_Budget"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_pilotage_mensuel"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_KPI_Budget"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_pilotage_mensuels_have_HTML_KPI_Budget"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_HTML_KPI_Budget": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.HTML_KPI_Budget": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_KPI_Budget"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_KPI_Budget"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_HTML_KPI_Budget"
+			        }
+			      ]
+			    },
+			    "dim_projet_has_mesures_table_HTML_KPI_Flip_Card": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProjet"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_projet": {
+			          "Target": {
+			            "Entity": "dim_projet"
+			          }
+			        },
+			        "mesures_table.HTML_KPI_Flip_Card": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_KPI_Flip_Card"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_projet"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_KPI_Flip_Card"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_projets_have_HTML_KPI_Flip_Card"
 			        }
 			      ]
 			    },

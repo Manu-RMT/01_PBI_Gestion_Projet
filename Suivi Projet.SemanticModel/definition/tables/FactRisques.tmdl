@@ -140,6 +140,59 @@ table FactRisques
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Statut Risque' = ```
+			
+			SWITCH(
+			    FactRisques[risk_status],
+			    "Ouvert", "🟠 Ouvert",
+			    "En traitement", "🔵 En traitement",
+			    "En cours", "🟢 En cours",
+			    "Clôturé", "✅ Clôturé",
+			    "Clôturée", "✅ Clôturée",
+			    "Suspendu", "⚪ Suspendu",
+			    FactRisques[risk_status]
+			)
+			
+			```
+		lineageTag: 1ca0dc6e-427b-498a-ab81-d7198a7dc1d4
+		summarizeBy: none
+		sortByColumn: 'Ordre Statut Risque'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Criticité =
+			
+			SWITCH(
+			    TRUE(),
+			    FactRisques[risk_score] >= 16, "🔴 Critique",
+			    FactRisques[risk_score] >= 12, "🟠 Majeur",
+			    "🟡 Modéré"
+			)
+		lineageTag: 44bb6b34-f9aa-4074-822f-4d414838ec0c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ordre Statut Risque' =
+			
+			SWITCH(
+			    FactRisques[risk_status],
+			    "Ouvert", 1,
+			    "En traitement", 2,
+			    "En cours", 3,
+			    "Clôturé", 4,
+			    "Clôturée", 4,
+			    "Suspendu", 5,
+			    99
+			)
+		formatString: 0
+		lineageTag: dbec6d97-e987-4be4-9927-54939bd58b52
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactRisques = m
 		mode: import
 		queryGroup: modeles

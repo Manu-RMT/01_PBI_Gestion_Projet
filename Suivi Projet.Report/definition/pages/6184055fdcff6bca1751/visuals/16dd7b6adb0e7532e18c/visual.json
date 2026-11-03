@@ -6,7 +6,8 @@
     "y": 60.795530234806087,
     "z": 6000,
     "height": 227.59352344312026,
-    "width": 724.54705088630521
+    "width": 724.54705088630521,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "waterfallChart",

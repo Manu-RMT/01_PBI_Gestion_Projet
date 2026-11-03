@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "98f8b27660eba94a1450",
+  "position": {
+    "x": 1325,
+    "y": 875,
+    "z": 10000,
+    "height": 205,
+    "width": 580,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
+    "query": {
+      "queryState": {
+        "content": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "HTML Points Attention Risques et qualité"
+                }
+              },
+              "queryRef": "MesuresTable.HTML Points Attention Risques et qualité",
+              "nativeQueryRef": "HTML Points Attention Risques et qualité"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "compatibility": [
+        {
+          "properties": {
+            "legacyRendering": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

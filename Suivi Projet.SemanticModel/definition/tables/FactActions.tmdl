@@ -59,7 +59,7 @@ table FactActions
 
 	column due_date
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: 1783e1e7-0385-40d1-ac37-f063834de765
 		summarizeBy: none
 		sourceColumn: due_date
@@ -102,6 +102,27 @@ table FactActions
 		lineageTag: 710d6490-04e6-4646-afff-9961aeaa0f0f
 		summarizeBy: none
 		sourceColumn: priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ordre Priorité Action' =
+			
+			VAR OrdreStatut =
+			    SWITCH(
+			        FactActions[status],
+			        "En retard", 1,
+			        "Non démarrée", 2,
+			        "En cours", 3,
+			        "Clôturée", 4,
+			        "Terminée", 4,
+			        99
+			    )
+			RETURN
+			OrdreStatut * 100000 +
+			INT(FactActions[due_date])
+		formatString: 0
+		lineageTag: 17434e94-838d-4857-8b5b-a27d10a7fc66
+		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 

@@ -375,7 +375,7 @@ table MesuresTable
 
 	measure 'Ressources en surcharge' = ```
 			// Compte les ressources distinctes marquées en surcharge.
-			 CALCULATE( DISTINCTCOUNT(FactCharge[resource_id]), FactCharge[overload_flag] = "OUi" )
+			 CALCULATE( DISTINCTCOUNT(FactCharge[resource_id]), FactCharge[overload_flag] = "Oui" )
 			
 			```
 		formatString: 0
@@ -967,53 +967,28 @@ table MesuresTable
 			VAR PV = [PV - Valeur planifiée]
 			VAR AC = [AC - Coût réel cumulé]
 			
-			-- Écarts de délais et de coûts en valeur monétaire.
-			VAR EcartDelais = EV - PV
-			VAR EcartCouts = EV - AC
-			
-			-- Indices de performance.
 			VAR SPI = DIVIDE(EV, PV)
 			VAR CPI = DIVIDE(EV, AC)
 			
-			RETURN
+			VAR Commentaire =
 			    SWITCH(
 			        TRUE(),
-			
-			        ISBLANK(EV) || ISBLANK(PV) || ISBLANK(AC),
-			            "Données insuffisantes pour interpréter la courbe.",
-			
-			        PV = 0 && EV = 0 && AC = 0,
-			            "Projet non démarré ou sans données financières.",
-			
-			        PV = 0,
-			            "Valeur planifiée nulle : interprétation des délais impossible.",
-			
-			        AC = 0 && EV > 0,
-			            "Coûts réels nuls malgré un avancement : vérifier les données.",
-			
-			        SPI < 0.90 && CPI < 0.90,
-			            "ALERTE : retard important et dépassement des coûts.",
-			
-			        SPI < 0.90,
-			            "ALERTE : retard important par rapport au planning.",
-			
-			        CPI < 0.90,
-			            "ALERTE : performance des coûts dégradée.",
-			
-			        SPI < 1 && CPI < 1,
-			            "Vigilance : retard et coûts moins performants que prévu.",
-			
-			        SPI < 1,
-			            "Vigilance : avancement inférieur au planning.",
-			
-			        CPI < 1,
-			            "Vigilance : coûts engagés trop élevés par rapport au travail réalisé.",
-			
-			        SPI >= 1 && CPI >= 1,
-			            "Situation favorable : avancement conforme ou en avance et coûts maîtrisés.",
-			
-			        "Situation à surveiller."
+			        SPI < 0.90 && CPI < 0.90, "🚨 Retard important et dépassement budgétaire",
+			        SPI < 0.90, "🔴 Retard important",
+			        CPI < 0.90, "🔴 Dépassement budgétaire",
+			        SPI < 1 && CPI < 1, "🟠 Retard et surcoût modérés",
+			        SPI < 1, "🟠 Léger retard",
+			        CPI < 1, "🟠 Léger dépassement de coûts",
+			        SPI >= 1.05 && CPI >= 1.05, "✅ Excellente performance",
+			        SPI >= 1 && CPI >= 1, "🟢 Situation conforme",
+			        "🟡 À surveiller"
 			    )
+			
+			RETURN
+			    Commentaire
+			    & UNICHAR(10)
+			    & "📈 SPI : " & FORMAT(SPI, "0.00")
+			    & " | 💰 CPI : " & FORMAT(CPI, "0.00")
 			
 			```
 		lineageTag: 75478d59-5fc7-4c5e-9328-c436d3dc211a
@@ -1039,26 +1014,36 @@ table MesuresTable
 			
 			VAR Taux = [Taux de surcharge (%)]
 			
+			VAR Commentaire =
+			    SWITCH(
+			        TRUE(),
+			
+			        ISBLANK(Taux),
+			            "⚪ Aucune donnée disponible",
+			
+			        Taux > 0.30,
+			            "🚨 Surcharge critique",
+			
+			        Taux > 0.15,
+			            "🔴 Surcharge importante",
+			
+			        Taux > 0,
+			            "🟠 Surcharge modérée",
+			
+			        Taux > -0.10,
+			            "🟢 Charge équilibrée",
+			
+			        Taux > -0.25,
+			            "🟡 Sous-utilisation modérée",
+			
+			        "🔵 Sous-utilisation importante"
+			    )
+			
 			RETURN
-			SWITCH(
-			    TRUE(),
-			    ISBLANK(Taux),
-			        "Aucune donnée disponible.",
-			
-			    Taux > 0.15,
-			        "Critique : la charge réelle dépasse largement la capacité disponible. Des actions de rééquilibrage sont recommandées.",
-			
-			    Taux > 0,
-			        "Vigilance : la charge réelle dépasse la capacité disponible. Risque de surcharge des ressources.",
-			
-			    Taux > -0.10,
-			        "Situation maîtrisée : la charge est proche de la capacité disponible.",
-			
-			    Taux > -0.25,
-			        "Sous-utilisation modérée : une partie de la capacité disponible n'est pas exploitée.",
-			
-			    "Sous-utilisation importante : les ressources n'utilisent qu'une partie limitée de la capacité disponible."
-			)
+			    Commentaire
+			    & UNICHAR(10)
+			    & "📊 Taux : "
+			    & FORMAT(Taux, "0.0%")
 		lineageTag: 5c873521-a15b-4b24-947b-e3822a985ff5
 
 	measure 'Jalons en retard' =
@@ -2437,8 +2422,1315 @@ table MesuresTable
 			)
 		lineageTag: 03679a20-d76b-4cfa-b757-2eb72d4d71e2
 
-	measure 'Ressources total' = "sur " & CALCULATE(DISTINCTCOUNT(FactCharge[resource_id]))
+	measure 'Ressources total Texte' =
+			
+			VAR TotalRessources =
+			    DISTINCTCOUNT(FactCharge[resource_id])
+			VAR TauxSurcharge =
+			    FORMAT(
+			        DIVIDE([Ressources en surcharge], TotalRessources, 0),
+			        "0.00%"
+			    )
+			RETURN
+			"👥 " & TotalRessources & " ressources • ⚠️ " & TauxSurcharge & " en surcharge"
 		lineageTag: d55a3c04-0cb3-4e96-be1b-b9c2163e4ec2
+
+	measure 'Livrable total Texte' =
+			
+			VAR TotalLivrables =
+			    DISTINCTCOUNT(FactLivrables[deliverable_id])
+			VAR TauxLivraison =
+			    FORMAT([Livrables livrés (%)], "0.00%")
+			RETURN
+			"📦 " & TotalLivrables & " livrables au total • ✅ " & TauxLivraison & " livrés"
+		lineageTag: 67bee428-ac58-445c-96d7-41e2bfcafbb7
+
+	measure 'Santé Exécution' =
+			
+			SWITCH(
+			    TRUE(),
+			    [Livrables livrés (%)] >= 0.90 &&
+			    [Taux Ressources en surcharge (%)] <= 0.10, "🟢 Excellente",
+			
+			    [Livrables livrés (%)] >= 0.75 &&
+			    [Taux Ressources en surcharge (%)] <= 0.20, "🟠 Sous surveillance",
+			
+			    "🔴 Critique"
+			)
+		lineageTag: e4b62f10-177d-4e8e-8a48-b68ffd1596cb
+
+	measure 'Santé Exécution HTML' =
+			
+			VAR Etat = [Santé Exécution]
+			
+			VAR Couleur =
+			    SWITCH(
+			        Etat,
+			        "🟢 Excellente", "#2E9F6B",
+			        "🟠 Sous surveillance", "#E0A93B",
+			        "#D0453D"
+			    )
+			
+			VAR NbRetards =
+			    [Livrables en retard]
+			
+			VAR NbChangements =
+			    [Nb changements ouverts]
+			
+			RETURN
+			
+			"<div style='
+			background:white;
+			border-left:6px solid " & Couleur & ";
+			border-radius:10px;
+			padding:12px 16px;'>
+			
+			<div style='display:flex;
+			align-items:center;
+			gap:24px;
+			font-family:Segoe UI;
+			flex-wrap:wrap;'>
+			
+			    <div style='font-size:22px;
+			    font-weight:700;
+			    color:" & Couleur & ";'>
+			
+			        🚀 Santé Exécution : " & Etat & "
+			
+			    </div>
+			
+			    <div style='font-size:18px;
+			    font-weight:600;
+			    color:#344D59;'>
+			
+			        📦 "
+			        & FORMAT([Livrables livrés (%)],"0.0%")
+			        & " livrés
+			
+			    </div>
+			
+			    <div style='font-size:18px;
+			    font-weight:600;
+			    color:#344D59;'>
+			
+			        👥 "
+			        & FORMAT([Taux Ressources en surcharge (%)],"0.0%")
+			        & " en surcharge
+			
+			    </div>
+			
+			    <div style='font-size:18px;
+			    font-weight:700;
+			    color:"
+			    & IF(NbChangements > 5,"#E0A93B","#344D59")
+			    & ";'>
+			
+			        🔄 Changements ouverts ("
+			        & FORMAT(NbChangements,"0")
+			        & ")
+			
+			    </div>
+			
+			    <div style='font-size:18px;
+			    font-weight:700;
+			    color:"
+			    & IF(NbRetards > 10,"#D0453D","#344D59")
+			    & ";'>
+			
+			        ⚠️ Livrables à surveiller ("
+			        & FORMAT(NbRetards,"0")
+			        & ")
+			
+			    </div>
+			
+			</div>
+			
+			</div>"
+		lineageTag: 0968d9e2-2541-446c-86df-5637b1d569bf
+
+	measure 'Taux Ressources en surcharge (%)' =
+			
+			DIVIDE(
+			    [Ressources en surcharge],
+			    DISTINCTCOUNT(FactCharge[resource_id]),
+			    0
+			)
+		lineageTag: 68072b65-5e95-4519-a355-0e3655dca7c2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ecart Capacité (%)' =
+			
+			DIVIDE(
+			    [Charge réelle (h)] - [Capacité disponible (h)],
+			    [Capacité disponible (h)],
+			    0
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 8f41d13b-59b0-48a3-9c93-7e0ffd263c54
+
+	measure 'HTML Utilisation Ressources' =
+			
+			VAR Ressources =
+			    ADDCOLUMNS(
+			        SUMMARIZE(
+			            FactCharge,
+			            FactCharge[resource_name],
+			            FactCharge[project_id]
+			        ),
+			        "Charge", [Charge réelle (h)],
+			        "Capacite", [Capacité disponible (h)],
+			        "Reste", [Capacité disponible (h)] - [Charge réelle (h)],
+			        "TauxCalc",
+			           [Taux d'utilisation (%)]
+			    )
+			
+			RETURN
+			
+			"<div style='font-family:Segoe UI;padding:6px;'>
+			
+			<div style='font-size:16px;
+			font-weight:600;
+			margin-bottom:8px;
+			color:#344D59;'>
+			
+			🚀 Santé des ressources
+			
+			</div>"
+			
+			&
+			
+			CONCATENATEX(
+			
+			    Ressources,
+			
+			    VAR Charge = [Charge]
+			    VAR Capacite = [Capacite]
+			    VAR Taux = [TauxCalc]
+			    VAR Reste = [Reste]
+			
+			    VAR Couleur =
+			        SWITCH(
+			            TRUE(),
+			            Taux > 1, "#D0453D",
+			            Taux >= 0.8, "#E0A93B",
+			            "#2E9F6B"
+			        )
+			
+			    VAR Icone =
+			        SWITCH(
+			            TRUE(),
+			            Taux > 1, "🔴",
+			            Taux >= 0.8, "🟠",
+			            "🟢"
+			        )
+			
+			    VAR LargeurBarre =
+			        SUBSTITUTE(
+			            FORMAT(
+			                MIN(Taux * 100,100),
+			                "0.0"
+			            ),
+			            ",",
+			            "."
+			        )
+			
+			    RETURN
+			
+			    "<div style='background:#FFFFFF;
+			    border:1px solid #D3DEE2;
+			    border-radius:10px;
+			    padding:8px;
+			    margin-bottom:8px;'>
+			
+			        <div style='display:flex;
+			        justify-content:space-between;
+			        align-items:center;
+			        margin-bottom:4px;'>
+			
+			            <div>
+			
+			                <div style='font-size:13px;
+			                font-weight:600;
+			                color:#344D59;'>
+			
+			                    " & Icone & " "
+			                    & FactCharge[resource_name] &
+			                    "
+			
+			                </div>
+			
+			                <div style='font-size:10px;
+			                color:#5A7183;'>
+			
+			                    📁 "
+			                    & FactCharge[project_id] &
+			                    "
+			
+			                </div>
+			
+			            </div>
+			
+			            <div style='font-size:13px;
+			            font-weight:700;
+			            color:"
+			            & Couleur &
+			            ";'>
+			
+			                "
+			                & FORMAT(Taux,"0.0%") &
+			                "
+			
+			            </div>
+			
+			        </div>
+			
+			        <div style='background:#E0EAED;
+			        height:14px;
+			        border-radius:7px;
+			        overflow:hidden;'>
+			
+			            <div style='background:"
+			            & Couleur &
+			            ";
+			            width:"
+			            & LargeurBarre &
+			            "%;
+			            height:14px;
+			            border-radius:7px;'>
+			
+			            </div>
+			
+			        </div>
+			
+			        <div style='text-align:center;
+			        margin-top:2px;
+			        font-size:10px;
+			        font-weight:600;
+			        color:#344D59;'>
+			
+			            "
+			            & FORMAT(Charge,"# ##0")
+			            & " h / "
+			            & FORMAT(Capacite,"# ##0")
+			            & " h
+			
+			        </div>
+			
+			        <div style='display:flex;
+			        justify-content:space-between;
+			        margin-top:6px;'>
+			
+			            <div>
+			
+			                <div style='font-size:10px;
+			                color:#5A7183;'>
+			
+			                    🎯 Capacité
+			
+			                </div>
+			
+			                <div style='font-size:14px;
+			                font-weight:700;
+			                color:#344D59;'>
+			
+			                    "
+			                    & FORMAT(Capacite,"# ##0")
+			                    & " h
+			
+			                </div>
+			
+			            </div>
+			
+			            <div style='text-align:right;'>
+			
+			                <div style='font-size:10px;
+			                color:#5A7183;'>
+			
+			                    "
+			                    &
+			                    IF(
+			                        Reste >= 0,
+			                        "⏳ Restant",
+			                        "⚠️ Dépassement"
+			                    )
+			                    &
+			                    "
+			
+			                </div>
+			
+			                <div style='font-size:16px;
+			                font-weight:700;
+			                color:"
+			                &
+			                IF(
+			                    Reste >= 0,
+			                    "#344D59",
+			                    "#D0453D"
+			                )
+			                &
+			                ";'>
+			
+			                    "
+			                    &
+			                    IF(
+			                        Reste >= 0,
+			                        FORMAT(Reste,"# ##0") & " h",
+			                        FORMAT(ABS(Reste),"# ##0") & " h"
+			                    )
+			                    &
+			                    "
+			
+			                </div>
+			
+			            </div>
+			
+			        </div>
+			
+			    </div>",
+			
+			    "",
+			    [TauxCalc],
+			    DESC
+			)
+			
+			&
+			
+			"</div>"
+		lineageTag: e6635ee5-cfac-4171-a459-f74f45e00fdc
+
+	measure 'HTML Projets Prioritaires' = ```
+			
+			VAR Projets =
+			    TOPN(
+			        5,
+			        ADDCOLUMNS(
+			            SUMMARIZE(
+			                FactCharge,
+			                FactCharge[project_id]
+			            ),
+			            "Charge", [Charge réelle (h)],
+			            "Capacite", [Capacité disponible (h)],
+			            "Reste", [Capacité disponible (h)] - [Charge réelle (h)],
+			            "NbRessources", DISTINCTCOUNT(FactCharge[resource_name]),
+			            "TauxCalc",
+			                DIVIDE(
+			                    [Charge réelle (h)],
+			                    [Capacité disponible (h)],
+			                    0
+			                ) 
+			        ),
+			        [Capacite],
+			        DESC
+			    )
+			
+			RETURN
+			
+			"<div style='font-family:Segoe UI;padding:4px;'>
+			
+			<div style='font-size:15px;
+			font-weight:600;
+			margin-bottom:6px;
+			color:#344D59;'>
+			
+			📦 Projets prioritaires
+			
+			</div>"
+			
+			&
+			
+			CONCATENATEX(
+			
+			    Projets,
+			
+			    VAR Charge = [Charge]
+			    VAR Capacite = [Capacite]
+			    VAR Reste = [Reste]
+			    VAR Taux = [TauxCalc]
+			    VAR NbRessources = [NbRessources]
+			
+			    VAR Couleur =
+			        SWITCH(
+			            TRUE(),
+			            Taux > 1, "#D0453D",
+			            Taux >= 0.8, "#E0A93B",
+			            "#2E9F6B"
+			        )
+			
+			    VAR Icone =
+			        SWITCH(
+			            TRUE(),
+			            Taux > 1, "🔴",
+			            Taux >= 0.8, "🟠",
+			            "🟢"
+			        )
+			
+			    VAR Statut =
+			        SWITCH(
+			            TRUE(),
+			            Taux > 1, "Critique",
+			            Taux >= 0.8, "Sous tension",
+			            "Maîtrisé"
+			        )
+			
+			    VAR LargeurBarre =
+			        SUBSTITUTE(
+			            FORMAT(
+			                MIN(Taux * 100,100),
+			                "0.0"
+			            ),
+			            ",",
+			            "."
+			        )
+			
+			    RETURN
+			
+			    "<div style='background:#FFFFFF;
+			    border:1px solid #D3DEE2;
+			    border-radius:8px;
+			    padding:6px;
+			    margin-bottom:6px;'>
+			
+			        <div style='display:flex;
+			        justify-content:space-between;
+			        align-items:center;'>
+			
+			            <div style='font-size:12px;
+			            font-weight:600;
+			            color:#344D59;'>
+			
+			                "
+			                & Icone &
+			                " "
+			                & FactCharge[project_id] &
+			                "
+			
+			            </div>
+			
+			            <div style='font-size:11px;
+			            font-weight:700;
+			            color:"
+			            & Couleur &
+			            ";'>
+			
+			                "
+			                & FORMAT(Taux,"0.0%") &
+			                "
+			
+			            </div>
+			
+			        </div>
+			
+			        <div style='position:relative;
+			        margin-top:4px;
+			        background:#E0EAED;
+			        height:10px;
+			        border-radius:5px;
+			        overflow:hidden;'>
+			
+			            <div style='position:absolute;
+			            left:80%;
+			            top:0;
+			            width:2px;
+			            height:10px;
+			            background:#7A8A96;
+			            z-index:2;'>
+			
+			            </div>
+			
+			            <div style='background:"
+			            & Couleur &
+			            ";
+			            width:"
+			            & LargeurBarre &
+			            "%;
+			            height:10px;
+			            position:relative;
+			            z-index:1;'>
+			
+			            </div>
+			
+			        </div>
+			
+			        <div style='display:flex;
+			        justify-content:space-between;
+			        margin-top:5px;
+			        font-size:10px;
+			        color:#5A7183;'>
+			
+			            <span>
+			                👥 "
+			                & NbRessources &
+			                " ress.
+			            </span>
+			
+			            <span>
+			                ⏱ "
+			                & FORMAT(Charge,"# ##0")
+			                & " h
+			            </span>
+			
+			        </div>
+			
+			        <div style='display:flex;
+			        justify-content:space-between;
+			        margin-top:5px;'>
+			
+			            <div>
+			
+			                <div style='font-size:9px;
+			                color:#5A7183;'>
+			
+			                    🎯 Capacité
+			
+			                </div>
+			
+			                <div style='font-size:12px;
+			                font-weight:700;
+			                color:#344D59;'>
+			
+			                    "
+			                    & FORMAT(Capacite,"# ##0")
+			                    & " h
+			
+			                </div>
+			
+			            </div>
+			
+			            <div style='text-align:right;'>
+			
+			                <div style='font-size:9px;
+			                color:#5A7183;'>
+			
+			                    "
+			                    &
+			                    IF(
+			                        Reste >= 0,
+			                        "⏳ Reste",
+			                        "⚠ Dépassement"
+			                    )
+			                    &
+			                    "
+			
+			                </div>
+			
+			                <div style='font-size:14px;
+			                font-weight:700;
+			                color:"
+			                &
+			                IF(
+			                    Reste >= 0,
+			                    "#344D59",
+			                    "#D0453D"
+			                )
+			                &
+			                ";'>
+			
+			                    "
+			                    &
+			                    IF(
+			                        Reste >= 0,
+			                        FORMAT(Reste,"# ##0") & " h",
+			                        FORMAT(ABS(Reste),"# ##0") & " h"
+			                    )
+			                    &
+			                    "
+			
+			                </div>
+			
+			            </div>
+			
+			        </div>
+			
+			        <div style='margin-top:4px;'>
+			
+			            <span style='background:"
+			            &
+			            SWITCH(
+			                TRUE(),
+			                Taux > 1, "#FDECEC",
+			                Taux >= 0.8, "#FEF4DA",
+			                "#E8F5EE"
+			            )
+			            &
+			            ";
+			            color:"
+			            & Couleur &
+			            ";
+			            padding:2px 5px;
+			            border-radius:6px;
+			            font-size:9px;
+			            font-weight:700;'>
+			
+			                "
+			                & Statut &
+			                "
+			
+			            </span>
+			
+			        </div>
+			
+			    </div>",
+			
+			    ""
+			)
+			
+			&
+			
+			"</div>"
+			```
+		lineageTag: 97202b1c-cec0-44e1-a6db-02f53e02d1ea
+
+	measure 'Capacité restante (h)' =
+			
+			[Capacité disponible (h)] - [Charge réelle (h)]
+		lineageTag: dbed00b1-1c22-47ed-8713-291ea2e1f14f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'HTML Alertes Livraison' =
+			
+			VAR Bloques = [Livrables bloqués]
+			VAR Retard = [Livrables en retard]
+			VAR Livres = [Livrables livrés]
+			VAR RetardMoyen = [Retard moyen de livraison (jours)]
+			
+			RETURN
+			
+			"<div style='font-family:Segoe UI;padding:6px;'>
+			
+			<div style='font-size:15px;
+			font-weight:600;
+			margin-bottom:8px;
+			color:#344D59;'>
+			
+			⚠️ Alertes de livraison
+			
+			</div>
+			
+			<div style='display:flex;
+			justify-content:space-between;
+			align-items:center;
+			background:#FFFFFF;
+			border:1px solid #D3DEE2;
+			border-radius:10px;
+			padding:10px;'>
+			
+			    <div style='text-align:center;'>
+			
+			        <div style='font-size:18px;
+			        font-weight:700;
+			        color:#D0453D;'>
+			
+			            🔴 " & FORMAT(Bloques,"0") & "
+			
+			        </div>
+			
+			        <div style='font-size:10px;
+			        color:#5A7183;'>
+			
+			            Bloqués
+			
+			        </div>
+			
+			    </div>
+			
+			    <div style='width:1px;
+			    height:30px;
+			    background:#E0EAED;'>
+			
+			    </div>
+			
+			    <div style='text-align:center;'>
+			
+			        <div style='font-size:18px;
+			        font-weight:700;
+			        color:#E0A93B;'>
+			
+			            🟠 " & FORMAT(Retard,"0") & "
+			
+			        </div>
+			
+			        <div style='font-size:10px;
+			        color:#5A7183;'>
+			
+			            En retard
+			
+			        </div>
+			
+			    </div>
+			
+			    <div style='width:1px;
+			    height:30px;
+			    background:#E0EAED;'>
+			
+			    </div>
+			
+			    <div style='text-align:center;'>
+			
+			        <div style='font-size:18px;
+			        font-weight:700;
+			        color:#344D59;'>
+			
+			            📅 " & FORMAT(RetardMoyen,"0.0") & "
+			
+			        </div>
+			
+			        <div style='font-size:10px;
+			        color:#5A7183;'>
+			
+			            Jours moyen
+			
+			        </div>
+			
+			    </div>
+			
+			    <div style='width:1px;
+			    height:30px;
+			    background:#E0EAED;'>
+			
+			    </div>
+			
+			    <div style='text-align:center;'>
+			
+			        <div style='font-size:18px;
+			        font-weight:700;
+			        color:#2E9F6B;'>
+			
+			            ✅ " & Livres & "
+			
+			        </div>
+			
+			        <div style='font-size:10px;
+			        color:#5A7183;'>
+			
+			            Livrés
+			
+			        </div>
+			
+			    </div>
+			
+			</div>
+			
+			</div>"
+		lineageTag: 886b5b28-896f-4933-9466-baca0edc0549
+
+	measure 'HTML Alertes Exécution' =
+			
+			VAR Bloques = [Livrables bloqués]
+			VAR Retard = [Livrables en retard]
+			VAR Livres = [Livrables livrés]
+			VAR RetardMoyen = [Retard moyen de livraison (jours)]
+			
+			RETURN
+			"<div style='font-family:Segoe UI;padding:6px;'>
+			
+			<div style='font-size:15px;
+			font-weight:600;
+			margin-bottom:8px;
+			color:#344D59;'>
+			
+			⚠️ Alertes d'exécution
+			
+			</div>
+			
+			<div style='display:flex;
+			justify-content:space-around;
+			align-items:center;
+			background:#FFFFFF;
+			border:1px solid #D3DEE2;
+			border-radius:10px;
+			padding:10px;'>
+			
+			<div>
+			<span style='color:#D0453D;font-weight:700;'>🔴 "
+			& FORMAT(Bloques,"0")
+			& "</span><br>
+			<span style='font-size:10px;'>Bloqués</span>
+			</div>
+			
+			<div>
+			<span style='color:#E0A93B;font-weight:700;'>🟠 "
+			& FORMAT(Retard,"0")
+			& "</span><br>
+			<span style='font-size:10px;'>Retards</span>
+			</div>
+			
+			<div>
+			<span style='color:#344D59;font-weight:700;'>📅 "
+			& FORMAT(RetardMoyen,"0.0")
+			& "</span><br>
+			<span style='font-size:10px;'>Jours</span>
+			</div>
+			
+			<div>
+			<span style='color:#2E9F6B;font-weight:700;'>✅ "
+			& FORMAT(Livres,"0")
+			& "</span><br>
+			<span style='font-size:10px;'>Livrés</span>
+			</div>
+			
+			</div>
+			
+			</div>"
+		lineageTag: e0764a57-ed47-444a-9efc-537ba3ea1753
+
+	measure 'HTML Livrables à surveiller' =
+			
+			VAR Livrables =
+			    ADDCOLUMNS (
+			        FILTER (
+			            FactLivrables,
+			            FactLivrables[status] <> "Validé"
+			        ),
+			        "Priorite",
+			            SWITCH (
+			                FactLivrables[status],
+			                "Bloqué", 1,
+			                "En validation", 2,
+			                "En cours", 3,
+			                "À faire", 4,
+			                99
+			            ),
+			        "Retard",
+			            MAX (
+			                0,
+			                DATEDIFF (
+			                    FactLivrables[planned_delivery_date],
+			                    TODAY (),
+			                    DAY
+			                )
+			            )
+			    )
+			
+			RETURN
+			
+			"<div style='font-family:Segoe UI;padding:4px;'>
+			
+			<div style='font-size:15px;
+			font-weight:600;
+			margin-bottom:6px;
+			color:#344D59;'>
+			
+			📦 Livrables à surveiller
+			
+			</div>
+			
+			<div style='background:#FFFFFF;
+			border:1px solid #D3DEE2;
+			border-radius:8px;
+			overflow:hidden;'>
+			
+			    <div style='display:grid;
+			    grid-template-columns:35% 20% 20% 15% 10%;
+			    padding:6px 8px;
+			    background:#F6F8F9;
+			    border-bottom:1px solid #D3DEE2;
+			    font-size:10px;
+			    font-weight:700;
+			    color:#344D59;'>
+			
+			        <div>Livrable</div>
+			        <div>Owner</div>
+			        <div>Projet</div>
+			        <div>Statut</div>
+			        <div>Retard</div>
+			
+			    </div>"
+			
+			&
+			
+			CONCATENATEX (
+			
+			    Livrables,
+			
+			    VAR Statut = FactLivrables[status]
+			    VAR Retard = [Retard]
+			
+			    VAR Couleur =
+			        SWITCH (
+			            TRUE (),
+			            Statut = "Bloqué", "#D0453D",
+			            Statut = "En validation", "#E0A93B",
+			            Statut = "En cours", "#E0A93B",
+			            "#2E9F6B"
+			        )
+			
+			    VAR Icone =
+			        SWITCH (
+			            TRUE (),
+			            Statut = "Bloqué", "🔴",
+			            Statut = "En validation", "🟠",
+			            Statut = "En cours", "🟠",
+			            "🟢"
+			        )
+			
+			    RETURN
+			
+			    "<div style='display:grid;
+			    grid-template-columns:35% 20% 20% 15% 10%;
+			    padding:6px 8px;
+			    border-bottom:1px solid #EEF2F3;
+			    align-items:center;
+			    font-size:10px;'>
+			
+			        <div style='font-weight:600;
+			        color:#344D59;
+			        white-space:nowrap;
+			        overflow:hidden;
+			        text-overflow:ellipsis;'>
+			
+			            "
+			            & FactLivrables[deliverable_name] &
+			            "
+			
+			        </div>
+			
+			        <div style='color:#5A7183;
+			        white-space:nowrap;
+			        overflow:hidden;
+			        text-overflow:ellipsis;'>
+			
+			            👤 "
+			            & FactLivrables[owner] &
+			            "
+			
+			        </div>
+			
+			        <div>
+			
+			            <span style='background:#E0EAED;
+			            padding:1px 5px;
+			            border-radius:4px;
+			            color:#344D59;'>
+			
+			                "
+			                & FactLivrables[project_id]
+			                & "
+			
+			            </span>
+			
+			        </div>
+			
+			        <div style='color:"
+			        & Couleur &
+			        ";
+			        font-weight:700;'>
+			
+			            "
+			            & Icone
+			            & " "
+			            & Statut &
+			            "
+			
+			        </div>
+			
+			        <div style='font-weight:700;
+			        color:"
+			        &
+			        IF (
+			            Retard > 0,
+			            "#D0453D",
+			            "#5A7183"
+			        )
+			        &
+			        ";'>
+			
+			            "
+			            &
+			            IF (
+			                Retard > 0,
+			                FORMAT ( Retard, "0" ) & " j",
+			                "-"
+			            )
+			            &
+			            "
+			
+			        </div>
+			
+			    </div>",
+			
+			    "",
+			
+			    [Priorite], ASC,
+			    FactLivrables[planned_delivery_date], ASC
+			)
+			
+			&
+			
+			"</div>
+			
+			</div>"
+		lineageTag: 9d5731af-9145-4b95-8da1-e714bb5610fa
+
+	measure 'Indice Pression Exécution' =
+			
+			VAR TauxSurcharge = [Taux de surcharge (%)]
+			VAR LivrablesRetard =
+			    [Livrables en retard]
+			VAR ChangementsOuverts =
+			    DIVIDE(
+			        [Nb changements ouverts],
+			        COUNTROWS(FactChangements)
+			    )
+			
+			RETURN
+			(TauxSurcharge * 0.4)
+			+
+			(LivrablesRetard * 0.4)
+			+
+			(ChangementsOuverts * 0.2)
+		lineageTag: 5d0ae9ab-f468-483d-92a1-fc64e8a10fd0
+
+	measure 'Nb changements ouverts' = ```
+			
+			CALCULATE(
+			    COUNTROWS(FactChangements),
+			    FactChangements[status] <> "Approuvée"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 67f63fc4-a4a3-424f-9574-b5c82c9b680d
+
+	measure 'Impact changement coût ouvert' =
+			
+			CALCULATE(
+			    SUM(FactChangements[estimated_cost_impact_eur]),
+			    FactChangements[status] <> "Approuvée"
+			)
+		formatString: 0
+		lineageTag: 63db0286-f5b7-41f1-ac1a-2f5889fd6c16
+
+	measure 'Impact changement délai ouvert' =
+			
+			CALCULATE(
+			    SUM(FactChangements[estimated_delay_days]),
+			    FactChangements[status] <> "Approuvée"
+			)
+		formatString: 0
+		lineageTag: 4b37461d-692a-49cf-98a6-fd955ca6764b
+
+	measure 'HTML Changements ouverts' =
+			
+			VAR Changements =
+			    ADDCOLUMNS(
+			        FILTER(
+			            FactChangements,
+			            FactChangements[status] <> "Approuvée"
+			        ),
+			        "Priorite",
+			            SWITCH(
+			                FactChangements[status],
+			                "En attente", 1,
+			                "En analyse", 2,
+			                "Rejetée", 3,
+			                99
+			            )
+			    )
+			
+			VAR ImpactTotal =
+			    [Impact changements ouverts (€)]
+			
+			VAR NbChangements =
+			    [Nb changements ouverts]
+			
+			RETURN
+			
+			"<div style='font-family:Segoe UI;padding:4px;'>
+			
+			<div style='display:flex;
+			justify-content:space-between;
+			align-items:center;
+			margin-bottom:6px;'>
+			
+			    <div style='font-size:15px;
+			    font-weight:600;
+			    color:#344D59;'>
+			
+			        🔄 Changements ouverts ("
+			        & FORMAT(NbChangements,"0")
+			        & ")
+			
+			    </div>
+			
+			    <div style='font-size:12px;
+			    font-weight:700;
+			    color:#D0453D;
+			    background:#FDEAEA;
+			    padding:3px 8px;
+			    border-radius:12px;'>
+			
+			        💰 "
+			        & FORMAT(ImpactTotal,"# ##0 €")
+			        & "
+			
+			    </div>
+			
+			</div>
+			
+			<div style='background:#FFFFFF;
+			border:1px solid #D3DEE2;
+			border-radius:8px;
+			overflow:auto;
+			height:260px;'>
+			
+			<div style='display:grid;
+			grid-template-columns:12% 18% 22% 20% 18% 10%;
+			padding:6px 8px;
+			background:#F6F8F9;
+			border-bottom:1px solid #D3DEE2;
+			font-size:10px;
+			font-weight:700;
+			color:#344D59;'>
+			
+			    <div>CR</div>
+			    <div>Type</div>
+			    <div>Owner</div>
+			    <div>Statut</div>
+			    <div>Impact €</div>
+			    <div>Délai</div>
+			
+			</div>"
+			
+			&
+			
+			CONCATENATEX(
+			
+			    Changements,
+			
+			    VAR Statut = FactChangements[status]
+			
+			    VAR Badge =
+			        SWITCH(
+			            Statut,
+			
+			            "En attente",
+			            "<span style='background:#FDEAEA;
+			            color:#D0453D;
+			            padding:2px 6px;
+			            border-radius:10px;
+			            font-size:9px;
+			            font-weight:700;'>
+			            🔴 En attente
+			            </span>",
+			
+			            "En analyse",
+			            "<span style='background:#FFF5DD;
+			            color:#C98A00;
+			            padding:2px 6px;
+			            border-radius:10px;
+			            font-size:9px;
+			            font-weight:700;'>
+			            🟠 En analyse
+			            </span>",
+			
+			            "<span style='background:#EDF1F3;
+			            color:#5A7183;
+			            padding:2px 6px;
+			            border-radius:10px;
+			            font-size:9px;
+			            font-weight:700;'>
+			            "
+			            & Statut &
+			            "
+			            </span>"
+			        )
+			
+			    RETURN
+			
+			    "<div style='display:grid;
+			    grid-template-columns:12% 18% 22% 20% 18% 10%;
+			    padding:6px 8px;
+			    border-bottom:1px solid #EEF2F3;
+			    align-items:center;
+			    font-size:10px;'>
+			
+			        <div style='font-weight:700;
+			        color:#344D59;'>
+			
+			            "
+			            & FactChangements[change_request_id] &
+			            "
+			
+			        </div>
+			
+			        <div style='color:#344D59;'>
+			
+			            "
+			            & FactChangements[change_type] &
+			            "
+			
+			        </div>
+			
+			        <div style='color:#5A7183;
+			        white-space:nowrap;
+			        overflow:hidden;
+			        text-overflow:ellipsis;'>
+			
+			            👤 "
+			            & FactChangements[request_owner] &
+			            "
+			
+			        </div>
+			
+			        <div>
+			            "
+			            & Badge &
+			            "
+			        </div>
+			
+			        <div style='font-weight:600;
+			        color:#344D59;'>
+			
+			            💰 "
+			            & FORMAT(
+			                FactChangements[estimated_cost_impact_eur],
+			                "# ##0 €"
+			            ) &
+			            "
+			
+			        </div>
+			
+			        <div style='font-weight:700;
+			        color:"
+			        &
+			        IF(
+			            FactChangements[estimated_delay_days] > 2,
+			            "#D0453D",
+			            "#5A7183"
+			        )
+			        &
+			        ";'>
+			
+			            +"
+			            & FactChangements[estimated_delay_days]
+			            & " j
+			
+			        </div>
+			
+			    </div>",
+			
+			    "",
+			
+			    [Priorite], ASC,
+			    FactChangements[estimated_cost_impact_eur], DESC
+			
+			)
+			
+			&
+			
+			"</div></div>"
+		lineageTag: 668e9914-c4ea-4890-aef9-bea00186f2f0
+
+	measure 'Impact changements ouverts (€)' =
+			
+			CALCULATE(
+			    SUM(FactChangements[estimated_cost_impact_eur]),
+			    FactChangements[status] <> "Approuvée"
+			)
+		formatString: 0
+		lineageTag: e7318c34-4a75-4cc4-ba80-481f729a172e
 
 	partition MesuresTable = m
 		mode: import

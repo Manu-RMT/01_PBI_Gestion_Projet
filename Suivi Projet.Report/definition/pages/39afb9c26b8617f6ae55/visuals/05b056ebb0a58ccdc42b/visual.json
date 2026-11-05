@@ -3,11 +3,11 @@
   "name": "05b056ebb0a58ccdc42b",
   "position": {
     "x": 0,
-    "y": 215,
-    "z": 2,
-    "height": 171.66666666666669,
+    "y": 285,
+    "z": 1000,
+    "height": 157.5,
     "width": 1920,
-    "tabOrder": 6002
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -84,20 +84,6 @@
               },
               "queryRef": "MesuresTable.Livrables livrés",
               "nativeQueryRef": "Livrables livrés"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MesuresTable"
-                    }
-                  },
-                  "Property": "Retard moyen de livraison (jours)"
-                }
-              },
-              "queryRef": "MesuresTable.Retard moyen de livraison (jours)",
-              "nativeQueryRef": "Retard moyen de livraison (jours)"
             }
           ]
         }
@@ -216,6 +202,20 @@
           "selector": {
             "id": "default"
           }
+        },
+        {
+          "properties": {
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.Ressources en surcharge"
+          }
         }
       ],
       "label": [
@@ -265,6 +265,20 @@
           "selector": {
             "id": "default"
           }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.Ressources en surcharge"
+          }
         }
       ],
       "divider": [
@@ -302,7 +316,7 @@
             "arrangement": {
               "expr": {
                 "Literal": {
-                  "Value": "'columns'"
+                  "Value": "'rows'"
                 }
               }
             },
@@ -430,7 +444,7 @@
                       "Entity": "MesuresTable"
                     }
                   },
-                  "Property": "Ressources total"
+                  "Property": "Ressources total Texte"
                 }
               }
             }
@@ -445,6 +459,34 @@
             ],
             "metadata": "MesuresTable.Ressources en surcharge",
             "id": "field-5065a6c5-92f3-bed8-edce-2e87cda42231",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MesuresTable"
+                    }
+                  },
+                  "Property": "Livrable total Texte"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "MesuresTable.Livrables livrés",
+            "id": "field-49610130-41ce-f722-751f-97268558c357",
             "order": 0
           }
         }
@@ -490,6 +532,34 @@
           },
           "selector": {
             "metadata": "MesuresTable.Ressources en surcharge"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.Livrables livrés"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ],
@@ -549,6 +619,41 @@
           "selector": {
             "metadata": "MesuresTable.Ressources en surcharge"
           }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.Livrables livrés"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
         }
       ],
       "outline": [
@@ -579,6 +684,20 @@
           "selector": {
             "id": "default"
           }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.Ressources en surcharge"
+          }
         }
       ],
       "accentBar": [
@@ -594,6 +713,38 @@
           },
           "selector": {
             "metadata": "MesuresTable.Écart de charge (%)"
+          }
+        }
+      ],
+      "referenceLabelDetail": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.Ressources en surcharge"
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "paddingIndividual": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MesuresTable.Ressources en surcharge"
           }
         }
       ]
@@ -627,37 +778,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "3066c21de8257319ab5e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MesuresTable"
-              }
-            },
-            "Property": "Charge réelle (h)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "0df236242617d4730953",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MesuresTable"
-              }
-            },
-            "Property": "Écart de charge (%)"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

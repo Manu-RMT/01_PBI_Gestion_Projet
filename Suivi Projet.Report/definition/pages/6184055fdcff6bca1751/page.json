@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "6184055fdcff6bca1751",
-  "displayName": "Planning et budget",
+  "displayName": "📊 Performance projet",
   "displayOption": "FitToPage",
   "height": 1080,
   "width": 1920,

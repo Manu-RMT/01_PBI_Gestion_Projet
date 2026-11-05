@@ -25652,16 +25652,6 @@ cultureInfo fr-FR
 			          "jours avant le prochain jalon": {
 			            "State": "Generated"
 			          }
-			        },
-			        {
-			          "Jour restant": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -29179,16 +29169,6 @@ cultureInfo fr-FR
 			        {
 			          "nom prochain jalon": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Prochain Jalon": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]

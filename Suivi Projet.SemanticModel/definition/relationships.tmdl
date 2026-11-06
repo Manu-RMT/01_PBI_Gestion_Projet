@@ -223,3 +223,39 @@ relationship cbcee528-5b0f-6868-2613-126864fd5477
 	fromColumn: FactPilotageMensuel.snapshot_date
 	toColumn: Dim_Snapshot.DateSnapshot
 
+relationship d94e9339-c5d5-7988-782b-5bce8d1b83eb
+	fromColumn: FactCharge.resource_name
+	toColumn: DimRessources._name
+
+relationship 14bb87d5-fd35-544c-c0cd-3dde5146f146
+	fromColumn: FactRisques.risk_owner
+	toColumn: DimRessources._name
+
+relationship 47c5431c-40cd-0874-42d4-3241eea2ff94
+	fromColumn: FactLivrables.owner
+	toColumn: DimRessources._name
+
+relationship 7bb8cf37-6d3f-420b-be21-19895083b4c3
+	fromColumn: FactChangements.request_owner
+	toColumn: DimRessources._name
+
+relationship ae68a9bd-b94d-d289-a415-688ef83ad5ce
+	fromColumn: FactCouts.cost_owner
+	toColumn: DimRessources._name
+
+relationship f1b3ee2e-8732-b41e-3685-4bb856f81747
+	fromColumn: FactTaches.owner
+	toColumn: DimRessources._name
+
+relationship 212af85e-f4b9-a1df-4a9d-546bf09b0b56
+	fromColumn: FactIncidents.owner
+	toColumn: DimRessources._name
+
+relationship ef9b418d-0856-5479-c73d-4b104ab7e588
+	fromColumn: FactActions.owner
+	toColumn: DimRessources._name
+
+relationship c63862ed-5c36-fcf1-bddb-625fdb3fa1dc
+	fromColumn: FactControlesQualite.owner
+	toColumn: DimRessources._name
+

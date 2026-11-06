@@ -1,0 +1,32 @@
+table DimRessources
+	lineageTag: a37c3e68-6da9-4343-8014-93a20437657f
+
+	column _name
+		dataType: string
+		lineageTag: bcc52e96-798e-44e8-813f-a43a86552f46
+		summarizeBy: none
+		sourceColumn: _name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimRessources = m
+		mode: import
+		queryGroup: modeles
+		source =
+				let
+				  Source = source_data,
+				  #"Descendre dans la hiérarchie" = Source{5}[Fonction personnalisée appelée],
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"Descendre dans la hiérarchie", {{"resource_record_id", type text}, {"project_id", type text}, {"resource_id", type text}, {"resource_name", type text}, {"role", type text}, {"month", type date}, {"planned_hours", Int64.Type}, {"actual_hours", type text}, {"available_capacity_hours", Int64.Type}, {"utilization_pct", type text}, {"overload_flag", type text}}, "fr"),
+				  #"Valeur remplacée" = Table.ReplaceValue(#"Type de colonne changé", ".", ",", Replacer.ReplaceText, {"actual_hours", "utilization_pct"}),
+				  #"Type de colonne changé 1" = Table.TransformColumnTypes(#"Valeur remplacée", {{"actual_hours", type number}, {"utilization_pct", type number}}),
+				    resource_name1 = #"Type de colonne changé 1"[resource_name],
+				    #"Converti en table" = Table.FromList(resource_name1, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Doublons supprimés" = Table.Distinct(#"Converti en table"),
+				    #"Colonnes renommées" = Table.RenameColumns(#"Doublons supprimés",{{"Column1", "_name"}})
+				in
+				    #"Colonnes renommées"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

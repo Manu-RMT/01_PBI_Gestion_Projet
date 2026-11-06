@@ -354,7 +354,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "Nom projet": {
+			          "Projet / Ressource": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -364,7 +364,7 @@ cultureInfo fr-FR
 			          }
 			        },
 			        {
-			          "Projet / Ressource": {
+			          "Nom projet": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2679,6 +2679,9 @@ cultureInfo fr-FR
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "owner": {
@@ -8164,6 +8167,9 @@ cultureInfo fr-FR
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "cost owner": {
@@ -9206,6 +9212,9 @@ cultureInfo fr-FR
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "resource name": {
@@ -10987,6 +10996,9 @@ cultureInfo fr-FR
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "risk owner": {
@@ -14465,6 +14477,16 @@ cultureInfo fr-FR
 			            },
 			            "Weight": 0.727
 			          }
+			        },
+			        {
+			          "Livrable": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -14476,6 +14498,9 @@ cultureInfo fr-FR
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "owner": {
@@ -16185,6 +16210,16 @@ cultureInfo fr-FR
 			            },
 			            "Weight": 0.727
 			          }
+			        },
+			        {
+			          "Type changement": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -16282,6 +16317,9 @@ cultureInfo fr-FR
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "request owner": {
@@ -17900,6 +17938,9 @@ cultureInfo fr-FR
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "owner": {
@@ -18809,6 +18850,9 @@ cultureInfo fr-FR
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "owner": {
@@ -21558,6 +21602,9 @@ cultureInfo fr-FR
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "owner": {
@@ -24935,7 +24982,16 @@ cultureInfo fr-FR
 			          "taux d'utilisation": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "taux d'utilisation (%)": {
+			            "State": "Generated"
+			          }
 			        }
+			      ],
+			      "Units": [
+			        "percentage",
+			        "%"
 			      ]
 			    },
 			    "mesures_table.ressources_en_surcharge": {
@@ -31155,9 +31211,975 @@ cultureInfo fr-FR
 			          }
 			        }
 			      ]
+			    },
+			    "mesures_table.mesure_2": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Mesure 2"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mesure 2": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.mesure_3": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Mesure 3"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mesure 3": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.HTML_points_attention_risques_et_qualité": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "HTML Points Attention Risques et qualité"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "HTML points attention risques et qualité": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.HTML_synthèse_planning__jalons": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "HTML Synthèse Planning & Jalons"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "HTML synthèse planning & jalons": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.texte_charge_prévue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Texte Charge Prévue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "texte charge prévue": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.interprétation_charge": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Interprétation Charge"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "interprétation charge": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "interprétation custody": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "interprétation responsibility": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "interprétation duty": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "interprétation care": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "interprétation control": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "interprétation trust": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "interprétation burden": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "interprétation safekeeping": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "interprétation concern": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "interprétation accusation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.ressources_total_texte": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Ressources total Texte"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ressources total texte": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ressource aggregate texte": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "ressource overall texte": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.livrable_total_texte": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Livrable total Texte"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "livrable total texte": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "livrable aggregate texte": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "livrable overall texte": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.santé_exécution": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Santé Exécution"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "santé exécution": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.santé_exécution_HTML": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Santé Exécution HTML"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "santé exécution HTML": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.taux_ressources_en_surcharge": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Taux Ressources en surcharge (%)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "taux ressources en surcharge": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "taux ressources en surcharge (%)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "taux ressource en addition": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "taux ressource en supplement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "taux ressource en extra": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "taux ressource en price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "taux ressource en padding": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "taux ressource en appendage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "taux ressource en addendum": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "taux ressource en adjunct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        },
+			        {
+			          "taux ressource en additive": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        }
+			      ],
+			      "Units": [
+			        "percentage",
+			        "%"
+			      ]
+			    },
+			    "mesures_table.ecart_capacité": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Ecart Capacité (%)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ecart capacité": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ecart capacité (%)": {
+			            "State": "Generated"
+			          }
+			        }
+			      ],
+			      "Units": [
+			        "percentage",
+			        "%"
+			      ]
+			    },
+			    "mesures_table.HTML_utilisation_ressources": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "HTML Utilisation Ressources"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "HTML utilisation ressources": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.HTML_projets_prioritaires": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "HTML Projets Prioritaires"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "HTML projets prioritaires": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.capacité_restante_h": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Capacité restante (h)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "capacité restante (h)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "capacité restante": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.HTML_alertes_livraison": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "HTML Alertes Livraison"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "HTML alertes livraison": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.HTML_alertes_exécution": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "HTML Alertes Exécution"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "HTML alertes exécution": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.HTML_livrables_à_surveiller": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "HTML Livrables à surveiller"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "HTML livrables à surveiller": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.indice_pression_exécution": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Indice Pression Exécution"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "indice pression exécution": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.nb_changements_ouverts": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Nb changements ouverts"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nb changements ouverts": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.impact_changement_coût_ouvert": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Impact changement coût ouvert"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "impact changement coût ouvert": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.impact_changement_délai_ouvert": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Impact changement délai ouvert"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "impact changement délai ouvert": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.HTML_changements_ouverts": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "HTML Changements ouverts"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "HTML changements ouverts": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mesures_table.impact_changements_ouverts": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MesuresTable",
+			          "ConceptualProperty": "Impact changements ouverts (€)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "impact changements ouverts": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "impact changements ouverts (€)": {
+			            "State": "Generated"
+			          }
+			        }
+			      ],
+			      "Units": [
+			        "euro",
+			        "€"
+			      ]
+			    },
+			    "dim_ressource": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimRessources"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim ressource": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DimRessources": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_ressource.entity__name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimRessources",
+			          "ConceptualProperty": "_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "_ title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "_ label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "_ tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "Owner": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "dim_snapshot_date_snapshot_has_hiérarchie_de_date": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Snapshot"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_snapshot.date_snapshot": {
+			          "Target": {
+			            "Entity": "dim_snapshot.date_snapshot"
+			          }
+			        },
+			        "dim_snapshot.date_snapshot.hiérarchie_de_date": {
+			          "Target": {
+			            "Entity": "dim_snapshot.date_snapshot.hiérarchie_de_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_snapshot.date_snapshot"
+			            },
+			            "Object": {
+			              "Role": "dim_snapshot.date_snapshot.hiérarchie_de_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_snapshots_have_hiérarchie_de_dates"
+			        }
+			      ]
+			    },
+			    "dim_calendrier_date_mois_has_dim_calendrier_date_jour": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Calendrier"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendrier.date.mois": {
+			          "Target": {
+			            "Entity": "dim_calendrier.date.mois"
+			          }
+			        },
+			        "dim_calendrier.date.jour": {
+			          "Target": {
+			            "Entity": "dim_calendrier.date.jour"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.mois"
+			            },
+			            "Object": {
+			              "Role": "dim_calendrier.date.jour"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "moises_have_jour"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.jour"
+			            },
+			            "Object": {
+			              "Role": "dim_calendrier.date.mois"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jour_have_moises"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.jour"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_calendrier.date.mois"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jour_are_in_moises31"
+			        }
+			      ]
+			    },
+			    "dim_calendrier_date_trimestre_has_dim_calendrier_date_mois": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Calendrier"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendrier.date.trimestre": {
+			          "Target": {
+			            "Entity": "dim_calendrier.date.trimestre"
+			          }
+			        },
+			        "dim_calendrier.date.mois": {
+			          "Target": {
+			            "Entity": "dim_calendrier.date.mois"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.trimestre"
+			            },
+			            "Object": {
+			              "Role": "dim_calendrier.date.mois"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_moises"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.mois"
+			            },
+			            "Object": {
+			              "Role": "dim_calendrier.date.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "moises_have_trimestres"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.mois"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_calendrier.date.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "moises_are_in_trimestres31"
+			        }
+			      ]
+			    },
+			    "dim_calendrier_date_année_has_dim_calendrier_date_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Calendrier"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendrier.date.année": {
+			          "Target": {
+			            "Entity": "dim_calendrier.date.année"
+			          }
+			        },
+			        "dim_calendrier.date.trimestre": {
+			          "Target": {
+			            "Entity": "dim_calendrier.date.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.année"
+			            },
+			            "Object": {
+			              "Role": "dim_calendrier.date.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "années_have_trimestres"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.trimestre"
+			            },
+			            "Object": {
+			              "Role": "dim_calendrier.date.année"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_années"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dim_calendrier.date.trimestre"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_calendrier.date.année"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_are_in_années31"
+			        }
+			      ]
+			    },
 			    "dim_calendrier_date_hiérarchie_de_date_has_dim_calendrier_date_jour": {
 			      "Binding": {
 			        "ConceptualEntity": "Dim_Calendrier"
@@ -31352,7 +32374,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour"
+			          "ID": "moises_have_jour1"
 			        },
 			        {
 			          "Attribute": {
@@ -31365,7 +32387,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises"
+			          "ID": "jour_have_moises1"
 			        },
 			        {
 			          "Preposition": {
@@ -31418,7 +32440,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises"
+			          "ID": "trimestres_have_moises1"
 			        },
 			        {
 			          "Attribute": {
@@ -31431,7 +32453,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres"
+			          "ID": "moises_have_trimestres1"
 			        },
 			        {
 			          "Preposition": {
@@ -31484,7 +32506,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres"
+			          "ID": "années_have_trimestres1"
 			        },
 			        {
 			          "Attribute": {
@@ -31497,7 +32519,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années"
+			          "ID": "trimestres_have_années1"
 			        },
 			        {
 			          "Preposition": {
@@ -31715,7 +32737,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour1"
+			          "ID": "moises_have_jour2"
 			        },
 			        {
 			          "Attribute": {
@@ -31728,7 +32750,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises1"
+			          "ID": "jour_have_moises2"
 			        },
 			        {
 			          "Preposition": {
@@ -31781,7 +32803,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises1"
+			          "ID": "trimestres_have_moises2"
 			        },
 			        {
 			          "Attribute": {
@@ -31794,7 +32816,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres1"
+			          "ID": "moises_have_trimestres2"
 			        },
 			        {
 			          "Preposition": {
@@ -31847,7 +32869,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres1"
+			          "ID": "années_have_trimestres2"
 			        },
 			        {
 			          "Attribute": {
@@ -31860,7 +32882,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années1"
+			          "ID": "trimestres_have_années2"
 			        },
 			        {
 			          "Preposition": {
@@ -32078,7 +33100,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour2"
+			          "ID": "moises_have_jour3"
 			        },
 			        {
 			          "Attribute": {
@@ -32091,7 +33113,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises2"
+			          "ID": "jour_have_moises3"
 			        },
 			        {
 			          "Preposition": {
@@ -32144,7 +33166,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises2"
+			          "ID": "trimestres_have_moises3"
 			        },
 			        {
 			          "Attribute": {
@@ -32157,7 +33179,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres2"
+			          "ID": "moises_have_trimestres3"
 			        },
 			        {
 			          "Preposition": {
@@ -32210,7 +33232,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres2"
+			          "ID": "années_have_trimestres3"
 			        },
 			        {
 			          "Attribute": {
@@ -32223,7 +33245,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années2"
+			          "ID": "trimestres_have_années3"
 			        },
 			        {
 			          "Preposition": {
@@ -32441,7 +33463,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour3"
+			          "ID": "moises_have_jour4"
 			        },
 			        {
 			          "Attribute": {
@@ -32454,7 +33476,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises3"
+			          "ID": "jour_have_moises4"
 			        },
 			        {
 			          "Preposition": {
@@ -32507,7 +33529,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises3"
+			          "ID": "trimestres_have_moises4"
 			        },
 			        {
 			          "Attribute": {
@@ -32520,7 +33542,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres3"
+			          "ID": "moises_have_trimestres4"
 			        },
 			        {
 			          "Preposition": {
@@ -32573,7 +33595,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres3"
+			          "ID": "années_have_trimestres4"
 			        },
 			        {
 			          "Attribute": {
@@ -32586,7 +33608,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années3"
+			          "ID": "trimestres_have_années4"
 			        },
 			        {
 			          "Preposition": {
@@ -32804,7 +33826,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour4"
+			          "ID": "moises_have_jour5"
 			        },
 			        {
 			          "Attribute": {
@@ -32817,7 +33839,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises4"
+			          "ID": "jour_have_moises5"
 			        },
 			        {
 			          "Preposition": {
@@ -32870,7 +33892,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises4"
+			          "ID": "trimestres_have_moises5"
 			        },
 			        {
 			          "Attribute": {
@@ -32883,7 +33905,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres4"
+			          "ID": "moises_have_trimestres5"
 			        },
 			        {
 			          "Preposition": {
@@ -32936,7 +33958,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres4"
+			          "ID": "années_have_trimestres5"
 			        },
 			        {
 			          "Attribute": {
@@ -32949,7 +33971,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années4"
+			          "ID": "trimestres_have_années5"
 			        },
 			        {
 			          "Preposition": {
@@ -33167,7 +34189,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour5"
+			          "ID": "moises_have_jour6"
 			        },
 			        {
 			          "Attribute": {
@@ -33180,7 +34202,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises5"
+			          "ID": "jour_have_moises6"
 			        },
 			        {
 			          "Preposition": {
@@ -33233,7 +34255,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises5"
+			          "ID": "trimestres_have_moises6"
 			        },
 			        {
 			          "Attribute": {
@@ -33246,7 +34268,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres5"
+			          "ID": "moises_have_trimestres6"
 			        },
 			        {
 			          "Preposition": {
@@ -33299,7 +34321,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres5"
+			          "ID": "années_have_trimestres6"
 			        },
 			        {
 			          "Attribute": {
@@ -33312,7 +34334,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années5"
+			          "ID": "trimestres_have_années6"
 			        },
 			        {
 			          "Preposition": {
@@ -33530,7 +34552,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour6"
+			          "ID": "moises_have_jour7"
 			        },
 			        {
 			          "Attribute": {
@@ -33543,7 +34565,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises6"
+			          "ID": "jour_have_moises7"
 			        },
 			        {
 			          "Preposition": {
@@ -33596,7 +34618,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises6"
+			          "ID": "trimestres_have_moises7"
 			        },
 			        {
 			          "Attribute": {
@@ -33609,7 +34631,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres6"
+			          "ID": "moises_have_trimestres7"
 			        },
 			        {
 			          "Preposition": {
@@ -33662,7 +34684,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres6"
+			          "ID": "années_have_trimestres7"
 			        },
 			        {
 			          "Attribute": {
@@ -33675,7 +34697,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années6"
+			          "ID": "trimestres_have_années7"
 			        },
 			        {
 			          "Preposition": {
@@ -33893,7 +34915,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour7"
+			          "ID": "moises_have_jour8"
 			        },
 			        {
 			          "Attribute": {
@@ -33906,7 +34928,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises7"
+			          "ID": "jour_have_moises8"
 			        },
 			        {
 			          "Preposition": {
@@ -33959,7 +34981,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises7"
+			          "ID": "trimestres_have_moises8"
 			        },
 			        {
 			          "Attribute": {
@@ -33972,7 +34994,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres7"
+			          "ID": "moises_have_trimestres8"
 			        },
 			        {
 			          "Preposition": {
@@ -34025,7 +35047,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres7"
+			          "ID": "années_have_trimestres8"
 			        },
 			        {
 			          "Attribute": {
@@ -34038,7 +35060,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années7"
+			          "ID": "trimestres_have_années8"
 			        },
 			        {
 			          "Preposition": {
@@ -34256,7 +35278,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour8"
+			          "ID": "moises_have_jour9"
 			        },
 			        {
 			          "Attribute": {
@@ -34269,7 +35291,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises8"
+			          "ID": "jour_have_moises9"
 			        },
 			        {
 			          "Preposition": {
@@ -34322,7 +35344,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises8"
+			          "ID": "trimestres_have_moises9"
 			        },
 			        {
 			          "Attribute": {
@@ -34335,7 +35357,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres8"
+			          "ID": "moises_have_trimestres9"
 			        },
 			        {
 			          "Preposition": {
@@ -34388,7 +35410,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres8"
+			          "ID": "années_have_trimestres9"
 			        },
 			        {
 			          "Attribute": {
@@ -34401,7 +35423,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années8"
+			          "ID": "trimestres_have_années9"
 			        },
 			        {
 			          "Preposition": {
@@ -34619,7 +35641,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour9"
+			          "ID": "moises_have_jour10"
 			        },
 			        {
 			          "Attribute": {
@@ -34632,7 +35654,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises9"
+			          "ID": "jour_have_moises10"
 			        },
 			        {
 			          "Preposition": {
@@ -34685,7 +35707,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises9"
+			          "ID": "trimestres_have_moises10"
 			        },
 			        {
 			          "Attribute": {
@@ -34698,7 +35720,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres9"
+			          "ID": "moises_have_trimestres10"
 			        },
 			        {
 			          "Preposition": {
@@ -34751,7 +35773,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres9"
+			          "ID": "années_have_trimestres10"
 			        },
 			        {
 			          "Attribute": {
@@ -34764,7 +35786,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années9"
+			          "ID": "trimestres_have_années10"
 			        },
 			        {
 			          "Preposition": {
@@ -34982,7 +36004,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour10"
+			          "ID": "moises_have_jour11"
 			        },
 			        {
 			          "Attribute": {
@@ -34995,7 +36017,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises10"
+			          "ID": "jour_have_moises11"
 			        },
 			        {
 			          "Preposition": {
@@ -35048,7 +36070,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises10"
+			          "ID": "trimestres_have_moises11"
 			        },
 			        {
 			          "Attribute": {
@@ -35061,7 +36083,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres10"
+			          "ID": "moises_have_trimestres11"
 			        },
 			        {
 			          "Preposition": {
@@ -35114,7 +36136,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres10"
+			          "ID": "années_have_trimestres11"
 			        },
 			        {
 			          "Attribute": {
@@ -35127,7 +36149,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années10"
+			          "ID": "trimestres_have_années11"
 			        },
 			        {
 			          "Preposition": {
@@ -35345,7 +36367,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour11"
+			          "ID": "moises_have_jour12"
 			        },
 			        {
 			          "Attribute": {
@@ -35358,7 +36380,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises11"
+			          "ID": "jour_have_moises12"
 			        },
 			        {
 			          "Preposition": {
@@ -35411,7 +36433,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises11"
+			          "ID": "trimestres_have_moises12"
 			        },
 			        {
 			          "Attribute": {
@@ -35424,7 +36446,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres11"
+			          "ID": "moises_have_trimestres12"
 			        },
 			        {
 			          "Preposition": {
@@ -35477,7 +36499,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres11"
+			          "ID": "années_have_trimestres12"
 			        },
 			        {
 			          "Attribute": {
@@ -35490,7 +36512,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années11"
+			          "ID": "trimestres_have_années12"
 			        },
 			        {
 			          "Preposition": {
@@ -35708,7 +36730,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour12"
+			          "ID": "moises_have_jour13"
 			        },
 			        {
 			          "Attribute": {
@@ -35721,7 +36743,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises12"
+			          "ID": "jour_have_moises13"
 			        },
 			        {
 			          "Preposition": {
@@ -35774,7 +36796,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises12"
+			          "ID": "trimestres_have_moises13"
 			        },
 			        {
 			          "Attribute": {
@@ -35787,7 +36809,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres12"
+			          "ID": "moises_have_trimestres13"
 			        },
 			        {
 			          "Preposition": {
@@ -35840,7 +36862,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres12"
+			          "ID": "années_have_trimestres13"
 			        },
 			        {
 			          "Attribute": {
@@ -35853,7 +36875,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années12"
+			          "ID": "trimestres_have_années13"
 			        },
 			        {
 			          "Preposition": {
@@ -36071,7 +37093,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour13"
+			          "ID": "moises_have_jour14"
 			        },
 			        {
 			          "Attribute": {
@@ -36084,7 +37106,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises13"
+			          "ID": "jour_have_moises14"
 			        },
 			        {
 			          "Preposition": {
@@ -36137,7 +37159,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises13"
+			          "ID": "trimestres_have_moises14"
 			        },
 			        {
 			          "Attribute": {
@@ -36150,7 +37172,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres13"
+			          "ID": "moises_have_trimestres14"
 			        },
 			        {
 			          "Preposition": {
@@ -36203,7 +37225,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres13"
+			          "ID": "années_have_trimestres14"
 			        },
 			        {
 			          "Attribute": {
@@ -36216,7 +37238,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années13"
+			          "ID": "trimestres_have_années14"
 			        },
 			        {
 			          "Preposition": {
@@ -36434,7 +37456,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour14"
+			          "ID": "moises_have_jour15"
 			        },
 			        {
 			          "Attribute": {
@@ -36447,7 +37469,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises14"
+			          "ID": "jour_have_moises15"
 			        },
 			        {
 			          "Preposition": {
@@ -36500,7 +37522,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises14"
+			          "ID": "trimestres_have_moises15"
 			        },
 			        {
 			          "Attribute": {
@@ -36513,7 +37535,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres14"
+			          "ID": "moises_have_trimestres15"
 			        },
 			        {
 			          "Preposition": {
@@ -36566,7 +37588,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres14"
+			          "ID": "années_have_trimestres15"
 			        },
 			        {
 			          "Attribute": {
@@ -36579,7 +37601,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années14"
+			          "ID": "trimestres_have_années15"
 			        },
 			        {
 			          "Preposition": {
@@ -36797,7 +37819,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour15"
+			          "ID": "moises_have_jour16"
 			        },
 			        {
 			          "Attribute": {
@@ -36810,7 +37832,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises15"
+			          "ID": "jour_have_moises16"
 			        },
 			        {
 			          "Preposition": {
@@ -36863,7 +37885,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises15"
+			          "ID": "trimestres_have_moises16"
 			        },
 			        {
 			          "Attribute": {
@@ -36876,7 +37898,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres15"
+			          "ID": "moises_have_trimestres16"
 			        },
 			        {
 			          "Preposition": {
@@ -36929,7 +37951,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres15"
+			          "ID": "années_have_trimestres16"
 			        },
 			        {
 			          "Attribute": {
@@ -36942,7 +37964,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années15"
+			          "ID": "trimestres_have_années16"
 			        },
 			        {
 			          "Preposition": {
@@ -37160,7 +38182,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour16"
+			          "ID": "moises_have_jour17"
 			        },
 			        {
 			          "Attribute": {
@@ -37173,7 +38195,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises16"
+			          "ID": "jour_have_moises17"
 			        },
 			        {
 			          "Preposition": {
@@ -37226,7 +38248,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises16"
+			          "ID": "trimestres_have_moises17"
 			        },
 			        {
 			          "Attribute": {
@@ -37239,7 +38261,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres16"
+			          "ID": "moises_have_trimestres17"
 			        },
 			        {
 			          "Preposition": {
@@ -37292,7 +38314,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres16"
+			          "ID": "années_have_trimestres17"
 			        },
 			        {
 			          "Attribute": {
@@ -37305,7 +38327,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années16"
+			          "ID": "trimestres_have_années17"
 			        },
 			        {
 			          "Preposition": {
@@ -37523,7 +38545,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour17"
+			          "ID": "moises_have_jour18"
 			        },
 			        {
 			          "Attribute": {
@@ -37536,7 +38558,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises17"
+			          "ID": "jour_have_moises18"
 			        },
 			        {
 			          "Preposition": {
@@ -37589,7 +38611,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises17"
+			          "ID": "trimestres_have_moises18"
 			        },
 			        {
 			          "Attribute": {
@@ -37602,7 +38624,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres17"
+			          "ID": "moises_have_trimestres18"
 			        },
 			        {
 			          "Preposition": {
@@ -37655,7 +38677,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres17"
+			          "ID": "années_have_trimestres18"
 			        },
 			        {
 			          "Attribute": {
@@ -37668,7 +38690,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années17"
+			          "ID": "trimestres_have_années18"
 			        },
 			        {
 			          "Preposition": {
@@ -37886,7 +38908,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour18"
+			          "ID": "moises_have_jour19"
 			        },
 			        {
 			          "Attribute": {
@@ -37899,7 +38921,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises18"
+			          "ID": "jour_have_moises19"
 			        },
 			        {
 			          "Preposition": {
@@ -37952,7 +38974,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises18"
+			          "ID": "trimestres_have_moises19"
 			        },
 			        {
 			          "Attribute": {
@@ -37965,7 +38987,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres18"
+			          "ID": "moises_have_trimestres19"
 			        },
 			        {
 			          "Preposition": {
@@ -38018,7 +39040,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres18"
+			          "ID": "années_have_trimestres19"
 			        },
 			        {
 			          "Attribute": {
@@ -38031,7 +39053,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années18"
+			          "ID": "trimestres_have_années19"
 			        },
 			        {
 			          "Preposition": {
@@ -38249,7 +39271,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour19"
+			          "ID": "moises_have_jour20"
 			        },
 			        {
 			          "Attribute": {
@@ -38262,7 +39284,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises19"
+			          "ID": "jour_have_moises20"
 			        },
 			        {
 			          "Preposition": {
@@ -38315,7 +39337,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises19"
+			          "ID": "trimestres_have_moises20"
 			        },
 			        {
 			          "Attribute": {
@@ -38328,7 +39350,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres19"
+			          "ID": "moises_have_trimestres20"
 			        },
 			        {
 			          "Preposition": {
@@ -38381,7 +39403,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres19"
+			          "ID": "années_have_trimestres20"
 			        },
 			        {
 			          "Attribute": {
@@ -38394,7 +39416,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années19"
+			          "ID": "trimestres_have_années20"
 			        },
 			        {
 			          "Preposition": {
@@ -38612,7 +39634,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour20"
+			          "ID": "moises_have_jour21"
 			        },
 			        {
 			          "Attribute": {
@@ -38625,7 +39647,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises20"
+			          "ID": "jour_have_moises21"
 			        },
 			        {
 			          "Preposition": {
@@ -38678,7 +39700,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises20"
+			          "ID": "trimestres_have_moises21"
 			        },
 			        {
 			          "Attribute": {
@@ -38691,7 +39713,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres20"
+			          "ID": "moises_have_trimestres21"
 			        },
 			        {
 			          "Preposition": {
@@ -38744,7 +39766,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres20"
+			          "ID": "années_have_trimestres21"
 			        },
 			        {
 			          "Attribute": {
@@ -38757,7 +39779,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années20"
+			          "ID": "trimestres_have_années21"
 			        },
 			        {
 			          "Preposition": {
@@ -38975,7 +39997,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour21"
+			          "ID": "moises_have_jour22"
 			        },
 			        {
 			          "Attribute": {
@@ -38988,7 +40010,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises21"
+			          "ID": "jour_have_moises22"
 			        },
 			        {
 			          "Preposition": {
@@ -39041,7 +40063,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises21"
+			          "ID": "trimestres_have_moises22"
 			        },
 			        {
 			          "Attribute": {
@@ -39054,7 +40076,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres21"
+			          "ID": "moises_have_trimestres22"
 			        },
 			        {
 			          "Preposition": {
@@ -39107,7 +40129,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres21"
+			          "ID": "années_have_trimestres22"
 			        },
 			        {
 			          "Attribute": {
@@ -39120,7 +40142,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années21"
+			          "ID": "trimestres_have_années22"
 			        },
 			        {
 			          "Preposition": {
@@ -39338,7 +40360,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour22"
+			          "ID": "moises_have_jour23"
 			        },
 			        {
 			          "Attribute": {
@@ -39351,7 +40373,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises22"
+			          "ID": "jour_have_moises23"
 			        },
 			        {
 			          "Preposition": {
@@ -39404,7 +40426,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises22"
+			          "ID": "trimestres_have_moises23"
 			        },
 			        {
 			          "Attribute": {
@@ -39417,7 +40439,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres22"
+			          "ID": "moises_have_trimestres23"
 			        },
 			        {
 			          "Preposition": {
@@ -39470,7 +40492,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres22"
+			          "ID": "années_have_trimestres23"
 			        },
 			        {
 			          "Attribute": {
@@ -39483,7 +40505,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années22"
+			          "ID": "trimestres_have_années23"
 			        },
 			        {
 			          "Preposition": {
@@ -39701,7 +40723,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour23"
+			          "ID": "moises_have_jour24"
 			        },
 			        {
 			          "Attribute": {
@@ -39714,7 +40736,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises23"
+			          "ID": "jour_have_moises24"
 			        },
 			        {
 			          "Preposition": {
@@ -39767,7 +40789,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises23"
+			          "ID": "trimestres_have_moises24"
 			        },
 			        {
 			          "Attribute": {
@@ -39780,7 +40802,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres23"
+			          "ID": "moises_have_trimestres24"
 			        },
 			        {
 			          "Preposition": {
@@ -39833,7 +40855,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres23"
+			          "ID": "années_have_trimestres24"
 			        },
 			        {
 			          "Attribute": {
@@ -39846,7 +40868,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années23"
+			          "ID": "trimestres_have_années24"
 			        },
 			        {
 			          "Preposition": {
@@ -40064,7 +41086,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour24"
+			          "ID": "moises_have_jour25"
 			        },
 			        {
 			          "Attribute": {
@@ -40077,7 +41099,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises24"
+			          "ID": "jour_have_moises25"
 			        },
 			        {
 			          "Preposition": {
@@ -40130,7 +41152,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises24"
+			          "ID": "trimestres_have_moises25"
 			        },
 			        {
 			          "Attribute": {
@@ -40143,7 +41165,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres24"
+			          "ID": "moises_have_trimestres25"
 			        },
 			        {
 			          "Preposition": {
@@ -40196,7 +41218,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres24"
+			          "ID": "années_have_trimestres25"
 			        },
 			        {
 			          "Attribute": {
@@ -40209,7 +41231,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années24"
+			          "ID": "trimestres_have_années25"
 			        },
 			        {
 			          "Preposition": {
@@ -40427,7 +41449,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour25"
+			          "ID": "moises_have_jour26"
 			        },
 			        {
 			          "Attribute": {
@@ -40440,7 +41462,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises25"
+			          "ID": "jour_have_moises26"
 			        },
 			        {
 			          "Preposition": {
@@ -40493,7 +41515,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises25"
+			          "ID": "trimestres_have_moises26"
 			        },
 			        {
 			          "Attribute": {
@@ -40506,7 +41528,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres25"
+			          "ID": "moises_have_trimestres26"
 			        },
 			        {
 			          "Preposition": {
@@ -40559,7 +41581,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres25"
+			          "ID": "années_have_trimestres26"
 			        },
 			        {
 			          "Attribute": {
@@ -40572,7 +41594,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années25"
+			          "ID": "trimestres_have_années26"
 			        },
 			        {
 			          "Preposition": {
@@ -40790,7 +41812,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour26"
+			          "ID": "moises_have_jour27"
 			        },
 			        {
 			          "Attribute": {
@@ -40803,7 +41825,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises26"
+			          "ID": "jour_have_moises27"
 			        },
 			        {
 			          "Preposition": {
@@ -40856,7 +41878,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises26"
+			          "ID": "trimestres_have_moises27"
 			        },
 			        {
 			          "Attribute": {
@@ -40869,7 +41891,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres26"
+			          "ID": "moises_have_trimestres27"
 			        },
 			        {
 			          "Preposition": {
@@ -40922,7 +41944,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres26"
+			          "ID": "années_have_trimestres27"
 			        },
 			        {
 			          "Attribute": {
@@ -40935,7 +41957,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années26"
+			          "ID": "trimestres_have_années27"
 			        },
 			        {
 			          "Preposition": {
@@ -41153,7 +42175,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour27"
+			          "ID": "moises_have_jour28"
 			        },
 			        {
 			          "Attribute": {
@@ -41166,7 +42188,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises27"
+			          "ID": "jour_have_moises28"
 			        },
 			        {
 			          "Preposition": {
@@ -41219,7 +42241,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises27"
+			          "ID": "trimestres_have_moises28"
 			        },
 			        {
 			          "Attribute": {
@@ -41232,7 +42254,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres27"
+			          "ID": "moises_have_trimestres28"
 			        },
 			        {
 			          "Preposition": {
@@ -41285,7 +42307,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres27"
+			          "ID": "années_have_trimestres28"
 			        },
 			        {
 			          "Attribute": {
@@ -41298,7 +42320,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années27"
+			          "ID": "trimestres_have_années28"
 			        },
 			        {
 			          "Preposition": {
@@ -41516,7 +42538,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour28"
+			          "ID": "moises_have_jour29"
 			        },
 			        {
 			          "Attribute": {
@@ -41529,7 +42551,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises28"
+			          "ID": "jour_have_moises29"
 			        },
 			        {
 			          "Preposition": {
@@ -41582,7 +42604,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises28"
+			          "ID": "trimestres_have_moises29"
 			        },
 			        {
 			          "Attribute": {
@@ -41595,7 +42617,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres28"
+			          "ID": "moises_have_trimestres29"
 			        },
 			        {
 			          "Preposition": {
@@ -41648,7 +42670,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres28"
+			          "ID": "années_have_trimestres29"
 			        },
 			        {
 			          "Attribute": {
@@ -41661,7 +42683,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années28"
+			          "ID": "trimestres_have_années29"
 			        },
 			        {
 			          "Preposition": {
@@ -41879,7 +42901,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour29"
+			          "ID": "moises_have_jour30"
 			        },
 			        {
 			          "Attribute": {
@@ -41892,7 +42914,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises29"
+			          "ID": "jour_have_moises30"
 			        },
 			        {
 			          "Preposition": {
@@ -41945,7 +42967,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises29"
+			          "ID": "trimestres_have_moises30"
 			        },
 			        {
 			          "Attribute": {
@@ -41958,7 +42980,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres29"
+			          "ID": "moises_have_trimestres30"
 			        },
 			        {
 			          "Preposition": {
@@ -42011,7 +43033,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres29"
+			          "ID": "années_have_trimestres30"
 			        },
 			        {
 			          "Attribute": {
@@ -42024,7 +43046,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années29"
+			          "ID": "trimestres_have_années30"
 			        },
 			        {
 			          "Preposition": {
@@ -42242,7 +43264,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_jour30"
+			          "ID": "moises_have_jour31"
 			        },
 			        {
 			          "Attribute": {
@@ -42255,7 +43277,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "jour_have_moises30"
+			          "ID": "jour_have_moises31"
 			        },
 			        {
 			          "Preposition": {
@@ -42308,7 +43330,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises30"
+			          "ID": "trimestres_have_moises31"
 			        },
 			        {
 			          "Attribute": {
@@ -42321,7 +43343,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres30"
+			          "ID": "moises_have_trimestres31"
 			        },
 			        {
 			          "Preposition": {
@@ -42374,7 +43396,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "années_have_trimestres30"
+			          "ID": "années_have_trimestres31"
 			        },
 			        {
 			          "Attribute": {
@@ -42387,7 +43409,7 @@ cultureInfo fr-FR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_années30"
+			          "ID": "trimestres_have_années31"
 			        },
 			        {
 			          "Preposition": {
@@ -42622,6 +43644,59 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
+			    "fact_controles_qualite_has_dim_ressource": {
+			      "Binding": {
+			        "ConceptualEntity": "FactControlesQualite"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_controles_qualite": {
+			          "Target": {
+			            "Entity": "fact_controles_qualite"
+			          }
+			        },
+			        "dim_ressource": {
+			          "Target": {
+			            "Entity": "dim_ressource"
+			          },
+			          "Nouns": [
+			            {
+			              "owner": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_controles_qualite"
+			            },
+			            "Object": {
+			              "Role": "dim_ressource"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_controles_qualites_have_dim_ressources"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_ressource"
+			            },
+			            "Object": {
+			              "Role": "fact_controles_qualite"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_ressources_have_fact_controles_qualites"
+			        }
+			      ]
+			    },
 			    "fact_controles_qualite_has_dim_projet": {
 			      "Binding": {
 			        "ConceptualEntity": "FactControlesQualite"
@@ -42665,6 +43740,59 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_projets_have_fact_controles_qualites"
+			        }
+			      ]
+			    },
+			    "fact_action_has_dim_ressource": {
+			      "Binding": {
+			        "ConceptualEntity": "FactActions"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_action": {
+			          "Target": {
+			            "Entity": "fact_action"
+			          }
+			        },
+			        "dim_ressource": {
+			          "Target": {
+			            "Entity": "dim_ressource"
+			          },
+			          "Nouns": [
+			            {
+			              "owner": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_action"
+			            },
+			            "Object": {
+			              "Role": "dim_ressource"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_actions_have_dim_ressources"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_ressource"
+			            },
+			            "Object": {
+			              "Role": "fact_action"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_ressources_have_fact_actions"
 			        }
 			      ]
 			    },
@@ -42714,6 +43842,59 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
+			    "fact_incident_has_dim_ressource": {
+			      "Binding": {
+			        "ConceptualEntity": "FactIncidents"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_incident": {
+			          "Target": {
+			            "Entity": "fact_incident"
+			          }
+			        },
+			        "dim_ressource": {
+			          "Target": {
+			            "Entity": "dim_ressource"
+			          },
+			          "Nouns": [
+			            {
+			              "owner": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_incident"
+			            },
+			            "Object": {
+			              "Role": "dim_ressource"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_incidents_have_dim_ressources"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_ressource"
+			            },
+			            "Object": {
+			              "Role": "fact_incident"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_ressources_have_fact_incidents"
+			        }
+			      ]
+			    },
 			    "fact_incident_has_dim_projet": {
 			      "Binding": {
 			        "ConceptualEntity": "FactIncidents"
@@ -42760,6 +43941,59 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
+			    "fact_changement_has_dim_ressource": {
+			      "Binding": {
+			        "ConceptualEntity": "FactChangements"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_changement": {
+			          "Target": {
+			            "Entity": "fact_changement"
+			          }
+			        },
+			        "dim_ressource": {
+			          "Target": {
+			            "Entity": "dim_ressource"
+			          },
+			          "Nouns": [
+			            {
+			              "request owner": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_changement"
+			            },
+			            "Object": {
+			              "Role": "dim_ressource"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_changements_have_dim_ressources"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_ressource"
+			            },
+			            "Object": {
+			              "Role": "fact_changement"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_ressources_have_fact_changements"
+			        }
+			      ]
+			    },
 			    "fact_changement_has_dim_projet": {
 			      "Binding": {
 			        "ConceptualEntity": "FactChangements"
@@ -42803,6 +44037,59 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_projets_have_fact_changements"
+			        }
+			      ]
+			    },
+			    "fact_livrable_has_dim_ressource": {
+			      "Binding": {
+			        "ConceptualEntity": "FactLivrables"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_livrable": {
+			          "Target": {
+			            "Entity": "fact_livrable"
+			          }
+			        },
+			        "dim_ressource": {
+			          "Target": {
+			            "Entity": "dim_ressource"
+			          },
+			          "Nouns": [
+			            {
+			              "owner": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_livrable"
+			            },
+			            "Object": {
+			              "Role": "dim_ressource"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_livrables_have_dim_ressources"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_ressource"
+			            },
+			            "Object": {
+			              "Role": "fact_livrable"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_ressources_have_fact_livrables"
 			        }
 			      ]
 			    },
@@ -42898,6 +44185,59 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
+			    "fact_risque_has_dim_ressource": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "dim_ressource": {
+			          "Target": {
+			            "Entity": "dim_ressource"
+			          },
+			          "Nouns": [
+			            {
+			              "risk owner": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "dim_ressource"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_dim_ressources"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_ressource"
+			            },
+			            "Object": {
+			              "Role": "fact_risque"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_ressources_have_fact_risques"
+			        }
+			      ]
+			    },
 			    "fact_risque_has_dim_projet": {
 			      "Binding": {
 			        "ConceptualEntity": "FactRisques"
@@ -42941,6 +44281,52 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_projets_have_fact_risques"
+			        }
+			      ]
+			    },
+			    "fact_charge_has_dim_ressource": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCharge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_charge": {
+			          "Target": {
+			            "Entity": "fact_charge"
+			          }
+			        },
+			        "dim_ressource": {
+			          "Target": {
+			            "Entity": "dim_ressource"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_charge"
+			            },
+			            "Object": {
+			              "Role": "dim_ressource"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_charges_have_dim_ressources"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_ressource"
+			            },
+			            "Object": {
+			              "Role": "fact_charge"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_ressources_have_fact_charges"
 			        }
 			      ]
 			    },
@@ -43128,6 +44514,59 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
+			    "fact_cout_has_dim_ressource": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCouts"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_cout": {
+			          "Target": {
+			            "Entity": "fact_cout"
+			          }
+			        },
+			        "dim_ressource": {
+			          "Target": {
+			            "Entity": "dim_ressource"
+			          },
+			          "Nouns": [
+			            {
+			              "cost owner": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_cout"
+			            },
+			            "Object": {
+			              "Role": "dim_ressource"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_couts_have_dim_ressources"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_ressource"
+			            },
+			            "Object": {
+			              "Role": "fact_cout"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_ressources_have_fact_couts"
+			        }
+			      ]
+			    },
 			    "fact_cout_has_dim_projet": {
 			      "Binding": {
 			        "ConceptualEntity": "FactCouts"
@@ -43220,6 +44659,59 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
+			    "fact_tach_has_dim_ressource": {
+			      "Binding": {
+			        "ConceptualEntity": "FactTaches"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_tach": {
+			          "Target": {
+			            "Entity": "fact_tach"
+			          }
+			        },
+			        "dim_ressource": {
+			          "Target": {
+			            "Entity": "dim_ressource"
+			          },
+			          "Nouns": [
+			            {
+			              "owner": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_tach"
+			            },
+			            "Object": {
+			              "Role": "dim_ressource"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_taches_have_dim_ressources"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_ressource"
+			            },
+			            "Object": {
+			              "Role": "fact_tach"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_ressources_have_fact_taches"
+			        }
+			      ]
+			    },
 			    "fact_tach_has_dim_projet": {
 			      "Binding": {
 			        "ConceptualEntity": "FactTaches"
@@ -43263,6 +44755,1095 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_projets_have_fact_taches"
+			        }
+			      ]
+			    },
+			    "dim_ressource_has_entity__name": {
+			      "Binding": {
+			        "ConceptualEntity": "DimRessources"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_ressource": {
+			          "Target": {
+			            "Entity": "dim_ressource"
+			          }
+			        },
+			        "dim_ressource.entity__name": {
+			          "Target": {
+			            "Entity": "dim_ressource.entity__name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_ressource"
+			            },
+			            "Object": {
+			              "Role": "dim_ressource.entity__name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_ressources_have__names"
+			        },
+			        {
+			          "Verb": {
+			            "Subject": {
+			              "Role": "dim_ressource.entity__name"
+			            },
+			            "Verbs": [
+			              {
+			                "Own": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_ressource"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.75,
+			          "ID": "Phrasing_names_Own_dim_ressources"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_ressource.entity__name"
+			            },
+			            "Object": {
+			              "Role": "dim_ressource"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_names_have_dim_ressources"
+			        }
+			      ]
+			    },
+			    "fact_changement_has_mesures_table_impact_changements_ouverts": {
+			      "Binding": {
+			        "ConceptualEntity": "FactChangements"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_changement": {
+			          "Target": {
+			            "Entity": "fact_changement"
+			          }
+			        },
+			        "mesures_table.impact_changements_ouverts": {
+			          "Target": {
+			            "Entity": "mesures_table.impact_changements_ouverts"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_changement"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.impact_changements_ouverts"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_changements_have_impact_changements_ouverts"
+			        }
+			      ]
+			    },
+			    "mesures_table_has_HTML_changements_ouverts": {
+			      "Binding": {
+			        "ConceptualEntity": "MesuresTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mesures_table": {
+			          "Target": {
+			            "Entity": "mesures_table"
+			          }
+			        },
+			        "mesures_table.HTML_changements_ouverts": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_changements_ouverts"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mesures_table"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_changements_ouverts"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mesures_tables_have_HTML_changements_ouverts"
+			        }
+			      ]
+			    },
+			    "fact_changement_has_mesures_table_impact_changement_délai_ouvert": {
+			      "Binding": {
+			        "ConceptualEntity": "FactChangements"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_changement": {
+			          "Target": {
+			            "Entity": "fact_changement"
+			          }
+			        },
+			        "mesures_table.impact_changement_délai_ouvert": {
+			          "Target": {
+			            "Entity": "mesures_table.impact_changement_délai_ouvert"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_changement"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.impact_changement_délai_ouvert"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_changements_have_impact_changement_délai_ouvert"
+			        }
+			      ]
+			    },
+			    "fact_changement_has_mesures_table_impact_changement_coût_ouvert": {
+			      "Binding": {
+			        "ConceptualEntity": "FactChangements"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_changement": {
+			          "Target": {
+			            "Entity": "fact_changement"
+			          }
+			        },
+			        "mesures_table.impact_changement_coût_ouvert": {
+			          "Target": {
+			            "Entity": "mesures_table.impact_changement_coût_ouvert"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_changement"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.impact_changement_coût_ouvert"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_changements_have_impact_changement_coût_ouvert"
+			        }
+			      ]
+			    },
+			    "fact_changement_has_mesures_table_nb_changements_ouverts": {
+			      "Binding": {
+			        "ConceptualEntity": "FactChangements"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_changement": {
+			          "Target": {
+			            "Entity": "fact_changement"
+			          }
+			        },
+			        "mesures_table.nb_changements_ouverts": {
+			          "Target": {
+			            "Entity": "mesures_table.nb_changements_ouverts"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_changement"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.nb_changements_ouverts"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_changements_have_nb_changements_ouverts"
+			        }
+			      ]
+			    },
+			    "fact_livrable_has_mesures_table_indice_pression_exécution": {
+			      "Binding": {
+			        "ConceptualEntity": "FactLivrables"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_livrable": {
+			          "Target": {
+			            "Entity": "fact_livrable"
+			          }
+			        },
+			        "mesures_table.indice_pression_exécution": {
+			          "Target": {
+			            "Entity": "mesures_table.indice_pression_exécution"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_livrable"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.indice_pression_exécution"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_livrables_have_indice_pression_exécution"
+			        }
+			      ]
+			    },
+			    "fact_charge_has_mesures_table_indice_pression_exécution": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCharge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_charge": {
+			          "Target": {
+			            "Entity": "fact_charge"
+			          }
+			        },
+			        "mesures_table.indice_pression_exécution": {
+			          "Target": {
+			            "Entity": "mesures_table.indice_pression_exécution"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_charge"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.indice_pression_exécution"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_charges_have_indice_pression_exécution"
+			        }
+			      ]
+			    },
+			    "fact_changement_has_mesures_table_indice_pression_exécution": {
+			      "Binding": {
+			        "ConceptualEntity": "FactChangements"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_changement": {
+			          "Target": {
+			            "Entity": "fact_changement"
+			          }
+			        },
+			        "mesures_table.indice_pression_exécution": {
+			          "Target": {
+			            "Entity": "mesures_table.indice_pression_exécution"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_changement"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.indice_pression_exécution"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_changements_have_indice_pression_exécution"
+			        }
+			      ]
+			    },
+			    "mesures_table_has_HTML_livrables_à_surveiller": {
+			      "Binding": {
+			        "ConceptualEntity": "MesuresTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mesures_table": {
+			          "Target": {
+			            "Entity": "mesures_table"
+			          }
+			        },
+			        "mesures_table.HTML_livrables_à_surveiller": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_livrables_à_surveiller"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mesures_table"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_livrables_à_surveiller"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mesures_tables_have_HTML_livrables_à_surveiller"
+			        }
+			      ]
+			    },
+			    "mesures_table_has_HTML_alertes_exécution": {
+			      "Binding": {
+			        "ConceptualEntity": "MesuresTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mesures_table": {
+			          "Target": {
+			            "Entity": "mesures_table"
+			          }
+			        },
+			        "mesures_table.HTML_alertes_exécution": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_alertes_exécution"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mesures_table"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_alertes_exécution"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mesures_tables_have_HTML_alertes_exécution"
+			        }
+			      ]
+			    },
+			    "mesures_table_has_HTML_alertes_livraison": {
+			      "Binding": {
+			        "ConceptualEntity": "MesuresTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mesures_table": {
+			          "Target": {
+			            "Entity": "mesures_table"
+			          }
+			        },
+			        "mesures_table.HTML_alertes_livraison": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_alertes_livraison"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mesures_table"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_alertes_livraison"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mesures_tables_have_HTML_alertes_livraison"
+			        }
+			      ]
+			    },
+			    "fact_charge_has_mesures_table_capacité_restante_h": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCharge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_charge": {
+			          "Target": {
+			            "Entity": "fact_charge"
+			          }
+			        },
+			        "mesures_table.capacité_restante_h": {
+			          "Target": {
+			            "Entity": "mesures_table.capacité_restante_h"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_charge"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.capacité_restante_h"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_charges_have_capacité_restante_h"
+			        }
+			      ]
+			    },
+			    "mesures_table_has_HTML_projets_prioritaires": {
+			      "Binding": {
+			        "ConceptualEntity": "MesuresTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mesures_table": {
+			          "Target": {
+			            "Entity": "mesures_table"
+			          }
+			        },
+			        "mesures_table.HTML_projets_prioritaires": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_projets_prioritaires"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mesures_table"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_projets_prioritaires"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mesures_tables_have_HTML_projets_prioritaires"
+			        }
+			      ]
+			    },
+			    "mesures_table_has_HTML_utilisation_ressources": {
+			      "Binding": {
+			        "ConceptualEntity": "MesuresTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mesures_table": {
+			          "Target": {
+			            "Entity": "mesures_table"
+			          }
+			        },
+			        "mesures_table.HTML_utilisation_ressources": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_utilisation_ressources"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mesures_table"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_utilisation_ressources"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mesures_tables_have_HTML_utilisation_ressources"
+			        }
+			      ]
+			    },
+			    "fact_charge_has_mesures_table_ecart_capacité": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCharge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_charge": {
+			          "Target": {
+			            "Entity": "fact_charge"
+			          }
+			        },
+			        "mesures_table.ecart_capacité": {
+			          "Target": {
+			            "Entity": "mesures_table.ecart_capacité"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_charge"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.ecart_capacité"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_charges_have_ecart_capacité"
+			        }
+			      ]
+			    },
+			    "fact_charge_has_mesures_table_taux_ressources_en_surcharge": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCharge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_charge": {
+			          "Target": {
+			            "Entity": "fact_charge"
+			          }
+			        },
+			        "mesures_table.taux_ressources_en_surcharge": {
+			          "Target": {
+			            "Entity": "mesures_table.taux_ressources_en_surcharge"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_charge"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.taux_ressources_en_surcharge"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_charges_have_taux_ressources_en_surcharge"
+			        }
+			      ]
+			    },
+			    "fact_livrable_has_mesures_table_santé_exécution_HTML": {
+			      "Binding": {
+			        "ConceptualEntity": "FactLivrables"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_livrable": {
+			          "Target": {
+			            "Entity": "fact_livrable"
+			          }
+			        },
+			        "mesures_table.santé_exécution_HTML": {
+			          "Target": {
+			            "Entity": "mesures_table.santé_exécution_HTML"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_livrable"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.santé_exécution_HTML"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_livrables_have_santé_exécution_HTML"
+			        }
+			      ]
+			    },
+			    "fact_charge_has_mesures_table_santé_exécution_HTML": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCharge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_charge": {
+			          "Target": {
+			            "Entity": "fact_charge"
+			          }
+			        },
+			        "mesures_table.santé_exécution_HTML": {
+			          "Target": {
+			            "Entity": "mesures_table.santé_exécution_HTML"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_charge"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.santé_exécution_HTML"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_charges_have_santé_exécution_HTML"
+			        }
+			      ]
+			    },
+			    "fact_changement_has_mesures_table_santé_exécution_HTML": {
+			      "Binding": {
+			        "ConceptualEntity": "FactChangements"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_changement": {
+			          "Target": {
+			            "Entity": "fact_changement"
+			          }
+			        },
+			        "mesures_table.santé_exécution_HTML": {
+			          "Target": {
+			            "Entity": "mesures_table.santé_exécution_HTML"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_changement"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.santé_exécution_HTML"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_changements_have_santé_exécution_HTML"
+			        }
+			      ]
+			    },
+			    "fact_livrable_has_mesures_table_santé_exécution": {
+			      "Binding": {
+			        "ConceptualEntity": "FactLivrables"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_livrable": {
+			          "Target": {
+			            "Entity": "fact_livrable"
+			          }
+			        },
+			        "mesures_table.santé_exécution": {
+			          "Target": {
+			            "Entity": "mesures_table.santé_exécution"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_livrable"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.santé_exécution"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_livrables_have_santé_exécution"
+			        }
+			      ]
+			    },
+			    "fact_charge_has_mesures_table_santé_exécution": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCharge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_charge": {
+			          "Target": {
+			            "Entity": "fact_charge"
+			          }
+			        },
+			        "mesures_table.santé_exécution": {
+			          "Target": {
+			            "Entity": "mesures_table.santé_exécution"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_charge"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.santé_exécution"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_charges_have_santé_exécution"
+			        }
+			      ]
+			    },
+			    "fact_livrable_has_mesures_table_livrable_total_texte": {
+			      "Binding": {
+			        "ConceptualEntity": "FactLivrables"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_livrable": {
+			          "Target": {
+			            "Entity": "fact_livrable"
+			          }
+			        },
+			        "mesures_table.livrable_total_texte": {
+			          "Target": {
+			            "Entity": "mesures_table.livrable_total_texte"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_livrable"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.livrable_total_texte"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_livrables_have_livrable_total_texte"
+			        }
+			      ]
+			    },
+			    "fact_charge_has_mesures_table_ressources_total_texte": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCharge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_charge": {
+			          "Target": {
+			            "Entity": "fact_charge"
+			          }
+			        },
+			        "mesures_table.ressources_total_texte": {
+			          "Target": {
+			            "Entity": "mesures_table.ressources_total_texte"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_charge"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.ressources_total_texte"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_charges_have_ressources_total_texte"
+			        }
+			      ]
+			    },
+			    "fact_charge_has_mesures_table_interprétation_charge": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCharge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_charge": {
+			          "Target": {
+			            "Entity": "fact_charge"
+			          }
+			        },
+			        "mesures_table.interprétation_charge": {
+			          "Target": {
+			            "Entity": "mesures_table.interprétation_charge"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_charge"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.interprétation_charge"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_charges_have_interprétation_charge"
+			        }
+			      ]
+			    },
+			    "fact_charge_has_mesures_table_texte_charge_prévue": {
+			      "Binding": {
+			        "ConceptualEntity": "FactCharge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_charge": {
+			          "Target": {
+			            "Entity": "fact_charge"
+			          }
+			        },
+			        "mesures_table.texte_charge_prévue": {
+			          "Target": {
+			            "Entity": "mesures_table.texte_charge_prévue"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_charge"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.texte_charge_prévue"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_charges_have_texte_charge_prévue"
+			        }
+			      ]
+			    },
+			    "mesures_table_has_HTML_synthèse_planning__jalons": {
+			      "Binding": {
+			        "ConceptualEntity": "MesuresTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mesures_table": {
+			          "Target": {
+			            "Entity": "mesures_table"
+			          }
+			        },
+			        "mesures_table.HTML_synthèse_planning__jalons": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_synthèse_planning__jalons"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mesures_table"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_synthèse_planning__jalons"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mesures_tables_have_HTML_synthèse_planning__jalons"
+			        }
+			      ]
+			    },
+			    "fact_risque_has_mesures_table_HTML_points_attention_risques_et_qualité": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRisques"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_risque": {
+			          "Target": {
+			            "Entity": "fact_risque"
+			          }
+			        },
+			        "mesures_table.HTML_points_attention_risques_et_qualité": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_points_attention_risques_et_qualité"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_risque"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_points_attention_risques_et_qualité"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_risques_have_HTML_points_attention_risques_et_qualité"
+			        }
+			      ]
+			    },
+			    "fact_controles_qualite_has_mesures_table_HTML_points_attention_risques_et_qualité": {
+			      "Binding": {
+			        "ConceptualEntity": "FactControlesQualite"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_controles_qualite": {
+			          "Target": {
+			            "Entity": "fact_controles_qualite"
+			          }
+			        },
+			        "mesures_table.HTML_points_attention_risques_et_qualité": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_points_attention_risques_et_qualité"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_controles_qualite"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_points_attention_risques_et_qualité"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_controles_qualites_have_HTML_points_attention_risques_et_qualité"
+			        }
+			      ]
+			    },
+			    "fact_action_has_mesures_table_HTML_points_attention_risques_et_qualité": {
+			      "Binding": {
+			        "ConceptualEntity": "FactActions"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_action": {
+			          "Target": {
+			            "Entity": "fact_action"
+			          }
+			        },
+			        "mesures_table.HTML_points_attention_risques_et_qualité": {
+			          "Target": {
+			            "Entity": "mesures_table.HTML_points_attention_risques_et_qualité"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_action"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.HTML_points_attention_risques_et_qualité"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_actions_have_HTML_points_attention_risques_et_qualité"
+			        }
+			      ]
+			    },
+			    "mesures_table_has_mesure_3": {
+			      "Binding": {
+			        "ConceptualEntity": "MesuresTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mesures_table": {
+			          "Target": {
+			            "Entity": "mesures_table"
+			          }
+			        },
+			        "mesures_table.mesure_3": {
+			          "Target": {
+			            "Entity": "mesures_table.mesure_3"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mesures_table"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.mesure_3"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mesures_tables_have_mesure_3"
+			        }
+			      ]
+			    },
+			    "mesures_table_has_mesure_2": {
+			      "Binding": {
+			        "ConceptualEntity": "MesuresTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mesures_table": {
+			          "Target": {
+			            "Entity": "mesures_table"
+			          }
+			        },
+			        "mesures_table.mesure_2": {
+			          "Target": {
+			            "Entity": "mesures_table.mesure_2"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mesures_table"
+			            },
+			            "Object": {
+			              "Role": "mesures_table.mesure_2"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mesures_tables_have_mesure_2"
 			        }
 			      ]
 			    },
@@ -45903,39 +48484,6 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_jalons_have_nom_prochain_jalon"
-			        }
-			      ]
-			    },
-			    "fact_jalon_has_mesures_table_interprétation_jalons": {
-			      "Binding": {
-			        "ConceptualEntity": "FactJalons"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_jalon": {
-			          "Target": {
-			            "Entity": "fact_jalon"
-			          }
-			        },
-			        "mesures_table.interprétation_jalons": {
-			          "Target": {
-			            "Entity": "mesures_table.interprétation_jalons"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_jalon"
-			            },
-			            "Object": {
-			              "Role": "mesures_table.interprétation_jalons"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_jalons_have_interprétation_jalons"
 			        }
 			      ]
 			    },
@@ -50724,72 +53272,6 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
-			    "fact_controles_qualite_has_owner": {
-			      "Binding": {
-			        "ConceptualEntity": "FactControlesQualite"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_controles_qualite": {
-			          "Target": {
-			            "Entity": "fact_controles_qualite"
-			          }
-			        },
-			        "fact_controles_qualite.owner": {
-			          "Target": {
-			            "Entity": "fact_controles_qualite.owner"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_controles_qualite"
-			            },
-			            "Object": {
-			              "Role": "fact_controles_qualite.owner"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_controles_qualites_have_owners"
-			        },
-			        {
-			          "Verb": {
-			            "Subject": {
-			              "Role": "fact_controles_qualite.owner"
-			            },
-			            "Verbs": [
-			              {
-			                "own": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fact_controles_qualite"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.75,
-			          "ID": "owners_own_fact_controles_qualites"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_controles_qualite.owner"
-			            },
-			            "Object": {
-			              "Role": "fact_controles_qualite"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "owners_have_fact_controles_qualites"
-			        }
-			      ]
-			    },
 			    "fact_controles_qualite_has_critical_defect_flag": {
 			      "Binding": {
 			        "ConceptualEntity": "FactControlesQualite"
@@ -51270,72 +53752,6 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
-			    "fact_action_has_owner": {
-			      "Binding": {
-			        "ConceptualEntity": "FactActions"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_action": {
-			          "Target": {
-			            "Entity": "fact_action"
-			          }
-			        },
-			        "fact_action.owner": {
-			          "Target": {
-			            "Entity": "fact_action.owner"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_action"
-			            },
-			            "Object": {
-			              "Role": "fact_action.owner"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_actions_have_owners"
-			        },
-			        {
-			          "Verb": {
-			            "Subject": {
-			              "Role": "fact_action.owner"
-			            },
-			            "Verbs": [
-			              {
-			                "own": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fact_action"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.75,
-			          "ID": "owners_own_fact_actions"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_action.owner"
-			            },
-			            "Object": {
-			              "Role": "fact_action"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "owners_have_fact_actions"
-			        }
-			      ]
-			    },
 			    "fact_action_has_action_title": {
 			      "Binding": {
 			        "ConceptualEntity": "FactActions"
@@ -51511,72 +53927,6 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_incidents_have_resolution_hours"
-			        }
-			      ]
-			    },
-			    "fact_incident_has_owner": {
-			      "Binding": {
-			        "ConceptualEntity": "FactIncidents"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_incident": {
-			          "Target": {
-			            "Entity": "fact_incident"
-			          }
-			        },
-			        "fact_incident.owner": {
-			          "Target": {
-			            "Entity": "fact_incident.owner"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_incident"
-			            },
-			            "Object": {
-			              "Role": "fact_incident.owner"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_incidents_have_owners"
-			        },
-			        {
-			          "Verb": {
-			            "Subject": {
-			              "Role": "fact_incident.owner"
-			            },
-			            "Verbs": [
-			              {
-			                "own": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fact_incident"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.75,
-			          "ID": "owners_own_fact_incidents"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_incident.owner"
-			            },
-			            "Object": {
-			              "Role": "fact_incident"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "owners_have_fact_incidents"
 			        }
 			      ]
 			    },
@@ -51923,39 +54273,6 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
-			    "fact_changement_has_request_owner": {
-			      "Binding": {
-			        "ConceptualEntity": "FactChangements"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_changement": {
-			          "Target": {
-			            "Entity": "fact_changement"
-			          }
-			        },
-			        "fact_changement.request_owner": {
-			          "Target": {
-			            "Entity": "fact_changement.request_owner"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_changement"
-			            },
-			            "Object": {
-			              "Role": "fact_changement.request_owner"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_changements_have_request_owners"
-			        }
-			      ]
-			    },
 			    "fact_changement_has_status": {
 			      "Binding": {
 			        "ConceptualEntity": "FactChangements"
@@ -52283,72 +54600,6 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_livrables_have_planned_delivery_dates"
-			        }
-			      ]
-			    },
-			    "fact_livrable_has_owner": {
-			      "Binding": {
-			        "ConceptualEntity": "FactLivrables"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_livrable": {
-			          "Target": {
-			            "Entity": "fact_livrable"
-			          }
-			        },
-			        "fact_livrable.owner": {
-			          "Target": {
-			            "Entity": "fact_livrable.owner"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_livrable"
-			            },
-			            "Object": {
-			              "Role": "fact_livrable.owner"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_livrables_have_owners"
-			        },
-			        {
-			          "Verb": {
-			            "Subject": {
-			              "Role": "fact_livrable.owner"
-			            },
-			            "Verbs": [
-			              {
-			                "own": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fact_livrable"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.75,
-			          "ID": "owners_own_fact_livrables"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_livrable.owner"
-			            },
-			            "Object": {
-			              "Role": "fact_livrable"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "owners_have_fact_livrables"
 			        }
 			      ]
 			    },
@@ -53043,39 +55294,6 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
-			    "fact_risque_has_risk_owner": {
-			      "Binding": {
-			        "ConceptualEntity": "FactRisques"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_risque": {
-			          "Target": {
-			            "Entity": "fact_risque"
-			          }
-			        },
-			        "fact_risque.risk_owner": {
-			          "Target": {
-			            "Entity": "fact_risque.risk_owner"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_risque"
-			            },
-			            "Object": {
-			              "Role": "fact_risque.risk_owner"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_risques_have_risk_owners"
-			        }
-			      ]
-			    },
 			    "fact_risque_has_risk_status": {
 			      "Binding": {
 			        "ConceptualEntity": "FactRisques"
@@ -53571,39 +55789,6 @@ cultureInfo fr-FR
 			        }
 			      ]
 			    },
-			    "fact_charge_has_resource_name": {
-			      "Binding": {
-			        "ConceptualEntity": "FactCharge"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_charge": {
-			          "Target": {
-			            "Entity": "fact_charge"
-			          }
-			        },
-			        "fact_charge.resource_name": {
-			          "Target": {
-			            "Entity": "fact_charge.resource_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_charge"
-			            },
-			            "Object": {
-			              "Role": "fact_charge.resource_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_charges_have_resource_names"
-			        }
-			      ]
-			    },
 			    "fact_charge_has_resource_id": {
 			      "Binding": {
 			        "ConceptualEntity": "FactCharge"
@@ -53865,39 +56050,6 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_pilotage_mensuels_have_snapshot_dates"
-			        }
-			      ]
-			    },
-			    "fact_cout_has_cost_owner": {
-			      "Binding": {
-			        "ConceptualEntity": "FactCouts"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_cout": {
-			          "Target": {
-			            "Entity": "fact_cout"
-			          }
-			        },
-			        "fact_cout.cost_owner": {
-			          "Target": {
-			            "Entity": "fact_cout.cost_owner"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_cout"
-			            },
-			            "Object": {
-			              "Role": "fact_cout.cost_owner"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_couts_have_cost_owners"
 			        }
 			      ]
 			    },
@@ -54717,72 +56869,6 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_taches_have_planned_start_dates"
-			        }
-			      ]
-			    },
-			    "fact_tach_has_owner": {
-			      "Binding": {
-			        "ConceptualEntity": "FactTaches"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_tach": {
-			          "Target": {
-			            "Entity": "fact_tach"
-			          }
-			        },
-			        "fact_tach.owner": {
-			          "Target": {
-			            "Entity": "fact_tach.owner"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_tach"
-			            },
-			            "Object": {
-			              "Role": "fact_tach.owner"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_taches_have_owners"
-			        },
-			        {
-			          "Verb": {
-			            "Subject": {
-			              "Role": "fact_tach.owner"
-			            },
-			            "Verbs": [
-			              {
-			                "own": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fact_tach"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.75,
-			          "ID": "owners_own_fact_taches"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_tach.owner"
-			            },
-			            "Object": {
-			              "Role": "fact_tach"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "owners_have_fact_taches"
 			        }
 			      ]
 			    },
@@ -56047,237 +58133,6 @@ cultureInfo fr-FR
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "dim_projets_are_started_on_start_dates"
-			        }
-			      ]
-			    },
-			    "dim_calendrier_date_année_has_dim_calendrier_date_trimestre": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_Calendrier"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendrier.date.année": {
-			          "Target": {
-			            "Entity": "dim_calendrier.date.année"
-			          }
-			        },
-			        "dim_calendrier.date.trimestre": {
-			          "Target": {
-			            "Entity": "dim_calendrier.date.trimestre"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.année"
-			            },
-			            "Object": {
-			              "Role": "dim_calendrier.date.trimestre"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "années_have_trimestres31"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.trimestre"
-			            },
-			            "Object": {
-			              "Role": "dim_calendrier.date.année"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "trimestres_have_années31"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.trimestre"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_calendrier.date.année"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "trimestres_are_in_années31"
-			        }
-			      ]
-			    },
-			    "dim_calendrier_date_trimestre_has_dim_calendrier_date_mois": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_Calendrier"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendrier.date.trimestre": {
-			          "Target": {
-			            "Entity": "dim_calendrier.date.trimestre"
-			          }
-			        },
-			        "dim_calendrier.date.mois": {
-			          "Target": {
-			            "Entity": "dim_calendrier.date.mois"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.trimestre"
-			            },
-			            "Object": {
-			              "Role": "dim_calendrier.date.mois"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "trimestres_have_moises31"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.mois"
-			            },
-			            "Object": {
-			              "Role": "dim_calendrier.date.trimestre"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "moises_have_trimestres31"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.mois"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_calendrier.date.trimestre"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "moises_are_in_trimestres31"
-			        }
-			      ]
-			    },
-			    "dim_calendrier_date_mois_has_dim_calendrier_date_jour": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_Calendrier"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendrier.date.mois": {
-			          "Target": {
-			            "Entity": "dim_calendrier.date.mois"
-			          }
-			        },
-			        "dim_calendrier.date.jour": {
-			          "Target": {
-			            "Entity": "dim_calendrier.date.jour"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.mois"
-			            },
-			            "Object": {
-			              "Role": "dim_calendrier.date.jour"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "moises_have_jour31"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.jour"
-			            },
-			            "Object": {
-			              "Role": "dim_calendrier.date.mois"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "jour_have_moises31"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "dim_calendrier.date.jour"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_calendrier.date.mois"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "jour_are_in_moises31"
-			        }
-			      ]
-			    },
-			    "dim_snapshot_date_snapshot_has_hiérarchie_de_date": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim_Snapshot"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_snapshot.date_snapshot": {
-			          "Target": {
-			            "Entity": "dim_snapshot.date_snapshot"
-			          }
-			        },
-			        "dim_snapshot.date_snapshot.hiérarchie_de_date": {
-			          "Target": {
-			            "Entity": "dim_snapshot.date_snapshot.hiérarchie_de_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_snapshot.date_snapshot"
-			            },
-			            "Object": {
-			              "Role": "dim_snapshot.date_snapshot.hiérarchie_de_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "date_snapshots_have_hiérarchie_de_dates"
 			        }
 			      ]
 			    },

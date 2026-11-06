@@ -21,7 +21,7 @@ queryGroup param
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["fxTransformerCSV","path_data_source","fxChargerFichierParNom","source_data","DimProjet","FactTaches","FactJalons","FactCouts","FactPilotageMensuel","FactCharge","FactRisques","FactNonConformites","FactLivrables","FactChangements","FactIncidents","FactActions","FactControlesQualite","FactDecisionProjet","MesuresTable"]
+annotation PBI_QueryOrder = ["fxTransformerCSV","path_data_source","fxChargerFichierParNom","source_data","DimProjet","FactTaches","FactJalons","FactCouts","FactPilotageMensuel","FactCharge","FactRisques","FactNonConformites","FactLivrables","FactChangements","FactIncidents","FactActions","FactControlesQualite","FactDecisionProjet","MesuresTable","DimRessources"]
 
 annotation PBI_ProTooling = ["DevMode","DaxQueryView_Desktop"]
 
@@ -81,6 +81,7 @@ ref table WF_Couts_FactCouts
 ref table Axe_Waterfall_Budget
 ref table KPI_WF_Budget
 ref table KPI_Jalons
+ref table DimRessources
 
 ref cultureInfo fr-FR
 

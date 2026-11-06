@@ -122,7 +122,9 @@ table FactCharge
 				  #"Valeur remplacée" = Table.ReplaceValue(#"Type de colonne changé", ".", ",", Replacer.ReplaceText, {"actual_hours", "utilization_pct"}),
 				  #"Type de colonne changé 1" = Table.TransformColumnTypes(#"Valeur remplacée", {{"actual_hours", type number}, {"utilization_pct", type number}})
 				in
-				  #"Type de colonne changé 1"
+				    #"Type de colonne changé 1"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

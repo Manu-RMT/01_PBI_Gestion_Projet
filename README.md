@@ -140,13 +140,16 @@ Ce portfolio illustre la capacité à concevoir un reporting de pilotage de proj
 ## Démo 
 
 ### Synthèse
-<img width="300" alt="Rapport Suivi de projet" src="https://github.com/user-attachments/assets/ed13e4ab-f834-4391-8115-521b2f7bf659" />
+<img width="300" alt="Rapport Suivi de projet" src="https://github.com/user-attachments/assets/60a2831f-7265-4c57-aa2a-fed92ae246d8" />
 
-### Planning et Budget 
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/de9f675e-b90f-451c-b64a-b7972ee02ce2" />
+### 📊 Performance projet 
+<img width="300"  alt="image" src="https://github.com/user-attachments/assets/8a0445ee-1a36-4ff4-9d05-ccc96bc1cc1b" />
 
-### Risques et qualité 
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/300985ff-7802-4a4d-b9f0-d44bb1659416" />
+### 🛡️ Risques & Conformité 
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/68223bd3-6329-4d53-8e95-335904ef9136" />
+
+### 👥 Ressources & Livrables
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/551727ac-9b5f-4c4e-b008-487d265aee8c" />
 
 ---
 
